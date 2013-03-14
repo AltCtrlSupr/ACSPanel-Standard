@@ -1,0 +1,34 @@
+dnsdomain:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:index" }
+
+dnsdomain_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:show" }
+
+dnsdomain_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:new" }
+
+dnsdomain_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:create" }
+    requirements: { _method: post }
+
+dnsdomain_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:edit" }
+
+dnsdomain_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:update" }
+    requirements: { _method: post }
+
+dnsdomain_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:delete" }
+    requirements: { _method: post }
+
+dnsdomain_setenabled:
+    pattern: /{id}/setenabled
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:setenabled" }

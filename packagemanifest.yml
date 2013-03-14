@@ -1,0 +1,75 @@
+constants:
+    database: &database
+        'php5-mysql': ~
+        'mysql-client': ~
+    web: &web
+        'php5': ~
+        'libapache2-mod-php5': ~
+        'php5-curl': ~
+
+project:
+    projectname: zaspanel
+    maintainername: 'Genar Trias'
+    maintaineremail: 'genar@acs.li'
+
+apps:
+    main:
+        frontend: main.php
+        description: 'Main website'
+        dependencies:
+           << : [ *database, *web ]
+        conflicts: ~
+        recommends: ~
+        suggests: ~
+        predepends: ~
+        cron:
+            #'another:console:command': "0-5/2 * * * *"
+        bundles:
+            - 'vendor/symfony'
+            - 'vendor/swiftmailer'
+            - 'vendor/doctrine'
+            - 'vendor/twig'
+            - 'vendor/stof'
+            - 'vendor/sensio'
+            - 'vendor/monolog'
+            - 'vendor/liip'
+            - 'vendor/kriswallsmith'
+            - 'vendor/knplabs'
+            - 'vendor/jms'
+            - 'vendor/gregwar'
+            - 'vendor/gedmo'
+            - 'vendor/craue'
+            - 'vendor/friendsofsymfony'
+            - 'src/ACS/ACSPanelBundle'
+            - 'src/ACS/ACSPanelBackupBundle'
+            - 'src/ACS/ACSPanelSettingsBundle'
+        assets: ~
+        profiles:
+            - 'web'
+            - 'db'
+        dbconfig:
+            dbtypes: pgsql
+            create: false
+        postinst:
+            - 'doctrine:schema:drop --force'
+            - 'doctrine:schema:create'
+        installfiles:
+            - 'app/main'
+            #- 'src/autoload.php'
+    static:
+        description: 'All static website content'
+        prebuild:
+            - 'app/main/console assets:install web'
+            - 'mkdir -p web/css'
+            #- 'dev/less/getcss.sh main > web/css/main.css'
+        dependencies:
+            <<: *web
+        bundles: ~
+        assets:
+            - 'web/bundles/'
+            - 'web/css/'
+        profiles:
+            - 'web'
+            - 'static'
+        installfiles:
+            - 'app/static'

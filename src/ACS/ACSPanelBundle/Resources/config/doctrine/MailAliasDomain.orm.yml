@@ -1,0 +1,38 @@
+ACS\ACSPanelBundle\Entity\MailAliasDomain:
+    type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\MailAliasDomainRepository
+    table: mail_alias_domain
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        enabled:
+            type: boolean
+            nullable: true 
+        createdAt:
+          type: datetime
+          column: created_at
+        updatedAt:
+          type: datetime
+          column: updated_at
+          nullable: true
+    oneToOne:
+        alias_domain:
+            targetEntity: Domain
+            joinColumn:
+                name: alias_mail_domain_id
+    manyToOne:
+        service:
+            targetEntity: Service
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue ]
+      preUpdate: [ setUpdatedAtValue ]

@@ -1,0 +1,4 @@
+<form action="{{ path('servicetype_delete', { 'id': entity.id }) }}" method="post">
+    {{ form_widget(search_form) }}
+    <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+</form>

@@ -1,0 +1,134 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: doctrine_extensions.yml }
+
+framework:
+    translator:      { fallback: ca }	
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: %kernel.debug%
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  %locale%
+    trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
+    session:         
+        lifetime: 3600
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    globals:
+        date_format: d-m-Y H:i:s
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        #yui_css:
+        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   %database_driver%
+                host:     %database_host%
+                port:     %database_port%
+                dbname:   %database_name%
+                user:     %database_user%
+                password: %database_password%
+                charset:  UTF8
+                mapping_types:
+                    enum: string
+            admin_con:
+                driver:   %admin_database_driver%
+                host:     %admin_database_host%
+                port:     %admin_database_port%
+                dbname:   %admin_database_name%
+                user:     %admin_database_user%
+                password: %admin_database_password%
+                charset:  UTF8
+                mapping_types:
+                    enum: string
+
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: ACS\ACSPanelBundle\Entity\FosUser
+    group:
+        group_class: ACS\ACSPanelBundle\Entity\FosGroup
+
+# Configs for the Settings Bundle
+acsacs_panel_settings:
+    home_base: '/home/'
+    settings_class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
+    setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
+    user_fields:
+        language:
+           setting_key: user_language
+           label: 'User language'
+           field_type: select
+           default_value: 'en'
+           context: 'User settings'
+        home_base:
+           label: 'Home base'
+           setting_key: home_base
+           field_type: text
+           default_value: '/home/'
+           context: 'User settings'
+    system_fields:
+        language:
+           setting_key: system_language
+           label: 'System language'
+           field_type: select
+           default_value: 'en'
+
+# app/config/config.yml
+knp_menu:
+    twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
+        template: ACSACSPanelBundle:Menu:knp_menu.html.twig
+    templating: false # if true, enables the helper for PHP templates
+    default_renderer: twig # The renderer to use, list is also available by default
+
+# app/config/config.yml
+stof_doctrine_extensions:
+    default_locale: es_ES
+    orm:
+        default:
+          #timestampable: true
+          loggable: true
+
+# liip theme
+liip_theme:
+    themes: ['default']
+    active_theme: 'default'
+
+# entity id bundle
+gregwar_form: ~
+
+

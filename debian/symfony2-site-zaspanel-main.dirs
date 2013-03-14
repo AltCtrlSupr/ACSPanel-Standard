@@ -1,0 +1,11 @@
+etc/packaged-site/symfony2-site-zaspanel-main
+usr/share/packaged-site/symfony2-site-zaspanel-main
+var/www/symfony2-site-zaspanel-main
+var/www/symfony2-site-zaspanel-main/web
+var/www/symfony2-site-zaspanel-main/app
+var/www/symfony2-site-zaspanel-main/app/main
+var/www/symfony2-site-zaspanel-main/app/main/logs
+var/www/symfony2-site-zaspanel-main/app/main/cache
+var/www/symfony2-site-zaspanel-main/src
+var/log/sitelogs/symfony2-site-zaspanel-main
+var/lib/sitedata/symfony2-site-zaspanel-main

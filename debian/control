@@ -1,0 +1,25 @@
+Source: symfony2-site-zaspanel
+Section: web
+Priority: optional
+Maintainer: Genar Trias <genar@acs.li>
+Build-Depends: debhelper (>= 5), php5-cli
+Standards-Version: 3.7.2
+
+Package: symfony2-site-zaspanel-static
+Architecture: all
+Depends: ${misc:Depends}, php5-curl ,libapache2-mod-php5 ,php5 
+Conflicts: 
+Recommends: 
+Suggests: 
+Pre-Depends: m4, 
+Description: All static website content
+
+Package: symfony2-site-zaspanel-main
+Architecture: all
+Depends: ${misc:Depends}, php5-mysql ,mysql-client ,php5-curl ,libapache2-mod-php5 ,php5 
+Conflicts: 
+Recommends: 
+Suggests: 
+Pre-Depends: m4, , dbconfig-common
+Description: Main website
+

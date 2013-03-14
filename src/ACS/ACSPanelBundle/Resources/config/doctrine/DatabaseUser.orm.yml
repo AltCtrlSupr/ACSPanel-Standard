@@ -1,0 +1,40 @@
+ACS\ACSPanelBundle\Entity\DatabaseUser:
+    type: entity
+    table: database_user
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        username:
+            type: string
+            length: 50
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        db:
+            targetEntity: DB
+            inversedBy: database_users
+            joinColumn:
+                name: database_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue, createUserInDatabase ]
+      preUpdate: [ setUpdatedAtValue, updateUserInDatabase ]
+

@@ -1,0 +1,68 @@
+#!/bin/bash
+# prerm script for symfony2-site-zaspanel-static
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# summary of how this script can be called:
+#        * <prerm> `remove'
+#        * <old-prerm> `upgrade' <new-version>
+#        * <new-prerm> `failed-upgrade' <old-version>
+#        * <conflictor's-prerm> `remove' `in-favour' <package> <new-version>
+#        * <deconfigured's-prerm> `deconfigure' `in-favour'
+#          <package-being-installed> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+. /usr/share/debconf/confmodule
+
+
+
+case "$1" in
+    remove|deconfigure)
+
+    rm -f /etc/packaged-site/symfony2-site-zaspanel-static/dynamic.yml
+    rm -f /var/www/symfony2-site-zaspanel-static/app/static/config/dynamic.yml
+    rm -f /var/www/symfony2-site-zaspanel-static/app/static/config/dynamic.yml.2
+    rm -f /var/www/symfony2-site-zaspanel-static/app/static/config/dynamic.yml.3
+
+
+        . /usr/share/packaged-site/symfony2-site-zaspanel-static/symfony2-site-zaspanel-static.confmodule
+
+        rm -f /etc/apache2/sites-enabled/110-symfony2-site-zaspanel-static-100-redirects.conf
+        rm -f /etc/apache2/sites-available/110-symfony2-site-zaspanel-static-100-redirects.conf
+
+        rm -f /etc/apache2/sites-enabled/110-symfony2-site-zaspanel-static-101-primary.conf
+        rm -f /etc/apache2/sites-available/110-symfony2-site-zaspanel-static-101-primary.conf
+
+        rm -f /etc/apache2/sites-enabled/110-symfony2-site-zaspanel-static-102-secondary.conf
+        rm -f /etc/apache2/sites-available/110-symfony2-site-zaspanel-static-102-secondary.conf
+
+        rm -f /etc/packaged-site/symfony2-site-zaspanel-static/apachedir
+        rm -f /etc/packaged-site/symfony2-site-zaspanel-static/appapachesettings
+        rm -f /etc/packaged-site/symfony2-site-zaspanel-static/htpassd
+
+        rm -fr /var/www/symfony2-site-zaspanel-static/app/static/cache/
+
+        graceful_apache2;
+
+
+    ;;
+    upgrade)
+    ;;
+    failed-upgrade)
+    ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
+
+

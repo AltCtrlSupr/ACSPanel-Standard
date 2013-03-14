@@ -1,0 +1,16 @@
+<h1>ConfigSetting creation</h1>
+
+<form action="{{ path('settings_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('settings') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>

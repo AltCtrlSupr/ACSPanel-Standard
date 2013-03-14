@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<h1>{%trans%}logitem edit{%endtrans%}</h1>
+
+<div class="form_box">
+    <form action="{{ path('logitem_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_widget(edit_form) }}
+        <p>
+            <button type="submit">{%trans%}Edit{%endtrans%}</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('logitem') }}">
+            {%trans%}Back to the list{%endtrans%}
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

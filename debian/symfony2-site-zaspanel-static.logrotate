@@ -1,0 +1,29 @@
+/var/log/sitelogs/symfony2-site-zaspanel-static/access.log /var/log/sitelogs/symfony2-site-zaspanel-static/error.log {
+    daily
+    missingok 
+    rotate 366 
+    compress
+    delaycompress 
+    create 640 root adm 
+    sharedscripts 
+    postrotate 
+        if [ -f "`. /etc/apache2/envvars ; echo ${APACHE_PID_FILE:-/var/run/apache2.pid}`" ]; then 
+            /etc/init.d/apache2 reload > /dev/null 
+        fi 
+    endscript 
+} 
+
+/var/log/sitelogs/symfony2-site-zaspanel-static/cron.log /var/www/symfony2-site-zaspanel-static/app/static/logs/prod.log {
+    daily
+    missingok
+    rotate 30
+    compress
+    delaycompress
+    create 640 www-data adm
+    sharedscripts
+    postrotate
+        if [ -f "`. /etc/apache2/envvars ; echo ${APACHE_PID_FILE:-/var/run/apache2.pid}`" ]; then
+            /etc/init.d/apache2 reload > /dev/null
+        fi
+    endscript
+}

@@ -1,0 +1,137 @@
+<?php
+namespace Zashost\SettingsBundle\Entity;
+
+use Zashost\SettingsBundle\Model\ConfigSetting as AbstractConfigSetting;
+
+/**
+ * Zashost\SettingsBundle\Entity\ConfigSetting
+ */
+abstract class ConfigSetting extends AbstractConfigSetting
+{
+    /**
+     * @var integer
+     */
+    protected $id;
+
+    /**
+     * @var string
+     */
+    protected $setting_key;
+
+    /**
+     * @var string
+     */
+    protected $value;
+
+    /**
+     * @var string
+     */
+    private $context;
+
+    /**
+     * @var string
+     */
+    private $focus;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set setting_key
+     *
+     * @param string $settingKey
+     * @return ConfigSetting
+     */
+    public function setSettingKey($settingKey)
+    {
+        $this->setting_key = $settingKey;
+
+        return $this;
+    }
+
+    /**
+     * Get setting_key
+     *
+     * @return string
+     */
+    public function getSettingKey()
+    {
+        return $this->setting_key;
+    }
+
+    /**
+     * Set value
+     *
+     * @param string $value
+     * @return ConfigSetting
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * Get value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Set context
+     *
+     * @param string $context
+     * @return ConfigSetting
+     */
+    public function setContext($context)
+    {
+        $this->context = $context;
+
+        return $this;
+    }
+
+    /**
+     * Get context
+     *
+     * @return string
+     */
+    public function getContext()
+    {
+        return $this->context;
+    }
+
+    /**
+     * Set focus
+     *
+     * @param string $focus
+     * @return ConfigSetting
+     */
+    public function setFocus($focus)
+    {
+        $this->focus = $focus;
+
+        return $this;
+    }
+
+    /**
+     * Get focus
+     *
+     * @return string
+     */
+    public function getFocus()
+    {
+        return $this->focus;
+    }
+}

@@ -1,0 +1,18 @@
+{% extends '::base-login.html.twig' %}
+{% block body %}
+
+        <div id="login-form">
+            <h1>ACSPanel</h1>
+            <div id="centered">
+                    {% for key, message in app.session.getFlashes() %}
+                    <div class="{{ key }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                    {% endfor %}
+
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+            </div>
+        </div>
+
+{% endblock %}

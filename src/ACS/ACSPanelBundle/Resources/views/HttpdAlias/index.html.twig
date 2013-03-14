@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts 'highlight.css' %}
+        <link rel="stylesheet" type="text/css" href="" />
+        <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+<h1>{% trans %}HttpdAlias list{% endtrans %}</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>{% trans %}Alias{% endtrans %}</th>
+            <th>{% trans %}Domain{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('httpdalias_show', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td>{{ entity.parentDomain }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('httpdalias_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('httpdalias_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('httpdalias_new') }}">
+            {% trans %}Create a new entry{% endtrans %}
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

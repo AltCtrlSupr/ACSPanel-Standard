@@ -1,0 +1,87 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<h1>{% trans %}Service{% endtrans %}: {{ entity.name }}</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>{% trans %}Name{% endtrans %}</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Ip{% endtrans %}</th>
+            <td>{{ entity.ip }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Type{% endtrans %}</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Server{% endtrans %}</th>
+            <td>{{ entity.server }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Created by{% endtrans %}</th>
+            <td>{{ entity.user }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Created at{% endtrans %}</th>
+            <td>{{ entity.createdAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Updated at{% endtrans %}</th>
+            <td>{{ entity.updatedAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Databases{% endtrans %}</th>
+            <td><ul>{% for database in entity.databases %}
+                    <li><a href="{{ path('db_show', { 'id': database.id }) }}">{{ database }}</a></li>
+            {% endfor %}</ul></td>
+        </tr>
+        <tr>
+            <th>{% trans %}DNS Domains{% endtrans %}</th>
+            <td><ul>{% for dns_domain in entity.dnsdomains %}
+                    <li><a href="{{ path('dnsdomain_show', { 'id': dns_domain.id }) }}">{{ dns_domain }}</a></li>
+            {% endfor %}</ul></td>
+        </tr>
+        <tr>
+            <th>{% trans %}FTP Users{% endtrans %}</th>
+            <td><ul>{% for ftp_user in entity.ftpusers %}
+                    <li><a href="{{ path('ftpduser_show', { 'id': ftp_user.id }) }}">{{ ftp_user }}</a></li>
+            {% endfor %}</ul></td>
+        </tr>
+        <tr>
+            <th>{% trans %}HTTPD Hosts{% endtrans %}</th>
+            <td><ul>{% for httpd_host in entity.httpdhosts %}
+                    <li><a href="{{ path('httpdhost_show', { 'id': httpd_host.id }) }}">{{ httpd_host }}</a></li>
+            {% endfor %}</ul></td>
+        </tr>
+        <tr>
+            <th>{% trans %}Mail Domains{% endtrans %}</th>
+            <td><ul>{% for mail_domain in entity.maildomains %}
+                    <li><a href="{{ path('maildomain_show', { 'id': mail_domain.id }) }}">{{ mail_domain }}</a></li>
+            {% endfor %}</ul></td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('service') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('service_edit', { 'id': entity.id }) }}">
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('service_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

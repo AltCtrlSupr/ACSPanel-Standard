@@ -1,0 +1,9 @@
+debian/symfony2-site-zaspanel-static.apache.conf.redirect.template usr/share/packaged-site/symfony2-site-zaspanel-static/
+debian/symfony2-site-zaspanel-static.apache.conf.http.template usr/share/packaged-site/symfony2-site-zaspanel-static/
+debian/symfony2-site-zaspanel-static.apache.conf.httpsonly.template usr/share/packaged-site/symfony2-site-zaspanel-static/
+debian/symfony2-site-zaspanel-static.apache.conf.mixed.template usr/share/packaged-site/symfony2-site-zaspanel-static/
+debian/symfony2-site-zaspanel-static.apachedir.template usr/share/packaged-site/symfony2-site-zaspanel-static/
+debian/symfony2-site-zaspanel-static.confmodule usr/share/packaged-site/symfony2-site-zaspanel-static/
+app/static                     var/www/symfony2-site-zaspanel-static/app/
+web/bundles/                   var/www/symfony2-site-zaspanel-static/web/
+web/css/                       var/www/symfony2-site-zaspanel-static/web/

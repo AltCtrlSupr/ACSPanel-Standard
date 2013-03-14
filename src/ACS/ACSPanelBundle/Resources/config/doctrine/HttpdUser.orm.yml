@@ -1,0 +1,66 @@
+ACS\ACSPanelBundle\Entity\HttpdUser:
+    type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\HttpdUserRepository
+    table: httpd_user
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        protected_dir:
+            type: string
+            lenght: 255
+            nullable: false
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        createdAt:
+          type: datetime
+          column: created_at
+          gedmo:
+            timestampable:
+              on: create
+        updatedAt:
+          type: datetime
+          column: updated_at
+          nullable: true
+          gedmo:
+            timestampable:
+              on: update
+    manyToOne:
+        httpd_host:
+            targetEntity: HttpdHost
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
+            gedmo:
+                - versioned
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue ]
+      preUpdate: [ setUpdatedAtValue ]
+

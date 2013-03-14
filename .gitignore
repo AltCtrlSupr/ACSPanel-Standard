@@ -1,0 +1,10 @@
+/nbproject/
+/app/main/bootstrap*
+/app/cache/
+/app/logs/
+/vendor/
+/app/main/config/parameters.ini
+/app/main/config/parameters.yml
+*.un~
+/app/main/cache/
+/app/main/logs/

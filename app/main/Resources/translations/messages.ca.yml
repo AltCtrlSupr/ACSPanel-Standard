@@ -1,0 +1,59 @@
+## templates.ca.yml
+Home: Inici
+Hello: Hola
+Name: Nom
+Host: Host
+Password: Contrasenya
+Protected directory: Directori protegit
+Protected dir: Directori protegit
+Protected_dir: Directori protegit
+Domain: Domini
+Created at: Creat el
+Updated at: Actualitzat el
+Back to the list: Torna a la llista
+Edit: Edita
+Delete: Suprimeix
+Create: Crea
+Actions: Accions
+show: mostra
+edit: edita
+Create a new entry: Crea una nova entrada
+Enabled: Activat
+Users: Usuaris
+New IP Address: Nova Direcció IP
+Route: Ruta
+Message: Missatge
+Are you sure?: Estas segur?
+Logout: Surt
+Configuration: Configuració
+Servers: Servidors
+Services: Serveis
+Service: Servei
+Service list: Llista de Serveis
+Service Types: Tipus de Serveis
+Service Type list: Llista de Tipus de Serveis
+IP Addresses: Adreces IP
+Description: Descripció
+Groups: Grups
+User: Usuari
+Panel Users: Usuaris del Panell
+User creation: Creació d'Usuari
+Logs registry: Registre de Logs
+Plan list: Llista de Plans
+Add www alias: Afegir alias www.
+All: Tots
+Domains: Dominis
+Records: Registres
+The A record for %record% domain already exists: El registre A pel domini %record% ja existeix
+The CNAME record for %record% domain already exists: El registre CNAME pel domini %record% ja existeix
+A dns record type CNAME has been created for the host %domain_name%: S'ha creat un registre CNAME pel host %domain_name%
+A dns record type A has been created for the host %domain_name%: S'ha creat un registre A pel host %domain_name%
+The host %domain_name% has not DNS domain: El host %domain_name% no te domini DNS
+Databases: Bases de dades
+add alias: afegir alies
+Back: Torna
+Username: Nom d'usuari
+Hide attributes: Amaga atributs
+Show attributes: Mostra atributs
+Quick actions: Accions ràpides
+Add hosting: Afegir hosting

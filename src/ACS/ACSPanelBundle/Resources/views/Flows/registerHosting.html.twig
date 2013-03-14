@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<h1>{% trans %}Add hosting{% endtrans %}</h1>
+<div class="form_box">
+    <div class="steps_box">
+        {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
+    </div>
+    <form method="post" {{ form_enctype(form) }}>
+        {% include 'CraueFormFlowBundle:FormFlow:stepField.html.twig' %}
+
+        {{ form_errors(form) }}
+
+        {% if flow.getCurrentStep() == 1 %}
+            {{ form_row(form.httpdhosts) }}
+        {% endif %}
+        {% if flow.getCurrentStep() == 2 %}
+            {{ form_row(form.maildomains) }}
+        {% endif %}
+        {% if flow.getCurrentStep() == 3 %}
+            {{ form_row(form.databases) }}
+        {% endif %}
+
+        {{ form_rest(form) }}
+
+        {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+    </form>
+</div>
+{% endblock %}

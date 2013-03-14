@@ -1,0 +1,14 @@
+parameters:
+    # TODO: Set this value from config.yml
+    acs_settings.settings.class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
+    acs_settings.system_settings.class: ACS\ACSPanelSettingsBundle\Modules\SystemSettings
+    acs_settings.setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
+    acs_settings.home_base: "/home/"
+
+services:
+    acs.setting_manager:
+        class: %acs_settings.settings.class%
+        arguments: ['@doctrine.orm.entity_manager', %acs_settings.setting_class%]
+
+    acs.system_setting_manager:
+        class: %acs_settings.system_settings.class%
