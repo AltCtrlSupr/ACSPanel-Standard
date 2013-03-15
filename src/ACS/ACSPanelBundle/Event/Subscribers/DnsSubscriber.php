@@ -1,5 +1,5 @@
 <?php
-namespace ACS\ACSPanelBundle\Event;
+namespace ACS\ACSPanelBundle\Event\Subscribers;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use ACS\ACSPanelBundle\Event\FilterDnsEvent;
@@ -101,7 +101,7 @@ class DnsSubscriber implements EventSubscriberInterface
 				$em->persist($newRecord);
 				$em->flush();
 			}
-			
+
 		}
 	}
 }

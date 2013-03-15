@@ -1,6 +1,6 @@
 <?php
 
-namespace ACS\ACSPanelBundle\Event;
+namespace ACS\ACSPanelBundle\Event\Subscribers;
 
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
