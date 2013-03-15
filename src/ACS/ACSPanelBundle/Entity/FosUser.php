@@ -61,11 +61,6 @@ class FosUser extends BaseUser
     /**
      * @var string
      */
-    private $homedir;
-
-    /**
-     * @var string
-     */
     private $firstname;
 
     /**
@@ -429,29 +424,6 @@ class FosUser extends BaseUser
     }
 
     /**
-     * Set homedir
-     *
-     * @param string $homedir
-     * @return FosUser
-     */
-    public function setHomedir($homedir)
-    {
-        $this->homedir = $homedir;
-
-        return $this;
-    }
-
-    /**
-     * Get homedir
-     *
-     * @return string
-     */
-    public function getHomedir()
-    {
-        return $this->homedir;
-    }
-
-    /**
      * Set firstname
      *
      * @param string $firstname
@@ -660,5 +632,22 @@ class FosUser extends BaseUser
     public function getSettings()
     {
         return $this->settings;
+    }
+    public function getHomedir()
+    {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $settings_manager = $kernel->getContainer()->get('acs.setting_manager');
+        $homebase = $settings_manager->getSystemSetting('home_base');
+        if($homebase){
+            return $homebase.$this->getUsername();
+        }
+
+        return null;
+
     }
 }

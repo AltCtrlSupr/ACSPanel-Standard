@@ -63,6 +63,10 @@ class ConfigSettingController extends Controller
     {
         $class_name = $this->container->getParameter('acs_settings.setting_class');
         $user_fields = $this->container->getParameter("acs_settings.user_fields");
+        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $system_fields = $this->container->getParameter("acs_settings.system_fields");
+            $user_fields = array_merge($user_fields, $system_fields);
+        }
 
         $em = $this->getDoctrine()->getManager();
 
@@ -77,7 +81,7 @@ class ConfigSettingController extends Controller
                 array(
                     'user' => $user->getId(),
                     'setting_key' => $field_config['setting_key'],
-                    'focus' => 'user_setting',
+                    'focus' => $field_config['focus'],
                 ));
             if(!count($setting)){
                 $setting = new $class_name;
@@ -85,7 +89,7 @@ class ConfigSettingController extends Controller
                 $setting->setValue($field_config['default_value']);
                 $setting->setContext($field_config['context']);
                 $setting->setLabel($field_config['label']);
-                $setting->setFocus('user_setting');
+                $setting->setFocus($field_config['focus']);
                 //$setting->setUser($user);
                 $user->addSetting($setting);
                 $em->persist($user);

@@ -10,15 +10,20 @@ acsacs_panel_settings:
            field_type: select
            default_value: 'en'
            context: 'User settings'
+           focus: 'user_setting'
+    system_fields:
+        system_language:
+           setting_key: system_language
+           label: 'System language'
+           field_type: select
+           default_value: 'en'
+           context: 'System settings'
+           focus: 'system_setting'
         home_base:
            label: 'Home base'
            setting_key: home_base
            field_type: text
            default_value: '/home/'
            context: 'User settings'
-    system_fields:
-        language:
-           setting_key: system_language
-           label: 'System language'
-           field_type: select
-           default_value: 'en'
+           focus: 'system_setting'
+
