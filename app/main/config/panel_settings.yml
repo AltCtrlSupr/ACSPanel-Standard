@@ -24,6 +24,13 @@ acsacs_panel_settings:
            setting_key: home_base
            field_type: text
            default_value: '/home/'
-           context: 'User settings'
+           context: 'System settings'
+           focus: 'system_setting'
+        mail_domain_transport:
+           label: 'Mail Domain Transport'
+           setting_key: mail_domain_transport
+           field_type: text
+           default_value: ''
+           context: 'Mailserver settings'
            focus: 'system_setting'
 
