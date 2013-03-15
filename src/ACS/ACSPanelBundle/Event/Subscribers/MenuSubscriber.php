@@ -11,7 +11,7 @@ class MenuSubscriber implements EventSubscriberInterface
         return array(
             'menu.admin.after.items'     => array(
                 array('homeItems', 9000),
-                array('quickactionsItems', 90),
+                //array('quickactionsItems', 90),
                 array('adminItems', 80),
                 array('domainItems', 70),
                 array('httpdItems', 60),
@@ -23,7 +23,7 @@ class MenuSubscriber implements EventSubscriberInterface
             ),
             'menu.user.after.items'     => array(
                 array('homeItems', 9000),
-                array('quickactionsItems', 80),
+                //array('quickactionsItems', 80),
                 array('domainItems', 70),
                 array('httpdItems', 60),
                 array('dnsItems', 50),
@@ -45,8 +45,8 @@ class MenuSubscriber implements EventSubscriberInterface
     public function quickactionsItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-#        $menu->addChild('Quick actions', array( 'route' => null));
-#        $menu['Quick actions']->addChild('Add hosting', array( 'route' => 'acs_acspanel_register_host'));
+        $menu->addChild('Quick actions', array( 'route' => null));
+        $menu['Quick actions']->addChild('Add hosting', array( 'route' => 'acs_acspanel_register_host'));
     }
 
     public function adminItems(FilterMenuEvent $menu_filter)
