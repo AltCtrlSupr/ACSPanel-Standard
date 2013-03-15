@@ -23,6 +23,6 @@ class SettingsMenuSubscriber implements EventSubscriberInterface
     {
         $menu = $menu_filter->getMenu();
         // TODO: Change the name of settings action
-        $menu->addChild('Settings', array( 'route' => 'settings_new'));
+        $menu->addChild('Settings', array( 'route' => 'settings'));
     }
 }

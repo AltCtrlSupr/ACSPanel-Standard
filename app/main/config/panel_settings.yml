@@ -8,14 +8,24 @@ acsacs_panel_settings:
            setting_key: user_language
            label: 'User language'
            field_type: select
+           choices:
+             en: 'English'
+             es: 'Spanish'
+             ca: 'Catalan'
            default_value: 'en'
            context: 'User settings'
+           #TODO: add support to set choices
+           #choices: ['English' : 'en','es','ca']
            focus: 'user_setting'
     system_fields:
         system_language:
            setting_key: system_language
            label: 'System language'
            field_type: select
+           choices:
+             en: 'English'
+             es: 'Spanish'
+             ca: 'Catalan'
            default_value: 'en'
            context: 'System settings'
            focus: 'system_setting'

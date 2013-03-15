@@ -32,10 +32,4 @@ ACS\ACSPanelSettingsBundle\Entity\ConfigSetting:
             length: 255
             fixed: false
             nullable: false
-        # Label to show
-        label:
-            type: string
-            length: 255
-            fixed: false
-            nullable: false
     lifecycleCallbacks: {}
