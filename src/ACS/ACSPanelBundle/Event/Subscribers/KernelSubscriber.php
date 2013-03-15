@@ -21,13 +21,6 @@ class KernelSubscriber implements EventSubscriberInterface
      */
     public function switchUserLanguage(GetResponseEvent $event)
     {
-        /*if (!$request->hasPreviousSession()) {
-            return;
-        }*/
-
-
-        //$controller = $event->getController();
-        // $response = $event->getResponse();
         $request = $event->getRequest();
 
         global $kernel;
@@ -38,7 +31,6 @@ class KernelSubscriber implements EventSubscriberInterface
 
         $settings_manager = $kernel->getContainer()->get('acs.setting_manager');
         $security = $kernel->getContainer()->get('security.context');
-		//$security = $controller->get('security.context');
 
         $user = null;
         if($security->getToken()){
@@ -47,13 +39,10 @@ class KernelSubscriber implements EventSubscriberInterface
 
         if($user && 'anon.' != $user){
             $language = $settings_manager->getUserSetting('user_language',$user);
-            //echo $language;
-            //exit;
 
             if($language){
                 $request->setLocale($language);
             }
-            // Setting the locale
 
         }
 

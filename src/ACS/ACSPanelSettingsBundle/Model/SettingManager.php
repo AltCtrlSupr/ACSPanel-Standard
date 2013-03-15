@@ -20,7 +20,10 @@ abstract class SettingManager extends EntityRepository
             'user' => $user,
             'setting_key' => $setting_key,
         ));
-        return $setting->getValue();
+        if($setting)
+            return $setting->getValue();
+
+        return null;
 
     }
 }

@@ -82,10 +82,6 @@ ACSACSPanelBundle_mailalias:
     resource: "@ACSACSPanelBundle/Resources/config/routing/mailalias.yml"
     prefix:   /mailalias
 
-ACSACSPanelBundle_mailaliasdomain:
-    resource: "@ACSACSPanelBundle/Resources/config/routing/mailaliasdomain.yml"
-    prefix:   /mailaliasdomain
-
 hostZaspanelBundle_maildomain:
     resource: "@ACSACSPanelBundle/Resources/config/routing/maildomain.yml"
     prefix:   /maildomain

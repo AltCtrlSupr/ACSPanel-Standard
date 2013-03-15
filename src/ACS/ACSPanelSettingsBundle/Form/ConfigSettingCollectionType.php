@@ -32,6 +32,8 @@ class ConfigSettingCollectionType extends AbstractType
             'type' => new ConfigSettingType(),
             'allow_add' => true,
             'prototype' => false,
+            'options' => array(
+            )
         ));
 
         /*foreach($this->user_fields as $id => $field_config){
