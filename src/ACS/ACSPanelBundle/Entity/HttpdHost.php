@@ -394,7 +394,6 @@ class HttpdHost
 		return $this->getName().' ('.$this->getDomain()->getDomain().')';
 	}
 
-
     /**
      * Set service
      *

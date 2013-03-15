@@ -8,3 +8,4 @@
 *.un~
 /app/main/cache/
 /app/main/logs/
+tags

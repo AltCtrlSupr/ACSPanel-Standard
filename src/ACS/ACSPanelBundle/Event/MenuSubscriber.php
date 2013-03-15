@@ -19,7 +19,6 @@ class MenuSubscriber implements EventSubscriberInterface
                 array('mailItems', 40),
                 array('databaseItems', 30),
                 array('ftpItems', 20),
-                array('settingsItems', 10),
                 array('logoutItems', -9000),
             ),
             'menu.user.after.items'     => array(
@@ -31,7 +30,6 @@ class MenuSubscriber implements EventSubscriberInterface
                 array('mailItems', 40),
                 array('databaseItems', 30),
                 array('ftpItems', 20),
-                array('settingsItems', 10),
                 array('logoutItems', -9000),
             )
 
@@ -63,7 +61,6 @@ class MenuSubscriber implements EventSubscriberInterface
         $menu['Admin']['Servers']->addChild('Services', array( 'route' => 'service'));
         $menu['Admin']['Servers']->addChild('Service Types', array( 'route' => 'servicetype'));
         $menu['Admin']['Servers']->addChild('IP Addresses', array( 'route' => 'ipaddress'));
-        $menu['Admin']->addChild('Panel Settings', array( 'route' => 'settings'));
         $menu['Admin']->addChild('Logs', array( 'route' => 'logs'));
     }
 
@@ -113,11 +110,6 @@ class MenuSubscriber implements EventSubscriberInterface
     }
 
 
-    public function settingsItems(FilterMenuEvent $menu_filter)
-    {
-        $menu = $menu_filter->getMenu();
-        $menu->addChild('Settings', array('route' => 'settings'));
-    }
 
     public function logoutItems(FilterMenuEvent $menu_filter)
     {

@@ -25,9 +25,6 @@ the next command and execute the following commands
 
     git clone [put git url here]
 
-    cd acspanel
-
-    php composer.phar install
 
 2) Checking your System Configuration
 -------------------------------------
@@ -48,8 +45,28 @@ Execute the `check.php` script from the command line:
 4) Setting up ACSPanel
 --------------------
 
-.....continue....
-You're now ready to use ACSPanel.
+    cd acspanel
+
+Now you set parameters.yml with your database create. Not necessary when it's installed via deb package.
+To install all the dependencies you have to execute composer.phar command.
+
+    php composer.phar install
+
+Then you are ready to create the acspanel basic schema executing the next command:
+
+    php app/console doctrine:schema:create
+
+You should install the assets as well:
+
+    php app/console assets:install --symlink
+
+Towrite Setting up permissions  
+
+(Opcional) Install additional ACSPanel bundles:
+
+Coming soon.
+
+Congratulations! You're now ready to use ACSPanel.
 
 5) Getting started with ACSPanel
 -------------------------------

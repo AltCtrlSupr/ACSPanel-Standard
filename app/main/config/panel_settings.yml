@@ -1,0 +1,24 @@
+# Configs for the Settings Bundle
+acsacs_panel_settings:
+    home_base: '/home/'
+    settings_class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
+    setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
+    user_fields:
+        language:
+           setting_key: user_language
+           label: 'User language'
+           field_type: select
+           default_value: 'en'
+           context: 'User settings'
+        home_base:
+           label: 'Home base'
+           setting_key: home_base
+           field_type: text
+           default_value: '/home/'
+           context: 'User settings'
+    system_fields:
+        language:
+           setting_key: system_language
+           label: 'System language'
+           field_type: select
+           default_value: 'en'
