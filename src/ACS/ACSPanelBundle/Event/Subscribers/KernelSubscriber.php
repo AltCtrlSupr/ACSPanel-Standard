@@ -12,7 +12,7 @@ class KernelSubscriber implements EventSubscriberInterface
     {
         return array(
             // must be registered before the default Locale listener
-            KernelEvents::REQUEST => array(array('switchUserLanguage', 17)),
+            KernelEvents::REQUEST => array(array('switchUserLanguage', 0)),
         );
     }
 
@@ -21,10 +21,9 @@ class KernelSubscriber implements EventSubscriberInterface
      */
     public function switchUserLanguage(GetResponseEvent $event)
     {
-        $request = $event->getRequest();
-        if (!$request->hasPreviousSession()) {
+        /*if (!$request->hasPreviousSession()) {
             return;
-        }
+        }*/
 
 
         //$controller = $event->getController();
@@ -51,12 +50,10 @@ class KernelSubscriber implements EventSubscriberInterface
             //echo $language;
             //exit;
 
-            // Setting the locale
-            if ($language = $request->attributes->get('_locale')) {
-                $request->getSession()->set('_locale', $language);
-            } else {
-                $request->setLocale($request->getSession()->get('_locale', $language));
+            if($language){
+                $request->setLocale($language);
             }
+            // Setting the locale
 
         }
 
