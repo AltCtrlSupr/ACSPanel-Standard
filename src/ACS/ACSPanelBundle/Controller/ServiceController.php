@@ -88,12 +88,12 @@ class ServiceController extends Controller
             $service_type = $entity->getType();
 
             foreach($service_type->getFieldTypes() as $field_type){
-                $setting = new PanelSetting();
-                $setting->setService($entity);
-                $setting->setServer($entity->getServer());
-                $setting->setSettingKey($field_type->getInternalName());
-                $setting->setContext("internal");
-                $form = new ConfigSettingType($setting);
+                //$setting = new PanelSetting();
+                //$setting->setService($entity);
+                //$setting->setServer($entity->getServer());
+                //$setting->setSettingKey($field_type->getInternalName());
+                //$setting->setContext("internal");
+                //$form = new ConfigSettingType($setting);
                 /*switch($field_type->getFieldType()){
                     case 'input':
                         $form->add('value', 'text');
@@ -109,13 +109,14 @@ class ServiceController extends Controller
                         break;
                 }*/
                 //$form = $form->getFormFactory();
-                $settingsform->get('settings')->add($field_type->getName(), $form);
+                //$settingsform->get('settings')->add($field_type->getName(), $form);
             }
-            $settingsform = $settingsform->getForm();
+            //$settingsform = $settingsform->getForm();
 
-            return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
-                'form'   => $settingsform->createView(),
-            ));
+            return $this->redirect($this->generateUrl('service_show', array('id' => $entity->getId())));
+//            return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
+ //               'form'   => $settingsform->createView(),
+  //          ));
         }
 
         return $this->render('ACSACSPanelBundle:Service:new.html.twig', array(
