@@ -22,8 +22,9 @@ class ConfigSettingController extends Controller
     /**
      * Lists all ConfigSetting entities.
      *
+     * @deprecated
      */
-    public function indexAction()
+    public function _indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -35,39 +36,21 @@ class ConfigSettingController extends Controller
     }
 
     /**
-     * Finds and displays a ConfigSetting entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $this->get('acs.setting_manager')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ConfigSetting entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
-    }
-
-    /**
      * Displays a form to create a new ConfigSetting entity.
      *
      */
-    public function newAction()
+    public function indexAction()
     {
         $class_name = $this->container->getParameter('acs_settings.setting_class');
         $user_fields = $this->container->getParameter("acs_settings.user_fields");
+        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $system_fields = $this->container->getParameter("acs_settings.system_fields");
+            $user_fields = array_merge($user_fields, $system_fields);
+        }
 
         $em = $this->getDoctrine()->getManager();
 
         $user = $this->get('security.context')->getToken()->getUser();
-
 
         // $form_collection = new ConfigSettingCollectionType($user_fields);
         // Adding one form for each setting field
@@ -77,7 +60,7 @@ class ConfigSettingController extends Controller
                 array(
                     'user' => $user->getId(),
                     'setting_key' => $field_config['setting_key'],
-                    'focus' => 'user_setting',
+                    'focus' => $field_config['focus'],
                 ));
             if(!count($setting)){
                 $setting = new $class_name;
@@ -85,11 +68,18 @@ class ConfigSettingController extends Controller
                 $setting->setValue($field_config['default_value']);
                 $setting->setContext($field_config['context']);
                 $setting->setLabel($field_config['label']);
-                $setting->setFocus('user_setting');
-                //$setting->setUser($user);
+                $setting->setType($field_config['field_type']);
+                if(isset($field_config['choices']))
+                    $setting->setChoices($field_config['choices']);
+                $setting->setFocus($field_config['focus']);
                 $user->addSetting($setting);
                 $em->persist($user);
                 $em->flush();
+            }else{
+                if(isset($field_config['choices']))
+                    $setting->setChoices($field_config['choices']);
+                $setting->setLabel($field_config['label']);
+                $setting->setType($field_config['field_type']);
             }
         }
 
@@ -111,8 +101,6 @@ class ConfigSettingController extends Controller
         $user_fields = $this->container->getParameter("acs_settings.user_fields");
         $em = $this->getDoctrine()->getManager();
 
-        print_r($_POST);
-
         // TODO: Get from config.yml
         //$entity = $em->getRepository('ACSACSPanelBundle:FosUser')->find($id);
         $entity = $this->get('security.context')->getToken()->getUser();
@@ -127,8 +115,9 @@ class ConfigSettingController extends Controller
 
 
         $postData = $request->request->get('acs_settings_usersettings');
+        print_r($postData);
 
-        if ($editForm->isValid()) {
+        //if ($editForm->isValid()) {
             if(isset($postData['settings'])){
                 $settings = $postData['settings'];
 
@@ -150,15 +139,14 @@ class ConfigSettingController extends Controller
                         $new_setting->setSettingKey($setting['setting_key']);
                         $new_setting->setValue($setting['value']);
                         $new_setting->setContext($setting['context']);
-                        //$new_setting->setLabel($setting['label']);
                         $new_setting->setFocus('user_setting');
                         $new_setting->setUser($entity);
                     }
                 }
                 $em->flush();
-            }
+            //}
 
-            return $this->redirect($this->generateUrl('settings_new'));
+            return $this->redirect($this->generateUrl('settings'));
         }
 
         return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(

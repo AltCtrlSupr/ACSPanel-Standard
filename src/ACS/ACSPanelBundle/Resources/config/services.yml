@@ -40,16 +40,23 @@ services:
         calls:
             - [ setFormType, ['@acs.form.registerHosting'] ]
 
+    # Kernel response events
+    kernel_subscriber:
+        class: ACS\ACSPanelBundle\Event\Subscribers\KernelSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}
+
     # Menu items added with event listener
     base_menu_subscriber:
-        class: ACS\ACSPanelBundle\Event\MenuSubscriber
+        class: ACS\ACSPanelBundle\Event\Subscribers\MenuSubscriber
         arguments: ['@event_dispatcher']
         tags:
             - {name: kernel.event_subscriber}
 
     # DNSDomain events
     dns_subscriber:
-        class: ACS\ACSPanelBundle\Event\DnsSubscriber
+        class: ACS\ACSPanelBundle\Event\Subscribers\DnsSubscriber
         arguments: ['@event_dispatcher']
         tags:
             - {name: kernel.event_subscriber}

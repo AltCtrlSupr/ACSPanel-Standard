@@ -16,7 +16,6 @@ class MailDomainType extends AbstractType
             ->add('maxAliases')
             ->add('maxMailboxes')
             ->add('maxQuota')
-            ->add('transport')
             ->add('backupmx')
             ->add('service')
         ;

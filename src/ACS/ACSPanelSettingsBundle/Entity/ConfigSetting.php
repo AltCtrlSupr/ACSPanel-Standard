@@ -34,6 +34,21 @@ abstract class ConfigSetting extends AbstractConfigSetting
     private $focus;
 
     /**
+     * @var string
+     */
+    private $label;
+
+    /**
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @var array
+     */
+    private $choices;
+
+    /**
      * Get id
      *
      * @return integer
@@ -135,12 +150,6 @@ abstract class ConfigSetting extends AbstractConfigSetting
         return $this->focus;
     }
     /**
-     * @var string
-     */
-    private $label;
-
-
-    /**
      * Set label
      *
      * @param string $label
@@ -149,17 +158,65 @@ abstract class ConfigSetting extends AbstractConfigSetting
     public function setLabel($label)
     {
         $this->label = $label;
-    
+
         return $this;
     }
 
     /**
      * Get label
      *
-     * @return string 
+     * @return string
      */
     public function getLabel()
     {
         return $this->label;
     }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return ConfigSetting
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set choices
+     *
+     * @param array $choices
+     * @return ConfigSetting
+     */
+    public function setChoices($choices)
+    {
+        $this->choices = $choices;
+
+        return $this;
+    }
+
+    /**
+     * Get choices
+     *
+     * @return array
+     */
+    public function getChoices()
+    {
+        return $this->choices;
+    }
+
+
 }

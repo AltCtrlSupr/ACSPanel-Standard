@@ -43,8 +43,21 @@ class AdaptFormSubscriber implements EventSubscriberInterface
             return;
         }
 
-        // check if the product object is "new"
-        $form->add($this->factory->createNamed('value','text',null,array('label' => $data->getLabel())));
+        switch($data->getType()){
+            case 'select':
+                $choices = $data->getChoices();
+                $form->add($this->factory->createNamed('value','choice',$data->getValue(), array(
+                    'label' => $data->getLabel(),
+                    'choices' => $data->getChoices(),
+                )));
+                break;
+            case 'text':
+                $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));
+
+                break;
+
+        }
+        $form->add($this->factory->createNamed('type','hidden',$data->getType(),array()));
     }
 
 }

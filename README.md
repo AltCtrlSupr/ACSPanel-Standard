@@ -1,106 +1,75 @@
-Symfony Standard Edition
-========================
+ACSPanel (ACS Control Server Panel)
+===================================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+Welcome to ACSPanel - The server administration tool written in Symfony2
 
 This document contains information on how to download, install, and start
-using Symfony. For a more detailed explanation, see the [Installation][1]
-chapter of the Symfony Documentation.
+using ACSPanel.
 
-1) Installing the Standard Edition
-----------------------------------
+1) Installing ACSPanel
+----------------------
 
-When it comes to installing the Symfony Standard Edition, you have the
+When it comes to installing the ACSPanel, you have the
 following options.
 
-### Use Composer (*recommended*)
+### Use Debian Package(*recommended*)
 
-As Symfony uses [Composer][2] to manage its dependencies, the recommended way
-to create a new project is to use it.
+Coming soon
 
-If you don't have Composer yet, download it following the instructions on
-http://getcomposer.org/ or just run the following command:
+### Download from GIT repository
 
-    curl -s https://getcomposer.org/installer | php
+To install ACSPanel from git repository, you have to clone the project with 
+the next command and execute the following commands 
 
-Then, use the `create-project` command to generate a new Symfony application:
+    cd /server_root_directory/
 
-    php composer.phar create-project symfony/framework-standard-edition path/to/install
+    git clone [put git url here]
 
-Composer will install Symfony and all its dependencies under the
-`path/to/install` directory.
-
-### Download an Archive File
-
-To quickly test Symfony, you can also download an [archive][3] of the Standard
-Edition and unpack it somewhere under your web server root directory.
-
-If you downloaded an archive "without vendors", you also need to install all
-the necessary dependencies. Download composer (see above) and run the
-following command:
-
-    php composer.phar install
 
 2) Checking your System Configuration
 -------------------------------------
 
-Before starting coding, make sure that your local system is properly
-configured for Symfony.
+Before starting using ACSPanel you should make sure that your local system is properly
+configured.
 
 Execute the `check.php` script from the command line:
 
     php app/check.php
 
-Access the `config.php` script from a browser:
+.....continue....
 
-    http://localhost/path/to/symfony/app/web/config.php
+3) Setting up Apache
 
-If you get any warnings or recommendations, fix them before moving on.
+.....continue....
 
-3) Browsing the Demo Application
---------------------------------
+4) Setting up ACSPanel
+--------------------
 
-Congratulations! You're now ready to use Symfony.
+    cd acspanel
 
-From the `config.php` page, click the "Bypass configuration and go to the
-Welcome page" link to load up your first Symfony page.
+Now you set parameters.yml with your database create. Not necessary when it's installed via deb package.
+To install all the dependencies you have to execute composer.phar command.
 
-You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the `config.php` page.
+    php composer.phar install
 
-To see a real-live Symfony page in action, access the following page:
+Then you are ready to create the acspanel basic schema executing the next command:
 
-    web/app_dev.php/demo/hello/Fabien
+    php app/console doctrine:schema:create
 
-4) Getting started with Symfony
+You should install the assets as well:
+
+    php app/console assets:install --symlink
+
+Towrite Setting up permissions  
+
+(Opcional) Install additional ACSPanel bundles:
+
+Coming soon.
+
+Congratulations! You're now ready to use ACSPanel.
+
+5) Getting started with ACSPanel
 -------------------------------
-
-This distribution is meant to be the starting point for your Symfony
-applications, but it also contains some sample code that you can learn from
-and play with.
-
-A great way to start learning Symfony is via the [Quick Tour][4], which will
-take you through all the basic features of Symfony2.
-
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book][5].
-
-A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
-
-  * delete the `src/Acme` directory;
-
-  * remove the routing entries referencing AcmeBundle in
-    `app/config/routing_dev.yml`;
-
-  * remove the AcmeBundle from the registered bundles in `app/AppKernel.php`;
-
-  * remove the `web/bundles/acmedemo` directory;
-
-  * remove the `security.providers`, `security.firewalls.login` and
-    `security.firewalls.secured_area` entries in the `security.yml` file or
-    tweak the security configuration to fit your needs.
 
 What's inside?
 ---------------

@@ -23,7 +23,6 @@ class DefaultController extends Controller
         $max_ftpd = $current_user->getPlanMax('FtpdUser');
         $used_ftpd = $current_user->getUsedResource('FtpdUser',$em);
 
-
         //if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
             return $this->render('ACSACSPanelBundle:Default:superadminindex.html.twig', array(
                 'max_hosts' => $max_hosts,

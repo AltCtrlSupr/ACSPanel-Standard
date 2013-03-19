@@ -1,0 +1,46 @@
+# Configs for the Settings Bundle
+acsacs_panel_settings:
+    home_base: '/home/'
+    settings_class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
+    setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
+    user_fields:
+        language:
+           setting_key: user_language
+           label: 'User language'
+           field_type: select
+           choices:
+             en: 'English'
+             es: 'Spanish'
+             ca: 'Catalan'
+           default_value: 'en'
+           context: 'User settings'
+           #TODO: add support to set choices
+           #choices: ['English' : 'en','es','ca']
+           focus: 'user_setting'
+    system_fields:
+        system_language:
+           setting_key: system_language
+           label: 'System language'
+           field_type: select
+           choices:
+             en: 'English'
+             es: 'Spanish'
+             ca: 'Catalan'
+           default_value: 'en'
+           context: 'System settings'
+           focus: 'system_setting'
+        home_base:
+           label: 'Home base'
+           setting_key: home_base
+           field_type: text
+           default_value: '/home/'
+           context: 'System settings'
+           focus: 'system_setting'
+        mail_domain_transport:
+           label: 'Mail Domain Transport'
+           setting_key: mail_domain_transport
+           field_type: text
+           default_value: ''
+           context: 'Mailserver settings'
+           focus: 'system_setting'
+

@@ -13,11 +13,11 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        # in_memory:
+            # memory:
+                # users:
+                    # user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    # admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         fos_userbundle:
             id: fos_user.user_provider.username
 
@@ -54,4 +54,11 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_SUPER_ADMIN }
+        - { path: ^/server, role: ROLE_ADMIN }
+        - { path: ^/service, role: ROLE_ADMIN }
+        - { path: ^/servicetype, role: ROLE_ADMIN }
+        - { path: ^/ipaddress, role: ROLE_ADMIN }
+        - { path: ^/users, role: ROLE_ADMIN }
+        - { path: ^/groups, role: ROLE_ADMIN }
+        - { path: ^/plans, role: ROLE_ADMIN }
         - { path: ^/, role: ROLE_USER}

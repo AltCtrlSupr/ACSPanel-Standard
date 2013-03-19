@@ -16,6 +16,7 @@ class ConfigSettingType extends AbstractType
             ->add('setting_key','hidden')
             ->add('context', 'hidden')
             ->add('focus', 'hidden')
+            //->add('type', 'hidden',array('mapped' => false))
         ;
 
         $subscriber = new AdaptFormSubscriber($builder->getFormFactory());
