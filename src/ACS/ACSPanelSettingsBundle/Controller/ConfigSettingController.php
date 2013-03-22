@@ -137,7 +137,7 @@ class ConfigSettingController extends Controller
             // Get already created setting
             $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($params);
 
-            /* if(!count($setting)){
+            if(!count($setting)){
                 // print_r($field_config);
                 $setting = new $class_name;
                 $setting->setSettingKey($field_config['setting_key']);
@@ -155,7 +155,7 @@ class ConfigSettingController extends Controller
                 //$em->persist($user);
                 $em->flush();
             }
-            else{*/
+            else{
                 if(isset($field_config['choices']))
                     $setting->setChoices($field_config['choices']);
                 if(isset($field_config['service_id'])){
@@ -164,7 +164,7 @@ class ConfigSettingController extends Controller
                 }
                 $setting->setLabel($field_config['label']);
                 $setting->setType($field_config['field_type']);
-            //}
+            }
         }
 
         $form   = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
