@@ -239,9 +239,11 @@ class DB
         $users = $this->getDatabaseUsers();
         if(count($users)){
             foreach($users as $usr){
-                $sql = "CREATE USER '".$usr->getUsername()."'@'%' IDENTIFIED BY 'randompassword'";
+                $sql = "CREATE USER '".$usr->getUsername()."'@'%' IDENTIFIED BY '".$usr->getPassword()."'";
                 $conn->executeQuery($sql);
-                $sql = "GRANT ALL PRIVILEGES ON `".$this."` . * TO '".$usr->getUsername()."'@'%'";
+                $sql = "GRANT ALL PRIVILEGES ON `".$this."`.* TO '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+                $sql = "FLUSH PRIVILEGES";
                 $conn->executeQuery($sql);
             }
         }
