@@ -92,6 +92,11 @@ class DBController extends Controller
             $em = $this->getDoctrine()->getManager();
             $user = $this->get('security.context')->getToken()->getUser();
             $entity->setName($user->getUsername().'sql_'.$entity->getName());
+            $users = $entity->getDatabaseUsers();
+            foreach($users as $dbuser){
+                $dbuser->setUsername($user->getUsername().'sql_'.$dbuser->getUsername());
+                $dbuser->setDb($entity);
+            }
             $em->persist($entity);
             $em->flush();
 

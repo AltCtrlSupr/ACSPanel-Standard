@@ -149,29 +149,6 @@ class DatabaseUser
     }
 
     /**
-     * Set database
-     *
-     * @param \ACS\ACSPanelBundle\Entity\Database $database
-     * @return DatabaseUser
-     */
-    public function setDatabase(\ACS\ACSPanelBundle\Entity\Database $database = null)
-    {
-        $this->database = $database;
-
-        return $this;
-    }
-
-    /**
-     * Get database
-     *
-     * @return \ACS\ACSPanelBundle\Entity\Database
-     */
-    public function getDatabase()
-    {
-        return $this->database;
-    }
-
-    /**
      * Set user
      *
      * @param \ACS\ACSPanelBundle\Entity\FosUser $user
@@ -206,11 +183,12 @@ class DatabaseUser
     }
 
     /**
-     * @ORM\PrePersist
+     * @ORM\PostPersist
      */
     public function createUserInDatabase()
     {
-        // Add your code here
+
+
     }
 
     /**
@@ -255,5 +233,46 @@ class DatabaseUser
     public function getDb()
     {
         return $this->db;
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function removeUserInDatabase()
+    {
+        return;
+
+		global $kernel;
+
+		if ('AppCache' == get_class($kernel)) {
+			$kernel = $kernel->getKernel();
+		}
+
+        $admin_user = '';
+        $admin_password = '';
+        $settings = $this->getDb()->getService()->getSettings();
+        foreach ($settings as $setting){
+            if($setting->getSettingKey() == 'admin_user')
+                $admin_user = $setting->getValue();
+            if($setting->getSettingKey() == 'admin_password')
+                $admin_password = $setting->getValue();
+        }
+        $server_ip = $this->getDb()->getService()->getIp();
+
+        $config = new \Doctrine\DBAL\Configuration();
+        //..
+        $connectionParams = array(
+            'user' => $admin_user,
+            'password' => $admin_password,
+            'host' => $server_ip,
+            'driver' => 'pdo_mysql',
+        );
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+        $sql = "GRANT ALL PRIVILEGES ON `".$this->getDb()."` . * TO '".$this->getUsername()."'@'%'";
+        $conn->executeQuery($sql);
+        $sql = "DROP USER IF EXISTS '".$this->getUsername()."'@'%'";
+        $conn->executeQuery($sql);
+
+
     }
 }

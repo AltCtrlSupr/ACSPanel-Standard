@@ -234,8 +234,17 @@ class DB
 
 		//$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
 
-        $sql = "CREATE DATABASE ".$this->getName();
+        $sql = "CREATE DATABASE IF NOT EXISTS ".$this->getName();
         $conn->executeQuery($sql);
+        $users = $this->getDatabaseUsers();
+        if(count($users)){
+            foreach($users as $usr){
+                $sql = "CREATE USER '".$usr->getUsername()."'@'%' IDENTIFIED BY 'randompassword'";
+                $conn->executeQuery($sql);
+                $sql = "GRANT ALL PRIVILEGES ON `".$this."` . * TO '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+            }
+        }
 
 		return $this;
 
@@ -305,17 +314,56 @@ class DB
      */
     public function removeDatabase()
     {
- 		global $kernel;
+		global $kernel;
 
 		if ('AppCache' == get_class($kernel)) {
 			$kernel = $kernel->getKernel();
 		}
 
-		$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
+        $admin_user = '';
+        $admin_password = '';
+        $settings = $this->getService()->getSettings();
+        foreach ($settings as $setting){
+            if($setting->getSettingKey() == 'admin_user')
+                $admin_user = $setting->getValue();
+            if($setting->getSettingKey() == 'admin_password')
+                $admin_password = $setting->getValue();
+        }
+        $server_ip = $this->getService()->getIp();
 
-        $sql = "DROP DATABASE ".$this->getName();
-        $em->executeQuery($sql);
+        // echo 'server ip: '. $server_ip;
+        // echo 'admin_user: '. $admin_user;
+        // echo 'admin_password: '. $admin_password;
+
+        $config = new \Doctrine\DBAL\Configuration();
+        //..
+        $connectionParams = array(
+            'user' => $admin_user,
+            'password' => $admin_password,
+            'host' => $server_ip,
+            'driver' => 'pdo_mysql',
+        );
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+        $users = $this->getDatabaseUsers();
+        if(count($users)){
+            foreach($users as $usr){
+                $sql = "GRANT ALL PRIVILEGES ON `".$this->getName()."` . * TO '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+                $sql = "DROP USER '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+            }
+        }
+
+        $sql = "DROP DATABASE IF EXISTS ".$this->getName();
+        $conn->executeQuery($sql);
 
 		return $this;
+
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

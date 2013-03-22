@@ -28,6 +28,7 @@ ACS\ACSPanelBundle\Entity\DatabaseUser:
     manyToOne:
         db:
             targetEntity: DB
+            nullable: false
             inversedBy: database_users
             joinColumn:
                 name: database_id
@@ -35,6 +36,8 @@ ACS\ACSPanelBundle\Entity\DatabaseUser:
                 onDelete: CASCADE
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, createUserInDatabase ]
+      prePersist: [ setCreatedAtValue ]
+      postPersist: [  createUserInDatabase ]
       preUpdate: [ setUpdatedAtValue, updateUserInDatabase ]
+      preRemove: [ removeUserInDatabase ]
 
