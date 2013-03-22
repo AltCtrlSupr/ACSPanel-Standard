@@ -433,4 +433,25 @@ class MailDomain
         return $this->getDomain()->getDomain();
     }
 
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setTransportValue()
+    {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $settings_manager = $kernel->getContainer()->get('acs.setting_manager');
+        $mail_domain_transport = $settings_manager->getSystemSetting('mail_domain_transport');
+        if($mail_domain_transport){
+            $this->setTransport($mail_domain_transport);
+        }
+
+        return $this;
+
+    }
 }

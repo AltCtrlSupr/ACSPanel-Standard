@@ -19,19 +19,62 @@ use ACS\ACSPanelSettingsBundle\Form\ConfigSettingType;
  */
 class ConfigSettingController extends Controller
 {
+
     /**
-     * Lists all ConfigSetting entities.
+     * Displays a form to create a new ConfigSetting entity. Based on object settings template
      *
-     * @deprecated
      */
-    public function _indexAction()
+    public function objectSettingsAction()
     {
+        $class_name = $this->container->getParameter('acs_settings.setting_class');
+        $user_fields = $this->container->getParameter("acs_settings.user_fields");
+
+        // TODO: Check in this point if user has rights to access to that service settings
+        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // $system_fields = $this->container->getParameter("acs_settings.system_fields");
+            //$user_fields = array_merge($user_fields, $system_fields);
+        }
+
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $this->get('acs.setting_manager')->findAll();
+        $user = $this->get('security.context')->getToken()->getUser();
 
-        return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:index.html.twig', array(
-            'entities' => $entities,
+        // $form_collection = new ConfigSettingCollectionType($user_fields);
+        // Adding one form for each setting field
+        foreach($user_fields as $id => $field_config){
+            // TODO: To get from config.yml
+            $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy(
+                array(
+                    'user' => $user->getId(),
+                    'setting_key' => $field_config['setting_key'],
+                    'focus' => $field_config['focus'],
+                ));
+            if(!count($setting)){
+                $setting = new $class_name;
+                $setting->setSettingKey($field_config['setting_key']);
+                $setting->setValue($field_config['default_value']);
+                $setting->setContext($field_config['context']);
+                $setting->setLabel($field_config['label']);
+                $setting->setType($field_config['field_type']);
+                if(isset($field_config['choices']))
+                    $setting->setChoices($field_config['choices']);
+                $setting->setFocus($field_config['focus']);
+                $user->addSetting($setting);
+                $em->persist($user);
+                $em->flush();
+            }else{
+                if(isset($field_config['choices']))
+                    $setting->setChoices($field_config['choices']);
+                $setting->setLabel($field_config['label']);
+                $setting->setType($field_config['field_type']);
+            }
+        }
+
+        $form   = $this->createForm(new ConfigSettingCollectionType($user_fields), $user);
+
+        return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
+            'entity' => $user,
+            'form'   => $form->createView(),
         ));
     }
 
@@ -39,7 +82,7 @@ class ConfigSettingController extends Controller
      * Displays a form to create a new ConfigSetting entity.
      *
      */
-    public function indexAction()
+    public function userSettingsAction()
     {
         $class_name = $this->container->getParameter('acs_settings.setting_class');
         $user_fields = $this->container->getParameter("acs_settings.user_fields");
@@ -115,7 +158,7 @@ class ConfigSettingController extends Controller
 
 
         $postData = $request->request->get('acs_settings_usersettings');
-        print_r($postData);
+        //print_r($postData);
 
         //if ($editForm->isValid()) {
             if(isset($postData['settings'])){

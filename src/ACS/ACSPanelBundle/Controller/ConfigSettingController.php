@@ -14,6 +14,7 @@ use ACS\ACSPanelSettingsBundle\Controller\ConfigSettingController as BaseControl
 /**
  * ConfigSetting controller.
  *
+ * @todo see if it's still necessary
  */
 class ConfigSettingController extends BaseController
 {

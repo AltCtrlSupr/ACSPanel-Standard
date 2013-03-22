@@ -113,8 +113,8 @@ class ServiceController extends Controller
             }
             $settingsform = $settingsform->getForm();
 
-            return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
-                'form'   => $settingsform->createView(),
+            return $this->render('ACSACSPanelBundle:Service:show.html.twig', array(
+                'entity'   => $entity,
             ));
         }
 

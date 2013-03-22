@@ -9,17 +9,27 @@ ACS\ACSPanelBundle\Entity\FieldType:
             nullable: false
             generator:
                 strategy: IDENTITY
-        name:
+        setting_key:
             type: string
             length: 255
             fixed: false
             nullable: false
-        internal_name:
+        label:
             type: string
             length: 255
             fixed: false
             nullable: false
-        field_type:
+        type:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        context:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        default_value:
             type: string
             length: 255
             fixed: false

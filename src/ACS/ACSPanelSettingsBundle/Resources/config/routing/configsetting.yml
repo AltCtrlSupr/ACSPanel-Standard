@@ -1,6 +1,6 @@
 settings:
     pattern:  /
-    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:index" }
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:userSettings" }
 
 settings_show:
     pattern:  /{id}/show
