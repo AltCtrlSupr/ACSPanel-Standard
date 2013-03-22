@@ -90,6 +90,8 @@ class DBController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->get('security.context')->getToken()->getUser();
+            $entity->setName($user->getUsername().'sql_'.$entity->getName());
             $em->persist($entity);
             $em->flush();
 

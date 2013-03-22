@@ -491,4 +491,42 @@ class Service
     {
         return $this->enabled;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $settings;
+
+
+    /**
+     * Add settings
+     *
+     * @param \ACS\ACSPanelBundle\Entity\PanelSettings $settings
+     * @return Service
+     */
+    public function addSetting(\ACS\ACSPanelBundle\Entity\PanelSettings $settings)
+    {
+        $this->settings[] = $settings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove settings
+     *
+     * @param \ACS\ACSPanelBundle\Entity\PanelSettings $settings
+     */
+    public function removeSetting(\ACS\ACSPanelBundle\Entity\PanelSettings $settings)
+    {
+        $this->settings->removeElement($settings);
+    }
+
+    /**
+     * Get settings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSettings()
+    {
+        return $this->settings;
+    }
 }

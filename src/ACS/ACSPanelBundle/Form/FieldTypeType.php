@@ -11,9 +11,11 @@ class FieldTypeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('internal_name')
-            ->add('field_type')
+            ->add('setting_key')
+            ->add('label')
+            ->add('type')
+            ->add('context')
+            ->add('default_value')
         ;
     }
 

@@ -84,17 +84,17 @@ class ServiceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $settingsform = $this->createFormBuilder()->add('settings', 'collection');
+            /*$settingsform = $this->createFormBuilder()->add('settings', 'collection');
             $service_type = $entity->getType();
 
             foreach($service_type->getFieldTypes() as $field_type){
-                //$setting = new PanelSetting();
-                //$setting->setService($entity);
-                //$setting->setServer($entity->getServer());
-                //$setting->setSettingKey($field_type->getInternalName());
-                //$setting->setContext("internal");
-                //$form = new ConfigSettingType($setting);
-                /*switch($field_type->getFieldType()){
+                $setting = new PanelSetting();
+                $setting->setService($entity);
+                $setting->setServer($entity->getServer());
+                $setting->setSettingKey($field_type->getInternalName());
+                $setting->setContext("internal");
+                $form = new ConfigSettingType($setting);
+                switch($field_type->getFieldType()){
                     case 'input':
                         $form->add('value', 'text');
                         break;
@@ -107,22 +107,14 @@ class ServiceController extends Controller
                     case 'password':
                         $form->add('value', 'password');
                         break;
-                }*/
+                }
                 //$form = $form->getFormFactory();
-                //$settingsform->get('settings')->add($field_type->getName(), $form);
+                $settingsform->get('settings')->add($field_type->getName(), $form);
             }
-            //$settingsform = $settingsform->getForm();
+            $settingsform = $settingsform->getForm();
+             */
 
-<<<<<<< HEAD
-            return $this->render('ACSACSPanelBundle:Service:show.html.twig', array(
-                'entity'   => $entity,
-            ));
-=======
-            return $this->redirect($this->generateUrl('service_show', array('id' => $entity->getId())));
-//            return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
- //               'form'   => $settingsform->createView(),
-  //          ));
->>>>>>> d8b43599a0a7184da4403caec9e142b9c8456ff7
+            return $this->redirect($this->generateUrl('settings_object_settings', array('object_id' => $entity->getId())));
         }
 
         return $this->render('ACSACSPanelBundle:Service:new.html.twig', array(

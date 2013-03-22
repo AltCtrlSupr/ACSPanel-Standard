@@ -2,9 +2,9 @@ settings:
     pattern:  /
     defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:userSettings" }
 
-settings_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:show" }
+settings_object_settings:
+    pattern:  /{object_id}/settings
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:createObjectSettings" }
 
 settings_new:
     pattern:  /new

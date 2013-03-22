@@ -21,63 +21,61 @@ class ConfigSettingController extends Controller
 {
 
     /**
-     * Displays a form to create a new ConfigSetting entity. Based on object settings template
+     * It creates the object settings specified
      *
      */
-    public function objectSettingsAction()
+    public function createObjectSettingsAction($object_id)
     {
+        $em = $this->getDoctrine()->getManager();
         $class_name = $this->container->getParameter('acs_settings.setting_class');
 
         // Get the object fields
-        $object_fields = $this->container->getParameter("acs_settings.user_fields");
+        // TODO: Decouple this
+        $object = $em->getRepository('ACSACSPanelBundle:Service')->find($object_id);
+        $object_fields = $object->getType()->getFieldTypes();
 
         // TODO: Check in this point if user has rights to access to that service settings
-        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        // if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
             // $system_fields = $this->container->getParameter("acs_settings.system_fields");
-            //$user_fields = array_merge($user_fields, $system_fields);
-        }
+            // $user_fields = array_merge($user_fields, $system_fields);
+        // }
 
-        $em = $this->getDoctrine()->getManager();
 
         $user = $this->get('security.context')->getToken()->getUser();
 
         // $form_collection = new ConfigSettingCollectionType($user_fields);
         // Adding one form for each setting field
-        foreach($user_fields as $id => $field_config){
+        foreach($object_fields as $id => $field_config){
             // TODO: To get from config.yml
             $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy(
                 array(
                     'user' => $user->getId(),
-                    'setting_key' => $field_config['setting_key'],
-                    'focus' => $field_config['focus'],
+                    'setting_key' => $field_config->getSettingKey(),
+                    'focus' => 'object_setting',
+                    // TODO uncouple this
+                    'service' => $object,
                 ));
             if(!count($setting)){
                 $setting = new $class_name;
-                $setting->setSettingKey($field_config['setting_key']);
-                $setting->setValue($field_config['default_value']);
-                $setting->setContext($field_config['context']);
-                $setting->setLabel($field_config['label']);
-                $setting->setType($field_config['field_type']);
-                if(isset($field_config['choices']))
-                    $setting->setChoices($field_config['choices']);
-                $setting->setFocus($field_config['focus']);
+                $setting->setSettingKey($field_config->getSettingKey());
+                $setting->setValue($field_config->getDefaultValue());
+                $setting->setContext($field_config->getContext());
+                $setting->setLabel($field_config->getLabel());
+                $setting->setType($field_config->getType());
+                // TODO: implement choices
+                // if(isset($field_config['choices']))
+                    // $setting->setChoices($field_config['choices']);
+                $setting->setFocus('object_setting');
+                // TODO: Uncouple this
+                $setting->setService($object);
                 $user->addSetting($setting);
                 $em->persist($user);
                 $em->flush();
-            }else{
-                if(isset($field_config['choices']))
-                    $setting->setChoices($field_config['choices']);
-                $setting->setLabel($field_config['label']);
-                $setting->setType($field_config['field_type']);
             }
         }
 
-        $form   = $this->createForm(new ConfigSettingCollectionType($user_fields), $user);
+        return $this->redirect($this->generateUrl('settings'));
 
-        return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
-            'entity' => $user,
-            'form'   => $form->createView(),
-        ));
     }
 
     /**
@@ -86,49 +84,90 @@ class ConfigSettingController extends Controller
      */
     public function userSettingsAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
         $class_name = $this->container->getParameter('acs_settings.setting_class');
         $user_fields = $this->container->getParameter("acs_settings.user_fields");
+        $user = $this->get('security.context')->getToken()->getUser();
+
         if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
             $system_fields = $this->container->getParameter("acs_settings.system_fields");
             $user_fields = array_merge($user_fields, $system_fields);
         }
 
-        $em = $this->getDoctrine()->getManager();
-
-        $user = $this->get('security.context')->getToken()->getUser();
+        // TODO: Transform object_fields to config like array
+        // TODO externalize with event dispatcher
+        // Get the object fields
+        $settings_objects = $em->getRepository('ACSACSPanelBundle:Service')->findBy(array(
+            'user' => $user
+        ));
+        $object_settings = array();
+        foreach ($settings_objects as $setting_obj){
+            $object_fields = $setting_obj->getType()->getFieldTypes();
+            $num_objects = count($object_fields);
+            foreach($object_fields as $field){
+                $i = 1;
+                $object_settings[] = array(
+                    'setting_key' => $field->getSettingKey(),
+                    'label' => $field->getLabel(),
+                    'field_type' => $field->getType(),
+                    'default_value' => $field->getDefaultValue(),
+                    'context' => $field->getContext(),
+                    'focus' => 'object_setting',
+                    'service_id' => $setting_obj->getId(),
+                );
+                if($i < $num_objects) $i++;
+            }
+        }
+        $user_fields = array_merge($user_fields, $object_settings);
 
         // $form_collection = new ConfigSettingCollectionType($user_fields);
         // Adding one form for each setting field
         foreach($user_fields as $id => $field_config){
             // TODO: To get from config.yml
-            $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy(
-                array(
-                    'user' => $user->getId(),
-                    'setting_key' => $field_config['setting_key'],
-                    'focus' => $field_config['focus'],
-                ));
-            if(!count($setting)){
+            // print_r($field_config);
+            $params = array(
+                'user' => $user->getId(),
+                'setting_key' => $field_config['setting_key'],
+                'focus' => $field_config['focus'],
+            );
+            if(isset($field_config['service_id']))
+                $params['service'] = $field_config['service_id'];
+
+            // Get already created setting
+            $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($params);
+
+            /* if(!count($setting)){
+                // print_r($field_config);
                 $setting = new $class_name;
                 $setting->setSettingKey($field_config['setting_key']);
                 $setting->setValue($field_config['default_value']);
                 $setting->setContext($field_config['context']);
                 $setting->setLabel($field_config['label']);
                 $setting->setType($field_config['field_type']);
-                if(isset($field_config['choices']))
-                    $setting->setChoices($field_config['choices']);
                 $setting->setFocus($field_config['focus']);
-                $user->addSetting($setting);
-                $em->persist($user);
-                $em->flush();
-            }else{
+
                 if(isset($field_config['choices']))
                     $setting->setChoices($field_config['choices']);
+
+
+                $user->addSetting($setting);
+                //$em->persist($user);
+                $em->flush();
+            }
+            else{*/
+                if(isset($field_config['choices']))
+                    $setting->setChoices($field_config['choices']);
+                if(isset($field_config['service_id'])){
+                    $service = $em->getRepository('ACSACSPanelBundle:Service')->findOneById($field_config['service_id']);
+                    $setting->setService($service);
+                }
                 $setting->setLabel($field_config['label']);
                 $setting->setType($field_config['field_type']);
-            }
+            //}
         }
 
-        $form   = $this->createForm(new ConfigSettingCollectionType($user_fields), $user);
+        $form   = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
 
         return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
             'entity' => $user,
@@ -154,42 +193,50 @@ class ConfigSettingController extends Controller
             throw $this->createNotFoundException('Unable to find ConfigSetting entity.');
         }
 
-        $editForm = $this->createForm(new ConfigSettingCollectionType($user_fields), $entity);
+        $editForm = $this->createForm(new ConfigSettingCollectionType($user_fields,$em), $entity);
 
         $editForm->bind($request);
 
 
         $postData = $request->request->get('acs_settings_usersettings');
-        //print_r($postData);
 
+        // TODO: Check security issues not to call this method
         //if ($editForm->isValid()) {
-            if(isset($postData['settings'])){
+        if(isset($postData['settings'])){
                 $settings = $postData['settings'];
 
+                print_r($settings);
                 foreach ($settings as $setting) {
 
                     // TODO: To get from config.yml
-                    $panelsetting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy(
-                        array(
-                            'user' => $entity->getId(),
-                            'setting_key' => $setting['setting_key'],
-                            'focus' => 'user_setting',
-                        ));
+                    $args = array(
+                        'user' => $entity->getId(),
+                        'setting_key' => $setting['setting_key'],
+                    );
+                    if(isset($setting['service_id'])){
+                        $service = $em->getRepository('ACSACSPanelBundle:Service')->find($setting['service_id']);
+                        $args['service'] = $service;
+                    }
+                    $panelsetting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($args);
                     if($panelsetting){
                         $panelsetting->setValue($setting['value']);
                         $em->persist($panelsetting);
+                        $em->flush();
                     }else{
                         //$new_setting = new $class_name;
                         $new_setting = new PanelSetting();
                         $new_setting->setSettingKey($setting['setting_key']);
                         $new_setting->setValue($setting['value']);
                         $new_setting->setContext($setting['context']);
-                        $new_setting->setFocus('user_setting');
+                        $new_setting->setFocus($setting['focus']);
                         $new_setting->setUser($entity);
+                        $em->persist($entity);
                     }
                 }
                 $em->flush();
             //}
+
+            // throw $this->createNotFoundException('Testing.');
 
             return $this->redirect($this->generateUrl('settings'));
         }

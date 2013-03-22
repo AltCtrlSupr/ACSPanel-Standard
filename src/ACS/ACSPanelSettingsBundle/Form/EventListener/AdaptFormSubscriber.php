@@ -43,6 +43,10 @@ class AdaptFormSubscriber implements EventSubscriberInterface
             return;
         }
 
+        if($data->getService()){
+                $form->add($this->factory->createNamed('service_id','hidden',$data->getService()->getId(),array('mapped' => false)));
+        }
+
         switch($data->getType()){
             case 'select':
                 $choices = $data->getChoices();
@@ -53,11 +57,10 @@ class AdaptFormSubscriber implements EventSubscriberInterface
                 break;
             case 'text':
                 $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));
-
                 break;
 
         }
-        $form->add($this->factory->createNamed('type','hidden',$data->getType(),array()));
+        // $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));
     }
 
 }

@@ -298,7 +298,7 @@ class Service
         $this->httpd_hosts = new \Doctrine\Common\Collections\ArrayCollection();
         $this->mail_domains = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add databases
      *
@@ -308,7 +308,7 @@ class Service
     public function addDatabase(\ACS\ACSPanelBundle\Entity\DB $databases)
     {
         $this->databases[] = $databases;
-    
+
         return $this;
     }
 
@@ -325,7 +325,7 @@ class Service
     /**
      * Get databases
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDatabases()
     {
@@ -341,7 +341,7 @@ class Service
     public function addDnsDomain(\ACS\ACSPanelBundle\Entity\DnsDomain $dnsDomains)
     {
         $this->dns_domains[] = $dnsDomains;
-    
+
         return $this;
     }
 
@@ -358,7 +358,7 @@ class Service
     /**
      * Get dns_domains
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDnsDomains()
     {
@@ -374,7 +374,7 @@ class Service
     public function addFtpUser(\ACS\ACSPanelBundle\Entity\FtpdUser $ftpUsers)
     {
         $this->ftp_users[] = $ftpUsers;
-    
+
         return $this;
     }
 
@@ -391,7 +391,7 @@ class Service
     /**
      * Get ftp_users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFtpUsers()
     {
@@ -407,7 +407,7 @@ class Service
     public function addHttpdHost(\ACS\ACSPanelBundle\Entity\HttpdHost $httpdHosts)
     {
         $this->httpd_hosts[] = $httpdHosts;
-    
+
         return $this;
     }
 
@@ -424,7 +424,7 @@ class Service
     /**
      * Get httpd_hosts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getHttpdHosts()
     {
@@ -440,7 +440,7 @@ class Service
     public function addMailDomain(\ACS\ACSPanelBundle\Entity\MailDomain $mailDomains)
     {
         $this->mail_domains[] = $mailDomains;
-    
+
         return $this;
     }
 
@@ -457,7 +457,7 @@ class Service
     /**
      * Get mail_domains
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMailDomains()
     {
@@ -478,17 +478,55 @@ class Service
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
         return $this->enabled;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $settings;
+
+
+    /**
+     * Add settings
+     *
+     * @param \ACS\ACSPanelBundle\Entity\PanelSettings $settings
+     * @return Service
+     */
+    public function addSetting(\ACS\ACSPanelBundle\Entity\PanelSetting $settings)
+    {
+        $this->settings[] = $settings;
+
+        return $this;
+    }
+
+    /**
+     * Remove settings
+     *
+     * @param \ACS\ACSPanelBundle\Entity\PanelSettings $settings
+     */
+    public function removeSetting(\ACS\ACSPanelBundle\Entity\PanelSetting $settings)
+    {
+        $this->settings->removeElement($settings);
+    }
+
+    /**
+     * Get settings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSettings()
+    {
+        return $this->settings;
     }
 }

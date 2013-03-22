@@ -210,10 +210,32 @@ class DB
 			$kernel = $kernel->getKernel();
 		}
 
-		$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
+        $admin_user = '';
+        $admin_password = '';
+        $settings = $this->getService()->getSettings();
+        foreach ($settings as $setting){
+            if($setting->getSettingKey() == 'admin_user')
+                $admin_user = $setting->getValue();
+            if($setting->getSettingKey() == 'admin_password')
+                $admin_password = $setting->getValue();
+        }
+        $server_ip = $this->getService()->getIp();
+
+
+        $config = new \Doctrine\DBAL\Configuration();
+        //..
+        $connectionParams = array(
+            'user' => $admin_user,
+            'password' => $admin_password,
+            'host' => $server_ip,
+            'driver' => 'pdo_mysql',
+        );
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+		//$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
 
         $sql = "CREATE DATABASE ".$this->getName();
-        $em->executeQuery($sql);
+        $conn->executeQuery($sql);
 
 		return $this;
 

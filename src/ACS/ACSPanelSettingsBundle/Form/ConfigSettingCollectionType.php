@@ -16,10 +16,12 @@ use ACS\ACSPanelSettingsBundle\Form\EventListener\AdaptFormSubscriber;
 class ConfigSettingCollectionType extends AbstractType
 {
     public $user_fields;
+    public $em;
 
-    public function __construct($user_fields)
+    public function __construct($user_fields, $em)
     {
         $this->user_fields = $user_fields;
+        $this->em = $em;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -29,7 +31,7 @@ class ConfigSettingCollectionType extends AbstractType
         //$builder->addEventSubscriber($subscriber);
 
         $builder->add('settings', 'collection', array(
-            'type' => new ConfigSettingType(),
+            'type' => new ConfigSettingType($this->em),
             'allow_add' => true,
             'prototype' => false,
             'options' => array(

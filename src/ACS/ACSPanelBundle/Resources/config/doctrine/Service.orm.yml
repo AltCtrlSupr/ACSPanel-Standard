@@ -34,6 +34,9 @@ ACS\ACSPanelBundle\Entity\Service:
         databases:
             targetEntity: DB
             mappedBy: service
+        settings:
+            targetEntity: PanelSetting
+            mappedBy: service
             #cascade: [ "persist" ]
         dns_domains:
             targetEntity: DnsDomain
