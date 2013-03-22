@@ -27,7 +27,9 @@ class ConfigSettingController extends Controller
     public function objectSettingsAction()
     {
         $class_name = $this->container->getParameter('acs_settings.setting_class');
-        $user_fields = $this->container->getParameter("acs_settings.user_fields");
+
+        // Get the object fields
+        $object_fields = $this->container->getParameter("acs_settings.user_fields");
 
         // TODO: Check in this point if user has rights to access to that service settings
         if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
