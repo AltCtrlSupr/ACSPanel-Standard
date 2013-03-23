@@ -12,7 +12,11 @@ class KernelSubscriber implements EventSubscriberInterface
     {
         return array(
             // must be registered before the default Locale listener
-            KernelEvents::REQUEST => array(array('switchUserLanguage', 0)),
+            KernelEvents::REQUEST => array(array(
+                'switchUserLanguage', 0
+            ),array(
+                'switchUserTheme', 0,
+            )),
         );
     }
 
@@ -46,5 +50,35 @@ class KernelSubscriber implements EventSubscriberInterface
 
         }
 
+    }
+
+    public function switchUserTheme(GetResponseEvent $event)
+    {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $container = $kernel->getContainer();
+
+        $activeTheme = $container->get('liip_theme.active_theme');
+
+        $settings_manager = $kernel->getContainer()->get('acs.setting_manager');
+        $security = $kernel->getContainer()->get('security.context');
+
+        $user = null;
+        if($security->getToken()){
+            $user = $security->getToken()->getUser();
+        }
+
+        if($user && 'anon.' != $user){
+            $theme = $settings_manager->getUserSetting('user_theme',$user);
+
+            if($theme){
+                $activeTheme->setName($theme);
+            }
+
+        }
     }
 }

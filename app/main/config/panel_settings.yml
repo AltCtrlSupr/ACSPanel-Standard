@@ -17,11 +17,14 @@ acsacs_panel_settings:
            #TODO: add support to set choices
            #choices: ['English' : 'en','es','ca']
            focus: 'user_setting'
-        test:
-           setting_key: test_setting
-           label: 'Test setting'
-           field_type: text
-           default_value: 'testing...'
+        theme:
+           setting_key: user_theme
+           label: 'Theme'
+           field_type: select
+           choices:
+             default: 'Default'
+             terminal: 'Terminal'
+           default_value: 'default'
            context: 'User settings'
            #TODO: add support to set choices
            #choices: ['English' : 'en','es','ca']

@@ -8,7 +8,7 @@
 
     <ul class="tab-nav tabset">
     {% for context in contexts %}
-    <li><a class="{% if loop.first %}active{% endif %}tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
+    <li><a class="{% if loop.first %}active {% endif %}tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
     {% endfor %}
     </ul>
     <div class="tabs-content">

@@ -105,9 +105,7 @@ class ConfigSettingController extends Controller
         $object_settings = array();
         foreach ($settings_objects as $setting_obj){
             $object_fields = $setting_obj->getType()->getFieldTypes();
-            $num_objects = count($object_fields);
             foreach($object_fields as $field){
-                $i = 1;
                 $object_settings[] = array(
                     'setting_key' => $field->getSettingKey(),
                     'label' => $field->getLabel(),
@@ -117,7 +115,6 @@ class ConfigSettingController extends Controller
                     'focus' => 'object_setting',
                     'service_id' => $setting_obj->getId(),
                 );
-                if($i < $num_objects) $i++;
             }
         }
         $user_fields = array_merge($user_fields, $object_settings);
@@ -148,15 +145,19 @@ class ConfigSettingController extends Controller
                 $setting->setType($field_config['field_type']);
                 $setting->setFocus($field_config['focus']);
 
+                if(isset($field_config['service_id'])){
+                    $service = $em->getRepository('ACSACSPanelBundle:Service')->findOneById($field_config['service_id']);
+                    $setting->setService($service);
+                }
                 if(isset($field_config['choices']))
+
                     $setting->setChoices($field_config['choices']);
 
 
                 $user->addSetting($setting);
                 //$em->persist($user);
                 $em->flush();
-            }
-            else{
+            } else {
                 if(isset($field_config['choices']))
                     $setting->setChoices($field_config['choices']);
                 if(isset($field_config['service_id'])){
