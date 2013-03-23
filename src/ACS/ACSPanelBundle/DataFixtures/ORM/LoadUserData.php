@@ -9,12 +9,22 @@ class LoadUserData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $userAdmin = new FosUser();
-        $userAdmin->setUsername('admin');
-        $userAdmin->setPassword('1234');
+        global $kernel;
 
-        $manager->persist($userAdmin);
-        $manager->flush();
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $usermanager = $kernel->getContainer()->get('fos_user.user_manager');
+
+        $userAdmin = $usermanager->createUser();
+        $userAdmin->setUsername('admin');
+        $userAdmin->setEmail('admin@admin');
+        $userAdmin->setEnabled(true);
+        $userAdmin->setPlainPassword('1234');
+        $userAdmin->addRole('ROLE_ADMIN');
+
+        $usermanager->updateUser($userAdmin);
     }
 }
 

@@ -657,4 +657,8 @@ class FosUser extends BaseUser
         return null;
 
     }
+
+    public function setEmail($email){
+        $this->email = $email;
+    }
 }
