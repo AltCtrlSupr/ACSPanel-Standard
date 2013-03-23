@@ -58,6 +58,12 @@ class DomainController extends Controller
      */
     public function newAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+        if (!$user->canUseResource('Domain',$em)) {
+            throw new \Exception('You don\'t have enough resources!');
+        }
+
         $entity = new Domain();
         $form   = $this->createForm(new DomainType(), $entity);
 

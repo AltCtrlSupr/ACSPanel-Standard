@@ -103,6 +103,22 @@ ACS\ACSPanelBundle\Entity\Plan:
             column: max_ftpd_user
             gedmo:
                 - versioned
+        maxDb:
+            type: integer
+            lenght: 8
+            nullable: true
+            column: max_db
+            gedmo:
+                - versioned
+        maxDbUser:
+            type: integer
+            lenght: 8
+            nullable: true
+            column: max_db_user
+            gedmo:
+                - versioned
+
+
         createdAt:
             type: datetime
             column: created_at

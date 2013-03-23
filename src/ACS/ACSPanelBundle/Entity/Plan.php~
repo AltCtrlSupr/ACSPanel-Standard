@@ -491,4 +491,32 @@ class Plan
     {
 	    $this->updatedAt = new \DateTime();
     }
+    /**
+     * @var integer
+     */
+    private $maxDomain;
+
+
+    /**
+     * Set maxDomain
+     *
+     * @param integer $maxDomain
+     * @return Plan
+     */
+    public function setMaxDomain($maxDomain)
+    {
+        $this->maxDomain = $maxDomain;
+    
+        return $this;
+    }
+
+    /**
+     * Get maxDomain
+     *
+     * @return integer 
+     */
+    public function getMaxDomain()
+    {
+        return $this->maxDomain;
+    }
 }
