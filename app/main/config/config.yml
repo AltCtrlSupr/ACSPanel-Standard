@@ -3,7 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: doctrine_extensions.yml }
     - { resource: panel_settings.yml }
-
+    - { resource: @ACSACSPanelBundle/Resources/config/services.yml }
 framework:
     translator:      { fallback: en }	
     secret:          %secret%
@@ -84,6 +84,8 @@ fos_user:
     group:
         group_class: ACS\ACSPanelBundle\Entity\FosGroup
     registration:
+        form:
+            type: acs_user_registration
         confirmation:
             enabled:    true
     # Get those settings in dynamic way

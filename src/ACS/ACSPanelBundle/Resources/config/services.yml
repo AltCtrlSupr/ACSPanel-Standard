@@ -27,6 +27,12 @@ services:
         class: ACS\ACSPanelBundle\Modules\ServerActions
         arguments: ['@doctrine.orm.entity_manager', '@service_container']
 
+    # Registration class for the form
+    acs_user.registration.form.type:
+        class: ACS\ACSPanelBundle\Form\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+        - { name: form.type, alias: acs_user_registration }
 
     acs.form.registerHosting:
         class: ACS\ACSPanelBundle\Form\RegisterHostingType
