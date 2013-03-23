@@ -56,6 +56,10 @@ Then you are ready to create the acspanel basic schema executing the next comman
 
     php app/console doctrine:schema:create
 
+You can load some basic fixtures doing next, like basic groups and admin to start using the panel:
+
+    php app/main/console doctrine:fixtures:load
+
 You should install the assets as well:
 
     php app/console assets:install --symlink
