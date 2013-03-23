@@ -4,8 +4,8 @@
 
 <div class="form_box">
     <form action="{{ path('settings_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
-        {% for field in form %}
-            {{ form_row(field) }}
+        {% for i in 0..form | size %}
+        {% form_widget(form.i) %}
         {% endfor %}
         <p>
         <button type="submit">{%trans%}Save{%endtrans%}</button>
