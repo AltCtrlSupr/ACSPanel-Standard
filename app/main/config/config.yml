@@ -83,6 +83,13 @@ fos_user:
     user_class: ACS\ACSPanelBundle\Entity\FosUser
     group:
         group_class: ACS\ACSPanelBundle\Entity\FosGroup
+    registration:
+        confirmation:
+            enabled:    true
+    # Get those settings in dynamic way
+    from_email:
+        address:        noreply@acs.li
+        sender_name:    ACS System Admin
 
 # app/config/config.yml
 knp_menu:
@@ -90,6 +97,7 @@ knp_menu:
         template: ACSACSPanelBundle:Menu:knp_menu.html.twig
     templating: false # if true, enables the helper for PHP templates
     default_renderer: twig # The renderer to use, list is also available by default
+
 
 # app/config/config.yml
 stof_doctrine_extensions:

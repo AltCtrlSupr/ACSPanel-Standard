@@ -329,7 +329,14 @@ class FosUser extends BaseUser
         if ($service) {
             if ($service->getToken()) {
                 $user = $service->getToken()->getUser();
-                return $this->setParentUser($user);
+                // TODO: Get system user and set if its register from register form
+                if($user != 'anon.'){
+                    return $this->setParentUser($user);
+                }else{
+                    // $system_user = new FosUser();
+                    // $system_user->setId(1);
+                    // return $this->setParentUser($system_user);
+                }
             }
         }
     }

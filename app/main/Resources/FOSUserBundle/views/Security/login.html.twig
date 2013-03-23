@@ -18,6 +18,12 @@
                     <input type="password" id="password" name="_password" required="required" />
                 </li>
                 </li>
+                <li style="text-align: right;">
+                    <a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a>
+                </li>
+                <li style="text-align: right;">
+                    <a href="{{ path('fos_user_resetting_request') }}">{% trans %}Forgot your password?{% endtrans %}</a>
+                </li>
                 <li>
                     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
                 </li>

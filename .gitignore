@@ -3,6 +3,7 @@
 /app/logs/
 /vendor/
 /app/main/config/parameters.ini
+/app/main/config/config_dev.yml
 /app/main/config/parameters.yml
 *.un~
 /app/main/cache/
