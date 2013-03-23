@@ -9,11 +9,6 @@ class LoadGroupData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $sadm_group = new FosGroup();
-        $sadm_group->setName('Panel Super User');
-        $sadm_group->addRole('ROLE_SUPER_ADMIN');
-        $manager->persist($sadm_group);
-
         $adm_group = new FosGroup();
         $adm_group->setName('Administrators');
         $adm_group->addRole('ROLE_ADMIN');

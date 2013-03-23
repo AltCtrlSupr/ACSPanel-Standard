@@ -209,29 +209,29 @@ $em->persist($dnsrecord);
 }
 
 
-/**
- * Displays a form to edit an existing HttpdHost entity.
- *
- */
-public function editAction($id)
-{
-    $em = $this->getDoctrine()->getManager();
+    /**
+     * Displays a form to edit an existing HttpdHost entity.
+     *
+     */
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
 
-    $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
+        $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
 
-    if (!$entity) {
-        throw $this->createNotFoundException('Unable to find HttpdHost entity.');
-}
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find HttpdHost entity.');
+        }
 
-$editForm = $this->createForm(new UserHttpdHostType(), $entity);
-$deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new UserHttpdHostType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
 
-return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
-    'entity'      => $entity,
-    'edit_form'   => $editForm->createView(),
+        return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
-}
+    }
 
 /**
  * Edits an existing HttpdHost entity.

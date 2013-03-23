@@ -150,6 +150,7 @@ class FosUserController extends Controller
      */
     public function newAction()
     {
+
         $entity = new FosUser();
 
         $form = $this->createForm(new FosUserType(), $entity, array(

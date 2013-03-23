@@ -91,7 +91,7 @@ class ConfigSettingController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
 
         // If is admins we load the global system settings
-        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
             $system_fields = $this->container->getParameter("acs_settings.system_fields");
             $user_fields = array_merge($user_fields, $system_fields);
         }

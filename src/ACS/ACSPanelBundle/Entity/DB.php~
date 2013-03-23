@@ -239,9 +239,11 @@ class DB
         $users = $this->getDatabaseUsers();
         if(count($users)){
             foreach($users as $usr){
-                $sql = "CREATE USER '".$usr->getUsername()."'@'%' IDENTIFIED BY 'randompassword'";
+                $sql = "CREATE USER '".$usr->getUsername()."'@'%' IDENTIFIED BY '".$usr->getPassword()."'";
                 $conn->executeQuery($sql);
-                $sql = "GRANT ALL PRIVILEGES ON `".$this."` . * TO '".$usr->getUsername()."'@'%'";
+                $sql = "GRANT ALL PRIVILEGES ON `".$this."`.* TO '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+                $sql = "FLUSH PRIVILEGES";
                 $conn->executeQuery($sql);
             }
         }
@@ -348,12 +350,9 @@ class DB
         $users = $this->getDatabaseUsers();
         if(count($users)){
             foreach($users as $usr){
-                exit;
-                $sql = "GRANT ALL PRIVILEGES ON `".$this->getName()."` . * TO '".$usr->getUsername."'@'localhost'";
+                $sql = "GRANT ALL PRIVILEGES ON `".$this->getName()."` . * TO '".$usr->getUsername()."'@'%'";
                 $conn->executeQuery($sql);
-                $sql = "DROP USER IF EXISTS '".$usr->getUsername()."'@'localhost'";
-                $conn->executeQuery($sql);
-                $sql = "DROP USER IF EXISTS '".$usr->getUsername()."'@'%'";
+                $sql = "DROP USER '".$usr->getUsername()."'@'%'";
                 $conn->executeQuery($sql);
             }
         }

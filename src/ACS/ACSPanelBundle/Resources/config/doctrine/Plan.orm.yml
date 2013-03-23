@@ -54,6 +54,13 @@ ACS\ACSPanelBundle\Entity\Plan:
             column: max_httpd_user
             gedmo:
                 - versioned
+        maxDomain:
+            type: integer
+            lenght: 8
+            nullable: true
+            column: max_domain
+            gedmo:
+                - versioned
         maxDnsDomain:
             type: integer
             lenght: 8

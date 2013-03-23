@@ -240,6 +240,8 @@ class DatabaseUser
      */
     public function removeUserInDatabase()
     {
+        return;
+
 		global $kernel;
 
 		if ('AppCache' == get_class($kernel)) {
@@ -267,11 +269,8 @@ class DatabaseUser
         );
         $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
         $sql = "GRANT ALL PRIVILEGES ON `".$this->getDb()."` . * TO '".$this->getUsername()."'@'%'";
-        echo $sql;
         $conn->executeQuery($sql);
         $sql = "DROP USER IF EXISTS '".$this->getUsername()."'@'%'";
-        echo $sql;
-        exit;
         $conn->executeQuery($sql);
 
 

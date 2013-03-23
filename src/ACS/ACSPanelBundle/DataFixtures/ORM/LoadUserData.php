@@ -18,11 +18,11 @@ class LoadUserData implements FixtureInterface
         $usermanager = $kernel->getContainer()->get('fos_user.user_manager');
 
         $userAdmin = $usermanager->createUser();
-        $userAdmin->setUsername('admin');
-        $userAdmin->setEmail('admin@admin');
+        $userAdmin->setUsername('superadmin');
+        $userAdmin->setEmail('superadmin@admin');
         $userAdmin->setEnabled(true);
         $userAdmin->setPlainPassword('1234');
-        $userAdmin->addRole('ROLE_ADMIN');
+        $userAdmin->addRole('ROLE_SUPER_ADMIN');
 
         $usermanager->updateUser($userAdmin);
     }
