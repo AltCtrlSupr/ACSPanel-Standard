@@ -58,6 +58,9 @@ class AdaptFormSubscriber implements EventSubscriberInterface
             case 'text':
                 $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));
                 break;
+            case 'password':
+                $form->add($this->factory->createNamed('value','password',$data->getValue(),array('label' => $data->getLabel())));
+                break;
 
         }
         // $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));

@@ -168,10 +168,21 @@ class ConfigSettingController extends Controller
             }
         }
 
+        $contexts_rep = $em->getRepository('ACSACSPanelBundle:PanelSetting');
+        $query = $contexts_rep->createQueryBuilder('ps')
+            ->select('ps.context')
+            ->where('ps.user = ?1')
+            ->groupBy('ps.context')
+            ->orderBy('ps.context')
+            ->setParameter('1',$user)
+            ->getQuery();
+        $contexts = $query->execute();
+
         $form   = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
 
         return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
             'entity' => $user,
+            'contexts' => $contexts,
             'form'   => $form->createView(),
         ));
     }

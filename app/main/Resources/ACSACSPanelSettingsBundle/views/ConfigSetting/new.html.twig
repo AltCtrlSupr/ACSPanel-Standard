@@ -4,9 +4,30 @@
 
 <div class="form_box">
     <form action="{{ path('settings_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
-        {% for field in form %}
-            {{ form_row(field) }}
+    {{ form_errors(form) }}
+
+    <ul class="tab-nav tabset">
+    {% for context in contexts %}
+    <li><a class="{% if loop.first %}active{% endif %}tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
+    {% endfor %}
+    </ul>
+    <div class="tabs-content">
+    {% for context in contexts %}
+    <div class="tab-holder" id="{{ context.context | replace({' ':'_'}) | lower }}">
+        {% for setts in form %}
+            {% for setting in setts %}
+                {% if setting.context.vars.value == context.context %}
+                    {{ form_widget(setting) }}
+                {% endif %}
+            {% endfor %}
         {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+
+
+    {{ form_rest(form) }}
+
         <p>
         <button type="submit">{%trans%}Save{%endtrans%}</button>
         </p>

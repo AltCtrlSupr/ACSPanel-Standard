@@ -17,12 +17,11 @@
         {% endblock %}
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery/jquery.min.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery/jquert-ui/jquery-ui-1.10.0.custom.min.js')}}"></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/plugins/localisation/jquery.localisation-min.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/plugins/tmpl/jquery.tmpl.1.1.1.js') }}" ></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/ui.multiselect.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.qtip.min.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/main.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/settings_tabs.js') }}" ></script>
             {% if term is defined %}
             <script type="text/javascript">
                 var hls_query  = "{{ term }}";
