@@ -86,10 +86,6 @@ ACSACSPanelBundle_databaseuser:
     resource: "@ACSACSPanelBundle/Resources/config/routing/databaseuser.yml"
     prefix:   /databaseuser
 
-ACSACSPanelBundle_httpdalias:
-    resource: "@ACSACSPanelBundle/Resources/config/routing/httpdalias.yml"
-    prefix:   /httpdalias
-
 ACSACSPanelBundle_domain:
     resource: "@ACSACSPanelBundle/Resources/config/routing/domain.yml"
     prefix:   /domain

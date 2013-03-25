@@ -13,7 +13,7 @@ class DomainRepository extends EntityRepository
 {
     public function findByUser(FosUser $user)
     {
-        $query = $this->_em->createQuery('SELECT a FROM ACS\ACSPanelBundle\Entity\HttpdAlias a INNER JOIN a.httpd_host h WHERE h.user = ?1')->setParameter(1, $user->getId());
+        $query = $this->_em->createQuery('SELECT d FROM ACS\ACSPanelBundle\Entity\Domain d WHERE d.user = ?1')->setParameter(1, $user->getId());
         return $query->getResult();
     }
 

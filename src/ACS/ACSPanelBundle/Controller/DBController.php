@@ -58,6 +58,12 @@ class DBController extends Controller
      */
     public function newAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+        if (!$user->canUseResource('Db',$em)) {
+            throw new \Exception('You don\'t have enough resources!');
+        }
+
         $entity = new DB();
 
         // dummy code - this is here just so that the Task has some tags
