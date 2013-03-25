@@ -64,7 +64,7 @@ class MailMailboxController extends Controller
      * Displays a form to create a new MailMailbox entity.
      *
      */
-    public function newAction($maildomain_id)
+    public function newAction($maildomain_id = '')
     {
 
         $em = $this->getDoctrine()->getManager();
