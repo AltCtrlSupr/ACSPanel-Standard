@@ -35,7 +35,7 @@
                 {% if entity.aliases|length %}
                     <ul>
                         {% for alias in entity.aliases %}
-                            <li><a href="{{ path('httpdalias_edit', { 'id': alias.id }) }}"}>{{ alias }}</a></li>
+                            <li>{{ alias }}</li>
                         {% endfor %}
                     </ul>
                 {% endif %}
@@ -52,9 +52,6 @@
                     </li>
                     <li>
                         <a href="{{ path('httpdhost_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('httpdalias_new_with_host', { 'httpdhost_id': entity.id }) }}">{% trans %}add alias{% endtrans %}</a>
                     </li>
                 </ul>
             </td>
