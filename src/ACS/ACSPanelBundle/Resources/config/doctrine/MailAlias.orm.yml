@@ -42,9 +42,9 @@ ACS\ACSPanelBundle\Entity\MailAlias:
           gedmo:
             timestampable:
               on: update
-    oneToOne:
+    manyToOne:
         domain:
-            targetEntity: Domain
+            targetEntity: MailDomain
             gedmo:
                 - versioned
             joinColumn:

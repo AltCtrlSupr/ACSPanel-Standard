@@ -10,6 +10,10 @@ mailmailbox_new:
     pattern:  /new
     defaults: { _controller: "ACSACSPanelBundle:MailMailbox:new" }
 
+mailmailbox_new_with_domain:
+    pattern:  /{maildomain_id}/new
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:new" }
+
 mailmailbox_create:
     pattern:  /create
     defaults: { _controller: "ACSACSPanelBundle:MailMailbox:create" }

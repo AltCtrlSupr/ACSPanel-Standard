@@ -51,11 +51,21 @@ class MailAliasController extends Controller
             'delete_form' => $deleteForm->createView(),        ));
     }
 
+    public function showWidgetAction($maildomain_id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $entities = $em->getRepository('ACSACSPanelBundle:MailAlias')->findBy(array('domain'=>$maildomain_id));
+      return $this->render('ACSACSPanelBundle:MailAlias:show_widget.html.twig', array(
+         'entities' => $entities,
+      ));
+    }
+
+
     /**
      * Displays a form to create a new MailAlias entity.
      *
      */
-    public function newAction()
+    public function newAction($maildomain_id = '')
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
@@ -64,6 +74,10 @@ class MailAliasController extends Controller
         }
 
         $entity = new MailAlias();
+
+		  if($maildomain_id != ''){
+		  		$entity->setDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
+		  }
         $form   = $this->createForm(new MailAliasType(), $entity);
 
         return $this->render('ACSACSPanelBundle:MailAlias:new.html.twig', array(
@@ -183,4 +197,21 @@ class MailAliasController extends Controller
             ->getForm()
         ;
     }
+
+    public function setenabledAction(Request $request, $id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $entity = $em->getRepository('ACSACSPanelBundle:MailAlias')->find($id);
+
+      if (!$entity) {
+         throw $this->createNotFoundException('Unable to find Mail Alias entity.');
+      }
+
+      $entity->setEnabled(!$entity->getEnabled());
+      $em->persist($entity);
+      $em->flush();
+
+      return $this->redirect($this->generateUrl('mailalias'));
+    }
+
 }
