@@ -97,10 +97,10 @@ class DBController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $user = $this->get('security.context')->getToken()->getUser();
-            $entity->setName($user->getUsername().'sql_'.$entity->getName());
+            $entity->setName($user->getUsername().'_'.$entity->getName());
             $users = $entity->getDatabaseUsers();
             foreach($users as $dbuser){
-                $dbuser->setUsername($user->getUsername().'sql_'.$dbuser->getUsername());
+                $dbuser->setUsername($user->getUsername().'_'.$dbuser->getUsername());
                 $dbuser->setDb($entity);
             }
             $em->persist($entity);
