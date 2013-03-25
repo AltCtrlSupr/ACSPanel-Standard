@@ -38,16 +38,9 @@ ACS\ACSPanelBundle\Entity\MailDomain:
             column: max_quota
             gedmo:
                 - versioned
-        transport:
-            type: string
-            length: 255
-            fixed: false
-            nullable: false
-            gedmo:
-                - versioned
         backupmx:
             type: boolean
-            nullable: false
+            nullable: true
             gedmo:
                 - versioned
         enabled:

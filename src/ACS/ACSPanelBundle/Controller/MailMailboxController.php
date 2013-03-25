@@ -51,11 +51,20 @@ class MailMailboxController extends Controller
             'delete_form' => $deleteForm->createView(),        ));
     }
 
+	 public function showWidgetAction($maildomain_id)
+	 {
+	 	$em = $this->getDoctrine()->getManager();
+		$entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findBy(array('domain'=>$maildomain_id));
+		return $this->render('ACSACSPanelBundle:MailMailbox:show_widget.html.twig', array(
+			'entities' => $entities,
+		));
+	 }
+
     /**
      * Displays a form to create a new MailMailbox entity.
      *
      */
-    public function newAction()
+    public function newAction($maildomain_id = '')
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -65,6 +74,9 @@ class MailMailboxController extends Controller
         }
 
         $entity = new MailMailbox();
+        if($maildomain_id != ''){
+            $entity->setDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
+        }
         $form   = $this->createForm(new MailMailboxType(), $entity);
 
         return $this->render('ACSACSPanelBundle:MailMailbox:new.html.twig', array(

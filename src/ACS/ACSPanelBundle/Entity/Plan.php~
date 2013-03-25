@@ -519,4 +519,60 @@ class Plan
     {
         return $this->maxDomain;
     }
+    /**
+     * @var integer
+     */
+    private $maxDb;
+
+    /**
+     * @var integer
+     */
+    private $maxDbUser;
+
+
+    /**
+     * Set maxDb
+     *
+     * @param integer $maxDb
+     * @return Plan
+     */
+    public function setMaxDb($maxDb)
+    {
+        $this->maxDb = $maxDb;
+    
+        return $this;
+    }
+
+    /**
+     * Get maxDb
+     *
+     * @return integer 
+     */
+    public function getMaxDb()
+    {
+        return $this->maxDb;
+    }
+
+    /**
+     * Set maxDbUser
+     *
+     * @param integer $maxDbUser
+     * @return Plan
+     */
+    public function setMaxDbUser($maxDbUser)
+    {
+        $this->maxDbUser = $maxDbUser;
+    
+        return $this;
+    }
+
+    /**
+     * Get maxDbUser
+     *
+     * @return integer 
+     */
+    public function getMaxDbUser()
+    {
+        return $this->maxDbUser;
+    }
 }

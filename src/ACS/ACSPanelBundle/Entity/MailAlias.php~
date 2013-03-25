@@ -286,7 +286,7 @@ class MailAlias
     {
 	    if(!$this->getCreatedAt())
 	    {
-		    $this->created_at = new \DateTime();
+		    $this->createdAt = new \DateTime();
 	    }
     }
 
@@ -295,7 +295,7 @@ class MailAlias
      */
     public function setUpdatedAtValue()
     {
-	    $this->updated_at = new \DateTime();
+	    $this->updatedAt = new \DateTime();
     }
 
 }

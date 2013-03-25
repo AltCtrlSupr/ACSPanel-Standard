@@ -1,10 +1,10 @@
 <?php
-namespace Zashost\SettingsBundle\Entity;
+namespace ACS\ACSPanelSettingsBundle\Entity;
 
-use Zashost\SettingsBundle\Model\ConfigSetting as AbstractConfigSetting;
+use ACS\ACSPanelSettingsBundle\Model\ConfigSetting as AbstractConfigSetting;
 
 /**
- * Zashost\SettingsBundle\Entity\ConfigSetting
+ * ACS\ACSPanelSettingsBundle\Entity\ConfigSetting
  */
 abstract class ConfigSetting extends AbstractConfigSetting
 {
@@ -32,6 +32,21 @@ abstract class ConfigSetting extends AbstractConfigSetting
      * @var string
      */
     private $focus;
+
+    /**
+     * @var string
+     */
+    private $label;
+
+    /**
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @var array
+     */
+    private $choices;
 
     /**
      * Get id
@@ -134,4 +149,74 @@ abstract class ConfigSetting extends AbstractConfigSetting
     {
         return $this->focus;
     }
+    /**
+     * Set label
+     *
+     * @param string $label
+     * @return ConfigSetting
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Get label
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return ConfigSetting
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set choices
+     *
+     * @param array $choices
+     * @return ConfigSetting
+     */
+    public function setChoices($choices)
+    {
+        $this->choices = $choices;
+
+        return $this;
+    }
+
+    /**
+     * Get choices
+     *
+     * @return array
+     */
+    public function getChoices()
+    {
+        return $this->choices;
+    }
+
+
 }

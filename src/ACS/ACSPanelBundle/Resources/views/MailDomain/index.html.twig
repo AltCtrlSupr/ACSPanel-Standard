@@ -19,9 +19,9 @@
             <th>Maxaliases</th>
             <th>Maxmailboxes</th>
             <th>Maxquota</th>
-            <th>Transport</th>
             <th>Backupmx</th>
-            <th>Created</th>
+            <th>Mailbox</th>
+				<th>Alias</th>
             <th>Enabled</th>
             <th>Actions</th>
         </tr>
@@ -34,9 +34,9 @@
             <td>{{ entity.maxAliases }}</td>
             <td>{{ entity.maxMailboxes }}</td>
             <td>{{ entity.maxQuota }}</td>
-            <td>{{ entity.transport }}</td>
             <td>{{ entity.backupmx }}</td>
-            <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+				<td>{% render "ACSACSPanelBundle:MailMailbox:showWidget" with { 'maildomain_id' : entity.id }  %}</td>
+				<td>{% render "ACSACSPanelBundle:MailAlias:showWidget" with { 'maildomain_id' : entity.id }  %}</td>
             <td>
 					<a href="{{ path('maildomain_setenabled', { 'id': entity.id }) }}">
 					 	<img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
@@ -50,6 +50,12 @@
                     <li>
                         <a href="{{ path('maildomain_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
+						  <li>
+								<a href="{{ path('mailmailbox_new_with_domain', { 'maildomain_id': entity.id }) }}">new mailbox</a>
+							</li>
+							<li>
+						  		<a href="{{ path('mailalias_new_with_domain', { 'maildomain_id': entity.id }) }}">new alias</a>
+							</li>
                 </ul>
             </td>
         </tr>

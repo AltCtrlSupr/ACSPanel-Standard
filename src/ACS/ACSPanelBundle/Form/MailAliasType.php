@@ -13,7 +13,6 @@ class MailAliasType extends AbstractType
         $builder
             ->add('address')
             ->add('goto')
-            ->add('enabled')
             ->add('domain')
         ;
     }
