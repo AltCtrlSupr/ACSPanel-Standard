@@ -97,9 +97,8 @@ class MailMailboxController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
-		  		$maildir=explode('@',$entity->getUsername());
-				// TODO: Get "homebase" from config settings
-		  		$entity->setMaildir('/home/'.$maildir[1].'/Maildir');
+				// TODO: Delete from entity
+		  		$entity->setMaildir('/home/Maildir');
 				// TODO: Get from User Plan
 				$entity->setQuota(1000);
 				$entity->setQuotaLimit(1000);
