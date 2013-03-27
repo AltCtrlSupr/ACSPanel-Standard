@@ -29,12 +29,12 @@ ACS\ACSPanelBundle\Entity\MailWBList:
             type: string
             length: 200
             fixed: false
-            nullable: false
+            nullable: true
             gedmo:
                 - versioned
         blacklisted:
             type: boolean
-            nullable: false
+            nullable: true
             gedmo:
                 - versioned
         enabled:

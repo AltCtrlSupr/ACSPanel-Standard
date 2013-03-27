@@ -15,10 +15,6 @@ class MailWBListType extends AbstractType
             ->add('rcpt')
             ->add('reject')
             ->add('blacklisted')
-            ->add('enabled')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('user')
         ;
     }
 

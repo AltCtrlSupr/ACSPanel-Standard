@@ -12,8 +12,6 @@
             <th>Reject</th>
             <th>Blacklisted</th>
             <th>Enabled</th>
-            <th>Createdat</th>
-            <th>Updatedat</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -24,10 +22,16 @@
             <td>{{ entity.sender }}</td>
             <td>{{ entity.rcpt }}</td>
             <td>{{ entity.reject }}</td>
-            <td>{{ entity.blacklisted }}</td>
-            <td>{{ entity.enabled }}</td>
-            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+					<a href="{{ path('mailwblist_setblacklisted', { 'id': entity.id }) }}">
+						<b>{% if entity.blacklisted %} B {% else %} W {% endif %}</b>
+					</a>
+				</td>
+				<td>
+               <a href="{{ path('mailwblist_setenabled', { 'id': entity.id }) }}">
+                  <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+               </a>
+				</td>
             <td>
                 <ul>
                     <li>

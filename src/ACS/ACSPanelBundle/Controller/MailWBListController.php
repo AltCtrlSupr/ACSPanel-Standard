@@ -54,9 +54,16 @@ class MailWBListController extends Controller
      * Displays a form to create a new MailWBList entity.
      *
      */
-    public function newAction()
+    public function newAction($sender='',$rcpt='',$blacklisted='')
     {
         $entity = new MailWBList();
+		  if($sender != ''){ $entity->setSender($sender); }
+		  if($rcpt != ''){ $entity->setRcpt($rcpt); }
+		  if($blacklisted==1){ 
+		  		$entity->setBlacklisted(true); 
+				$entity->setReject('Rejected by user');
+		  }
+
         $form   = $this->createForm(new MailWBListType(), $entity);
 
         return $this->render('ACSACSPanelBundle:MailWBList:new.html.twig', array(
@@ -77,6 +84,7 @@ class MailWBListController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+				$entity->setEnabled(true);
             $em->persist($entity);
             $em->flush();
 
@@ -176,4 +184,44 @@ class MailWBListController extends Controller
             ->getForm()
         ;
     }
+
+    public function setenabledAction(Request $request, $id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $entity = $em->getRepository('ACSACSPanelBundle:MailWBList')->find($id);
+
+      if (!$entity) {
+         throw $this->createNotFoundException('Unable to find Mail WB List entity.');
+      }
+
+      $entity->setEnabled(!$entity->getEnabled());
+      $em->persist($entity);
+      $em->flush();
+
+      return $this->redirect($this->generateUrl('mailwblist'));
+    }
+
+    public function setblacklistedAction(Request $request, $id)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $entity = $em->getRepository('ACSACSPanelBundle:MailWBList')->find($id);
+
+      if (!$entity) {
+         throw $this->createNotFoundException('Unable to find Mail WB List entity.');
+      }
+
+      $entity->setBlacklisted(!$entity->getBlacklisted());
+		if($entity->getReject()==''){
+			$entity->setReject('Rejected by user');
+		}
+		if(!$entity->getBlacklisted()){
+			$entity->setReject('');
+		}
+      $em->persist($entity);
+      $em->flush();
+
+      return $this->redirect($this->generateUrl('mailwblist'));
+    }
+
+
 }
