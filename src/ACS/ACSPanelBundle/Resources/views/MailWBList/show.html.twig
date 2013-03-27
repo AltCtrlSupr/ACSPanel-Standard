@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<h1>MailWBList</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Sender</th>
+            <td>{{ entity.sender }}</td>
+        </tr>
+        <tr>
+            <th>Rcpt</th>
+            <td>{{ entity.rcpt }}</td>
+        </tr>
+        <tr>
+            <th>Reject</th>
+            <td>{{ entity.reject }}</td>
+        </tr>
+        <tr>
+            <th>Blacklisted</th>
+            <td>{{ entity.blacklisted }}</td>
+        </tr>
+        <tr>
+            <th>Enabled</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>Createdat</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Updatedat</th>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('mailwblist') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('mailwblist_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('mailwblist_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

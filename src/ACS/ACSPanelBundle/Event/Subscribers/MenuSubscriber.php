@@ -93,6 +93,8 @@ class MenuSubscriber implements EventSubscriberInterface
         $menu['Mail']->addChild('Domain', array( 'route' => 'maildomain'));
         $menu['Mail']->addChild('Mailbox', array( 'route' => 'mailmailbox'));
         $menu['Mail']->addChild('Alias', array( 'route' => 'mailalias'));
+		  $menu['Mail']->addChild('W/B List', array ( 'route' => 'mailwblist' ));
+		  $menu['Mail']->addChild('Received msg log', array ( 'route' => 'maillogrcvd' ));
     }
 
     public function databaseItems(FilterMenuEvent $menu_filter)

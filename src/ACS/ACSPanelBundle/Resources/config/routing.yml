@@ -89,3 +89,12 @@ ACSACSPanelBundle_databaseuser:
 ACSACSPanelBundle_domain:
     resource: "@ACSACSPanelBundle/Resources/config/routing/domain.yml"
     prefix:   /domain
+
+ACSACSPanelBundle_maillogrcvd:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/maillogrcvd.yml"
+    prefix:   /maillogrcvd
+
+ACSACSPanelBundle_mailwblist:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/mailwblist.yml"
+    prefix:   /mailwblist
+

@@ -506,14 +506,14 @@ class Plan
     public function setMaxDomain($maxDomain)
     {
         $this->maxDomain = $maxDomain;
-    
+
         return $this;
     }
 
     /**
      * Get maxDomain
      *
-     * @return integer 
+     * @return integer
      */
     public function getMaxDomain()
     {
@@ -539,14 +539,14 @@ class Plan
     public function setMaxDb($maxDb)
     {
         $this->maxDb = $maxDb;
-    
+
         return $this;
     }
 
     /**
      * Get maxDb
      *
-     * @return integer 
+     * @return integer
      */
     public function getMaxDb()
     {
@@ -562,14 +562,14 @@ class Plan
     public function setMaxDbUser($maxDbUser)
     {
         $this->maxDbUser = $maxDbUser;
-    
+
         return $this;
     }
 
     /**
      * Get maxDbUser
      *
-     * @return integer 
+     * @return integer
      */
     public function getMaxDbUser()
     {

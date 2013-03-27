@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<h1>MailWBList list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Sender</th>
+            <th>Rcpt</th>
+            <th>Reject</th>
+            <th>Blacklisted</th>
+            <th>Enabled</th>
+            <th>Createdat</th>
+            <th>Updatedat</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('mailwblist_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.sender }}</td>
+            <td>{{ entity.rcpt }}</td>
+            <td>{{ entity.reject }}</td>
+            <td>{{ entity.blacklisted }}</td>
+            <td>{{ entity.enabled }}</td>
+            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('mailwblist_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('mailwblist_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('mailwblist_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %}
