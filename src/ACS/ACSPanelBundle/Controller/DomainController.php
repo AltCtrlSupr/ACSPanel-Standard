@@ -23,8 +23,7 @@ class DomainController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ACSACSPanelBundle:Domain')->findBy(array('parent_domain'=>NULL));
+        $entities = $em->getRepository('ACSACSPanelBundle:Domain')->findBy(array('user'=>$this->get('security.context')->getToken()->getUser()->getIdChildIds(),'parent_domain'=>NULL));
 
         return $this->render('ACSACSPanelBundle:Domain:index.html.twig', array(
             'entities' => $entities,

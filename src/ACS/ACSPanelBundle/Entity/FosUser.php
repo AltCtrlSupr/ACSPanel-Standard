@@ -661,4 +661,14 @@ class FosUser extends BaseUser
     public function setEmail($email){
         $this->email = $email;
     }
+
+	 public function getIdChildIds()
+	 {
+	 	$user_ids[]=$this->getId();
+		foreach($this->getChildUsers() as $user){
+			$ids=$user->getIdChildIds();
+			$user_ids=array_merge($user_ids,$ids);
+		}
+		return $user_ids;
+	 }
 }

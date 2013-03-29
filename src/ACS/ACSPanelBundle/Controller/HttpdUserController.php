@@ -25,7 +25,7 @@ class HttpdUserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:HttpdUser')->findAll();
+        $entities = $em->getRepository('ACSACSPanelBundle:HttpdUser')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
 
         return $this->render('ACSACSPanelBundle:HttpdUser:index.html.twig', array(
             'entities' => $entities,

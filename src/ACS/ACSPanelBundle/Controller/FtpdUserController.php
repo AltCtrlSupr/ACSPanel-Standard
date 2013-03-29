@@ -23,7 +23,7 @@ class FtpdUserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:FtpdUser')->findAll();
+        $entities = $em->getRepository('ACSACSPanelBundle:FtpdUser')->findBy(array('user'=>$this->get('security.context')->getToken()->getUser()->getIdChildIds()));
 
         return $this->render('ACSACSPanelBundle:FtpdUser:index.html.twig', array(
             'entities' => $entities,
