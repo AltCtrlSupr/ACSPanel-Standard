@@ -21,7 +21,7 @@ class MailLogrcvdController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:MailLogrcvd')->findAll();
+        $entities = $em->getRepository('ACSACSPanelBundle:MailLogrcvd')->findBy(array('user'=>$this->get('security.context')->getToken()->getUser()->getIdChildIds()));
 
         return $this->render('ACSACSPanelBundle:MailLogrcvd:index.html.twig', array(
             'entities' => $entities,
