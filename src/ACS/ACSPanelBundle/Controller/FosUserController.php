@@ -178,11 +178,6 @@ class FosUserController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            // TODO: from config.yml
-            // $home_base = $this->container->getParameter('settings.home_base');
-            $home_base='/home/';
-            $entity->setHomedir($home_base.$entity->getUsername());
-
             $em->persist($entity);
             // Persisting plans
             // @todo: Do this with events
