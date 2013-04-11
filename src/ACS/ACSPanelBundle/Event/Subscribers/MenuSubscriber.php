@@ -100,9 +100,9 @@ class MenuSubscriber implements EventSubscriberInterface
     public function databaseItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Databases', array( 'route' => null));
-        $menu['Databases']->addChild('Databases', array( 'route' => 'db'));
-        $menu['Databases']->addChild('Users', array( 'route' => 'databaseuser'));
+        $menu->addChild('Databases', array( 'route' => 'db'));
+        //$menu['Databases']->addChild('Databases', array( 'route' => 'db'));
+        //$menu['Databases']->addChild('Users', array( 'route' => 'databaseuser'));
     }
 
     public function ftpItems(FilterMenuEvent $menu_filter)

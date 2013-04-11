@@ -218,7 +218,7 @@ class ConfigSettingController extends Controller
         if(isset($postData['settings'])){
                 $settings = $postData['settings'];
 
-                print_r($settings);
+                //print_r($settings);
                 foreach ($settings as $setting) {
 
                     // TODO: To get from config.yml
