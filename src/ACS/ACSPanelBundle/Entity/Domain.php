@@ -30,6 +30,53 @@ class Domain
      */
     private $updatedAt;
 
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+    /**
+     * @var boolean
+     */
+    private $is_httpd_alias;
+
+    /**
+     * @var boolean
+     */
+    private $is_dns_alias;
+
+    /**
+     * @var boolean
+     */
+    private $is_mail_alias;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $child_domains;
+
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\FosUser
+     */
+    private $user;
+
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\Domain
+     */
+    private $parent_domain;
+
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\HttpdHost
+     */
+    private $httpd_host;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->child_domains = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -125,19 +172,20 @@ class Domain
      */
     public function setUserValue()
     {
-		  if(!$this->getUser())
-					 return;
-		global $kernel;
+        if($this->getUser())
+            return;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
+        global $kernel;
 
-		$service = $kernel->getContainer()->get('security.context');
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $service = $kernel->getContainer()->get('security.context');
 
         // Add your code here
-		$user = $service->getToken()->getUser();
-		return $this->setUser($user);
+        $user = $service->getToken()->getUser();
+        return $this->setUser($user);
 
     }
 
@@ -147,48 +195,6 @@ class Domain
     public function setUpdatedAtValue()
     {
 	    $this->updatedAt = new \DateTime();
-    }
-    /**
-     * @var boolean
-     */
-    private $enabled;
-
-    /**
-     * @var boolean
-     */
-    private $is_httpd_alias;
-
-    /**
-     * @var boolean
-     */
-    private $is_dns_alias;
-
-    /**
-     * @var boolean
-     */
-    private $is_mail_alias;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $child_domains;
-
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    private $user;
-
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\Domain
-     */
-    private $parent_domain;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->child_domains = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -371,11 +377,6 @@ class Domain
     {
         return $this->getDomain();
     }
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\HttpdHost
-     */
-    private $httpd_host;
-
 
     /**
      * Set httpd_host

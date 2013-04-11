@@ -376,6 +376,9 @@ class HttpdHost
      */
     public function setUserValue()
     {
+        if($this->getUser())
+            return;
+
 		global $kernel;
 
 		if ('AppCache' == get_class($kernel)) {

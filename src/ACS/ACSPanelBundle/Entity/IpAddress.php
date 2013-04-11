@@ -189,6 +189,9 @@ class IpAddress
      */
     public function setUserValue()
     {
+        if($this->getUser())
+            return;
+
 		global $kernel;
 
 		if ('AppCache' == get_class($kernel)) {
@@ -217,7 +220,7 @@ class IpAddress
     {
         $this->services = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add services
      *
@@ -227,7 +230,7 @@ class IpAddress
     public function addService(\ACS\ACSPanelBundle\Entity\Service $services)
     {
         $this->services[] = $services;
-    
+
         return $this;
     }
 
@@ -244,7 +247,7 @@ class IpAddress
     /**
      * Get services
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getServices()
     {

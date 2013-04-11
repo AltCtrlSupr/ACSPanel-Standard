@@ -10,12 +10,14 @@ class DomainType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		global $kernel;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
-		$service = $kernel->getContainer()->get('security.context');
+        // TODO: Do the addition of fields with suscriber
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $service = $kernel->getContainer()->get('security.context');
 
         $builder
             ->add('domain')
@@ -24,8 +26,8 @@ class DomainType extends AbstractType
             ->add('is_dns_alias')
             ->add('is_mail_alias')
         ;
-		  if($service->isGranted('ROLE_SUPER_ADMIN'))
-					 $builder->add('user');
+        if($service->isGranted('ROLE_SUPER_ADMIN'))
+            $builder->add('user');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

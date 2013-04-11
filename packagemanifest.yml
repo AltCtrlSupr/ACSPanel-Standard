@@ -56,20 +56,20 @@ apps:
         installfiles:
             - 'app/main'
             #- 'src/autoload.php'
-    static:
-        description: 'All static website content'
-        prebuild:
-            - 'app/main/console assets:install web'
-            - 'mkdir -p web/css'
+    # static:
+        # description: 'All static website content'
+        # prebuild:
+            # - 'app/main/console assets:install web'
+            # - 'mkdir -p web/css'
             #- 'dev/less/getcss.sh main > web/css/main.css'
-        dependencies:
-            <<: *web
-        bundles: ~
-        assets:
-            - 'web/bundles/'
-            - 'web/css/'
-        profiles:
-            - 'web'
-            - 'static'
-        installfiles:
-            - 'app/static'
+        # dependencies:
+            # <<: *web
+        # bundles: ~
+        # assets:
+            # - 'web/bundles/'
+            # - 'web/css/'
+        # profiles:
+            # - 'web'
+            # - 'static'
+        # installfiles:
+            # - 'app/static'

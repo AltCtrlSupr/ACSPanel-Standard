@@ -500,6 +500,9 @@ class MailMailbox
      */
     public function setUserValue()
     {
+        if($this->getUser())
+            return;
+
 		global $kernel;
 
 		if ('AppCache' == get_class($kernel)) {
@@ -555,14 +558,14 @@ class MailMailbox
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {

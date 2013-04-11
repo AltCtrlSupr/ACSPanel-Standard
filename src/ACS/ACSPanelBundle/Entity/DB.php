@@ -298,17 +298,20 @@ class DB
      */
     public function setUserValue()
     {
-		global $kernel;
+        if($this->getUser())
+            return;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
+        global $kernel;
 
-		$service = $kernel->getContainer()->get('security.context');
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $service = $kernel->getContainer()->get('security.context');
 
         // Add your code here
-		$user = $service->getToken()->getUser();
-		return $this->setUser($user);
+        $user = $service->getToken()->getUser();
+        return $this->setUser($user);
     }
 
     /**

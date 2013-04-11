@@ -217,6 +217,9 @@ class Server
      */
     public function setUserValue()
     {
+        if($this->getUser())
+            return;
+
 		global $kernel;
 
 		if ('AppCache' == get_class($kernel)) {
@@ -246,7 +249,7 @@ class Server
     {
         $this->services = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add services
      *
@@ -256,7 +259,7 @@ class Server
     public function addService(\ACS\ACSPanelBundle\Entity\Service $services)
     {
         $this->services[] = $services;
-    
+
         return $this;
     }
 
@@ -273,7 +276,7 @@ class Server
     /**
      * Get services
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getServices()
     {
@@ -294,14 +297,14 @@ class Server
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
