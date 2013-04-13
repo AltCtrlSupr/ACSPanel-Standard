@@ -26,7 +26,7 @@ class DomainType extends AbstractType
             ->add('is_dns_alias')
             ->add('is_mail_alias')
         ;
-        if($service->isGranted('ROLE_SUPER_ADMIN'))
+        if($service->isGranted('ROLE_ADMIN'))
             $builder->add('user');
     }
 
