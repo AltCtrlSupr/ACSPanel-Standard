@@ -46,8 +46,8 @@ Execute the `check.php` script from the command line:
 
 To avoid permissions issues after executing console commands you should do the next
 
-    sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/main/cache app/main/logs
-    sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
+    sudo setfacl -R -m u:www-data:rwX -m u:'whoami':rwX app/main/cache app/main/logs
+    sudo setfacl -dR -m u:www-data:rwx -m u:'whoami':rwx app/main/cache app/main/logs
 
 4) Setting up ACSPanel
 --------------------
