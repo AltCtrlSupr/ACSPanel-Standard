@@ -39,10 +39,12 @@ Execute the `check.php` script from the command line:
 .....continue....
 
 3) Setting up Apache
+--------------------
 
 .....continue....
 
 4) Permissions
+--------------
 
 To avoid permissions issues after executing console commands you should do the next
 
@@ -50,6 +52,7 @@ To avoid permissions issues after executing console commands you should do the n
     sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
 
 5) Setting up ACSPanel
+--------------------
 
     cd acspanel
 
