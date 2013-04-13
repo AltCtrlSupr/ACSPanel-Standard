@@ -58,7 +58,7 @@ class MailWBList
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,14 +74,14 @@ class MailWBList
     public function setSender($sender)
     {
         $this->sender = $sender;
-    
+
         return $this;
     }
 
     /**
      * Get sender
      *
-     * @return string 
+     * @return string
      */
     public function getSender()
     {
@@ -97,14 +97,14 @@ class MailWBList
     public function setRcpt($rcpt)
     {
         $this->rcpt = $rcpt;
-    
+
         return $this;
     }
 
     /**
      * Get rcpt
      *
-     * @return string 
+     * @return string
      */
     public function getRcpt()
     {
@@ -120,14 +120,14 @@ class MailWBList
     public function setReject($reject)
     {
         $this->reject = $reject;
-    
+
         return $this;
     }
 
     /**
      * Get reject
      *
-     * @return string 
+     * @return string
      */
     public function getReject()
     {
@@ -143,14 +143,14 @@ class MailWBList
     public function setBlacklisted($blacklisted)
     {
         $this->blacklisted = $blacklisted;
-    
+
         return $this;
     }
 
     /**
      * Get blacklisted
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getBlacklisted()
     {
@@ -166,14 +166,14 @@ class MailWBList
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -189,14 +189,14 @@ class MailWBList
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -212,14 +212,14 @@ class MailWBList
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -235,14 +235,14 @@ class MailWBList
     public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \ACS\ACSPanelBundle\Entity\FosUser 
+     * @return \ACS\ACSPanelBundle\Entity\FosUser
      */
     public function getUser()
     {
@@ -264,6 +264,9 @@ class MailWBList
      */
     public function setUserValue()
     {
+        if($this->getUser())
+            return;
+
       global $kernel;
 
       if ('AppCache' == get_class($kernel)) {

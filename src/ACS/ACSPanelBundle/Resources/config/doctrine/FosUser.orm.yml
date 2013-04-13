@@ -72,6 +72,9 @@ ACS\ACSPanelBundle\Entity\FosUser:
             targetEntity: UserPlan
             mappedBy: puser
             cascade: [ persist ]
+        domains:
+            targetEntity: Domain
+            mappedBy: user
         httpdhosts:
             targetEntity: HttpdHost
             mappedBy: user

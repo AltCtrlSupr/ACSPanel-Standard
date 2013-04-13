@@ -318,6 +318,10 @@ class FosUser extends BaseUser
      */
     public function setUserValue()
     {
+        if($this->getUser())
+            return;
+
+
         global $kernel;
 
         if ('AppCache' == get_class($kernel)) {
@@ -660,5 +664,53 @@ class FosUser extends BaseUser
 
     public function setEmail($email){
         $this->email = $email;
+    }
+
+	 public function getIdChildIds()
+	 {
+	 	$user_ids[]=$this->getId();
+		foreach($this->getChildUsers() as $user){
+			$ids=$user->getIdChildIds();
+			$user_ids=array_merge($user_ids,$ids);
+		}
+		return $user_ids;
+	 }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $domains;
+
+
+    /**
+     * Add domains
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
+     * @return FosUser
+     */
+    public function addDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
+    {
+        $this->domains[] = $domains;
+    
+        return $this;
+    }
+
+    /**
+     * Remove domains
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
+     */
+    public function removeDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
+    {
+        $this->domains->removeElement($domains);
+    }
+
+    /**
+     * Get domains
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDomains()
+    {
+        return $this->domains;
     }
 }

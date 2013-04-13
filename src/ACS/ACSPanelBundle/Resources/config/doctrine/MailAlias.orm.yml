@@ -43,7 +43,7 @@ ACS\ACSPanelBundle\Entity\MailAlias:
             timestampable:
               on: update
     manyToOne:
-        domain:
+        mail_domain:
             targetEntity: MailDomain
             gedmo:
                 - versioned

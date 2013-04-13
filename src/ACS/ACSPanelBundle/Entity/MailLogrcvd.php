@@ -192,4 +192,32 @@ class MailLogrcvd
     {
         return $this->domain;
     }
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\MailDomain
+     */
+    private $mail_domain;
+
+
+    /**
+     * Set mail_domain
+     *
+     * @param \ACS\ACSPanelBundle\Entity\MailDomain $mailDomain
+     * @return MailLogrcvd
+     */
+    public function setMailDomain(\ACS\ACSPanelBundle\Entity\MailDomain $mailDomain = null)
+    {
+        $this->mail_domain = $mailDomain;
+    
+        return $this;
+    }
+
+    /**
+     * Get mail_domain
+     *
+     * @return \ACS\ACSPanelBundle\Entity\MailDomain 
+     */
+    public function getMailDomain()
+    {
+        return $this->mail_domain;
+    }
 }

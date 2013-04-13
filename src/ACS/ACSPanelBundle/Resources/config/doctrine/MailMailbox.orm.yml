@@ -1,5 +1,6 @@
 ACS\ACSPanelBundle\Entity\MailMailbox:
     type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\MailMailboxRepository
     table: mail_mailbox
     gedmo:
         loggable: {}
@@ -80,23 +81,12 @@ ACS\ACSPanelBundle\Entity\MailMailbox:
             timestampable:
               on: update
     manyToOne:
-        domain:
+        mail_domain:
             targetEntity: MailDomain
             cascade: {  }
             inversedBy: null
             joinTable: null
             orderBy: null
-            gedmo:
-                - versioned
-            joinColumn:
-                onDelete: CASCADE
-        user:
-            targetEntity: FosUser
-            inversedBy: null
-            joinTable: null
-            orderBy: null
-            joinColumn:
-                onDelete: CASCADE
             gedmo:
                 - versioned
             joinColumn:

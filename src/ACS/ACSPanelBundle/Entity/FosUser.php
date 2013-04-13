@@ -675,4 +675,42 @@ class FosUser extends BaseUser
 		}
 		return $user_ids;
 	 }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $domains;
+
+
+    /**
+     * Add domains
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
+     * @return FosUser
+     */
+    public function addDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
+    {
+        $this->domains[] = $domains;
+    
+        return $this;
+    }
+
+    /**
+     * Remove domains
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
+     */
+    public function removeDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
+    {
+        $this->domains->removeElement($domains);
+    }
+
+    /**
+     * Get domains
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDomains()
+    {
+        return $this->domains;
+    }
 }

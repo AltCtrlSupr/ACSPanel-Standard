@@ -26,15 +26,7 @@ ACS\ACSPanelBundle\Entity\MailLogrcvd:
             type: datetime
             column: created_at
     manyToOne:
-        user:
-            targetEntity: FosUser
-            cascade: {  }
-            inversedBy: null
-            joinTable: null
-            orderBy: null
-            joinColumn:
-                onDelete: CASCADE
-        domain:
+        mail_domain:
             targetEntity: MailDomain
             cascade: {  }
             inversedBy: null

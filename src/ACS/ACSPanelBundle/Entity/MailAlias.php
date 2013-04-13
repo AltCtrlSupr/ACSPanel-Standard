@@ -298,4 +298,32 @@ class MailAlias
 	    $this->updatedAt = new \DateTime();
     }
 
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\MailDomain
+     */
+    private $mail_domain;
+
+
+    /**
+     * Set mail_domain
+     *
+     * @param \ACS\ACSPanelBundle\Entity\MailDomain $mailDomain
+     * @return MailAlias
+     */
+    public function setMailDomain(\ACS\ACSPanelBundle\Entity\MailDomain $mailDomain = null)
+    {
+        $this->mail_domain = $mailDomain;
+    
+        return $this;
+    }
+
+    /**
+     * Get mail_domain
+     *
+     * @return \ACS\ACSPanelBundle\Entity\MailDomain 
+     */
+    public function getMailDomain()
+    {
+        return $this->mail_domain;
+    }
 }

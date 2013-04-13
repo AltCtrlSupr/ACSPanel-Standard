@@ -10,12 +10,23 @@ class ServiceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // TODO: Do the addition of fields with suscriber
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $service = $kernel->getContainer()->get('security.context');
+
+
         $builder
             ->add('name')
             ->add('ip')
             ->add('server', null, array('required' => true))
             ->add('type')
         ;
+        if($service->isGranted('ROLE_ADMIN'))
+            $builder->add('user');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

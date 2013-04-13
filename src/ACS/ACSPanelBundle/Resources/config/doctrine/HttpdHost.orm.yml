@@ -1,5 +1,6 @@
 ACS\ACSPanelBundle\Entity\HttpdHost:
     type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\HttpdHostRepository
     table: httpd_host
     gedmo:
         loggable: {}
@@ -44,13 +45,6 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
             column: updated_at
             nullable: true
     manyToOne:
-        user:
-            targetEntity: FosUser
-            inversedBy: null
-            joinTable: null
-            orderBy: null
-            joinColumn:
-                onDelete: CASCADE
         service:
             targetEntity: Service
             inversedBy: null

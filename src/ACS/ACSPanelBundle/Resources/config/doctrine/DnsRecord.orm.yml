@@ -58,22 +58,15 @@ ACS\ACSPanelBundle\Entity\DnsRecord:
             timestampable:
               on: update
     manyToOne:
-        domain:
+        dns_domain:
             targetEntity: DnsDomain 
+            mappedBy: dnsrecords
             cascade: {  }
             inversedBy: null
             joinTable: null
             orderBy: null
             gedmo:
                 - versioned
-            joinColumn:
-                onDelete: CASCADE
-        user:
-            targetEntity: FosUser
-            cascade: {  }
-            inversedBy: null
-            joinTable: null
-            orderBy: null
             joinColumn:
                 onDelete: CASCADE
 
