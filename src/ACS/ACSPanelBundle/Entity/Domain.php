@@ -183,7 +183,6 @@ class Domain
 
         $service = $kernel->getContainer()->get('security.context');
 
-        // Add your code here
         $user = $service->getToken()->getUser();
         return $this->setUser($user);
 

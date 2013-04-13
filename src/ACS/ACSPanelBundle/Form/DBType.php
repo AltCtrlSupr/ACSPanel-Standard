@@ -10,6 +10,15 @@ class DBType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // TODO: Do the addition of fields with suscriber
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $service = $kernel->getContainer()->get('security.context');
+
+
         $builder
             ->add('name')
             ->add('service')
@@ -20,8 +29,10 @@ class DBType extends AbstractType
                 'prototype' => true,
                 'by_reference' => false,
             ))
-
         ;
+
+        if($service->isGranted('ROLE_SUPER_ADMIN'))
+            $builder->add('user');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
