@@ -215,44 +215,44 @@ class ConfigSettingController extends Controller
 
         // TODO: Check security issues not to call this method
         //if ($editForm->isValid()) {
-        if(isset($postData['settings'])){
-                $settings = $postData['settings'];
+            if(isset($postData['settings'])){
+                    $settings = $postData['settings'];
 
-                //print_r($settings);
-                foreach ($settings as $setting) {
+                    //print_r($settings);
+                    foreach ($settings as $setting) {
 
-                    // TODO: To get from config.yml
-                    $args = array(
-                        'user' => $entity->getId(),
-                        'setting_key' => $setting['setting_key'],
-                    );
-                    if(isset($setting['service_id'])){
-                        $service = $em->getRepository('ACSACSPanelBundle:Service')->find($setting['service_id']);
-                        $args['service'] = $service;
+                        // TODO: To get from config.yml
+                        $args = array(
+                            'user' => $entity->getId(),
+                            'setting_key' => $setting['setting_key'],
+                        );
+                        if(isset($setting['service_id'])){
+                            $service = $em->getRepository('ACSACSPanelBundle:Service')->find($setting['service_id']);
+                            $args['service'] = $service;
+                        }
+                        $panelsetting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($args);
+                        if($panelsetting){
+                            $panelsetting->setValue($setting['value']);
+                            $em->persist($panelsetting);
+                            $em->flush();
+                        }else{
+                            //$new_setting = new $class_name;
+                            $new_setting = new PanelSetting();
+                            $new_setting->setSettingKey($setting['setting_key']);
+                            $new_setting->setValue($setting['value']);
+                            $new_setting->setContext($setting['context']);
+                            $new_setting->setFocus($setting['focus']);
+                            $new_setting->setUser($entity);
+                            $em->persist($entity);
+                        }
                     }
-                    $panelsetting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($args);
-                    if($panelsetting){
-                        $panelsetting->setValue($setting['value']);
-                        $em->persist($panelsetting);
-                        $em->flush();
-                    }else{
-                        //$new_setting = new $class_name;
-                        $new_setting = new PanelSetting();
-                        $new_setting->setSettingKey($setting['setting_key']);
-                        $new_setting->setValue($setting['value']);
-                        $new_setting->setContext($setting['context']);
-                        $new_setting->setFocus($setting['focus']);
-                        $new_setting->setUser($entity);
-                        $em->persist($entity);
-                    }
-                }
-                $em->flush();
-            //}
+                    $em->flush();
+            }
 
             // throw $this->createNotFoundException('Testing.');
 
             return $this->redirect($this->generateUrl('settings'));
-        }
+        //}
 
         return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
             'entity' => $entity,

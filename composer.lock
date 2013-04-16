@@ -1197,13 +1197,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://github.com/KnpLabs/KnpMenu.git",
-                "reference": "730bc37232f5f813822acf80edfbd89381ea5971"
+                "url": "https://github.com/KnpLabs/KnpMenu.git",
+                "reference": "5cf5ab4948d8c573f260e2b612bfc9721da1c892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/KnpLabs/KnpMenu/archive/730bc37232f5f813822acf80edfbd89381ea5971.zip",
-                "reference": "730bc37232f5f813822acf80edfbd89381ea5971",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5cf5ab4948d8c573f260e2b612bfc9721da1c892",
+                "reference": "5cf5ab4948d8c573f260e2b612bfc9721da1c892",
                 "shasum": ""
             },
             "require": {
@@ -1230,7 +1230,7 @@
                     "Knp\\Menu\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1254,7 +1254,7 @@
                 "menu",
                 "tree"
             ],
-            "time": "2012-12-27 13:04:16"
+            "time": "2013-04-15 14:10:52"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -1262,13 +1262,13 @@
             "target-dir": "Knp/Bundle/MenuBundle",
             "source": {
                 "type": "git",
-                "url": "http://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "bfaa9f1a74ee590c5e6460a3139b268fce1f1885"
+                "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
+                "reference": "8f84c396927809e885f7a17ef3737358c001d78f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/KnpLabs/KnpMenuBundle/archive/bfaa9f1a74ee590c5e6460a3139b268fce1f1885.zip",
-                "reference": "bfaa9f1a74ee590c5e6460a3139b268fce1f1885",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/8f84c396927809e885f7a17ef3737358c001d78f",
+                "reference": "8f84c396927809e885f7a17ef3737358c001d78f",
                 "shasum": ""
             },
             "require": {
@@ -1286,7 +1286,7 @@
                     "Knp\\Bundle\\MenuBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1308,7 +1308,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2012-12-29 08:47:58"
+            "time": "2013-03-18 17:08:00"
         },
         {
             "name": "kriswallsmith/assetic",
