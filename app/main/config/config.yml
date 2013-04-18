@@ -111,7 +111,7 @@ stof_doctrine_extensions:
 
 # liip theme
 liip_theme:
-    themes: ['default', 'terminal']
+    themes: ['default', 'terminal', 'mobile']
     active_theme: 'default'
     autodetect_theme: true
 

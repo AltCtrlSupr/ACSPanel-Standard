@@ -23,6 +23,7 @@ acsacs_panel_settings:
            field_type: select
            choices:
              default: 'Default'
+             mobile: 'Mobile'
              terminal: 'Terminal'
            default_value: 'default'
            context: 'User settings'

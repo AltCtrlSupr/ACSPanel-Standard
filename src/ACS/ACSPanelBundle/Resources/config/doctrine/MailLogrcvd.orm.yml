@@ -1,5 +1,6 @@
 ACS\ACSPanelBundle\Entity\MailLogrcvd:
     type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\MailLogrcvdRepository
     table: mail_logrcvd
     fields:
         id:

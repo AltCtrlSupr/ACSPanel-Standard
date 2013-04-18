@@ -30,7 +30,7 @@ class DnsDomainController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findBy(array('user'=>$this->get('security.context')->getToken()->getUser()->getIdChildIds()));
+        $entities = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
 
         return $this->render('ACSACSPanelBundle:DnsDomain:index.html.twig', array(
             'entities' => $entities,
@@ -197,7 +197,7 @@ class DnsDomainController extends Controller
     }
 
     public function setenabledAction(Request $request, $id)
-    {   
+    {
       $em = $this->getDoctrine()->getManager();
       $entity = $em->getRepository('ACSACSPanelBundle:DnsDomain')->find($id);
 

@@ -64,6 +64,7 @@ class KernelSubscriber implements EventSubscriberInterface
 
         $activeTheme = $container->get('liip_theme.active_theme');
 
+
         $settings_manager = $kernel->getContainer()->get('acs.setting_manager');
         $security = $kernel->getContainer()->get('security.context');
 
@@ -74,7 +75,6 @@ class KernelSubscriber implements EventSubscriberInterface
 
         if($user && 'anon.' != $user){
             $theme = $settings_manager->getUserSetting('user_theme',$user);
-
             if($theme){
                 $activeTheme->setName($theme);
             }
