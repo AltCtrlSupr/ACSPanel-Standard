@@ -6,8 +6,15 @@ Description:
 Purpose of the stylesheet follows.
  */
 
+/* LAYOUT */
+
 root { 
     display: block;
+}
+
+/* FONTS */
+body{
+    font-type: Helvetica,Arial,sans-serif;
 }
 
 a:link, a:visited, a:active, a:hover {
@@ -121,22 +128,45 @@ ul.plan_attributes{
     float: right;
 }
 
+/* TABLES */
+
 table{
-    border: 1px solid #ccc;
-    width: 100%;
+    float: left;
+    clear: both;
 }
 
-table tr th,
-table tr td{
-    padding: 4px;
-} 
-
-table tr th{
-    background: #b4bfcc;
+.records_list {
+    width: 100%
+    border: 1px solid #B0B0B0;
 }
-
-table tr.disabled{  
-    background-color: #bfbfbf;
+.records_list tbody {
+    /* Kind of irrelevant unless your .css is alreadt doing something else */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+.records_list thead {
+    text-align: left;
+}
+.records_list thead th {
+    background: -moz-linear-gradient(top, #F0F0F0 0, #DBDBDB 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F0F0F0), color-stop(100%, #DBDBDB));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#DBDBDB', GradientType=0);
+    border: 1px solid #B0B0B0;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+.records_list td {
+    padding: 3px 10px;
+}
+.records_list tr:nth-child(even) {
+    background: #F2F2F2;
 }
 
 /* LOGIN Form */
@@ -196,12 +226,6 @@ ul.loginfields{
     width: 110px;
     margin-left: 50px;
     margin-left: 116px;
-}
-
-/* TABLES */
-
-table.records_list{
-    font-size: 12px;
 }
 
 /* TITLES */
