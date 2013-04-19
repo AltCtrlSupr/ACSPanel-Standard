@@ -28,8 +28,10 @@ class HttpdHostController extends Controller
         // IF is admin can see all the hosts, if is user only their ones...
         if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
             $entities = $em->getRepository('ACSACSPanelBundle:HttpdHost')->findAll();
-        }else{
-            $entities = $em->getRepository('ACSACSPanelBundle:HttpdHost')->findByUser($this->get('security.context')->getToken()->getUser()->getIdChildIds());
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')){
+            $entities = $em->getRepository('ACSACSPanelBundle:HttpdHost')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
+            $entities = $em->getRepository('ACSACSPanelBundle:HttpdHost')->findByUser($this->get('security.context')->getToken()->getUser());
         }
 
 
