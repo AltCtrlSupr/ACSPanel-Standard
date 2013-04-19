@@ -24,7 +24,9 @@ class FtpdUserType extends AbstractType
             ->add('password')
             ->add('uid')
             ->add('gid')
-            ->add('dir')
+            ->add('dir','text',array(
+                'label' => 'Directory name (it will be in "'.$service->getToken()->getUser()->getHomedir().'/")',
+            ))
             ->add('enabled')
             ->add('quota')
             ->add('service')

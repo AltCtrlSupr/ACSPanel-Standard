@@ -2,5 +2,8 @@
 
 
 {% block fos_user_content %}
-{% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+<h1>{% trans %}User details{% endtrans %}</h1>
+<div class="form_box">
+    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+</div>
 {% endblock fos_user_content %}
