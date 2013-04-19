@@ -12,6 +12,8 @@ use ACS\ACSPanelBundle\Form\DatabaseUserType;
  *
  * DatabaseUser controller.
  *
+ * @todo Check if we can remove
+ *
  */
 class DatabaseUserController extends Controller
 {

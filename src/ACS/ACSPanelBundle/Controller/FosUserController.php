@@ -89,11 +89,10 @@ class FosUserController extends Controller
 
         if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
             $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findAll();
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_ADMIN')){
+            $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findBy(array('parent_user' => $this->get('security.context')->getToken()->getUser()->getIdChildIds()));
         }else{
             $user = $this->get('security.context')->getToken()->getUser();
-            //$childs = $user->getIdChildIds();
-
-            //$entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findBy(array('id' => $childs));
             $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findBy(array('parent_user' => $user->getId()));
         }
 

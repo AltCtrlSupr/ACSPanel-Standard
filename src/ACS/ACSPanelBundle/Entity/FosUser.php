@@ -678,6 +678,18 @@ class FosUser extends BaseUser
     }
 
     /**
+     * Return the usernames of users childs and sub-childs
+     */
+    public function getChildUsernames(){
+        $user_names[]=$this->getUsername();
+        foreach($this->getChildUsers() as $user){
+            $unames=$user->getChildUsernames();
+            $user_names=array_merge($user_names,$unames);
+        }
+        return $user_names;
+    }
+
+    /**
      * Return the ids of users childs and sub-childs
      * @todo extrange method name, change?
      */

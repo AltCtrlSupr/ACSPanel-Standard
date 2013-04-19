@@ -23,7 +23,14 @@ class LogItemController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GedmoLoggable:LogEntry')->findAll();
+        // IF is admin can see all the hosts, if is user only their ones...
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $entities = $em->getRepository('GedmoLoggable:LogEntry')->findAll();
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')){
+            $entities = $em->getRepository('GedmoLoggable:LogEntry')->findByUsername($this->get('security.context')->getToken()->getUser()->getChildUsernames());
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
+            $entities = $em->getRepository('GedmoLoggable:LogEntry')->findByUser($this->get('security.context')->getToken()->getUser());
+        }
 
         return $this->render('ACSACSPanelBundle:LogItem:index.html.twig', array(
             'search_action' => 'logitem_search',

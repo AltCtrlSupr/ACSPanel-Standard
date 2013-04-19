@@ -19,6 +19,8 @@ use ACS\ACSPanelBundle\Event\DnsEvents;
 /**
  * DnsRecord controller.
  *
+ * @todo determine if is still needed
+ *
  */
 class DnsRecordController extends Controller
 {

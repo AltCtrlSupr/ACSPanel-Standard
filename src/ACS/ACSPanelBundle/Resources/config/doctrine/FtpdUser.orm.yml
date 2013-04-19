@@ -1,6 +1,7 @@
 ACS\ACSPanelBundle\Entity\FtpdUser:
     type: entity
     table: ftpd_user
+    repositoryClass: ACS\ACSPanelBundle\Model\FtpdUserRepository
     gedmo:
         loggable: {}
     fields:

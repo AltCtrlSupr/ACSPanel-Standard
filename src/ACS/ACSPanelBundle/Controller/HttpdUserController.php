@@ -25,7 +25,14 @@ class HttpdUserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:HttpdUser')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
+        // IF is admin can see all the hosts, if is user only their ones...
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $entities = $em->getRepository('ACSACSPanelBundle:HttpdUser')->findAll();
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')){
+            $entities = $em->getRepository('ACSACSPanelBundle:HttpdUser')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
+            $entities = $em->getRepository('ACSACSPanelBundle:HttpdUser')->findByUser($this->get('security.context')->getToken()->getUser());
+        }
 
         return $this->render('ACSACSPanelBundle:HttpdUser:index.html.twig', array(
             'entities' => $entities,
