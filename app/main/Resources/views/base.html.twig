@@ -33,8 +33,11 @@
     <body>
         <div id="sidebar">
             {% block sidebar %}
+                <!-- TODO: Move this check to Builder -->
                 {% if is_granted('ROLE_ADMIN') %}
                     {{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
+                {% elseif is_granted('ROLE_RESELLER') %}
+                    {{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
                 {% elseif is_granted('ROLE_USER') %}
                     {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
                 {% endif %}

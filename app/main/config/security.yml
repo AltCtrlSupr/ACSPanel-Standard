@@ -8,8 +8,8 @@ security:
         FOS\UserBundle\Model\UserInterface: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
         ROLE_RESELLER:    ROLE_USER
+        ROLE_ADMIN:       [ROLE_USER, ROLE_RESELLER]
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
 
     providers:
@@ -59,7 +59,7 @@ security:
         - { path: ^/service, role: ROLE_ADMIN }
         - { path: ^/servicetype, role: ROLE_ADMIN }
         - { path: ^/ipaddress, role: ROLE_ADMIN }
-        - { path: ^/users, role: ROLE_ADMIN }
+        - { path: ^/users, role: ROLE_RESELLER }
         - { path: ^/groups, role: ROLE_ADMIN }
         - { path: ^/plans, role: ROLE_ADMIN }
         - { path: ^/users, role: ROLE_RESELLER }

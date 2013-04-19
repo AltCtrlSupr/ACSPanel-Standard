@@ -31,7 +31,15 @@ class FosUserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findAll();
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findAll();
+        }else{
+            $user = $this->get('security.context')->getToken()->getUser();
+            //$childs = $user->getIdChildIds();
+
+            //$entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findBy(array('id' => $childs));
+            $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findByParentUser($user->getId());
+        }
 
         //$dispatcher = new EventDispatcher();
         $this->container->get('event_dispatcher')->dispatch(UserEvents::USER_REGISTER, new FilterUserEvent($entities));
@@ -79,7 +87,17 @@ class FosUserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findAll();
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findAll();
+        }else{
+            $user = $this->get('security.context')->getToken()->getUser();
+            //$childs = $user->getIdChildIds();
+
+            //$entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findBy(array('id' => $childs));
+            $entities = $em->getRepository('ACSACSPanelBundle:FosUser')->findBy(array('parent_user' => $user->getId()));
+        }
+
+
 
         return $this->render('ACSACSPanelBundle:FosUser:index.html.twig', array(
             'search_action' => 'user_search',

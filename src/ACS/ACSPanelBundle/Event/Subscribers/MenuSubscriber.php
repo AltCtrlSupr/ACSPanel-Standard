@@ -21,6 +21,18 @@ class MenuSubscriber implements EventSubscriberInterface
                 array('ftpItems', 20),
                 array('logoutItems', -9000),
             ),
+            'menu.reseller.after.items'     => array(
+                array('homeItems', 9000),
+                //array('quickactionsItems', 90),
+                array('resellerItems', 80),
+                array('domainItems', 70),
+                array('httpdItems', 60),
+                array('dnsItems', 50),
+                array('mailItems', 40),
+                array('databaseItems', 30),
+                array('ftpItems', 20),
+                array('logoutItems', -9000),
+            ),
             'menu.user.after.items'     => array(
                 array('homeItems', 9000),
                 //array('quickactionsItems', 80),
@@ -47,6 +59,19 @@ class MenuSubscriber implements EventSubscriberInterface
         $menu = $menu_filter->getMenu();
         $menu->addChild('Quick actions', array( 'route' => null));
         $menu['Quick actions']->addChild('Add hosting', array( 'route' => 'acs_acspanel_register_host'));
+    }
+
+    public function resellerItems(FilterMenuEvent $menu_filter)
+    {
+        $menu = $menu_filter->getMenu();
+        $menu->addChild('Reseller', array('route' => null));
+        $menu['Reseller']->addChild('Panel Users', array( 'route' => 'users'));
+        $menu['Reseller']->addChild('Plans', array( 'route' => 'plans'));
+        $menu['Reseller']->addChild('Servers', array( 'route' => null));
+        $menu['Reseller']['Servers']->addChild('Servers', array( 'route' => 'server'));
+        $menu['Reseller']['Servers']->addChild('Services', array( 'route' => 'service'));
+        $menu['Reseller']['Servers']->addChild('IP Addresses', array( 'route' => 'ipaddress'));
+        $menu['Reseller']->addChild('Logs', array( 'route' => 'logs'));
     }
 
     public function adminItems(FilterMenuEvent $menu_filter)
