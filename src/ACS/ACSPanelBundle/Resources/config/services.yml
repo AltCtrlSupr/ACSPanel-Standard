@@ -28,11 +28,21 @@ services:
         arguments: ['@doctrine.orm.entity_manager', '@service_container']
 
     # Registration class for the form
+    # Overriding FosUser forms
     acs_user.registration.form.type:
         class: ACS\ACSPanelBundle\Form\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
         - { name: form.type, alias: acs_user_registration }
+
+    acs_user.profile.form.type:
+        class: ACS\ACSPanelBundle\Form\UserProfileType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+        - { name: form.type, alias: acs_acspanelbundle_userprofiletype }
+
+
+    # end of FosUser forms override
 
     acs.form.registerHosting:
         class: ACS\ACSPanelBundle\Form\RegisterHostingType

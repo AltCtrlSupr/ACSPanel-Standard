@@ -88,6 +88,9 @@ fos_user:
             type: acs_user_registration
         confirmation:
             enabled:    true
+    profile:
+        form:
+            type: acs_acspanelbundle_userprofiletype
     # Get those settings in dynamic way
     from_email:
         address:        noreply@acs.li

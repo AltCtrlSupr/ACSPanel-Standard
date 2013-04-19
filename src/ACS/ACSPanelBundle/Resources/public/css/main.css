@@ -131,7 +131,6 @@ ul.plan_attributes{
 /* TABLES */
 
 table{
-    float: left;
     clear: both;
 }
 
@@ -164,6 +163,7 @@ table{
 }
 .records_list td {
     padding: 3px 10px;
+    vertical-align: middle;
 }
 .records_list tr:nth-child(even) {
     background: #F2F2F2;
@@ -226,6 +226,7 @@ ul.loginfields{
     width: 110px;
     margin-left: 50px;
     margin-left: 116px;
+    margin-top: 20px;
 }
 
 /* TITLES */
