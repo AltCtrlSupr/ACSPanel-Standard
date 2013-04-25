@@ -1,28 +1,30 @@
 parameters:
     duplicate.host.class: ACS\ACSPanelBundle\Validator\Constraints\DuplicateHostValidator
     domain.tools.class: ACS\ACSPanelBundle\Modules\Domain
+    ftpduser.tools.class: ACS\ACSPanelBundle\Modules\FtpdUser
 
 services:
+    # Duplicate host validator
     duplicate.host:
         class: %duplicate.host.class%
         arguments: ['@doctrine.orm.entity_manager']
         tags:
             - {name: validator.constraint_validator, alias: duplicate.host}
+
+    # Domain checking tools
     domain.tools:
         class: %domain.tools.class%
         tags:
             - {name: domain.tools, alias: domain.tools}
-    #userlog.system:
-        #class: ACS\ACSPanelBundle\Modules\LogHandler
-        #arguments: ['@service_container']
-        #tags:
-            #- { name: log_handler }
-    logger.action_listener:
-        class: ACS\ACSPanelBundle\Listener\LoggerListener
-        arguments: ['@service_container', '@kernel']
+
+    # Ftpduser checking tools
+    acs.ftpduser.tools:
+        class: %ftpduser.tools.class%
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
         tags:
-            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
-            - { name: kernel.event_listener, event: kernel.response , method: onKernelResponse}
+            - {name: acs.ftpduser.tools, alias: acs.ftpduser.tools}
+
+    # Server actions
     server.actions:
         class: ACS\ACSPanelBundle\Modules\ServerActions
         arguments: ['@doctrine.orm.entity_manager', '@service_container']
@@ -40,10 +42,9 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
         - { name: form.type, alias: acs_acspanelbundle_userprofiletype }
-
-
     # end of FosUser forms override
 
+    # Forms flows
     acs.form.registerHosting:
         class: ACS\ACSPanelBundle\Form\RegisterHostingType
         tags:
@@ -55,6 +56,7 @@ services:
         scope: request
         calls:
             - [ setFormType, ['@acs.form.registerHosting'] ]
+    # END Forms flows
 
     # Kernel response events
     kernel_subscriber:

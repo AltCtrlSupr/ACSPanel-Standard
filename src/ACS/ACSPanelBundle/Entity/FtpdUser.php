@@ -379,4 +379,26 @@ class FtpdUser
     {
         return $this->getUserName();
     }
+
+    /**
+     * @ORM\PrePersist
+     * It sets the uid and gid of the ftpduser getting from creator and/or if it's available
+     */
+    public function setGidAndUidValues()
+    {
+        // we set the same gid of the owner
+        $this->setGid($this->getUser()->getGid());
+
+        // we check for the existence in database of the uid
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $ftpdusertools = $kernel->getContainer()->get('acs.ftpduser.tools');
+
+        $this->setUid($ftpdusertools->getAvailableUid());
+
+    }
 }

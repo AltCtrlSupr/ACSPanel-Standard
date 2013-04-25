@@ -93,6 +93,13 @@ class FosUser extends BaseUser
      */
     private $settings;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @todo check if is still used
+     */
+    private $domains;
+
+
 
     public function __construct()
     {
@@ -318,7 +325,7 @@ class FosUser extends BaseUser
      */
     public function setUserValue()
     {
-        if($this->getUser())
+        if($this->getParentUser())
             return;
 
 
@@ -644,6 +651,10 @@ class FosUser extends BaseUser
     {
         return $this->settings;
     }
+
+    /**
+     * Return the home dir based on settings for this user
+     */
     public function getHomedir()
     {
         global $kernel;
@@ -666,20 +677,31 @@ class FosUser extends BaseUser
         $this->email = $email;
     }
 
-	 public function getIdChildIds()
-	 {
-	 	$user_ids[]=$this->getId();
-		foreach($this->getChildUsers() as $user){
-			$ids=$user->getIdChildIds();
-			$user_ids=array_merge($user_ids,$ids);
-		}
-		return $user_ids;
-	 }
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * Return the usernames of users childs and sub-childs
      */
-    private $domains;
+    public function getChildUsernames(){
+        $user_names[]=$this->getUsername();
+        foreach($this->getChildUsers() as $user){
+            $unames=$user->getChildUsernames();
+            $user_names=array_merge($user_names,$unames);
+        }
+        return $user_names;
+    }
 
+    /**
+     * Return the ids of users childs and sub-childs
+     * @todo extrange method name, change?
+     */
+     public function getIdChildIds()
+     {
+        $user_ids[]=$this->getId();
+        foreach($this->getChildUsers() as $user){
+            $ids=$user->getIdChildIds();
+            $user_ids=array_merge($user_ids,$ids);
+        }
+        return $user_ids;
+     }
 
     /**
      * Add domains
@@ -690,7 +712,6 @@ class FosUser extends BaseUser
     public function addDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
     {
         $this->domains[] = $domains;
-    
         return $this;
     }
 
@@ -707,7 +728,7 @@ class FosUser extends BaseUser
     /**
      * Get domains
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getDomains()
     {
