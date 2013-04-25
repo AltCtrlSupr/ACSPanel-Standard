@@ -1,6 +1,6 @@
 # Configs for the Settings Bundle
 acsacs_panel_settings:
-    home_base: '/home/'
+    #home_base: '/home/'
     settings_class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
     setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
     user_fields:
@@ -14,8 +14,6 @@ acsacs_panel_settings:
              ca: 'Catalan'
            default_value: 'en'
            context: 'User settings'
-           #TODO: add support to set choices
-           #choices: ['English' : 'en','es','ca']
            focus: 'user_setting'
         theme:
            setting_key: user_theme
@@ -27,10 +25,36 @@ acsacs_panel_settings:
              terminal: 'Terminal'
            default_value: 'default'
            context: 'User settings'
-           #TODO: add support to set choices
-           #choices: ['English' : 'en','es','ca']
            focus: 'user_setting'
     system_fields:
+        last_used_uid:
+           label: 'Last Used UID (internal)'
+           setting_key: last_used_uid
+           field_type: text
+           default_value: ''
+           context: 'Internal'
+           focus: 'internal'
+        last_used_gid:
+           label: 'Last Used GID (internal)'
+           setting_key: last_used_gid
+           field_type: text
+           default_value: ''
+           context: 'Internal'
+           focus: 'internal'
+        start_uid:
+           label: 'First users UID'
+           setting_key: start_uid
+           field_type: text
+           default_value: '2000'
+           context: 'System settings'
+           focus: 'system_setting'
+        start_gid:
+           label: 'First users GID'
+           setting_key: start_gid
+           field_type: text
+           default_value: '2000'
+           context: 'System settings'
+           focus: 'system_setting'
         system_language:
            setting_key: system_language
            label: 'System language'
@@ -56,4 +80,3 @@ acsacs_panel_settings:
            default_value: ''
            context: 'Mailserver settings'
            focus: 'system_setting'
-

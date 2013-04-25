@@ -211,9 +211,6 @@ class FosUserController extends Controller
                 }
 
             }
-            $em->flush();
-            $entity->setUid($entity->getId()+2000);
-            $entity->setGid($entity->getId()+2000);
             $em->persist($entity);
             $em->flush();
 

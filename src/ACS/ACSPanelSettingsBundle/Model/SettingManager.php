@@ -15,21 +15,32 @@ abstract class SettingManager extends EntityRepository
     }
 
     /**
+     * Get setting by parameters
+     */
+    public function getSetting($setting_key, $focus, $user = null)
+    {
+        $params = array();
+        $params['setting_key'] = $setting_key;
+        $params['focus'] = $focus;
+        if($user)
+            $params['user'] = $user;
+
+        $setting = $this->findOneBy($params);
+
+        if($setting)
+            return $setting->getValue();
+
+        return null;
+    }
+
+    /**
      * Gets user focus config value from database
      * @todo: Maybe could be good caching those values...
      */
     public function getUserSetting($setting_key, FosUser $user)
     {
-        $setting = $this->findOneBy(array(
-            'user' => $user,
-            'setting_key' => $setting_key,
-            'focus' => 'user_setting',
-        ));
-        if($setting)
-            return $setting->getValue();
-
-        return null;
-
+        $setting = $this->getSetting($setting_key, 'user_setting', $user);
+        return $setting;
     }
 
     /**
@@ -38,15 +49,45 @@ abstract class SettingManager extends EntityRepository
      */
     public function getSystemSetting($setting_key)
     {
-        $setting = $this->findOneBy(array(
-            'setting_key' => $setting_key,
-            'focus' => 'system_setting',
-        ));
-        if($setting)
-            return $setting->getValue();
-
-        return null;
-
+        $setting = $this->getSetting($setting_key, 'system_setting');
+        return $setting;
     }
 
+    /**
+     * Gets internal focus config values from database
+     * @todo: Maybe could be good caching those values...
+     */
+    public function getInternalSetting($setting_key)
+    {
+        $setting = $this->getSetting($setting_key, 'internal');
+        return $setting;
+    }
+
+    /**
+     * Sets a setting value
+     */
+    public function setSetting($setting_key, $focus, $value)
+    {
+        $em = $this->getEntityManager();
+
+        $setting = $this->findOneBy(array(
+            'setting_key' => $setting_key,
+            'focus' => $focus,
+        ));
+
+        $setting->setValue($value);
+
+        $em->persist($setting);
+        $em->flush();
+
+        return $setting;
+    }
+
+    /**
+     * Sets internal setting value
+     */
+    public function setInternalSetting($setting_key, $value)
+    {
+        return $this->setSetting($setting_key, 'internal', $value);
+    }
 }

@@ -734,4 +734,53 @@ class FosUser extends BaseUser
     {
         return $this->domains;
     }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setGidAndUidValues()
+    {
+        // we check for the existence in database of the uid
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $usertools = $kernel->getContainer()->get('acs.user.tools');
+
+        $this->setUid($usertools->getAvailableUid());
+        $this->setGid($usertools->getAvailableGid());
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function incrementUidSetting()
+    {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $setting_manager = $kernel->getContainer()->get('acs.setting_manager');
+
+        return $setting_manager->setInternalSetting('last_used_uid',$this->getUid());
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function incrementGidSetting()
+    {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $setting_manager = $kernel->getContainer()->get('acs.setting_manager');
+
+        return $setting_manager->setInternalSetting('last_used_gid',$this->getGid());
+    }
+
 }

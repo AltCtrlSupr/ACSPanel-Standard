@@ -396,9 +396,24 @@ class FtpdUser
             $kernel = $kernel->getKernel();
         }
 
-        $ftpdusertools = $kernel->getContainer()->get('acs.ftpduser.tools');
+        $usertools = $kernel->getContainer()->get('acs.user.tools');
 
-        $this->setUid($ftpdusertools->getAvailableUid());
+        $this->setUid($usertools->getAvailableUid());
 
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function incrementUidSetting()
+    {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+        $setting_manager = $kernel->getContainer()->get('acs.setting_manager');
+
+        return $setting_manager->setInternalSetting('last_used_uid',$this->getUid());
     }
 }

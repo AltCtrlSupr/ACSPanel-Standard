@@ -734,4 +734,12 @@ class FosUser extends BaseUser
     {
         return $this->domains;
     }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function incrementUidSetting()
+    {
+        // Add your code here
+    }
 }

@@ -22,7 +22,7 @@ class ACSACSPanelSettingsExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('acs_settings.home_base',$config['home_base']);
+        //$container->setParameter('acs_settings.home_base',$config['home_base']);
         $container->setParameter('acs_settings.setting_class',$config['setting_class']);
         $container->setParameter('acs_settings.settings_class',$config['setting_class']);
         $container->setParameter('acs_settings.user_fields',$config['user_fields']);

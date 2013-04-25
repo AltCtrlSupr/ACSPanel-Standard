@@ -1,7 +1,7 @@
 parameters:
     duplicate.host.class: ACS\ACSPanelBundle\Validator\Constraints\DuplicateHostValidator
     domain.tools.class: ACS\ACSPanelBundle\Modules\Domain
-    ftpduser.tools.class: ACS\ACSPanelBundle\Modules\FtpdUser
+    user.tools.class: ACS\ACSPanelBundle\Modules\UserTools
 
 services:
     # Duplicate host validator
@@ -17,12 +17,12 @@ services:
         tags:
             - {name: domain.tools, alias: domain.tools}
 
-    # Ftpduser checking tools
-    acs.ftpduser.tools:
-        class: %ftpduser.tools.class%
+    # User checking tools
+    acs.user.tools:
+        class: %user.tools.class%
         arguments: ['@doctrine.orm.entity_manager', '@service_container']
         tags:
-            - {name: acs.ftpduser.tools, alias: acs.ftpduser.tools}
+            - {name: acs.user.tools, alias: acs.user.tools}
 
     # Server actions
     server.actions:

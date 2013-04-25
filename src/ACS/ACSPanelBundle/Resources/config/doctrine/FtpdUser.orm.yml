@@ -91,5 +91,6 @@ ACS\ACSPanelBundle\Entity\FtpdUser:
                 - versioned
     lifecycleCallbacks:
       prePersist: [ setCreatedAtValue, setUserValue, setGidAndUidValues ]
+      postPersist: [ incrementUidSetting ]
       preUpdate: [ setUpdatedAtValue ]
 

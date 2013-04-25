@@ -19,11 +19,11 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('acs_settings');
-        $rootNode->children()->scalarNode('home_base')
+        /*$rootNode->children()->scalarNode('home_base')
             ->defaultValue('/home/')
             ->isRequired()
             ->cannotBeEmpty()
-        ->end();
+            ->end();*/
         $rootNode->children()->scalarNode('setting_class')
             ->defaultValue('ACS\ACSPanelBundle\Entity\PanelSetting')
             ->isRequired()
