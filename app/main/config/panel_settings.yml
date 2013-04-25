@@ -21,7 +21,7 @@ acsacs_panel_settings:
            field_type: select
            choices:
              default: 'Default'
-             mobile: 'Mobile'
+             phone: 'Phone'
              terminal: 'Terminal'
            default_value: 'default'
            context: 'User settings'

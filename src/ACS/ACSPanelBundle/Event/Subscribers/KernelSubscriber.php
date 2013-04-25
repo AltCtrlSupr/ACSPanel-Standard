@@ -15,7 +15,7 @@ class KernelSubscriber implements EventSubscriberInterface
             KernelEvents::REQUEST => array(array(
                 'switchUserLanguage', 0
             ),array(
-                'switchUserTheme', 0,
+                'switchUserTheme', 1,
             )),
         );
     }

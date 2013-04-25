@@ -34,6 +34,34 @@ abstract class SettingManager extends EntityRepository
     }
 
     /**
+     * Sets a setting value
+     */
+    public function setSetting($setting_key, $focus, $value)
+    {
+        $em = $this->getEntityManager();
+
+        $setting = $this->findOneBy(array(
+            'setting_key' => $setting_key,
+            'focus' => $focus,
+        ));
+
+        $setting->setValue($value);
+
+        $em->persist($setting);
+        $em->flush();
+
+        return $setting;
+    }
+
+    /**
+     * Sets internal setting value
+     */
+    public function setInternalSetting($setting_key, $value)
+    {
+        return $this->setSetting($setting_key, 'internal', $value);
+    }
+
+    /**
      * Gets user focus config value from database
      * @todo: Maybe could be good caching those values...
      */
@@ -61,33 +89,5 @@ abstract class SettingManager extends EntityRepository
     {
         $setting = $this->getSetting($setting_key, 'internal');
         return $setting;
-    }
-
-    /**
-     * Sets a setting value
-     */
-    public function setSetting($setting_key, $focus, $value)
-    {
-        $em = $this->getEntityManager();
-
-        $setting = $this->findOneBy(array(
-            'setting_key' => $setting_key,
-            'focus' => $focus,
-        ));
-
-        $setting->setValue($value);
-
-        $em->persist($setting);
-        $em->flush();
-
-        return $setting;
-    }
-
-    /**
-     * Sets internal setting value
-     */
-    public function setInternalSetting($setting_key, $value)
-    {
-        return $this->setSetting($setting_key, 'internal', $value);
     }
 }

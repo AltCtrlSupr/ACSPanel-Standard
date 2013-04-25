@@ -114,8 +114,15 @@ stof_doctrine_extensions:
 
 # liip theme
 liip_theme:
-    themes: ['default', 'terminal', 'mobile']
+    themes: ['default', 'terminal', 'phone']
     active_theme: 'default'
+    cookie:
+        name: NameOfTheCookie
+        lifetime: 31536000 # 1 year in seconds
+        path: /
+        domain: ~
+        secure: false
+        http_only: false
     autodetect_theme: true
 
 # entity id bundle
