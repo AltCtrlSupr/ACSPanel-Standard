@@ -74,11 +74,11 @@ class DnsRecordController extends Controller
     public function newAction($dnsdomain_id = '')
     {
         $entity = new DnsRecord();
-		  $entity->setTtl('3600');
-		  $entity->setType('A');
+        $entity->setTtl('3600');
+        $entity->setType('A');
         if($dnsdomain_id != ''){
             $em = $this->getDoctrine()->getManager();
-            $entity->setDomain($em->getRepository('ACSACSPanelBundle:DnsDomain')->find($dnsdomain_id));
+            $entity->setDnsDomain($em->getRepository('ACSACSPanelBundle:DnsDomain')->find($dnsdomain_id));
         }
         $form   = $this->createForm(new DnsRecordType(), $entity);
 

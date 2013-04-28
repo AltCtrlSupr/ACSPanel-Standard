@@ -84,7 +84,7 @@ class MailAliasController extends Controller
         $entity = new MailAlias();
 
 		  if($maildomain_id != ''){
-		  		$entity->setDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
+		  		$entity->setMailDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
 		  }
         $form   = $this->createForm(new MailAliasType(), $entity);
 

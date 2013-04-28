@@ -11,7 +11,7 @@ class MailMailboxType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('domain')
+            ->add('mail_domain')
             ->add('name')
             ->add('username')
             ->add('password')
