@@ -62,7 +62,7 @@ class MailAliasController extends Controller
     public function showWidgetAction($maildomain_id)
     {
       $em = $this->getDoctrine()->getManager();
-      $entities = $em->getRepository('ACSACSPanelBundle:MailAlias')->findBy(array('domain'=>$maildomain_id));
+      $entities = $em->getRepository('ACSACSPanelBundle:MailAlias')->findBy(array('mail_domain'=>$maildomain_id));
       return $this->render('ACSACSPanelBundle:MailAlias:show_widget.html.twig', array(
          'entities' => $entities,
       ));

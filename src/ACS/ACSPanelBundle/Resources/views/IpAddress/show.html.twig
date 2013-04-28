@@ -1,4 +1,5 @@
 {% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}IP Address{% endtrans %}: {{ entity.ip }}{% endblock %}
 {% block body %}
 <h1>{% trans %}IP Address{% endtrans %}: {{ entity.ip }}</h1>
 

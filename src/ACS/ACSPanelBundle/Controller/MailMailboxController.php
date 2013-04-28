@@ -54,7 +54,7 @@ class MailMailboxController extends Controller
 	 public function showWidgetAction($maildomain_id)
 	 {
 	 	$em = $this->getDoctrine()->getManager();
-		$entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findBy(array('domain'=>$maildomain_id));
+		$entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findBy(array('mail_domain' => $maildomain_id));
 		return $this->render('ACSACSPanelBundle:MailMailbox:show_widget.html.twig', array(
 			'entities' => $entities,
 		));

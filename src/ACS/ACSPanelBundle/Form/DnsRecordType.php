@@ -11,7 +11,7 @@ class DnsRecordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('domain')
+            ->add('dns_domain')
             ->add('name')
             ->add('type', 'choice', array(
                 'choices' => array(

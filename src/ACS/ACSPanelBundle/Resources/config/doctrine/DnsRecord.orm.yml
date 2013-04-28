@@ -1,5 +1,6 @@
 ACS\ACSPanelBundle\Entity\DnsRecord:
     type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\DnsRecordRepository
     table: dns_record
     gedmo:
         loggable: {}

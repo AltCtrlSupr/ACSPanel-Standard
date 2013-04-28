@@ -23,12 +23,16 @@ $(document).ready(function(){
     /*});*/
 
     // TODO: Just to test, remove
-    $('a[title]').qtip();
+    //$('a[title]').qtip();
 
     // Search results highlight
     if(typeof(hls_query) != 'undefined'){
       $("table.records_list tr td").highlight(hls_query);
     }
+
+    //TODO: Move this to individual theme folder
+    $.mobile.listview.prototype.options.headerTheme = "a";
+
 
 });
 

@@ -1,4 +1,4 @@
-{# app/Resources/views/base.html.twig #}
+{# app/Resources/views/base-nomenu.html.twig #}
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,45 +32,6 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div id="main" data-role="page" data-theme="a">
-
-            <div id="user-tools" role="banner" data-role="header" data-position="fixed">
-                <h1 role="heading" class="ui-title">ACSPanel{% block header_title %}{% endblock %}</h1>
-                <a data-icon="home" data-iconpos="notext" href="{{ path('acs_acspanel_homepage') }}" title="{% trans %}Home{% endtrans %}">{% trans %}Home{% endtrans %}</a>
-                <a data-icon="search" data-iconpos="notext" href="#search-box" title="{% trans %}Search{% endtrans %}">{% trans %}Search{% endtrans %}</a>
-            </div>
-
-            <div id="content" data-role="content">
-                {% block fos_user_content %}
-                {% endblock fos_user_content %}
-                {% block body %}{% endblock %}
-            </div>
-
-            <div id="footer" role="banner" data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a data-icon="grid" data-iconpos="top" href="#sidebar" title="{% trans %}Menu{% endtrans %}">{% trans %}Menu{% endtrans %}</a></li>
-                        <li><a data-icon="gear" data-iconpos="top" href="{{ path('settings') }}" title="{% trans %}Settings{% endtrans %}">{% trans %}Settings{% endtrans %}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div id="search-box" data-role="page" data-theme="a">
-            <form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
-                <input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
-                <input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
-            </form>
-        </div>
-        <div id="sidebar" data-role="page" data-theme="a">
-            {% block sidebar %}
-                {% if is_granted('ROLE_ADMIN') %}
-                    {{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
-                {% elseif is_granted('ROLE_USER') %}
-                    {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
-                {% endif %}
-            {% endblock %}
-        </div>
-
-
+            {% block body %}{% endblock %}
     </body>
 </html>

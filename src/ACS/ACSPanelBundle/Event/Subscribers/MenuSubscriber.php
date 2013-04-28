@@ -51,7 +51,7 @@ class MenuSubscriber implements EventSubscriberInterface
     public function homeItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Home', array('route' => 'acs_acspanel_homepage'));
+        //$menu->addChild('Home', array('route' => 'acs_acspanel_homepage'));
     }
 
     public function quickactionsItems(FilterMenuEvent $menu_filter)
