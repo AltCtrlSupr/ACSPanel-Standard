@@ -5,10 +5,11 @@
  *Description:
  *Menu styles.
 
+@import "colors"
+
 /* MENU
 #sidebar ul
-  border-bottom: 1px solid #FFFFFF
-  border-top: 1px solid #D8D8D8
+  @include menu-item-separation
   margin: 0 0 18px
   padding: 0
   list-style: none
@@ -18,12 +19,12 @@
     font: bold 15px Helvetica,Arial,sans-serif
     color: #0977B6
   span.current
-    background-color: #E5E5E5
-    border-top: 1px solid #E5E5E5
+    background-color: $menu-selected-item-color
+    border-top: 1px solid $menu-selected-item-color
   li
     &.current
-      background-color: #E5E5E5
-      border-top: 1px solid #E5E5E5
+      background-color: $menu-selected-item-color
+      border-top: 1px solid $menu-selected-item-color
     span
       cursor: pointer
       display: block
