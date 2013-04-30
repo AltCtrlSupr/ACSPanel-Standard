@@ -56,7 +56,10 @@ To avoid permissions issues after executing console commands you should do the n
 
     cd acspanel
 
-Now you set parameters.yml with your database create. Not necessary when it's installed via deb package.
+Now you set parameters.yml with your database create, you can take parameters.yml.sample as example. (Not necessary when it's installed via deb package).
+You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.
+
+
 To install all the dependencies you have to execute composer.phar command.
 
     php composer.phar install
