@@ -36,7 +36,7 @@ abstract class SettingManager extends EntityRepository
     /**
      * Sets a setting value
      */
-    public function setSetting($setting_key, $focus, $value)
+    public function setSetting($setting_key, $focus, $value, $context = '')
     {
         $em = $this->getEntityManager();
 
@@ -44,6 +44,20 @@ abstract class SettingManager extends EntityRepository
             'setting_key' => $setting_key,
             'focus' => $focus,
         ));
+
+        // We create the new setting if it not exists
+        if(!$setting){
+            global $kernel;
+
+            if ('AppCache' == get_class($kernel)) {
+                $kernel = $kernel->getKernel();
+            }
+            $class_name = $kernel->getContainer()->getParameter('acs_settings.setting_class');
+            $setting = new $class_name;
+            $setting->setSettingKey($setting_key);
+            $setting->setFocus($focus);
+            $setting->setContext($context);
+        }
 
         $setting->setValue($value);
 
@@ -58,7 +72,7 @@ abstract class SettingManager extends EntityRepository
      */
     public function setInternalSetting($setting_key, $value)
     {
-        return $this->setSetting($setting_key, 'internal', $value);
+        return $this->setSetting($setting_key, 'internal', $value, 'internal');
     }
 
     /**
