@@ -14,3 +14,7 @@ parameters:
     locale: en
     secret: 9e410dfd0d98704184c8b163064a31fdd122eb90
     database_path: null
+
+    # Assetic
+    assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images
+    assetic.filter.compass.http_path:  /images

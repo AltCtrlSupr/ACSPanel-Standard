@@ -1,0 +1,77 @@
+/* 
+ *Document   : main
+ *Created on : 30/04/2013, 14:42:46
+ *Author     : genar
+ *Description:
+ *Menu styles.
+
+/* MENU
+#sidebar ul
+  border-bottom: 1px solid #FFFFFF
+  border-top: 1px solid #D8D8D8
+  margin: 0 0 18px
+  padding: 0
+  list-style: none
+  li
+    border-bottom: 1px solid #D8D8D8
+    border-top: 1px solid #FFFFFF
+    font: bold 15px Helvetica,Arial,sans-serif
+    color: #0977B6
+  span.current
+    background-color: #E5E5E5
+    border-top: 1px solid #E5E5E5
+  li
+    &.current
+      background-color: #E5E5E5
+      border-top: 1px solid #E5E5E5
+    span
+      cursor: pointer
+      display: block
+      padding: 8px 15px
+      text-shadow: 0 1px 0 #FFFFFF
+    ul li
+      span, a
+        cursor: pointer
+        display: block
+        padding: 8px 15px
+        text-shadow: 0 1px 0 #FFFFFF
+    a
+      cursor: pointer
+      display: block
+      padding: 8px 15px
+      text-shadow: 0 1px 0 #FFFFFF
+    span:hover
+      text-decoration: underline
+  span:hover
+    background-color: #F4F4F4
+  li
+    &:hover
+      background-color: #F4F4F4
+    &:active
+      background-color: #DDDDDD
+    ul
+      display: none
+      border: medium none
+      margin: 0 0 8px
+      padding-left: 30px
+
+#sidebar ul li
+  &.current_ancestor ul, &.current ul, &.current_ancestor ul li.current_ancestor ul, &.current ul li.current_ancestor ul
+    display: block
+  &.current_ancestor ul li ul, &.current ul li ul
+    display: none
+  ul
+    ul
+      margin: 0
+      padding-left: 15px
+    li
+      background: none repeat scroll 0 0 transparent
+      border: medium none
+      font-size: 13px
+      list-style: disc outside
+      margin: 0
+      a
+        /* font-weight: normal;
+        /* padding: 3px 0;
+
+

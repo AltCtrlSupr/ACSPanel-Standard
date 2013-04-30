@@ -135,7 +135,7 @@ table{
 }
 
 .records_list {
-    width: 100%
+    width: 100%;
     border: 1px solid #B0B0B0;
 }
 .records_list tbody {
