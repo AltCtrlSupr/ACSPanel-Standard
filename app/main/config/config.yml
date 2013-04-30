@@ -53,16 +53,6 @@ doctrine:
                 charset:  UTF8
                 mapping_types:
                     enum: string
-            admin_con:
-                driver:   %admin_database_driver%
-                host:     %admin_database_host%
-                port:     %admin_database_port%
-                dbname:   %admin_database_name%
-                user:     %admin_database_user%
-                password: %admin_database_password%
-                charset:  UTF8
-                mapping_types:
-                    enum: string
 
 
     orm:
