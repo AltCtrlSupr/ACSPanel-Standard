@@ -14,7 +14,7 @@ root {
 
 /* FONTS */
 body{
-    font-type: Helvetica,Arial,sans-serif;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
 }
 
 a:link, a:visited, a:active, a:hover {
