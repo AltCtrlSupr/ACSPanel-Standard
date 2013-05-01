@@ -1,5 +1,6 @@
 ACS\ACSPanelBundle\Entity\DB:
     type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\DBRepository
     table: db
     fields:
         id:
