@@ -2,10 +2,7 @@
 {% block header_title %} - {% trans %}User Group list{% endtrans %}{% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts 'highlight.css' %}
-        <link rel="stylesheet" type="text/css" href="" />
         <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
-    {% endjavascripts %}
 {% endblock %}
 
 {% block body %}
