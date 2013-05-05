@@ -1,11 +1,22 @@
-/nbproject/
-/app/cache/
-/app/logs/
-/vendor/
-/app/main/config/parameters.ini
-/app/main/config/config_dev.yml
-/app/main/config/parameters.yml
+# IDE Files ignores
+nbproject/
 *.un~
-/app/main/cache/
-/app/main/logs/
 tags
+
+# Symfony2 gitignore from https://github.com/github/gitignore
+# Bootstrap
+app/bootstrap*
+app/main/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+
+# Configuration files
+app/main/config/parameters.ini
+app/main/config/parameters.yml
+app/main/config/config_dev.yml
+
