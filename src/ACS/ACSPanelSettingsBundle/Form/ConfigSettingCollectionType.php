@@ -26,25 +26,15 @@ class ConfigSettingCollectionType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        //$subscriber = new AdaptFormSubscriber($builder->getFormFactory());
-        //$builder->addEventSubscriber($subscriber);
+		$user_fields = $this->user_fields;
 
         $builder->add('settings', 'collection', array(
-            'type' => new ConfigSettingType($this->em),
+            'type' => new ConfigSettingType($this->em, $user_fields),
             'allow_add' => true,
             'prototype' => false,
             'options' => array(
             )
         ));
-
-        /*foreach($this->user_fields as $id => $field_config){
-
-            $setting = new ConfigSetting();
-            $setting->setSettingKey($field_config['setting_key']);
-            $builder->add($id, new ConfigSettingType($setting), array('mapped' => false));
-        }*/
-
 
     }
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -52,9 +42,6 @@ class ConfigSettingCollectionType extends AbstractType
         // TODO: Get value from config.yml
         $resolver->setDefaults(array(
             'data_class' => 'ACS\ACSPanelBundle\Entity\FosUser',
-            //'csrf_protection' => false,
-            //'cascade_validation' => true,
-            //'allow_extra_fields' => true,
         ));
 
     }

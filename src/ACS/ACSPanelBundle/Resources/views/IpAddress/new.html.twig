@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}New IP Address{% endtrans %}{% endblock %}
 {% block body %}
-<h1>{% trans %}New IP Address{% endtrans %}</h1>
 
 <div class="form_box">
     <form action="{{ path('ipaddress_create') }}" method="post" {{ form_enctype(form) }}>

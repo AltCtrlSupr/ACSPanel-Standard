@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}Service edit{% endtrans %}{% endblock %}
 {% block body %}
-<h1>{% trans %}Service edit{% endtrans %}</h1>
 
 <div class="form_box">
     <form action="{{ path('service_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>

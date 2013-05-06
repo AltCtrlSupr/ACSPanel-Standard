@@ -1,0 +1,34 @@
+/*Document   : main
+ *Created on : 30/04/2013, 14:42:46
+ *Author     : genar
+ *Description:
+ *Layout styles. */
+/* LAYOUT */
+/* line 10, assetic_compassDFjZsg.sass */
+root {
+  display: block;
+}
+
+/* line 13, assetic_compassDFjZsg.sass */
+#sidebar {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 17, assetic_compassDFjZsg.sass */
+#content {
+  clear: right;
+  overflow: hidden;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* line 24, assetic_compassDFjZsg.sass */
+.tabs-content {
+  float: left;
+  clear: both;
+  padding-left: 14px;
+  padding-top: 23px;
+  padding-bottom: 12px;
+  width: 100%;
+}

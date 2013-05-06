@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}Plan creation{% endtrans %}{% endblock %}
 {% block body %}
-<h1>Plan creation</h1>
 
 <div class="form_box">
     <form action="{{ path('plans_create') }}" method="post" {{ form_enctype(form) }}>

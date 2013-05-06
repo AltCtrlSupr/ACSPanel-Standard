@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}MailMailbox creation{% endtrans %}{% endblock %}
 {% block body %}
-<h1>MailMailbox creation</h1>
 
 <div class="form_box">
     <form action="{{ path('mailmailbox_create') }}" method="post" {{ form_enctype(form) }}>

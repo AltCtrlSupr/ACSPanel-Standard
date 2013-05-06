@@ -9,8 +9,19 @@ use ACS\ACSPanelSettingsBundle\Form\EventListener\AdaptFormSubscriber;
 
 class ConfigSettingType extends AbstractType
 {
+
+	public $user_fields;
+	public $em;
+
+    public function __construct($em, $user_fields)
+    {
+        $this->user_fields = $user_fields;
+        $this->em = $em;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+		$user_fields = $this->user_fields;
 
         $builder
             ->add('setting_key','hidden')
@@ -19,7 +30,7 @@ class ConfigSettingType extends AbstractType
             //->add('type', 'hidden',array('mapped' => false))
         ;
 
-        $subscriber = new AdaptFormSubscriber($builder->getFormFactory());
+        $subscriber = new AdaptFormSubscriber($builder->getFormFactory(), $user_fields);
 		$builder->addEventSubscriber($subscriber);
 
 

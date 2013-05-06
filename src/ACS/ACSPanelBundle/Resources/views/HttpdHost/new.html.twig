@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}HttpdHost creation{% endtrans %}{% endblock %}
 {% block body %}
-<h1>{% trans %}HttpdHost creation{% endtrans %}</h1>
 
 <div class="form_box">
     <form action="{{ path('httpdhost_create') }}" method="post" {{ form_enctype(form) }}>

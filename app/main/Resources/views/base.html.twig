@@ -46,18 +46,20 @@
                     {% endif %}
                 {% endblock %}
             </div>
-            <div class="span10">
+            <div id="heading" class="span10">
+                <h1 role="heading" class="ui-title">ACSPanel{% block header_title %}{% endblock %}</h1>
                 <div id="user-tools">
                     {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
                     <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
-                </div>
-                <div id="content">
                     <div id="search-box">
                         <form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
                             <input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
                             <input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
                         </form>
                     </div>
+
+                </div>
+                <div id="content">
 
                     {% block fos_user_content %}
                     {% endblock fos_user_content %}

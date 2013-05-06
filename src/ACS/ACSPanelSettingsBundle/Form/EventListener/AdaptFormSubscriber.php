@@ -16,10 +16,12 @@ use Symfony\Component\Form\FormEvents;
 class AdaptFormSubscriber implements EventSubscriberInterface
 {
     private $factory;
+	public $user_fields;
 
-    public function __construct(FormFactoryInterface $factory)
+    public function __construct(FormFactoryInterface $factory, $user_fields)
     {
         $this->factory = $factory;
+		$this->user_fields = $user_fields;
     }
 
     public static function getSubscribedEvents()
@@ -43,6 +45,12 @@ class AdaptFormSubscriber implements EventSubscriberInterface
             return;
         }
 
+		// Get the settings for that specific field
+		$field_params = array();
+		$fields = $this->user_fields;
+		foreach($fields as $field){
+		}
+
         if($data->getService()){
                 $form->add($this->factory->createNamed('service_id','hidden',$data->getService()->getId(),array('mapped' => false)));
         }
@@ -54,6 +62,9 @@ class AdaptFormSubscriber implements EventSubscriberInterface
                     'label' => $data->getLabel(),
                     'choices' => $data->getChoices(),
                 )));
+                break;
+            case 'hidden':
+                $form->add($this->factory->createNamed('value','hidden',$data->getValue(),array('label' => $data->getLabel())));
                 break;
             case 'text':
                 $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));

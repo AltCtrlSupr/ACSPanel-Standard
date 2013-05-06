@@ -1,0 +1,100 @@
+/*Document   : main
+ *Created on : 13/11/2012, 14:42:46
+ *Author     : genar
+ *Description:
+ *Purpose of the stylesheet follows. */
+/*@import "fonts"
+ * @import "login"
+ * @import "layout"
+ * @import "menu"
+ * @import "table" */
+/*Document   : main
+ *Created on : 30/04/2013, 14:42:46
+ *Author     : genar
+ *Description:
+ *Fonts styles. */
+/* COLORS */
+/* line 17, assetic_compasseKgJAG.sass */
+ul.plan_attributes {
+  display: none;
+}
+
+/* line 20, assetic_compasseKgJAG.sass */
+#user-tools {
+  float: right;
+}
+
+/* TITLES */
+/* line 25, assetic_compasseKgJAG.sass */
+#content h1 {
+  float: left;
+  color: #064c75;
+}
+
+/* line 29, assetic_compasseKgJAG.sass */
+ul.tab-nav {
+  background: #f1f1f1;
+  float: left;
+  list-style: none;
+  margin: 0 0 0 1px;
+  /*height: 40px; */
+  width: 100%;
+}
+/* line 36, assetic_compasseKgJAG.sass */
+ul.tab-nav li {
+  float: left;
+  background: url("images/sep_tabs.png") no-repeat right center;
+}
+/* line 39, assetic_compasseKgJAG.sass */
+ul.tab-nav li a {
+  float: left;
+  text-decoration: none;
+  color: black;
+  height: 24px;
+  padding: 12px 14px;
+}
+/* line 45, assetic_compasseKgJAG.sass */
+ul.tab-nav li a.active {
+  background: white url("images/sep_tabs.png") no-repeat 101% 1px;
+}
+/* line 47, assetic_compasseKgJAG.sass */
+ul.tab-nav li a:hover {
+  text-decoration: underline;
+}
+
+/* Actions list */
+/* line 52, assetic_compasseKgJAG.sass */
+.record_actions {
+  float: left;
+  clear: both;
+}
+
+/*Search results highlight */
+/* line 58, assetic_compasseKgJAG.sass */
+.highlight {
+  background-color: #d3e18a;
+}
+
+/* Dynamic adder */
+/* line 63, assetic_compasseKgJAG.sass */
+.dinamic-adder {
+  float: left;
+  clear: both;
+}
+
+/* line 67, assetic_compasseKgJAG.sass */
+ul.dinamic-adder {
+  list-style: none;
+  padding: 0;
+}
+/* line 70, assetic_compasseKgJAG.sass */
+ul.dinamic-adder li {
+  float: left;
+  clear: both;
+}
+
+/* line 74, assetic_compasseKgJAG.sass */
+.add_tag_link {
+  float: left;
+  clear: both;
+}

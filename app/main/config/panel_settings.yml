@@ -4,6 +4,14 @@ acsacs_panel_settings:
     settings_class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
     setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
     user_fields:
+        # Control the version of the configuration fields
+        user_schema_version:
+           setting_key: user_schema_version
+           label: 'User schema version'
+           field_type: text 
+           default_value: '1'
+           context: 'User internal'
+           focus: 'user_internal'
         language:
            setting_key: user_language
            label: 'User language'
@@ -27,6 +35,14 @@ acsacs_panel_settings:
            context: 'User settings'
            focus: 'user_setting'
     system_fields:
+        # Control the version of the configuration fields
+        system_schema_version:
+           setting_key: system_schema_version
+           label: 'System schema version'
+           field_type: text 
+           default_value: '1'
+           context: 'System internal'
+           focus: 'system_internal'
         last_used_uid:
            label: 'Last Used UID (internal)'
            setting_key: last_used_uid

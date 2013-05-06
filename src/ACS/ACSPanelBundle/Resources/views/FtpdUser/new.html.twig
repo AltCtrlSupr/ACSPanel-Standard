@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}FtpdUser creation{% endtrans %}{% endblock %}
 {% block body %}
-<h1>FtpdUser creation</h1>
 
 <div class="form_box">
     <form action="{{ path('ftpduser_create') }}" method="post" {{ form_enctype(form) }}>

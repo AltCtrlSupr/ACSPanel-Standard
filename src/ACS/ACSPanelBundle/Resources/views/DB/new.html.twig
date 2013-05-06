@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}Database creation{% endtrans %}{% endblock %}
 {% block body %}
-<h1>DB creation</h1>
 
 <div class="form_box">
     <form action="{{ path('db_create') }}" method="post" {{ form_enctype(form) }}>

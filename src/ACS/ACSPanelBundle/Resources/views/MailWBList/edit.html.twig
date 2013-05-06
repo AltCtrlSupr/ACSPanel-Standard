@@ -2,7 +2,6 @@
 {% block header_title %} - {% trans %}MailWBList edit{% endtrans %}{% endblock %}
 {% block body %}
 
-<h1>MailWBList edit</h1>
 
 <form action="{{ path('mailwblist_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}

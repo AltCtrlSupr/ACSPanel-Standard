@@ -11,7 +11,9 @@ app/main/bootstrap*
 # Symfony directories
 vendor/*
 */logs/*
+*/main/logs/*
 */cache/*
+*/main/cache/*
 web/uploads/*
 web/bundles/*
 

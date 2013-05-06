@@ -48,13 +48,12 @@ comming soon.
 
 To avoid permissions issues after executing console commands you should do the next
 
-    $ sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/main/cache app/main/logs
-    $ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
+    mkdir app/main/cache && mkdir app/main/logs (TODO: check this to be created with the initial files...)
+    sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/main/cache app/main/logs
+    sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
 
 5) Setting up ACSPanel
 --------------------
-
-    cd acspanel
 
 Now you set parameters.yml with your database create, you can take parameters.yml.sample as example. (Not necessary when it's installed via deb package).
 You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.
@@ -62,6 +61,7 @@ You should create your own config_dev.yml, as the parameters you can take config
 
 To install all the dependencies you have to execute composer.phar command.
 
+    php composer.phar self-update (TODO: Be sure if it's the best...)
     php composer.phar install
 
 Then you are ready to create the acspanel basic schema executing the next command:
@@ -75,8 +75,6 @@ You can load some basic fixtures doing next, like basic groups and admin to star
 You should install the assets as well:
 
     php app/console assets:install --symlink
-
-Towrite Setting up permissions  
 
 (Opcional) Install additional ACSPanel bundles:
 

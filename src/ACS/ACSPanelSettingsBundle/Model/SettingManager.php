@@ -15,6 +15,26 @@ abstract class SettingManager extends EntityRepository
     }
 
     /**
+     * Loading of basic internal settings needed for the app
+	 * Called if it's the first time or user need update of settings
+     */
+    public function loadFileSettingDefaults(array $fields)
+    {
+		global $kernel;
+
+		if ('AppCache' == get_class($kernel)) {
+			$kernel = $kernel->getKernel();
+		}
+        $user = $kernel->getContainer()->get('security.context')->getToken()->getUser();
+		foreach($fields as $field){
+			if(!$this->getSetting($field['setting_key'], $field['focus'], $user)){
+				$this->setSetting($field['setting_key'], $field['focus'], $field['value'], $field['context']);
+			}
+		}
+
+    }
+
+    /**
      * Get setting by parameters
      */
     public function getSetting($setting_key, $focus, $user = null)

@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}HttpdHost{% endtrans %}{% endblock %}
 {% block body %}
-<h1>{% trans %}HttpdHost{% endtrans %}</h1>
 
 {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="flash-notice">
