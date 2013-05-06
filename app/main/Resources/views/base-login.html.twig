@@ -5,8 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{% block title %}ACSPanel{% endblock %}</title>
         {% block stylesheets %}
-            <link href="{{ asset('bundles/acsacspanel/css/main.css') }}" rel="stylesheet" type="text/css" />
-            {#<link href="{{ asset('bundles/acsacspanel/css/jquery-ui/themes/base/jquery-ui.css')}}" rel="stylesheet" type="text/css" />#}
+            {% include "::stylesheets.anon.html.twig" %}
         {% endblock %}
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery/jquery.min.js')}}"></script>

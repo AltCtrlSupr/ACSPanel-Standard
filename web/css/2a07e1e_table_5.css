@@ -4,17 +4,16 @@
  *Description:
  *Tables */
 /* TABLES */
-/* line 10, assetic_compassZY5ybe.sass */
+/* line 10, assetic_compassxRsnM1.sass */
 table {
   clear: both;
 }
 
-/* line 13, assetic_compassZY5ybe.sass */
+/* line 13, assetic_compassxRsnM1.sass */
 .records_list {
   width: 100%;
-  border: 1px solid #b0b0b0;
 }
-/* line 16, assetic_compassZY5ybe.sass */
+/* line 16, assetic_compassxRsnM1.sass */
 .records_list tbody {
   /* Kind of irrelevant unless your .css is alreadt doing something else */
   margin: 0;
@@ -25,11 +24,11 @@ table {
   vertical-align: baseline;
   background: transparent;
 }
-/* line 25, assetic_compassZY5ybe.sass */
+/* line 25, assetic_compassxRsnM1.sass */
 .records_list thead {
   text-align: left;
 }
-/* line 27, assetic_compassZY5ybe.sass */
+/* line 27, assetic_compassxRsnM1.sass */
 .records_list thead th {
   background: -moz-linear-gradient(top, #f0f0f0 0, #dbdbdb 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0f0f0), color-stop(100%, #dbdbdb));
@@ -40,12 +39,12 @@ table {
   font-weight: bold;
   padding: 3px 10px;
 }
-/* line 36, assetic_compassZY5ybe.sass */
+/* line 36, assetic_compassxRsnM1.sass */
 .records_list td {
   padding: 3px 10px;
   vertical-align: middle;
 }
-/* line 39, assetic_compassZY5ybe.sass */
+/* line 39, assetic_compassxRsnM1.sass */
 .records_list tr:nth-child(even) {
   background: #f2f2f2;
 }

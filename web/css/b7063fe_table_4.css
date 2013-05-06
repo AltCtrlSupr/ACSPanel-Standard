@@ -1,0 +1,50 @@
+/*Document   : main
+ *Created on : 13/11/2012, 14:42:46
+ *Author     : genar
+ *Description:
+ *Tables */
+/* TABLES */
+/* line 10, assetic_compassBJZ8yk.sass */
+table {
+  clear: both;
+}
+
+/* line 13, assetic_compassBJZ8yk.sass */
+.records_list {
+  width: 100%;
+}
+/* line 16, assetic_compassBJZ8yk.sass */
+.records_list tbody {
+  /* Kind of irrelevant unless your .css is alreadt doing something else */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+/* line 25, assetic_compassBJZ8yk.sass */
+.records_list thead {
+  text-align: left;
+}
+/* line 27, assetic_compassBJZ8yk.sass */
+.records_list thead th {
+  background: -moz-linear-gradient(top, #f0f0f0 0, #dbdbdb 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0f0f0), color-stop(100%, #dbdbdb));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#DBDBDB', GradientType=0);
+  border: 1px solid #b0b0b0;
+  color: #444444;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 3px 10px;
+}
+/* line 36, assetic_compassBJZ8yk.sass */
+.records_list td {
+  padding: 3px 10px;
+  vertical-align: middle;
+}
+/* line 39, assetic_compassBJZ8yk.sass */
+.records_list tr:nth-child(even) {
+  background: #f2f2f2;
+}

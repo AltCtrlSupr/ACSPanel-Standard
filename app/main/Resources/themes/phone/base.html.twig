@@ -26,6 +26,9 @@
             {% if term is defined %}
             <script type="text/javascript">
                 var hls_query  = "{{ term }}";
+
+                $.mobile.listview.prototype.options.headerTheme = "a";
+
             </script>
             {% endif %}
         {% endblock %}

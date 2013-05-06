@@ -1,0 +1,20 @@
+{% stylesheets 
+    "@ACSACSPanelBundle/Resources/public/bootstrap/css/bootstrap.min.css"
+    "@ACSACSPanelBundle/Resources/public/bootstrap/css/bootstrap-responsive.min.css"
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{# TODO: change to assets/sass or something like that #}
+{% stylesheets filter="compass"
+    "@ACSACSPanelBundle/Resources/public/css/colors.sass"
+    "@ACSACSPanelBundle/Resources/public/css/login.sass"
+    "@ACSACSPanelBundle/Resources/public/css/layout.sass"
+    "@ACSACSPanelBundle/Resources/public/css/menu.sass"
+    "@ACSACSPanelBundle/Resources/public/css/table.sass"
+    "@ACSACSPanelBundle/Resources/public/css/main.sass"
+    "@ACSACSPanelBundle/Resources/public/css/fonts.sass"
+%}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+

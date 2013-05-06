@@ -30,9 +30,6 @@ $(document).ready(function(){
       $("table.records_list tr td").highlight(hls_query);
     }
 
-    //TODO: Move this to individual theme folder
-    $.mobile.listview.prototype.options.headerTheme = "a";
-
 
 });
 
