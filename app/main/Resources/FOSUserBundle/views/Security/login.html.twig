@@ -6,16 +6,15 @@
 {% endif %}
 
         <form action="{{ path("fos_user_security_check") }}" method="post">
+            <h1>ACSPanel</h1>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
             <ul class="loginfields">
                 <li>
-                    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    <input type="text" class="input-block-level" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username" name="_username" value="{{ last_username }}" required="required" />
                 </li>
                 <li>
-                    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                    <input type="password" id="password" name="_password" required="required" />
+                    <input type="password"  class="input-block-level" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password" name="_password" required="required" />
                 </li>
                 </li>
                 <li style="text-align: right;">
@@ -25,7 +24,7 @@
                     <a href="{{ path('fos_user_resetting_request') }}">{% trans %}Forgot your password?{% endtrans %}</a>
                 </li>
                 <li>
-                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                    <input type="submit" id="_submit" class="btn btn-large btn-success" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
                 </li>
             </ul>
         </form>

@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}ACSPanel{% endblock %}</title>
         {% block stylesheets %}
             {% include "::stylesheets.html.twig" %}
@@ -20,6 +21,7 @@
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/plugins/localisation/jquery.localisation-min.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/plugins/tmpl/jquery.tmpl.1.1.1.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.qtip.min.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/bootstrap/js/bootstrap.min.js')}}"></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/main.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/settings_tabs.js') }}" ></script>
             {% if term is defined %}

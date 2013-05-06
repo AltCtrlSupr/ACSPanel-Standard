@@ -1,44 +1,51 @@
 /* 
 
 /* Login form
+@import "colors"
+@import "layout"
 
 ul.loginfields
   list-style: none
-  width: 350px
+  width: 356px
   padding: 0
+  margin: 0
 
 #login-form
-  top: 40%
   height: 10%
-  padding: 5px
-  text-align: center
+  padding: 
+    top: 40px
+    bottom: 10px
+    left: 10px
+    right: 10px
+
   #centered
-    float: right
-    text-align: left
-    position: relative
-    left: -50%
+    @include centered
+    form
+      @include centered
+      background-color: $login-form-bg
+      border: 1px solid #E5E5E5
+      border-radius: 5px 5px 5px 5px
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05)
+      padding: 19px 29px 29px
+      max-width: 356px
     h1
       width: 100%
-    div.notice, ul
-      position: relative
-      left: 50%
     div.notice
       color: red
     ul input
-      background: none repeat scroll 0 0 #FBFBFB
-      border: 1px solid #E5E5E5
-      box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset
-      color: #555555
+      //background: $login-input-bg
+      //border: $login-input-border
+      //box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset
+      color: $login-input-font-color
       font-size: 24px
       font-weight: 200
       line-height: 1
-      margin-bottom: 16px
-      margin-top: 2px
+      //margin-bottom: 16px
+      //margin-top: 2px
       outline: 0 none
-      padding: 3px
-      width: 100%
+      //padding: 3px
+      //width: 100%
       &#_submit
-        background: none repeat scroll 0 0 #0977B6
         color: #fff
         width: 110px
         margin-left: 50px
@@ -114,3 +121,6 @@ ul.loginfields
       font-weight: bold
 
 
+/* Body override only for login screen
+body
+  background-color: $login-body-bg

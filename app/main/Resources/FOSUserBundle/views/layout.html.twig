@@ -1,8 +1,7 @@
 {% extends '::base-login.html.twig' %}
 {% block body %}
 
-        <div id="login-form">
-            <h1>ACSPanel</h1>
+        <div id="login-form" class="container">
             <div id="centered">
                     {% for key, message in app.session.getFlashes() %}
                     <div class="{{ key }}">
