@@ -33,34 +33,38 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div id="sidebar">
-            {% block sidebar %}
-                <!-- TODO: Move this check to Builder -->
-                {% if is_granted('ROLE_ADMIN') %}
-                    {{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
-                {% elseif is_granted('ROLE_RESELLER') %}
-                    {{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
-                {% elseif is_granted('ROLE_USER') %}
-                    {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
-                {% endif %}
-            {% endblock %}
-        </div>
-        <div id="user-tools">
-            {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
-            <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
-        </div>
-        <div id="content">
-            <div id="search-box">
-                <form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
-                    <input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
-                    <input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
-                </form>
+        <div class="row-fluid">
+            <div id="sidebar" class="span2">
+                {% block sidebar %}
+                    <!-- TODO: Move this check to Builder -->
+                    {% if is_granted('ROLE_ADMIN') %}
+                        {{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
+                    {% elseif is_granted('ROLE_RESELLER') %}
+                        {{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
+                    {% elseif is_granted('ROLE_USER') %}
+                        {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
+                    {% endif %}
+                {% endblock %}
             </div>
+            <div class="span10">
+                <div id="user-tools">
+                    {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+                    <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
+                </div>
+                <div id="content">
+                    <div id="search-box">
+                        <form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
+                            <input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
+                            <input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
+                        </form>
+                    </div>
 
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
 
-            {% block body %}{% endblock %}
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
         </div>
     </body>
 </html>

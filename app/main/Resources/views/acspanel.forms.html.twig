@@ -1,17 +1,2 @@
-{% block form_row %}
-{% spaceless %}
-    <div>
-        {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-    </div>
-{% endspaceless %}
-{% endblock form_row %}
-
-{% block form_widget_simple %}
-{% spaceless %}
-    {% set type = type|default('text') %}
-    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} {% if label is not empty %}placeholder="{{ label }}" {% endif %}/>
-{% endspaceless %}
-{% endblock form_widget_simple %}
+{% form_theme form _self %}
 
