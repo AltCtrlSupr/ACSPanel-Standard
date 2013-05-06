@@ -25,6 +25,9 @@ twig:
     strict_variables: %kernel.debug%
     globals:
         date_format: d-m-Y H:i:s
+    form:
+        resources:
+            - '::acspanel.forms.html.twig'
 
 # Assetic Configuration
 assetic:
