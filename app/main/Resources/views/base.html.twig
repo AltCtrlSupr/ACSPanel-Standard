@@ -35,7 +35,7 @@
     <body>
         <div class="">
             <div id="heading" class="row-fluid">
-                <h1 role="heading" class="ui-title span9">ACSPanel{% block header_title %}{% endblock %}</h1>
+                <h1 role="heading" class="ui-title span9"><span class="sys-title">ACSPanel</span>{% block header_title %}{% endblock %}</h1>
                 <div id="user-tools" class="span3">
                     {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
                     <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
