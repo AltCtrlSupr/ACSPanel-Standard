@@ -230,7 +230,7 @@ class HttpdHostController extends Controller
 
         return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -264,7 +264,7 @@ class HttpdHostController extends Controller
 
         return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

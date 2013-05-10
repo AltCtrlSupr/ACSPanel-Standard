@@ -26,12 +26,13 @@ abstract class SettingManager extends EntityRepository
             $kernel = $kernel->getKernel();
         }
         $user = $kernel->getContainer()->get('security.context')->getToken()->getUser();
+
         foreach($fields as $field){
             if(!$this->getSetting($field['setting_key'], $field['focus'], $user)){
-                $this->setSetting($field['setting_key'], $field['focus'], $field['value'], $field['context']);
+                $this->setSetting($field['setting_key'], $field['focus'], $field['default_value'], $field['context']);
             }
         }
-
+        //TODO: Increment schema_version setting
     }
 
     /**
@@ -63,6 +64,17 @@ abstract class SettingManager extends EntityRepository
         }
 
         return $object_settings;
+    }
+
+    /**
+     * Returns true if there is a update of the user fields
+     */
+    public function isUserUpdateAvailable($user, $user_schema_version)
+    {
+        $user_fields_version = $this->getSetting('user_schema_version', 'user_internal', $user);
+        if($user_fields_version < $user_schema_version)
+            return true;
+        return false;
     }
 
 

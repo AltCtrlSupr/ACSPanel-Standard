@@ -23,9 +23,6 @@ class ServerType extends AbstractType
             ->add('hostname')
             ->add('ip')
             ->add('description')
-            //->add('createdAt')
-            //->add('updatedAt')
-            //->add('user')
         ;
         if($service->isGranted('ROLE_ADMIN'))
             $builder->add('user');

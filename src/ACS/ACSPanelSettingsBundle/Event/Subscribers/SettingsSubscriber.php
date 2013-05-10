@@ -12,16 +12,24 @@ class SettingsSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            'settings.before.loadUserfields'     => array(
-                array('updateUserSettings', 10),
-            ),
             'settings.after.loadUserfields'     => array(
                 array('updateUserSettings', 10),
             ),
         );
     }
 
-    public function updateUserSettings(FilterUserFieldsEvent $action_filter)
+    /**
+     * Create new added fields to user or missing fields
+     *
+     */
+    public function updateUserSettings(FilterUserFieldsEvent $userfields_filter)
     {
+        $settings_manager = $userfields_filter->getContainer()->get('acs.setting_manager');
+        $user = $userfields_filter->getContainer()->get('security.context')->getToken()->getUser();
+        $fields_template = $userfields_filter->getUserFields();
+        if($settings_manager->isUserUpdateAvailable($user, $fields_template['user_schema_version']['default_value'])){
+            // We have an update in the user fields
+            $settings_manager->loadFileSettingDefaults($fields_template);
+        }
     }
 }

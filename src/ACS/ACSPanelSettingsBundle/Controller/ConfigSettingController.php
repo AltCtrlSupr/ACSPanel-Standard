@@ -89,9 +89,7 @@ class ConfigSettingController extends Controller
     {
         $user_fields = array();
 
-        $em = $this->getDoctrine()->getManager();
-
-        $this->container->get('event_dispatcher')->dispatch(SettingsEvents::BEFORE_LOAD_USERFIELDS, new FilterUserFieldsEvent($user_fields,$em));
+        $this->container->get('event_dispatcher')->dispatch(SettingsEvents::BEFORE_LOAD_USERFIELDS, new FilterUserFieldsEvent($user_fields,$this->container));
 
         array_merge($user_fields, $user_fields = $this->container->getParameter("acs_settings.user_fields"));
 
@@ -106,7 +104,7 @@ class ConfigSettingController extends Controller
 
         $user_fields = array_merge($user_fields, $object_settings);
 
-        $this->container->get('event_dispatcher')->dispatch(SettingsEvents::AFTER_LOAD_USERFIELDS, new FilterUserFieldsEvent($user_fields,$em));
+        $this->container->get('event_dispatcher')->dispatch(SettingsEvents::AFTER_LOAD_USERFIELDS, new FilterUserFieldsEvent($user_fields,$this->container));
 
         return $user_fields;
     }
@@ -186,7 +184,7 @@ class ConfigSettingController extends Controller
     public function updateAction(Request $request, $id)
     {
         $class_name = $this->container->getParameter('acs_settings.setting_class');
-        $user_fields = $this->container->getParameter("acs_settings.user_fields");
+        $user_fields = $this->loadUserFields();
         $em = $this->getDoctrine()->getManager();
 
         // TODO: Get from config.yml
@@ -205,11 +203,10 @@ class ConfigSettingController extends Controller
         $postData = $request->request->get('acs_settings_usersettings');
 
         // TODO: Check security issues not to call this method
-        //if ($editForm->isValid()) {
+        if ($editForm->isValid()) {
             if(isset($postData['settings'])){
                     $settings = $postData['settings'];
 
-                    //print_r($settings);
                     foreach ($settings as $setting) {
 
                         // TODO: To get from config.yml
@@ -226,25 +223,12 @@ class ConfigSettingController extends Controller
                             $panelsetting->setValue($setting['value']);
                             $em->persist($panelsetting);
                             $em->flush();
-                        }else{
-			    /* To delete
-                            $new_setting = new PanelSetting();
-                            $new_setting->setSettingKey($setting['setting_key']);
-                            $new_setting->setValue($setting['value']);
-                            $new_setting->setContext($setting['context']);
-                            $new_setting->setFocus($setting['focus']);
-                            $new_setting->setUser($entity);
-                            $em->persist($entity);
-			    */
                         }
                     }
                     $em->flush();
             }
-
-            // throw $this->createNotFoundException('Testing.');
-
             return $this->redirect($this->generateUrl('settings'));
-        //}
+        }
 
         return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
             'entity' => $entity,

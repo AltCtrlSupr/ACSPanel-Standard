@@ -59,10 +59,10 @@ class AdaptFormSubscriber implements EventSubscriberInterface
 
         switch($field_config['field_type']){
             case 'select':
-                $choices = $data->getChoices();
+                $choices = $field_config['choices'];
                 $form->add($this->factory->createNamed('value','choice',$data->getValue(), array(
-                    'label' => $data->getLabel(),
-                    'choices' => $data->getChoices(),
+                    'label' => $field_config['label'],
+                    'choices' => $choices,
                 )));
                 break;
             case 'hidden':
