@@ -6,6 +6,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ACS\ACSPanelSettingsBundle\Entity\ConfigSetting;
+use ACS\ACSPanelSettingsBundle\Event\SettingsEvents;
+use ACS\ACSPanelSettingsBundle\Event\FilterUserFieldsEvent;
 // TODO: Get this from config.yml
 use ACS\ACSPanelBundle\Entity\PanelSetting;
 // TODO: Get this from config.yml
@@ -23,7 +25,7 @@ class ConfigSettingController extends Controller
 
     /**
      * It creates the object settings specified
-     *
+     * // TODO: Move to SettingManager
      */
     public function createObjectSettingsAction($object_id)
     {
@@ -79,61 +81,49 @@ class ConfigSettingController extends Controller
 
     }
 
-    // TODO: Move to SettingManager
-    public function getObjectSettingsPrototype($user)
+    /**
+     * Load the settings array to pass to form
+     *
+     */
+    public function loadUserFields()
     {
-    // TODO: Transform object_fields to config like array
-        // Get the object fields
+        $user_fields = array();
+
         $em = $this->getDoctrine()->getManager();
 
-        $settings_objects = $em->getRepository('ACSACSPanelBundle:Service')->findBy(array(
-            'user' => $user
-        ));
-        $object_settings = array();
-        foreach ($settings_objects as $setting_obj){
-            $object_fields = $setting_obj->getType()->getFieldTypes();
-            foreach($object_fields as $field){
-                $object_settings[] = array(
-                    'setting_key' => $field->getSettingKey(),
-                    'label' => $field->getLabel(),
-                    'field_type' => $field->getType(),
-                    'default_value' => $field->getDefaultValue(),
-                    'context' => $field->getContext(),
-                    'focus' => 'object_setting',
-                    'service_id' => $setting_obj->getId(),
-                );
-            }
+        $this->container->get('event_dispatcher')->dispatch(SettingsEvents::BEFORE_LOAD_USERFIELDS, new FilterUserFieldsEvent($user_fields,$em));
+
+        array_merge($user_fields, $user_fields = $this->container->getParameter("acs_settings.user_fields"));
+
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        // If is admins we load the global system settings
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $user_fields = array_merge($user_fields, $system_fields = $this->container->getParameter("acs_settings.system_fields"));
         }
 
-	return $object_settings;
+        $object_settings = $this->get('acs.setting_manager')->getObjectSettingsPrototype($user);
+
+        $user_fields = array_merge($user_fields, $object_settings);
+
+        $this->container->get('event_dispatcher')->dispatch(SettingsEvents::AFTER_LOAD_USERFIELDS, new FilterUserFieldsEvent($user_fields,$em));
+
+        return $user_fields;
     }
 
-
     /**
-     * Displays a form to create a new ConfigSetting entity.
+     * Displays a form with all the user settings
      *
      */
     public function userSettingsAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $class_name = $this->container->getParameter('acs_settings.setting_class');
-        $user_fields = $this->container->getParameter("acs_settings.user_fields");
-        $user = $this->get('security.context')->getToken()->getUser();
-
-        // If is admins we load the global system settings
-        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
-            $system_fields = $this->container->getParameter("acs_settings.system_fields");
-            $user_fields = array_merge($user_fields, $system_fields);
-        }
-
-	$object_settings = $this->getObjectSettingsPrototype($user);
-
-	$user_fields = array_merge($user_fields, $object_settings);
+        $user_fields = $this->loadUserFields();
 
         // $form_collection = new ConfigSettingCollectionType($user_fields);
         // Adding one form for each setting field
-        foreach($user_fields as $id => $field_config){
+        /*foreach($user_fields as $id => $field_config){
             $params = array(
                 'user' => $user->getId(),
                 'setting_key' => $field_config['setting_key'],
@@ -153,11 +143,13 @@ class ConfigSettingController extends Controller
                 }
                 $setting->setLabel($field_config['label']);
                 $setting->setType($field_config['field_type']);*/
-        }
+        //}
 
-        $form   = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
+        $user = $this->get('security.context')->getToken()->getUser();
 
-	$contexts = $this->getContexts($user);
+        $form = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
+
+        $contexts = $this->getContexts($user);
 
         return $this->render('ACSACSPanelSettingsBundle:ConfigSetting:new.html.twig', array(
             'entity' => $user,
@@ -166,21 +158,25 @@ class ConfigSettingController extends Controller
         ));
     }
 
-public function getContexts($user)
-{
-    $em = $this->getDoctrine()->getManager();
-    $contexts_rep = $em->getRepository('ACSACSPanelBundle:PanelSetting');
-    $query = $contexts_rep->createQueryBuilder('ps')
-        ->select('ps.context')
-        ->where('ps.user = ?1')
-        ->groupBy('ps.context')
-        ->orderBy('ps.context')
-        ->setParameter('1',$user)
-        ->getQuery();
-    $contexts = $query->execute();
+    /**
+     * Returns the context used to organize the settings view
+     *
+     */
+    public function getContexts($user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $contexts_rep = $em->getRepository('ACSACSPanelBundle:PanelSetting');
+        $query = $contexts_rep->createQueryBuilder('ps')
+            ->select('ps.context')
+            ->where('ps.user = ?1')
+            ->groupBy('ps.context')
+            ->orderBy('ps.context')
+            ->setParameter('1',$user)
+            ->getQuery();
+        $contexts = $query->execute();
 
-    return $contexts;
-}
+        return $contexts;
+    }
 
 
     /**

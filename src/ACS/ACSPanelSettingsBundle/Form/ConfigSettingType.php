@@ -10,8 +10,8 @@ use ACS\ACSPanelSettingsBundle\Form\EventListener\AdaptFormSubscriber;
 class ConfigSettingType extends AbstractType
 {
 
-	public $user_fields;
-	public $em;
+    public $user_fields;
+    public $em;
 
     public function __construct($em, $user_fields)
     {
@@ -21,17 +21,16 @@ class ConfigSettingType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		$user_fields = $this->user_fields;
+        $user_fields = $this->user_fields;
 
         $builder
             ->add('setting_key','hidden')
             ->add('context', 'hidden')
             ->add('focus', 'hidden')
-            //->add('type', 'hidden',array('mapped' => false))
         ;
 
         $subscriber = new AdaptFormSubscriber($builder->getFormFactory(), $user_fields);
-		$builder->addEventSubscriber($subscriber);
+        $builder->addEventSubscriber($subscriber);
 
 
     }
@@ -41,7 +40,6 @@ class ConfigSettingType extends AbstractType
         // TODO: Get value from config.yml
         $resolver->setDefaults(array(
             'data_class' => 'ACS\ACSPanelBundle\Entity\PanelSetting',
-            //'virtual' => true,
         ));
 
     }

@@ -26,17 +26,17 @@ class ConfigSettingCollectionType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-		$user_fields = $this->user_fields;
+        $user_fields = $this->user_fields;
 
         $builder->add('settings', 'collection', array(
             'type' => new ConfigSettingType($this->em, $user_fields),
             'allow_add' => true,
             'prototype' => false,
-            'options' => array(
-            )
+            'options' => array()
         ));
 
     }
+
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         // TODO: Get value from config.yml
@@ -45,7 +45,6 @@ class ConfigSettingCollectionType extends AbstractType
         ));
 
     }
-
 
     public function getName()
     {

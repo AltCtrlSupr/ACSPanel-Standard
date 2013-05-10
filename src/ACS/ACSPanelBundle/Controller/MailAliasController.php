@@ -83,9 +83,9 @@ class MailAliasController extends Controller
 
         $entity = new MailAlias();
 
-		  if($maildomain_id != ''){
-		  		$entity->setMailDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
-		  }
+        if($maildomain_id != ''){
+            $entity->setMailDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
+        }
         $form   = $this->createForm(new MailAliasType(), $entity);
 
         return $this->render('ACSACSPanelBundle:MailAlias:new.html.twig', array(
@@ -106,7 +106,7 @@ class MailAliasController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-				$entity->setEnabled(true);
+            $entity->setEnabled(true);
             $em->persist($entity);
             $em->flush();
 
