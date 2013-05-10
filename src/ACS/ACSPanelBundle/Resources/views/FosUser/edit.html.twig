@@ -27,7 +27,7 @@
 
 
         <p class="clear">
-            <button type="submit">{% trans %}Edit{% endtrans %}</button>
+            <button class="btn" type="submit">{% trans %}Edit{% endtrans %}</button>
         </p>
     </form>
 </div>
@@ -42,7 +42,7 @@
         <form action="{{ path('users_delete', { 'id': entity.id }) }}" method="post">
 
             {{ form_widget(delete_form) }}
-            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+            <button class="btn btn-danger" type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
         </form>
     </li>
 </ul>
