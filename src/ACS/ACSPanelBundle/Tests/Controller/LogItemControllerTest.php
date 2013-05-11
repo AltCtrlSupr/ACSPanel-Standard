@@ -2,8 +2,6 @@
 
 namespace ACS\ACSPanelBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 class LogItemControllerTest extends WebTestCase
 {
     /*

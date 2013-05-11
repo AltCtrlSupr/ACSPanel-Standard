@@ -74,6 +74,7 @@ abstract class SettingManager extends EntityRepository
         $user_fields_version = $this->getSetting('user_schema_version', 'user_internal', $user);
         if($user_fields_version < $user_schema_version)
             return true;
+
         return false;
     }
 

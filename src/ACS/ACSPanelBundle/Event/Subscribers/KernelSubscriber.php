@@ -33,6 +33,9 @@ class KernelSubscriber implements EventSubscriberInterface
             $kernel = $kernel->getKernel();
         }
 
+        if(!$kernel)
+            return;
+
         $settings_manager = $kernel->getContainer()->get('acs.setting_manager');
         $security = $kernel->getContainer()->get('security.context');
 
@@ -59,6 +62,9 @@ class KernelSubscriber implements EventSubscriberInterface
         if ('AppCache' == get_class($kernel)) {
             $kernel = $kernel->getKernel();
         }
+
+        if(!$kernel)
+            return;
 
         $container = $kernel->getContainer();
 
