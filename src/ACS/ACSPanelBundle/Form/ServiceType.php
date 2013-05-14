@@ -21,6 +21,7 @@ class ServiceType extends AbstractType
 
         $builder
             ->add('name')
+            // TODO: Show only pertinent ips
             ->add('ip')
             ->add('server', null, array('required' => true))
             ->add('type')

@@ -8,48 +8,58 @@
 @import "colors"
 
 /* MENU
+#sidebar
+  background-color: $menu-bg
+
 #sidebar ul
   @include menu-item-separation
   margin: 0 0 18px
+  border: none
   padding: 0
   list-style: none
   li
     border-bottom: 1px solid #D8D8D8
-    border-top: 1px solid #FFFFFF
-    font: bold 15px Helvetica,Arial,sans-serif
     color: #0977B6
   span.current
-    background-color: $menu-selected-item-color
-    border-top: 1px solid $menu-selected-item-color
+    background-color: lighten($menu-selected-item-bg-color, 0)
   li
     &.current
-      background-color: $menu-selected-item-color
-      border-top: 1px solid $menu-selected-item-color
+      background-color: lighten($menu-selected-item-bg-color, 0)
+      a
+        color: $menu-selected-item-color
     span
       cursor: pointer
       display: block
       padding: 8px 15px
-      text-shadow: 0 1px 0 #FFFFFF
     ul li
       span, a
         cursor: pointer
         display: block
         padding: 8px 15px
-        text-shadow: 0 1px 0 #FFFFFF
     a
       cursor: pointer
       display: block
       padding: 8px 15px
-      text-shadow: 0 1px 0 #FFFFFF
-    span:hover
-      text-decoration: underline
+    span:hover, a:hover
+      color: $menu-selected-item-color
+      background-color: lighten($menu-selected-item-bg-color, 0)
+      text-decoration: none
   span:hover
-    background-color: #F4F4F4
+    color: $menu-selected-item-color
+    background-color: lighten($menu-selected-item-bg-color, 5)
   li
-    &:hover
-      background-color: #F4F4F4
+    &:hover 
+      background-color: lighten($menu-selected-item-bg-color, 5)
+      a, span
+        color: $menu-selected-item-color
+    &.current_ancestor
+      background-color: lighten($menu-selected-item-bg-color, 10)
+      a, span
+        color: $menu-selected-item-color
     &:active
-      background-color: #DDDDDD
+      background-color: lighten($menu-selected-item-bg-color, 0)
+      a
+        color: $menu-selected-item-color
     ul
       display: none
       border: medium none
@@ -71,8 +81,3 @@
       font-size: 13px
       list-style: disc outside
       margin: 0
-      a
-        /* font-weight: normal;
-        /* padding: 3px 0;
-
-

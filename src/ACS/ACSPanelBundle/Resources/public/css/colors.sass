@@ -13,6 +13,12 @@
   a
     color: #FFFFFF
 
+$heading-bg-color: #323637
+$heading-color: #FFFFFF
+
+$footer-bg-color: #323637
+$footer-color: #FFFFFF
+
 $login-body-bg: #F5F5F5
 $login-form-bg: #FFFFFF
 $login-input-font-color: #555555
@@ -20,11 +26,35 @@ $login-input-font-color: #555555
 $link-color: #0977B6
 $title-color: #064C75
 
-$menu-selected-item-color: #E6E6E6
+$menu-selected-item-bg-color: #006699
+$menu-selected-item-color: #FFF
+$menu-bg: #EBE4EB
+
+$content-bg: #FFFFFF
 
 @mixin menu-item-separation
   border:
     bottom: 1px solid #FFFFFF
     top: 1px solid #D8D8D8
 
+#content
+  background-color: $content-bg
 
+.sys-title
+  color: lighten($link-color, 20%)
+
+.main
+  background-color: $menu-bg
+  background: url('images/menu_bg.png')
+
+#heading
+  background-color: $heading-bg-color
+  color: $heading-color
+
+#user-tools
+  a
+    color: lighten($link-color, 40%)
+
+#footer
+  background-color: $footer-bg-color
+  color: $footer-color

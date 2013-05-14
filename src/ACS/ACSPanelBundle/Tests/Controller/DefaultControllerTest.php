@@ -2,16 +2,17 @@
 
 namespace ACS\ACSPanelBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 class DefaultControllerTest extends WebTestCase
 {
     public function testIndex()
     {
-        $client = static::createClient();
+        $client = static::createAuthClient('superadmin','1234');
 
-        $crawler = $client->request('GET', '/hello/Fabien');
+        $crawler = $client->request('GET', '/');
 
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        echo($client->getResponse()->getContent());
+
+        $this->assertTrue($crawler->filter('html:contains("Quota List")')->count() > 0);
     }
+
 }

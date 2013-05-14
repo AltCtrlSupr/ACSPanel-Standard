@@ -15,7 +15,14 @@ services:
 
     # Menu items added with event listener
     settings_menu_subscriber:
-        class: ACS\ACSPanelSettingsBundle\Event\SettingsMenuSubscriber
+        class: ACS\ACSPanelSettingsBundle\Event\Subscribers\SettingsMenuSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}
+
+    # Settings related actions subscriber
+    settings_subscriber:
+        class: ACS\ACSPanelSettingsBundle\Event\Subscribers\SettingsSubscriber
         arguments: ['@event_dispatcher']
         tags:
             - {name: kernel.event_subscriber}

@@ -18,6 +18,10 @@ root
 #sidebar
   margin: 0
   padding: 0
+  height: auto
+  div.clear
+    clear: both
+    float: left
 
 #content
   clear: right
@@ -25,6 +29,32 @@ root
   padding:
     left: 40px
     right: 40px
+    top: 40px
+    bottom: 60px
+
+#heading
+  h1
+    padding: 20px
+  #user-tools
+    padding:
+      top: 20px
+      left: 20px
+
+#footer
+  min-height: 200px
+  //position: fixed
+  bottom: 0
+  bottom: 0
+  div
+    padding: 25px
+
+#search-box
+  padding:
+    top: 10px
+
+.form_box form
+  float: left
+  clear: both
 
 .tabs-content
   float: left
@@ -37,3 +67,9 @@ root
 
 @mixin centered
   margin: 0 auto
+
+table
+  table
+    width: 100%
+
+    

@@ -33,42 +33,60 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div class="row-fluid">
-            <div class="span12">
-				<div id="heading" class="row-fluid">
-					<h1 class="span8" role="heading" class="ui-title">ACSPanel{% block header_title %}{% endblock %}</h1>
-					<div id="user-tools" class="span4">
-						{% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
-						<a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
-						<div id="search-box">
-							<form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
-								<input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
-								<input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
-							</form>
-						</div>
-
+        <div class="">
+            <div id="heading" class="row-fluid">
+                <h1 role="heading" class="ui-title span9"><span class="sys-title">ACSPanel</span>{% block header_title %}{% endblock %}</h1>
+                <div id="user-tools" class="span3">
+                    {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+                    <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
+                    <div id="search-box">
+                        <form class="form-search" method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
+                            <input name="term" class="search-query" placeholder="{% trans %}Type search terms..{% endtrans %}" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
+                            <input type="SUBMIT" class="btn" value="{% trans %}Search{% endtrans %}" />
+                        </form>
+                    </div>
                 </div>
-				</div>
 
-				<div id="sidebar" class="span2">
-					{% block sidebar %}
-						<!-- TODO: Move this check to Builder -->
-						{% if is_granted('ROLE_ADMIN') %}
-							{{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
-						{% elseif is_granted('ROLE_RESELLER') %}
-							{{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
-						{% elseif is_granted('ROLE_USER') %}
-							{{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
-						{% endif %}
-					{% endblock %}
-				</div>
+            </div>
 
-                <div id="content">
+            <div class="row-fluid main">
+                <div id="sidebar" class="span2">
+                    {% block sidebar %}
+                        <!-- TODO: Move this check to Builder -->
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
+                        {% elseif is_granted('ROLE_RESELLER') %}
+                            {{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
+                        {% elseif is_granted('ROLE_USER') %}
+                            {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
+                        {% endif %}
+                    {% endblock %}
+                    <div class="clear"></div>
+                </div>
 
+                <div id="content" class="span10">
                     {% block fos_user_content %}
                     {% endblock fos_user_content %}
 
                     {% block body %}{% endblock %}
+                </div>
+
+            </div>
+            <div id="footer" class="row-fluid">
+                <div class="span3">
+                    {% render "ACSACSPanelBundle:Widget:quotaList" %}
+                </div>
+                <div class="span3">
+                    {% render "ACSACSPanelBundle:Widget:planList" %}
+                </div>
+                <div class="span3">
+                    {% render "ACSACSPanelBundle:Widget:quotaList" %}
+                </div>
+                <div class="span3">
+                    {% render "ACSACSPanelBundle:Widget:quotaList" %}
+                </div>
+                <div class="center">
+                    ACSPanel is GPL licensed...
                 </div>
             </div>
         </div>

@@ -4,18 +4,18 @@
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, assetic_compassDFjZsg.sass */
+/* line 10, assetic_compass3Y1qyu.sass */
 root {
   display: block;
 }
 
-/* line 13, assetic_compassDFjZsg.sass */
+/* line 13, assetic_compass3Y1qyu.sass */
 #sidebar {
   margin: 0;
   padding: 0;
 }
 
-/* line 17, assetic_compassDFjZsg.sass */
+/* line 17, assetic_compass3Y1qyu.sass */
 #content {
   clear: right;
   overflow: hidden;
@@ -23,7 +23,7 @@ root {
   padding-right: 40px;
 }
 
-/* line 24, assetic_compassDFjZsg.sass */
+/* line 24, assetic_compass3Y1qyu.sass */
 .tabs-content {
   float: left;
   clear: both;

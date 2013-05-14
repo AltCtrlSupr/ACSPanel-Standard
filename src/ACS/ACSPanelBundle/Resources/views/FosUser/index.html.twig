@@ -11,7 +11,7 @@
 <table class="records_list table table-striped table-bordered">
     <thead>
         <tr>
-            <th>{% trans %}Enabled{% endtrans %}</th>
+            <th class="center">{% trans %}Enabled{% endtrans %}</th>
             <th>{% trans %}Username{% endtrans %}</th>
             <th>{% trans %}Name{% endtrans %}</th>
             <th>{% trans %}Email{% endtrans %}</th>
@@ -27,7 +27,7 @@
     {% for entity in entities %}
         {% if is_granted('ROLE_SUPER_ADMIN') or entity.parentUser|length and entity.parentUser.id == app.user.id %}
             <tr>
-                <td align="center"><img src="{% if entity.enabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
+                <td class="center"><img src="{% if entity.enabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
                 <td><a href="{{ path('users_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
                 <td>{{ entity.firstname }} {{ entity.lastname }}</td>
                 <td><a href="mailto://{{ entity.email }}">{{ entity.email }}</a></td>

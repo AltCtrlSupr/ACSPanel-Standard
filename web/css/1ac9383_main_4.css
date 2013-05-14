@@ -14,24 +14,24 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 17, assetic_compasseKgJAG.sass */
+/* line 17, assetic_compass2r3yAo.sass */
 ul.plan_attributes {
   display: none;
 }
 
-/* line 20, assetic_compasseKgJAG.sass */
+/* line 20, assetic_compass2r3yAo.sass */
 #user-tools {
   float: right;
 }
 
 /* TITLES */
-/* line 25, assetic_compasseKgJAG.sass */
+/* line 25, assetic_compass2r3yAo.sass */
 #content h1 {
   float: left;
   color: #064c75;
 }
 
-/* line 29, assetic_compasseKgJAG.sass */
+/* line 29, assetic_compass2r3yAo.sass */
 ul.tab-nav {
   background: #f1f1f1;
   float: left;
@@ -40,12 +40,12 @@ ul.tab-nav {
   /*height: 40px; */
   width: 100%;
 }
-/* line 36, assetic_compasseKgJAG.sass */
+/* line 36, assetic_compass2r3yAo.sass */
 ul.tab-nav li {
   float: left;
   background: url("images/sep_tabs.png") no-repeat right center;
 }
-/* line 39, assetic_compasseKgJAG.sass */
+/* line 39, assetic_compass2r3yAo.sass */
 ul.tab-nav li a {
   float: left;
   text-decoration: none;
@@ -53,47 +53,47 @@ ul.tab-nav li a {
   height: 24px;
   padding: 12px 14px;
 }
-/* line 45, assetic_compasseKgJAG.sass */
+/* line 45, assetic_compass2r3yAo.sass */
 ul.tab-nav li a.active {
   background: white url("images/sep_tabs.png") no-repeat 101% 1px;
 }
-/* line 47, assetic_compasseKgJAG.sass */
+/* line 47, assetic_compass2r3yAo.sass */
 ul.tab-nav li a:hover {
   text-decoration: underline;
 }
 
 /* Actions list */
-/* line 52, assetic_compasseKgJAG.sass */
+/* line 52, assetic_compass2r3yAo.sass */
 .record_actions {
   float: left;
   clear: both;
 }
 
 /*Search results highlight */
-/* line 58, assetic_compasseKgJAG.sass */
+/* line 58, assetic_compass2r3yAo.sass */
 .highlight {
   background-color: #d3e18a;
 }
 
 /* Dynamic adder */
-/* line 63, assetic_compasseKgJAG.sass */
+/* line 63, assetic_compass2r3yAo.sass */
 .dinamic-adder {
   float: left;
   clear: both;
 }
 
-/* line 67, assetic_compasseKgJAG.sass */
+/* line 67, assetic_compass2r3yAo.sass */
 ul.dinamic-adder {
   list-style: none;
   padding: 0;
 }
-/* line 70, assetic_compasseKgJAG.sass */
+/* line 70, assetic_compass2r3yAo.sass */
 ul.dinamic-adder li {
   float: left;
   clear: both;
 }
 
-/* line 74, assetic_compasseKgJAG.sass */
+/* line 74, assetic_compass2r3yAo.sass */
 .add_tag_link {
   float: left;
   clear: both;

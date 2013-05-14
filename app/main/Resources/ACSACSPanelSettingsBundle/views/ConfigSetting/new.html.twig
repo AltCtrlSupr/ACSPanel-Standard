@@ -1,6 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}Settings{% endtrans %}{% endblock %}
 {% block body %}
-<h1>{%trans%}Settings{%endtrans%}</h1>
+{% include "::acspanel.forms.html.twig" %}
 
 <div class="form_box">
     <form action="{{ path('settings_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
@@ -29,16 +30,9 @@
     {{ form_rest(form) }}
 
         <p>
-        <button type="submit">{%trans%}Save{%endtrans%}</button>
+        <button class="btn" type="submit">{%trans%}Save{%endtrans%}</button>
         </p>
     </form>
 </div>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('settings') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}

@@ -99,11 +99,11 @@ class DnsDomainController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-				$entity->setEnabled(true);
+            $entity->setEnabled(true);
             $em->persist($entity);
             $em->flush();
 
-				$this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($entity,$em));
+            $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($entity,$em));
 
             return $this->redirect($this->generateUrl('dnsdomain_show', array('id' => $entity->getId())));
         }

@@ -12,18 +12,18 @@
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 10, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 root {
   display: block;
 }
 
-/* line 13, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 13, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #sidebar {
   margin: 0;
   padding: 0;
 }
 
-/* line 17, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 17, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #content {
   clear: right;
   overflow: hidden;
@@ -31,7 +31,7 @@ root {
   padding-right: 40px;
 }
 
-/* line 24, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 24, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 .tabs-content {
   float: left;
   clear: both;
@@ -41,14 +41,14 @@ root {
   width: 100%;
 }
 
-/* line 7, assetic_compassQKs8HK.sass */
+/* line 7, assetic_compassGYhprz.sass */
 ul.loginfields {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 12, assetic_compassQKs8HK.sass */
+/* line 12, assetic_compassGYhprz.sass */
 #login-form {
   height: 10%;
   padding-top: 40px;
@@ -56,11 +56,11 @@ ul.loginfields {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 20, assetic_compassQKs8HK.sass */
+/* line 20, assetic_compassGYhprz.sass */
 #login-form #centered {
   margin: 0 auto;
 }
-/* line 22, assetic_compassQKs8HK.sass */
+/* line 22, assetic_compassGYhprz.sass */
 #login-form #centered form {
   margin: 0 auto;
   background-color: white;
@@ -70,11 +70,11 @@ ul.loginfields {
   padding: 19px 29px 29px;
   max-width: 356px;
 }
-/* line 30, assetic_compassQKs8HK.sass */
+/* line 30, assetic_compassGYhprz.sass */
 #login-form #centered div.notice {
   color: red;
 }
-/* line 32, assetic_compassQKs8HK.sass */
+/* line 32, assetic_compassGYhprz.sass */
 #login-form #centered ul input {
   color: #555555;
   font-size: 24px;
@@ -82,7 +82,7 @@ ul.loginfields {
   line-height: 1;
   outline: 0 none;
 }
-/* line 45, assetic_compassQKs8HK.sass */
+/* line 45, assetic_compassGYhprz.sass */
 #login-form #centered ul input#_submit {
   color: white;
   width: 110px;
@@ -91,30 +91,30 @@ ul.loginfields {
 }
 
 /* FORMS box */
-/* line 53, assetic_compassQKs8HK.sass */
+/* line 53, assetic_compassGYhprz.sass */
 .form_box {
   float: left;
   clear: both;
 }
-/* line 56, assetic_compassQKs8HK.sass */
+/* line 56, assetic_compassGYhprz.sass */
 .form_box form div {
   float: left;
   clear: both;
   padding-top: 5px;
   padding-bottom: 10px;
 }
-/* line 61, assetic_compassQKs8HK.sass */
+/* line 61, assetic_compassGYhprz.sass */
 .form_box form div.fields_group {
   clear: none;
 }
-/* line 63, assetic_compassQKs8HK.sass */
+/* line 63, assetic_compassGYhprz.sass */
 .form_box label {
   color: #555555;
   float: left;
   clear: both;
   width: 200px;
 }
-/* line 68, assetic_compassQKs8HK.sass */
+/* line 68, assetic_compassGYhprz.sass */
 .form_box textarea, .form_box select {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -127,14 +127,14 @@ ul.loginfields {
 }
 
 /* Search box */
-/* line 80, assetic_compassQKs8HK.sass */
+/* line 80, assetic_compassGYhprz.sass */
 #search-box {
   float: right;
   margin-top: 29px;
   margin-bottom: 21px;
 }
 
-/* line 85, assetic_compassQKs8HK.sass */
+/* line 85, assetic_compassGYhprz.sass */
 #search-box input[type="text"] {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -147,7 +147,7 @@ ul.loginfields {
 }
 
 /* Form elements */
-/* line 97, assetic_compassQKs8HK.sass */
+/* line 97, assetic_compassGYhprz.sass */
 .form_box input {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -158,29 +158,29 @@ ul.loginfields {
   outline: 0 none;
   padding: 3px;
 }
-/* line 106, assetic_compassQKs8HK.sass */
+/* line 106, assetic_compassGYhprz.sass */
 .form_box textarea {
   height: 140px;
 }
 
-/* line 109, assetic_compassQKs8HK.sass */
+/* line 109, assetic_compassGYhprz.sass */
 .steps_box {
   float: left;
   margin-bottom: 15px;
   width: 100%;
 }
-/* line 113, assetic_compassQKs8HK.sass */
+/* line 113, assetic_compassGYhprz.sass */
 .steps_box li {
   float: left;
   margin-right: 120px;
 }
-/* line 116, assetic_compassQKs8HK.sass */
+/* line 116, assetic_compassGYhprz.sass */
 .steps_box li.craue_formflow_current_step {
   font-weight: bold;
 }
 
 /* Body override only for login screen */
-/* line 121, assetic_compassQKs8HK.sass */
+/* line 121, assetic_compassGYhprz.sass */
 body {
   background-color: whitesmoke;
 }

@@ -34,7 +34,6 @@ class HttpdHostController extends Controller
             $entities = $em->getRepository('ACSACSPanelBundle:HttpdHost')->findByUser($this->get('security.context')->getToken()->getUser());
         }
 
-
         return $this->render('ACSACSPanelBundle:HttpdHost:index.html.twig', array(
             'entities' => $entities,
             'search_action' => 'httpdhost_search',
@@ -60,7 +59,8 @@ class HttpdHostController extends Controller
         return $this->render('ACSACSPanelBundle:HttpdHost:show.html.twig', array(
             'search_action' => 'httpdhost_search',
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 
     /**
@@ -107,7 +107,7 @@ class HttpdHostController extends Controller
         }
 
         $entity = new HttpdHost();
-	     $entity->setEnabled(true);
+        $entity->setEnabled(true);
         $form   = $this->createForm(new UserHttpdHostType(), $entity);
 
         return $this->render('ACSACSPanelBundle:HttpdHost:new.html.twig', array(
@@ -167,48 +167,48 @@ class HttpdHostController extends Controller
         ));
     }
 
-/**
- * Adds the dns register if it's don't exists
- */
-public function addDnsRegister($domain_name, $is_www = false)
-{
-    $em = $this->getDoctrine()->getManager();
+    /**
+     * Adds the dns register if it's don't exists
+     */
+    public function addDnsRegister($domain_name, $is_www = false)
+    {
+        $em = $this->getDoctrine()->getManager();
 
-    $names_check = array($domain_name,$this->getDomain($domain_name));
+        $names_check = array($domain_name,$this->getDomain($domain_name));
 
-    $domain_exists = $this->dnsAliasOrDomainExists($names_check);
+        $domain_exists = $this->dnsAliasOrDomainExists($names_check);
 
-    if($domain_exists){
-        foreach($domain_exists as $domain){
-            $records = $this->dnsRecordExists($names_check);
-            if($records){
-                foreach($records as $record){
-                    if($record->getType() == 'A')
-                        $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('The A record for %record% domain already exists', array('%record%' => $record->getName())));
-                    elseif($record->getType() == 'CNAME')
-                        $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('The CNAME record for %record% domain already exists', array('%record%' => $record->getName())));
-}
-}else{
-    $dnsrecord = new \ACS\ACSPanelBundle\Entity\DnsRecord();
-    $dnsrecord->setDnsDomain($domain);
-    $dnsrecord->setName($domain_name);
-    if($is_www){
-        $content = $domain->getName();
-        $dnsrecord->setType('CNAME');
-        $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('A dns record type CNAME has been created for the host %domain_name%', array('%domain_name%' => $domain_name)));
-}else{
-    $content = $domain->getService()->getIp()->__toString();
-    $dnsrecord->setType('A');
-    $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('A dns record type A has been created for the host %domain_name%', array('%domain_name%' => $domain_name)));
-}
-$dnsrecord->setContent($content);
-$em->persist($dnsrecord);
-}
-}
-}else{
-    $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('The host %domain_name% has not DNS domain', array('%domain_name%' => $domain_name)));
-}
-}
+        if($domain_exists){
+            foreach($domain_exists as $domain){
+                $records = $this->dnsRecordExists($names_check);
+                if($records){
+                    foreach($records as $record){
+                        if($record->getType() == 'A')
+                            $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('The A record for %record% domain already exists', array('%record%' => $record->getName())));
+                        elseif($record->getType() == 'CNAME')
+                            $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('The CNAME record for %record% domain already exists', array('%record%' => $record->getName())));
+                    }
+                }else{
+                    $dnsrecord = new \ACS\ACSPanelBundle\Entity\DnsRecord();
+                    $dnsrecord->setDnsDomain($domain);
+                    $dnsrecord->setName($domain_name);
+                    if($is_www){
+                        $content = $domain->getName();
+                        $dnsrecord->setType('CNAME');
+                        $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('A dns record type CNAME has been created for the host %domain_name%', array('%domain_name%' => $domain_name)));
+                    }else{
+                        $content = $domain->getService()->getIp()->__toString();
+                        $dnsrecord->setType('A');
+                        $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('A dns record type A has been created for the host %domain_name%', array('%domain_name%' => $domain_name)));
+                    }
+                    $dnsrecord->setContent($content);
+                    $em->persist($dnsrecord);
+                }
+            }
+        }else{
+            $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('The host %domain_name% has not DNS domain', array('%domain_name%' => $domain_name)));
+        }
+    }
 
 
     /**
@@ -230,136 +230,136 @@ $em->persist($dnsrecord);
 
         return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
-/**
- * Edits an existing HttpdHost entity.
- *
- */
-public function updateAction(Request $request, $id)
-{
-    $em = $this->getDoctrine()->getManager();
-
-    $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
-
-    if (!$entity) {
-        throw $this->createNotFoundException('Unable to find HttpdHost entity.');
-    }
-
-    $deleteForm = $this->createDeleteForm($id);
-    $editForm = $this->createForm(new UserHttpdHostType(), $entity);
-    $editForm->bind($request);
-
-    if ($editForm->isValid()) {
-        $em->persist($entity);
-        // Mark webserver to reload
-        //$this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('httpdhost_edit', array('id' => $id)));
-    }
-
-    return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
-        'entity'      => $entity,
-        'edit_form'   => $editForm->createView(),
-        'delete_form' => $deleteForm->createView(),
-    ));
-}
-
-/**
- * Deletes a HttpdHost entity.
- *
- */
-public function deleteAction(Request $request, $id)
-{
-    $form = $this->createDeleteForm($id);
-    $form->bind($request);
-
-    if ($form->isValid()) {
+    /**
+     * Edits an existing HttpdHost entity.
+     *
+     */
+    public function updateAction(Request $request, $id)
+    {
         $em = $this->getDoctrine()->getManager();
+
         $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find HttpdHost entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new UserHttpdHostType(), $entity);
+        $editForm->bind($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            // Mark webserver to reload
+            //$this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('httpdhost_edit', array('id' => $id)));
+        }
+
+        return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
+            'entity'      => $entity,
+            'form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 
-    $em->remove($entity);
-    // Mark webserver to reload
-    //$this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
-    $em->flush();
-}
+    /**
+     * Deletes a HttpdHost entity.
+     *
+     */
+    public function deleteAction(Request $request, $id)
+    {
+        $form = $this->createDeleteForm($id);
+        $form->bind($request);
 
-return $this->redirect($this->generateUrl('httpdhost'));
-}
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
 
-private function createDeleteForm($id)
-{
-    return $this->createFormBuilder(array('id' => $id))
-        ->add('id', 'hidden')
-        ->getForm()
-        ;
-}
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find HttpdHost entity.');
+            }
 
-/**
- * Check if the host has dns_domain
- * @todo: Check for a better place to put this function
- */
-public function dnsAliasOrDomainExists($names = array())
-{
-	//TODO: To fix
-    return false;
-    $em = $this->getDoctrine()->getManager();
-    // check if thereis a full or alias dns domain
-		  //$domain = new Domain();
-		  //$domain->setDomain($names);
-    $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findByDomain($domain);
-    if(count($dnsdomains))
-        return $dnsdomains;
+            $em->remove($entity);
+            // Mark webserver to reload
+            //$this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
+            $em->flush();
+        }
 
-    //return false;
-}
+        return $this->redirect($this->generateUrl('httpdhost'));
+    }
 
-/**
- * Check if the dns register exists for the specified type of register
- */
-public function dnsRecordExists($names = array())
-{
-    $em = $this->getDoctrine()->getManager();
-    // check if thereis a full or alias dns domain
-    $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsRecord')->findByName($names);
-    if(count($dnsdomains))
-        return $dnsdomains;
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+            ;
+    }
 
-    return false;
-}
+    /**
+     * Check if the host has dns_domain
+     * @todo: Check for a better place to put this function
+     */
+    public function dnsAliasOrDomainExists($names = array())
+    {
+        //TODO: To fix
+        return false;
+        $em = $this->getDoctrine()->getManager();
+        // check if thereis a full or alias dns domain
+        //$domain = new Domain();
+        //$domain->setDomain($names);
+        $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findByDomain($domain);
+        if(count($dnsdomains))
+            return $dnsdomains;
+
+        //return false;
+    }
+
+    /**
+     * Check if the dns register exists for the specified type of register
+     */
+    public function dnsRecordExists($names = array())
+    {
+        $em = $this->getDoctrine()->getManager();
+        // check if thereis a full or alias dns domain
+        $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsRecord')->findByName($names);
+        if(count($dnsdomains))
+            return $dnsdomains;
+
+        return false;
+    }
 
 
-/*
- * Extracts only the domain.tls from a url
- * @todo: Check for a better place to put his
- */
-function getDomain($url) {
-    $domain_tools = new DomainModule($url);
-    return $domain_tools->get_reg_domain();
-}
+    /*
+     * Extracts only the domain.tls from a url
+     * @todo: Check for a better place to put his
+     */
+    function getDomain($url) {
+        $domain_tools = new DomainModule($url);
+        return $domain_tools->get_reg_domain();
+    }
 
     public function setenabledAction(Request $request, $id)
     {
-      $em = $this->getDoctrine()->getManager();
-      $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ACSACSPanelBundle:HttpdHost')->find($id);
 
-      if (!$entity) {
-         throw $this->createNotFoundException('Unable to find Httpd Host entity.');
-      }
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Httpd Host entity.');
+        }
 
-      $entity->setEnabled(!$entity->getEnabled());
-      $em->persist($entity);
-      $em->flush();
+        $entity->setEnabled(!$entity->getEnabled());
+        $em->persist($entity);
+        $em->flush();
 
-      return $this->redirect($this->generateUrl('httpdhost'));
+        return $this->redirect($this->generateUrl('httpdhost'));
     }
 
 }

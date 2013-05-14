@@ -5,6 +5,7 @@ namespace ACS\ACSPanelBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class DnsDomainType extends AbstractType
 {
@@ -16,11 +17,27 @@ class DnsDomainType extends AbstractType
         if ('AppCache' == get_class($kernel)) {
             $kernel = $kernel->getKernel();
         }
-        $service = $kernel->getContainer()->get('security.context');
+        $security = $kernel->getContainer()->get('security.context');
+        $user = $security->getToken()->getUser();
+        $child_ids = $user->getIdChildIds();
+        $superadmin = false;
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            $superadmin = true;
 
         $builder
-            ->add('domain')
-            //->add('lastCheck')
+            ->add('domain','entity',array(
+                'class' => 'ACS\ACSPanelBundle\Entity\Domain',
+                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
+                    return $er->createQueryBuilder('d')
+                        ->select('d')
+                        ->where('d.is_httpd_alias != 1');
+                        if(!$superadmin){
+                            $er->andWhere('d.user IN (?1)')
+                            ->setParameter('1', $child_ids);
+                        }
+                    }
+                )
+            )
             ->add('type', 'choice', array(
                 'choices' => array(
                     'MASTER' => 'master',
@@ -31,7 +48,7 @@ class DnsDomainType extends AbstractType
             ->add('service')
         ;
 
-        if($service->isGranted('ROLE_ADMIN'))
+        if($security->isGranted('ROLE_ADMIN'))
             $builder->add('user');
     }
 
