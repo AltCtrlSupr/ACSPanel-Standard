@@ -208,6 +208,13 @@ class FosUserController extends Controller
                 }
 
             }
+
+            // Password encode setting
+            $userManager = $this->container->get('fos_user.user_manager');
+            $entity->setPlainPassword($entity->getPassword());
+            $userManager->updatePassword($entity);
+            $userManager->updateUser($entity);
+
             $em->persist($entity);
             $em->flush();
 
