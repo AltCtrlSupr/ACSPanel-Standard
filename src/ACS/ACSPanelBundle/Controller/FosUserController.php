@@ -82,7 +82,6 @@ class FosUserController extends Controller
 
     }
 
-
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -103,8 +102,6 @@ class FosUserController extends Controller
             'entities' => $entities,
         ));
     }
-
-
 
     public function indexAdminAction()
     {
