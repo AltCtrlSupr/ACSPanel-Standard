@@ -18,18 +18,41 @@ abstract class SettingManager extends EntityRepository
      * Loading of basic internal settings needed for the app
 	 * Called if it's the first time or user need update of settings
      */
-    public function loadFileSettingDefaults(array $fields)
+    public function loadFileSettingDefaults(array $fields, $user)
     {
-		global $kernel;
+        foreach($field as $id => $field_config){
+            $params = array(
+                'user' => $user->getId(),
+                'setting_key' => $field_config['setting_key'],
+                'focus' => $field_config['focus'],
+            );
+            if(isset($field_config['service_id']))
+                $params['service'] = $field_config['service_id'];
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
-        $user = $kernel->getContainer()->get('security.context')->getToken()->getUser();
-		foreach($fields as $field){
-			if(!$this->getSetting($field['setting_key'], $field['focus'], $user)){
-				$this->setSetting($field['setting_key'], $field['focus'], $field['value'], $field['context']);
+            $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($params);
+
+            if(!count($setting)){
+                $setting = new $class_name;
+                $setting->setSettingKey($field_config['setting_key']);
+                $setting->setValue($field_config['default_value']);
+                $setting->setContext($field_config['context']);
+                $setting->setLabel($field_config['label']);
+                $setting->setType($field_config['field_type']);
+                $setting->setFocus($field_config['focus']);
+
+                if(isset($field_config['service_id'])){
+                    $service = $em->getRepository('ACSACSPanelBundle:Service')->findOneById($field_config['service_id']);
+                    $setting->setService($service);
+                }
+
+                if(isset($field_config['choices']))
+                    $setting->setChoices($field_config['choices']);
+
+                $user->addSetting($setting);
+                $em->flush();
 			}
+
+
 		}
 
     }

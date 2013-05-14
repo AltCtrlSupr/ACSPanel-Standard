@@ -34,31 +34,35 @@
     </head>
     <body>
         <div class="row-fluid">
-            <div id="sidebar" class="span2">
-                {% block sidebar %}
-                    <!-- TODO: Move this check to Builder -->
-                    {% if is_granted('ROLE_ADMIN') %}
-                        {{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
-                    {% elseif is_granted('ROLE_RESELLER') %}
-                        {{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
-                    {% elseif is_granted('ROLE_USER') %}
-                        {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
-                    {% endif %}
-                {% endblock %}
-            </div>
-            <div id="heading" class="span10">
-                <h1 role="heading" class="ui-title">ACSPanel{% block header_title %}{% endblock %}</h1>
-                <div id="user-tools">
-                    {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
-                    <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
-                    <div id="search-box">
-                        <form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
-                            <input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
-                            <input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
-                        </form>
-                    </div>
+            <div class="span12">
+				<div id="heading" class="row-fluid">
+					<h1 class="span8" role="heading" class="ui-title">ACSPanel{% block header_title %}{% endblock %}</h1>
+					<div id="user-tools" class="span4">
+						{% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+						<a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
+						<div id="search-box">
+							<form method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
+								<input name="term" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
+								<input type="SUBMIT" value="{% trans %}Search{% endtrans %}" />
+							</form>
+						</div>
 
                 </div>
+				</div>
+
+				<div id="sidebar" class="span2">
+					{% block sidebar %}
+						<!-- TODO: Move this check to Builder -->
+						{% if is_granted('ROLE_ADMIN') %}
+							{{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
+						{% elseif is_granted('ROLE_RESELLER') %}
+							{{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
+						{% elseif is_granted('ROLE_USER') %}
+							{{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
+						{% endif %}
+					{% endblock %}
+				</div>
+
                 <div id="content">
 
                     {% block fos_user_content %}
