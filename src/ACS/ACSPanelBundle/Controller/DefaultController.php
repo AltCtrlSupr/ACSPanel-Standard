@@ -24,22 +24,18 @@ class DefaultController extends Controller
         $used_ftpd = $current_user->getUsedResource('FtpdUser',$em);
 
         $dashboard_widgets = array(
-            'ACSACSPanelBundle:Default:planList.html.twig',
-            'ACSACSPanelBundle:Default:quotaList.html.twig',
+            'ACSACSPanelBundle:Widget:planList.html.twig',
+            'ACSACSPanelBundle:Widget:quotaList.html.twig',
         );
 
-        //if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
-            return $this->render('ACSACSPanelBundle:Default:superadminindex.html.twig', array(
-                'plans' => $plans,
-                'max_hosts' => $max_hosts,
-                'used_hosts' => $used_hosts,
-                'max_ftpd' => $max_ftpd,
-                'used_ftpd' => $used_ftpd,
-                'dashboard_widgets' => $dashboard_widgets,
-            ));
-        //}elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
-            //return $this->render('ACSACSPanelBundle:Default:index.html.twig',  array('max_hosts' => $max_hosts));
-        //}
+        return $this->render('ACSACSPanelBundle:Default:dashboard.html.twig', array(
+            'plans' => $plans,
+            'max_hosts' => $max_hosts,
+            'used_hosts' => $used_hosts,
+            'max_ftpd' => $max_ftpd,
+            'used_ftpd' => $used_ftpd,
+            'dashboard_widgets' => $dashboard_widgets,
+        ));
     }
 
     /**

@@ -43,7 +43,7 @@ class WidgetController extends Controller
         $used_ftpd = $current_user->getUsedResource('FtpdUser',$em);
 
 
-        return $this->render('ACSACSPanelBundle:Default:quotaList.html.twig', array(
+        return $this->render('ACSACSPanelBundle:Widget:quotaList.html.twig', array(
             'max_httpd_host' => $max_httpd_host,
             'used_httpd_host' => $used_httpd_host,
             // 'max_httpd_alias' => $max_httpd_alias,
@@ -73,6 +73,6 @@ class WidgetController extends Controller
         //if(!count($plans))
             //throw $this->createNotFoundException('No plans found.');
 
-        return $this->render('ACSACSPanelBundle:Default:planList.html.twig', array('plans' => $plans));
+        return $this->render('ACSACSPanelBundle:Widget:planList.html.twig', array('plans' => $plans));
     }
 }
