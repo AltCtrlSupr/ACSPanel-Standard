@@ -10,7 +10,7 @@ abstract class SettingManager extends EntityRepository
 {
     private $container;
 
-    public function __construct($em, $class, $continer)
+    public function __construct($em, $class, $container)
     {
         $this->container = $container;
         $class_object = new ClassMetadata($class);
