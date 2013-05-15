@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}Logs registry{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+        <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+<table class="records_list table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>{% trans %}User{% endtrans %}</th>
+            <th>{% trans %}Action{% endtrans %}</th>
+            <th>{% trans %}Object id{% endtrans %}</th>
+            <th>{% trans %}Object class{% endtrans %}</th>
+            <th>{% trans %}Logged at{% endtrans %}</th>
+            <th>{% trans %}Version{% endtrans %}</th>
+            {#<th>{% trans %}Data{% endtrans %}</th>#}
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.username }}</td>
+            <td>{{ entity.action }}</td>
+            <td>{{ entity.objectid }}</td>
+            <td>{{ entity.objectclass }}</td>
+            <td>{{ entity.loggedat |date(date_format )}}</td>
+            <td>{{ entity.version }}</td>
+            {# }<td>{% for value in entity.data %}{{ value }}{% endfor %}</td> #}
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('logitem_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                    </li>
+                    {% if entity.version > 1 %}
+                        <li>
+                            <a href="{{ path('logitem_versions', { 'id': entity.id }) }}">{% trans %}rollback{% endtrans %}</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

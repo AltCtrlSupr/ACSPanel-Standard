@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}HttpdHost edit{% endtrans %}{% endblock %}
+{% block body %}
+{% include "::acspanel.forms.html.twig" %}
+
+<div class="form_box">
+    <form action="{{ path('httpdhost_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn" type="submit">{% trans %}Edit{% endtrans %}</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('httpdhost') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('httpdhost_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

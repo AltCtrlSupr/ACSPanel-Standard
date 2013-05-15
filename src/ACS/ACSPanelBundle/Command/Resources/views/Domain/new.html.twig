@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}Domain creation{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('domain_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn" type="submit">Create</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('domain') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

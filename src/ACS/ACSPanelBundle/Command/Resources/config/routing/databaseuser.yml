@@ -1,0 +1,30 @@
+databaseuser:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:index" }
+
+databaseuser_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:show" }
+
+databaseuser_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:new" }
+
+databaseuser_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:create" }
+    requirements: { _method: post }
+
+databaseuser_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:edit" }
+
+databaseuser_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:update" }
+    requirements: { _method: post }
+
+databaseuser_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelBundle:DatabaseUser:delete" }
+    requirements: { _method: post }

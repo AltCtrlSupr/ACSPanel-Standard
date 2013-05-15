@@ -1,0 +1,77 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}HttpdHost{% endtrans %}{% endblock %}
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{% trans %}Name{% endtrans %}</th>
+            <td>{{ entity.domain }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Configuration{% endtrans %}</th>
+            <td>{{ entity.configuration }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Cgi{% endtrans %}</th>
+            <td>{{ entity.cgi }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Ssi{% endtrans %}</th>
+            <td>{{ entity.ssi }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Php{% endtrans %}</th>
+            <td>{{ entity.php }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Aliases{% endtrans %}</th>
+            <td>
+                <ul>
+                {% for alias in entity.aliases %}
+                    <li>{{ alias }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>{% trans %}Enabled{% endtrans %}</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Created at{% endtrans %}</th>
+            <td>{{ entity.createdAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Updated at{% endtrans %}</th>
+            <td>{{ entity.updatedAt|date(date_format) }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('httpdhost') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('httpdhost_edit', { 'id': entity.id }) }}">
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('httpdhost_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

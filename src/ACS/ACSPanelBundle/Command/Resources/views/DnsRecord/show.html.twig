@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}DnsRecord{% endtrans %}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{%trans%}Id{%endtrans%}</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Name{%endtrans%}</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Type{%endtrans%}</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Content{%endtrans%}</th>
+            <td>{{ entity.content }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Ttl{%endtrans%}</th>
+            <td>{{ entity.ttl }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Prio{%endtrans%}</th>
+            <td>{{ entity.prio }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Createdat{%endtrans%}</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Updatedat{%endtrans%}</th>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('dnsrecord') }}">
+            {%trans%}Back to the list{%endtrans%}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('dnsrecord_edit', { 'id': entity.id }) }}">
+            {%trans%}Edit{%endtrans%}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('dnsrecord_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

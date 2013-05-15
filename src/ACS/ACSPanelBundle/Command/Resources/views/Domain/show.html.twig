@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}Domain{% endtrans %}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Domain</th>
+            <td>{{ entity.domain }}</td>
+        </tr>
+        <tr>
+            <th>Enabled</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>Is_httpd_alias</th>
+            <td>{{ entity.ishttpdalias }}</td>
+        </tr>
+        <tr>
+            <th>Is_dns_alias</th>
+            <td>{{ entity.isdnsalias }}</td>
+        </tr>
+        <tr>
+            <th>Is_mail_alias</th>
+            <td>{{ entity.ismailalias }}</td>
+        </tr>
+        <tr>
+            <th>Createdat</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Updatedat</th>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('domain') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('domain_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('domain_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

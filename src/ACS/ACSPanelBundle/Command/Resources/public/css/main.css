@@ -1,0 +1,375 @@
+/* 
+Document   : main
+Created on : 13/11/2012, 14:42:46
+Author     : genar
+Description:
+Purpose of the stylesheet follows.
+ */
+
+/* LAYOUT */
+
+root { 
+    display: block;
+}
+
+/* FONTS */
+body{
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+}
+
+a:link, a:visited, a:active, a:hover {
+    text-decoration: none;
+    color: #0977B6;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#sidebar{
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 263px;
+}
+
+
+#content {
+    clear: right;
+    overflow: hidden;
+    padding-left: 40px;
+}
+#sidebar ul {
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #D8D8D8;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+}
+
+#sidebar ul li{
+    border-bottom: 1px solid #D8D8D8;
+    border-top: 1px solid #FFFFFF;
+    font: bold 15px Helvetica,Arial,sans-serif;
+    color: #0977B6;
+}
+
+#sidebar ul span.current,
+#sidebar ul li.current{
+    background-color: #E5E5E5;
+    border-top: 1px solid #E5E5E5;
+}
+
+#sidebar ul li span,
+#sidebar ul li ul li span,
+#sidebar ul li ul li a,
+#sidebar ul li a{
+    cursor: pointer;
+    display: block;
+    padding: 8px 15px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+#sidebar ul li span:hover{
+    text-decoration: underline;
+}
+
+#sidebar ul span:hover ,
+#sidebar ul li:hover {
+    background-color: #F4F4F4;
+}
+
+#sidebar ul li:active {
+    background-color: #DDDDDD;
+}
+
+#sidebar ul li ul {
+    display: none;
+    border: medium none;
+    margin: 0 0 8px;
+    padding-left: 30px;
+}
+
+ul.plan_attributes{
+    display: none;
+}
+
+#sidebar ul li.current_ancestor ul ,
+#sidebar ul li.current ul ,
+#sidebar ul li.current_ancestor ul li.current_ancestor ul,
+#sidebar ul li.current ul li.current_ancestor ul{
+    display: block;
+}
+
+#sidebar ul li.current_ancestor ul li ul,
+#sidebar ul li.current ul li ul{
+    display: none;
+}
+
+#sidebar ul li ul ul {
+    margin: 0;
+    padding-left: 15px;
+}
+
+#sidebar ul li ul li {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    font-size: 13px;
+    list-style: disc outside;
+    margin: 0;
+}
+
+#sidebar ul li ul li a {
+    /* font-weight: normal; */
+    /* padding: 3px 0; */
+}
+
+#user-tools{
+    float: right;
+}
+
+/* TABLES */
+
+table{
+    clear: both;
+}
+
+.records_list {
+    width: 100%;
+    border: 1px solid #B0B0B0;
+}
+.records_list tbody {
+    /* Kind of irrelevant unless your .css is alreadt doing something else */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+.records_list thead {
+    text-align: left;
+}
+.records_list thead th {
+    background: -moz-linear-gradient(top, #F0F0F0 0, #DBDBDB 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F0F0F0), color-stop(100%, #DBDBDB));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#DBDBDB', GradientType=0);
+    border: 1px solid #B0B0B0;
+    color: #444;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+.records_list td {
+    padding: 3px 10px;
+    vertical-align: middle;
+}
+.records_list tr:nth-child(even) {
+    background: #F2F2F2;
+}
+
+/* LOGIN Form */
+
+ul.loginfields{
+    list-style: none;
+    width: 350px;
+    padding: 0;
+}
+
+#login-form{
+    top: 40%;
+    height: 10%;
+    padding: 5px;
+    text-align: center;
+} 
+
+#login-form #centered{
+    float: right;
+    text-align: left;
+    position: relative;
+    left: -50%; 
+}
+
+#login-form #centered h1{
+    width: 100%;
+}
+
+#login-form #centered div.notice,
+#login-form #centered ul{
+    position: relative;
+    left: 50%;
+}
+
+#login-form #centered div.notice{
+    color: red;
+}
+
+#login-form #centered ul input{
+    background: none repeat scroll 0 0 #FBFBFB;
+    border: 1px solid #E5E5E5;
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset;
+    color: #555555;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: 16px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px;
+    width: 100%;
+}
+
+#login-form #centered ul input#_submit{
+    background: none repeat scroll 0 0 #0977B6;
+    color: #fff;
+    width: 110px;
+    margin-left: 50px;
+    margin-left: 116px;
+    margin-top: 20px;
+}
+
+/* TITLES */
+
+
+#content h1{
+    float: left;
+    color: #064c75;
+}
+
+/* Search box */
+#search-box{
+    float: right;
+    margin-top: 29px;
+    margin-bottom: 21px;
+}
+
+/* FORMS box */
+.form_box{
+    float: left;
+    clear: both;
+}
+
+.form_box form div{
+    float: left;
+    clear: both;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.form_box form div.fields_group{
+    clear: none;
+}
+
+.form_box label{
+    color: #555555;
+    float: left;
+    clear: both;
+    width: 200px;
+}
+
+.form_box textarea,
+.form_box select,
+#search-box input[type="text"],
+.form_box input{
+    width: 255px;
+    background: none repeat scroll 0 0 #FBFBFB;
+    border: 1px solid #E5E5E5;
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset;
+    font-weight: 200;
+    line-height: 1;
+    outline: 0 none;
+    padding: 3px;
+}
+
+.form_box textarea{
+    height: 140px;
+}
+
+.steps_box{
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.steps_box li{
+    float: left;
+    margin-right: 120px;
+}
+
+.steps_box li.craue_formflow_current_step{
+    font-weight: bold;
+}
+
+/* tabs stype */
+
+.tabs-content{
+  float: left;
+  clear: both;
+  padding-left: 14px;
+  padding-top: 23px;
+  padding-bottom: 12px;
+  width: 100%;
+}
+
+ul.tab-nav{
+  background: #f1f1f1;
+  float: left;
+  list-style: none;
+  margin: 0 0 0 1px;
+  /*height: 40px;*/
+  width: 100%;
+}
+ul.tab-nav li{
+  float: left;
+  background: url('images/sep_tabs.png') no-repeat right center;
+}
+
+ul.tab-nav li a{
+  float: left;
+  text-decoration: none;
+  color: #000;
+  height: 24px;
+  padding: 12px 14px;
+}
+
+ul.tab-nav li a.active{
+  background: #fff url('images/sep_tabs.png') no-repeat 101% 1px;
+}
+
+ul.tab-nav li a:hover{
+  text-decoration: underline;
+}
+
+
+
+/* Actions list */
+.record_actions{
+    float: left;
+    clear: both;
+}
+
+/*Search results highlight*/
+.highlight{
+    background-color: #D3E18A;
+}
+
+/* Dynamic adder */
+.dinamic-adder{
+    float: left;
+    clear: both;
+}
+
+ul.dinamic-adder{
+    list-style: none;
+    padding: 0;
+}
+
+ul.dinamic-adder li{
+    float: left;
+    clear: both;
+}
+
+.add_tag_link{
+    float: left;
+    clear: both;
+}

@@ -1,0 +1,71 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}DnsDomain{% endtrans %}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{%trans%}Id{%endtrans%}</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Name{%endtrans%}</th>
+            <td>{{ entity.domain }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Master{%endtrans%}</th>
+            <td>{{ entity.master }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Lastcheck{%endtrans%}</th>
+            <td>{{ entity.lastCheck }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Type{%endtrans%}</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Notifiedserial{%endtrans%}</th>
+            <td>{{ entity.notifiedSerial }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Account{%endtrans%}</th>
+            <td>{{ entity.account }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Enabled{%endtrans%}</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Createdat{%endtrans%}</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Updatedat{%endtrans%}</th>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% render "ACSACSPanelBundle:DnsRecord:showWidget" with { 'records' : entity.dnsrecords }  %}
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('dnsdomain') }}">
+            {%trans%}Back to the list{%endtrans%}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('dnsdomain_edit', { 'id': entity.id }) }}">
+            {%trans%}Edit{%endtrans%}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('dnsdomain_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+ACS\ACSPanelBundle\Entity\Service:
+    type: entity
+    table: service 
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        createdAt:
+          type: datetime
+          column: created_at
+        updatedAt:
+          type: datetime
+          column: updated_at
+          nullable: true
+    oneToMany:
+        databases:
+            targetEntity: DB
+            mappedBy: service
+        settings:
+            targetEntity: PanelSetting
+            mappedBy: service
+            #cascade: [ "persist" ]
+        dns_domains:
+            targetEntity: DnsDomain
+            mappedBy: service
+            #cascade: [ "persist" ]
+        ftp_users:
+            targetEntity: FtpdUser
+            mappedBy: service
+            #cascade: [ "persist" ]
+        httpd_hosts:
+            targetEntity: HttpdHost
+            mappedBy: service
+            #cascade: [ "persist" ]
+        mail_domains:
+            targetEntity: MailDomain
+            mappedBy: service
+            #cascade: [ "persist" ]
+
+    manyToOne:
+        user:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: group
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+        server:
+            targetEntity: Server 
+            cascade: {  }
+            inversedBy: null
+            joinTable: null
+            joinColumn:
+                onDelete: CASCADE
+            orderBy: null
+            gedmo:
+                - versioned
+        type:
+            targetEntity: ServiceType
+            cascade: {  }
+            mappedBy: group
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            gedmo:
+                - versioned
+        ip:
+            targetEntity: IpAddress
+            cascade: {  }
+            inversedBy: null
+            joinTable: null
+            joinColumn:
+                onDelete: RESTRICT
+            orderBy: null
+            gedmo:
+                - versioned
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue, setUserValue ]
+      preUpdate: [ setUpdatedAtValue ]
+

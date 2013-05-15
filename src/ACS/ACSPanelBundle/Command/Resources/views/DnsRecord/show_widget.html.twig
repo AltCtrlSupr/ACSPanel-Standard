@@ -1,0 +1,17 @@
+<table class="widget_record_properties">
+    <thead><tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Content</th>
+    </tr></thead>
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td><a href="{{ path('dnsrecord_show', { 'id': record.id })  }}">{{ record.name }}</a></td>
+            <td>{{ record.type }}</td>
+            <td>{{ record.content }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+

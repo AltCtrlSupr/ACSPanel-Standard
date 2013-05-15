@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}HttpdHost creation{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('httpdhost_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn" type="submit">{% trans %}Create{% endtrans %}</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('httpdhost') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

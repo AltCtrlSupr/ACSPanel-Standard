@@ -1,0 +1,67 @@
+ACS\ACSPanelBundle\Entity\HttpdHost:
+    type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\HttpdHostRepository
+    table: httpd_host
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        configuration:
+            type: text
+            nullable: true
+            gedmo:
+                - versioned
+        cgi:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        ssi:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        php:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true 
+            gedmo:
+                - versioned
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+    manyToOne:
+        service:
+            targetEntity: Service
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
+    oneToOne:
+        domain:
+            targetEntity: Domain
+            inversedBy: httpd_host
+            joinColumn:
+                name: domain_id
+                referencedColumnName: id
+                onDelete: CASCADE
+            cascade: [ "persist" ]
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue, setUserValue ]
+      preUpdate: [ setUpdatedAtValue ]
+

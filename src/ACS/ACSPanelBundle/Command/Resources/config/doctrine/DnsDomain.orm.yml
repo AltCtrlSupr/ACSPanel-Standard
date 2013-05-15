@@ -1,0 +1,85 @@
+ACS\ACSPanelBundle\Entity\DnsDomain:
+    type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\DnsDomainRepository
+    table: dns_domain
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        master:
+            type: string
+            length: 20
+            fixed: false
+            nullable: true
+            gedmo:
+                - versioned
+        lastCheck:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: last_check
+            gedmo:
+                - versioned
+        type:
+            type: string
+            length: 6
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        notifiedSerial:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: notified_serial
+            gedmo:
+                - versioned
+        account:
+            type: string
+            length: 40
+            fixed: false
+            nullable: true
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true 
+            gedmo:
+                - versioned
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+    oneToOne:
+        domain:
+            targetEntity: Domain
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+    manyToOne:
+        service:
+            targetEntity: Service
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
+    oneToMany:
+        dnsrecords:
+            targetEntity: DnsRecord
+            mappedBy: dns_domain
+
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue, setUserValue ]
+      preUpdate: [ setUpdatedAtValue ]
+
