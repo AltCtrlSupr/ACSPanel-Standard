@@ -8,8 +8,11 @@ use ACS\ACSPanelBundle\Entity\FosUser;
 
 abstract class SettingManager extends EntityRepository
 {
-    public function __construct($em, $class)
+    private $container;
+
+    public function __construct($em, $class, $continer)
     {
+        $this->container = $container;
         $class_object = new ClassMetadata($class);
         parent::__construct($em, $class_object);
     }
@@ -18,14 +21,9 @@ abstract class SettingManager extends EntityRepository
      * Loading of basic internal settings needed for the app
      * Called if it's the first time or user need update of settings
      */
-    public function loadFileSettingDefaults(array $fields)
+    public function loadFileSettingDefaults(array $fields, $user)
     {
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-        $user = $kernel->getContainer()->get('security.context')->getToken()->getUser();
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
         foreach($fields as $field){
             if(!$this->getSetting($field['setting_key'], $field['focus'], $user)){
@@ -83,57 +81,16 @@ abstract class SettingManager extends EntityRepository
      * Create the settings configured for specified object
      * TODO: Call from controller
      */
-    public function loadObjectSettingsDefaults()
+    public function loadObjectSettingsDefaults($object_id)
     {
         $em = $this->getEntityManager();
 
         $class_name = $this->container->getParameter('acs_settings.setting_class');
 
-        // Get the object fields
-        // TODO: Decouple this
         $object = $em->getRepository('ACSACSPanelBundle:Service')->find($object_id);
         $object_fields = $object->getType()->getFieldTypes();
 
-        // TODO: Check in this point if user has rights to access to that service settings
-        // if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
-            // $system_fields = $this->container->getParameter("acs_settings.system_fields");
-            // $user_fields = array_merge($user_fields, $system_fields);
-        // }
-
-
         $user = $this->get('security.context')->getToken()->getUser();
-
-        // $form_collection = new ConfigSettingCollectionType($user_fields);
-        // Adding one form for each setting field
-        foreach($object_fields as $id => $field_config){
-            // TODO: To get from config.yml
-            $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy(
-                array(
-                    'user' => $user->getId(),
-                    'setting_key' => $field_config->getSettingKey(),
-                    'focus' => 'object_setting',
-                    // TODO uncouple this
-                    'service' => $object,
-                ));
-            if(!count($setting)){
-                $setting = new $class_name;
-                $setting->setSettingKey($field_config->getSettingKey());
-                $setting->setValue($field_config->getDefaultValue());
-                $setting->setContext($field_config->getContext());
-                $setting->setLabel($field_config->getLabel());
-                $setting->setType($field_config->getType());
-                // TODO: implement choices
-                // if(isset($field_config['choices']))
-                    // $setting->setChoices($field_config['choices']);
-                $setting->setFocus('object_setting');
-                // TODO: Uncouple this
-                $setting->setService($object);
-                $user->addSetting($setting);
-                $em->persist($user);
-                $em->flush();
-            }
-        }
-
 
     }
 
@@ -170,12 +127,7 @@ abstract class SettingManager extends EntityRepository
 
         // We create the new setting if it not exists
         if(!$setting){
-            global $kernel;
-
-            if ('AppCache' == get_class($kernel)) {
-                $kernel = $kernel->getKernel();
-            }
-            $class_name = $kernel->getContainer()->getParameter('acs_settings.setting_class');
+            $class_name = $this->container->getParameter('acs_settings.setting_class');
             $setting = new $class_name;
             $setting->setSettingKey($setting_key);
             $setting->setFocus($focus);
