@@ -1,7 +1,7 @@
 <h2>Plan List</h2>
 <ul>
     {% for plan in plans  %}
-        <li>{{ plan }}</li>
+    <li><a href="{{ path('plan_show', plan.id) }}">{{ plan }}</a></li>
     {% endfor %}
 </ul>
 
