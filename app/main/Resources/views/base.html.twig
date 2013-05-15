@@ -62,13 +62,14 @@
                         {% endif %}
                     {% endblock %}
                 </div>
-                <div id="content" class="container span8">
+                <div id="content" class="container span7">
                     {% block fos_user_content %}
                     {% endblock fos_user_content %}
 
                     {% block body %}{% endblock %}
                 </div>
-                <div id="right-sidebar" class="span2">
+                <div id="right-sidebar" class="span3">
+                    {% render "ACSACSPanelBundle:Widget:helpTip" %}
                     {% render "ACSACSPanelBundle:Widget:planList" %}
                     {% render "ACSACSPanelBundle:Widget:quotaList" %}
                 </div>

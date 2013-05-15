@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
+     * @todo: Delegate this to WidgetController
      */
     public function indexAction()
     {
