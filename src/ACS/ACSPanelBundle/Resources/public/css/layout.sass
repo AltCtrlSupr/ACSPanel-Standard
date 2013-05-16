@@ -10,8 +10,11 @@
 root
   display: block
 
-body
-  height: 100%
+#heading
+  h1
+    padding:
+      top: 20px
+      left: 20px
 
 #sidebar
   margin: 0
@@ -20,6 +23,21 @@ body
   div.clear
     clear: both
     float: left
+
+#right-sidebar
+  h2
+    padding:
+      left: 15px
+  p
+    padding: 40px
+  table
+    tr
+      td
+        padding:
+          left: 10px
+          right: 10px
+          top: 10px
+          bottom: 10px
 
 #content
   clear: right
@@ -31,12 +49,9 @@ body
     bottom: 60px
 
 #heading
-  h1
-    padding: 20px
   #user-tools
     padding:
       top: 20px
-      left: 20px
 
 #footer
   min-height: 200px
@@ -47,8 +62,13 @@ body
     padding: 25px
 
 #search-box
-  padding:
-    top: 10px
+  float: right
+  width: 320px
+  margin:
+    right: 20px
+  form
+    padding:
+      top: 10px
 
 .form_box form
   float: left

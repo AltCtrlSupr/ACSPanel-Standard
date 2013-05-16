@@ -33,13 +33,13 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div class="">
+        <div>
             <div id="heading" class="row-fluid">
-                <h1 role="heading" class="ui-title span9"><span class="sys-title">ACSPanel</span>{% block header_title %}{% endblock %}</h1>
+                <h1 role="heading" class="ui-title span9"><a href="{{ path('acs_acspanel_homepage') }}" class="sys-title">ACSPanel</a>{% block header_title %}{% endblock %}</h1>
                 <div id="user-tools" class="span3">
-                    {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
-                    <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
                     <div id="search-box">
+                        {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+                        <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
                         <form class="form-search" method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
                             <input name="term" class="search-query" placeholder="{% trans %}Type search terms..{% endtrans %}" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
                             <input type="SUBMIT" class="btn" value="{% trans %}Search{% endtrans %}" />
@@ -50,7 +50,7 @@
             </div>
 
             <div class="row-fluid main">
-                <div id="sidebar" class="span2">
+                <div id="sidebar" class="fill span2">
                     {% block sidebar %}
                         <!-- TODO: Move this check to Builder -->
                         {% if is_granted('ROLE_ADMIN') %}
@@ -61,32 +61,38 @@
                             {{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
                         {% endif %}
                     {% endblock %}
-                    <div class="clear"></div>
                 </div>
-
-                <div id="content" class="span10">
+                <div id="content" class="container span7">
                     {% block fos_user_content %}
                     {% endblock fos_user_content %}
 
                     {% block body %}{% endblock %}
                 </div>
-
+                <div id="right-sidebar" class="span3">
+                    {% render "ACSACSPanelBundle:Widget:helpTip" %}
+                    {% render "ACSACSPanelBundle:Widget:planList" %}
+                    {% render "ACSACSPanelBundle:Widget:quotaList" %}
+                </div>
             </div>
             <div id="footer" class="row-fluid">
+                <div class="row-fluid span12">
+                    <div class="span3">
+                        {% render "ACSACSPanelBundle:Widget:quotaList" %}
+                    </div>
+                    <div class="span3">
+                        {% render "ACSACSPanelBundle:Widget:planList" %}
+                    </div>
+                    <div class="span3">
+                        {% render "ACSACSPanelBundle:Widget:quotaList" %}
+                    </div>
                 <div class="span3">
                     {% render "ACSACSPanelBundle:Widget:quotaList" %}
                 </div>
-                <div class="span3">
-                    {% render "ACSACSPanelBundle:Widget:planList" %}
                 </div>
-                <div class="span3">
-                    {% render "ACSACSPanelBundle:Widget:quotaList" %}
-                </div>
-                <div class="span3">
-                    {% render "ACSACSPanelBundle:Widget:quotaList" %}
-                </div>
-                <div class="center">
-                    ACSPanel is GPL licensed...
+                <div class="row-fluid span12">
+                    <div class="center span12">
+                        ACSPanel is GPL licensed...
+                    </div>
                 </div>
             </div>
         </div>

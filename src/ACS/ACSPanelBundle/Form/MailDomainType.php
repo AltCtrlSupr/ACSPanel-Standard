@@ -46,6 +46,9 @@ class MailDomainType extends AbstractType
             ->add('backupmx')
             ->add('service')
         ;
+
+        if($security->isGranted('ROLE_ADMIN'))
+            $builder->add('user');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

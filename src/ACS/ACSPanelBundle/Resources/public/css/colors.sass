@@ -10,6 +10,9 @@
 $heading-bg-color: #323637
 $heading-color: #FFFFFF
 
+$sidebar-title-bg-color: #323637
+$sidebar-title-color: #323637
+
 $footer-bg-color: #323637
 $footer-color: #FFFFFF
 
@@ -26,8 +29,6 @@ $menu-bg: #EBE4EB
 
 $content-bg: #FFFFFF
 
-
-
 @mixin menu-item-separation
   border:
     bottom: 1px solid #FFFFFF
@@ -36,9 +37,6 @@ $content-bg: #FFFFFF
 #content
   background-color: $content-bg
 
-.sys-title
-  color: lighten($link-color, 20%)
-
 .main
   background-color: $menu-bg
   background: url('images/menu_bg.png')
@@ -46,6 +44,15 @@ $content-bg: #FFFFFF
 #heading
   background-color: $heading-bg-color
   color: $heading-color
+  a.sys-title
+    color: lighten($link-color, 20%)
+
+#right-sidebar
+  background-color: $menu-bg
+  h2
+    background-color: $sidebar-title-bg-color
+    color: lighten($link-color, 35%)
+
 
 #user-tools
   a
