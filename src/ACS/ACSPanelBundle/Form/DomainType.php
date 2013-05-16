@@ -9,16 +9,16 @@ use Doctrine\ORM\EntityRepository;
 
 class DomainType extends AbstractType
 {
+    private $container;
+
+    public function __construct($container)
+    {
+      $this->container = $container;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        // TODO: Do the addition of fields with suscriber
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-        $security = $kernel->getContainer()->get('security.context');
+        $security = $this->container->get('security.context');
         $user = $security->getToken()->getUser();
         $child_ids = $user->getIdChildIds();
         $superadmin = false;

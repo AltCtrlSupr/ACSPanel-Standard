@@ -4,11 +4,10 @@ namespace ACS\ACSPanelBundle\Tests\Controller;
 
 class FtpdUserControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
-        // Create a new client to browse the application
-        $client = static::createClient();
+       // Create a new client to browse the application
+          $client = static::createAuthClient('superadmin','1234');
 
         // Create a new entry in the database
         $crawler = $client->request('GET', '/ftpduser/');
@@ -48,6 +47,4 @@ class FtpdUserControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-
-    */
 }

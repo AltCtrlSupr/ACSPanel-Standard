@@ -73,17 +73,7 @@ class DBController extends Controller
 
         $entity = new DB();
 
-        // dummy code - this is here just so that the Task has some tags
-        // otherwise, this isn't an interesting example
-        //$user1 = new DatabaseUser();
-        //$user1->setUsername('test1');
-        //$entity->getDatabaseUsers()->add($user1);
-        //$user2 = new DatabaseUser();
-        //$user2->setUsername('test2');
-        //$entity->getDatabaseUsers()->add($user2);
-        // end dummy code
-
-        $form   = $this->createForm(new DBType(), $entity);
+        $form   = $this->createForm(new DBType($this->container), $entity);
 
         return $this->render('ACSACSPanelBundle:DB:new.html.twig', array(
             'entity' => $entity,
@@ -98,7 +88,7 @@ class DBController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new DB();
-        $form = $this->createForm(new DBType(), $entity);
+        $form = $this->createForm(new DBType($this->container), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -136,7 +126,7 @@ class DBController extends Controller
             throw $this->createNotFoundException('Unable to find DB entity.');
         }
 
-        $editForm = $this->createForm(new DBType(), $entity);
+        $editForm = $this->createForm(new DBType($this->container), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:DB:edit.html.twig', array(
@@ -161,7 +151,7 @@ class DBController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new DBType(), $entity);
+        $editForm = $this->createForm(new DBType($this->container), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

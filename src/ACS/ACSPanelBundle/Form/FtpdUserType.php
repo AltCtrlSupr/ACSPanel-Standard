@@ -8,16 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FtpdUserType extends AbstractType
 {
+    private $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        // TODO: Do the addition of fields with suscriber
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-        $service = $kernel->getContainer()->get('security.context');
-
+        $service = $this->container->get('security.context');
 
         $builder
             ->add('userName')

@@ -4,11 +4,10 @@ namespace ACS\ACSPanelBundle\Tests\Controller;
 
 class MailLogrcvdControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
-        $client = static::createClient();
+        $client = static::createAuthClient('superadmin','1234');
 
         // Go to the list view
         $crawler = $client->request('GET', '/maillogrcvd/');
@@ -18,5 +17,4 @@ class MailLogrcvdControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('show')->link());
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
     }
-    */
 }

@@ -8,9 +8,13 @@ use ACS\ACSPanelBundle\Entity\FosUser;
 
 abstract class SettingManager extends EntityRepository
 {
-    public function __construct($em, $class)
+    private $container;
+
+    public function __construct($em, $class, $container)
     {
         $class_object = new ClassMetadata($class);
+        $this->container = $container;
+
         parent::__construct($em, $class_object);
     }
 
@@ -20,12 +24,7 @@ abstract class SettingManager extends EntityRepository
      */
     public function loadFileSettingDefaults(array $fields)
     {
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-        $user = $kernel->getContainer()->get('security.context')->getToken()->getUser();
+        $user = $this->container->get('security.context')->getToken()->getUser();
 
         foreach($fields as $field){
             if(!$this->getSetting($field['setting_key'], $field['focus'], $user)){

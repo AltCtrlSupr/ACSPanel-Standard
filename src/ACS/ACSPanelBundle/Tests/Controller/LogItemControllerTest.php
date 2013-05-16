@@ -4,11 +4,10 @@ namespace ACS\ACSPanelBundle\Tests\Controller;
 
 class LogItemControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
-        $client = static::createClient();
+        $client = static::createAuthClient('superadmin','1234');
 
         // Go to the list view
         $crawler = $client->request('GET', '/logitem/');
@@ -18,5 +17,4 @@ class LogItemControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('show')->link());
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
     }
-    */
 }

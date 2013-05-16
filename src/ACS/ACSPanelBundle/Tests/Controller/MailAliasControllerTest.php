@@ -4,11 +4,10 @@ namespace ACS\ACSPanelBundle\Tests\Controller;
 
 class MailAliasControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
-        $client = static::createClient();
+        $client = static::createAuthClient('superadmin','1234');
 
         // Create a new entry in the database
         $crawler = $client->request('GET', '/mailalias/');
@@ -48,6 +47,4 @@ class MailAliasControllerTest extends WebTestCase
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
-
-    */
 }

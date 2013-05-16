@@ -74,7 +74,7 @@ class FtpdUserController extends Controller
         }
 
         $entity = new FtpdUser();
-        $form   = $this->createForm(new FtpdUserType(), $entity);
+        $form   = $this->createForm(new FtpdUserType($this->container), $entity);
 
         return $this->render('ACSACSPanelBundle:FtpdUser:new.html.twig', array(
             'entity' => $entity,
@@ -89,7 +89,7 @@ class FtpdUserController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new FtpdUser();
-        $form = $this->createForm(new FtpdUserType(), $entity);
+        $form = $this->createForm(new FtpdUserType($this->container), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -120,7 +120,7 @@ class FtpdUserController extends Controller
             throw $this->createNotFoundException('Unable to find FtpdUser entity.');
         }
 
-        $editForm = $this->createForm(new FtpdUserType(), $entity);
+        $editForm = $this->createForm(new FtpdUserType($this->container), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:FtpdUser:edit.html.twig', array(
@@ -145,7 +145,7 @@ class FtpdUserController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new FtpdUserType(), $entity);
+        $editForm = $this->createForm(new FtpdUserType($this->container), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

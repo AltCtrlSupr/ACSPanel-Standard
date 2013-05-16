@@ -14,10 +14,16 @@ class WebTestCase extends BTC
     static protected function createClient(array $options = array(), array $server = array())
     {
         $client = parent::createClient($options, $server);
+        //$client = self::createAuthClient('superadmin','1234');
 
         self::$container = self::$kernel->getContainer();
 
         return $client;
+    }
+
+    static protected function get($serviceId)
+    {
+        return self::$container->get($serviceId);
     }
 
     protected function createAuthClient($user, $pass)
@@ -27,21 +33,21 @@ class WebTestCase extends BTC
             'PHP_AUTH_PW'   => $pass,
         ));
 
-        $this->logIn($client, $user, $pass);
+        // $client = self::logIn($client, $user, $pass);
+
+        $securityContext = self::get('security.context');
+        $userProvider = $this->get('fos_user.user_provider.username');
+
+        $loginProvider = $this->get('fos_user.security.login_manager');
+        $user = $userProvider->loadUserByUsername($user);
+        $loginProvider->loginUser('main',$user);
+
+        $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
+        $securityContext->setToken($token);
+
+        $client->followRedirects();
 
         return $client;
     }
 
-   private function logIn($client, $user, $pass, $roles = array('ROLE_SUPER_ADMIN'))
-    {
-        $session = $client->getContainer()->get('session');
-
-        $firewall = 'secured_area';
-        $token = new UsernamePasswordToken($user, null, $firewall, $roles);
-        $session->set('_security_'.$firewall, serialize($token));
-        $session->save();
-
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $client->getCookieJar()->set($cookie);
-    }
 }

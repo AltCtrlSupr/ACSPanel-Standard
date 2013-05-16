@@ -6,13 +6,14 @@ class DefaultControllerTest extends WebTestCase
 {
     public function testIndex()
     {
+        // TODO: Change from fixtures file
         $client = static::createAuthClient('superadmin','1234');
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/users');
 
-        echo($client->getResponse()->getContent());
+        //echo($client->getResponse()->getContent());
 
-        $this->assertTrue($crawler->filter('html:contains("Quota List")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("User list")')->count() > 0);
     }
 
 }

@@ -2,18 +2,16 @@
 
 namespace ACS\ACSPanelBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-
 class DatabaseUserControllerTest extends WebTestCase
 {
     public function testCompleteScenario()
     {
-        /*
         // Create a new client to browse the application
-        $client = static::createClient();
+        $client = static::createAuthClient('superadmin','1234');
 
         // Create a new entry in the database
         $crawler = $client->request('GET', '/databaseuser/');
+        /*
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
@@ -49,8 +47,7 @@ class DatabaseUserControllerTest extends WebTestCase
 
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
-    */
-        $this->assertTrue(true);
+         */
     }
 
 }

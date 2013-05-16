@@ -8,7 +8,7 @@ parameters:
 services:
     acs.setting_manager:
         class: %acs_settings.settings.class%
-        arguments: ['@doctrine.orm.entity_manager', %acs_settings.setting_class%]
+        arguments: ['@doctrine.orm.entity_manager', %acs_settings.setting_class%, '@service_container']
 
     acs.system_setting_manager:
         class: %acs_settings.system_settings.class%

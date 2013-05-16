@@ -4,11 +4,10 @@ namespace ACS\ACSPanelBundle\Tests\Controller;
 
 class PdnsSupermasterControllerTest extends WebTestCase
 {
-    /*
     public function testCompleteScenario()
     {
         // Create a new client to browse the application
-        $client = static::createClient();
+        $client = static::createAuthClient('superadmin','1234');
 
         // Create a new entry in the database
         $crawler = $client->request('GET', '/pdnssupermaster/');
@@ -49,5 +48,4 @@ class PdnsSupermasterControllerTest extends WebTestCase
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
     }
 
-    */
 }

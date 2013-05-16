@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
+{% block header_title %} - {% trans %}User details{% endtrans %}{% endblock %}
 
 {% block body %}
-<h1>{% trans %}User details{% endtrans %}</h1>
 <div class="form_box">
 {% include "FOSUserBundle:Profile:show_content.html.twig" %}
 </div>

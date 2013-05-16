@@ -101,7 +101,6 @@ knp_menu:
     templating: false # if true, enables the helper for PHP templates
     default_renderer: twig # The renderer to use, list is also available by default
 
-
 # app/config/config.yml
 stof_doctrine_extensions:
     default_locale: es_ES
@@ -125,6 +124,3 @@ liip_theme:
 
 # entity id bundle
 gregwar_form: ~
-
-
-
