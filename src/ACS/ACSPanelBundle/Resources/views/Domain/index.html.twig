@@ -10,8 +10,11 @@
 <table class="records_list table table-striped table-bordered">
     <thead>
         <tr>
+<tr>
+{# sorting of properties based on query components #}
+    </tr>
             <th class="center">{% trans %}Enabled{% endtrans %}</th>
-            <th>{% trans %}Domain{% endtrans %}</th>
+            <th{% if entities.isSorted('domain') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(entities, 'Domain', 'domain') }}</th>
             <th>{% trans %}Child{% endtrans %}</th>
             <th>{% trans %}Actions{% endtrans %}</th>
         </tr>
@@ -75,6 +78,7 @@
     </tbody>
 </table>
 
+
 <ul>
     <li>
         <a href="{{ path('domain_new') }}">
@@ -82,4 +86,9 @@
         </a>
     </li>
 </ul>
+
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(entities) }}
+</div>
 {% endblock %}

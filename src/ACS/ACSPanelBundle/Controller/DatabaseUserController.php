@@ -27,6 +27,13 @@ class DatabaseUserController extends Controller
 
         $entities = $em->getRepository('ACSACSPanelBundle:DatabaseUser')->findAll();
 
+
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/
+        );
+
         return $this->render('ACSACSPanelBundle:DatabaseUser:index.html.twig', array(
             'entities' => $entities,
         ));

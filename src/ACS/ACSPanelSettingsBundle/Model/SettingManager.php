@@ -20,10 +20,23 @@ abstract class SettingManager extends EntityRepository
     }
 
     /**
-     * Loading of basic internal settings needed for the app
+     * Returns true if there is a update of the user fields
+     */
+    public function isUpdateAvailable($user, $version_key, $schema_version)
+    {
+        $user_fields_version = $this->getSetting($version_key, 'user_internal', $user);
+        if(!$user_fields_version) $user_fields_version = 0;
+        if($user_fields_version < $schema_version)
+            return true;
+
+        return false;
+    }
+
+    /**
+     * Loading of settings needed for the app
      * Called if it's the first time or user need update of settings
      */
-    public function loadFileSettingDefaults(array $fields, $user)
+    public function loadSettingDefaults(array $fields, $user)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
 
@@ -32,6 +45,7 @@ abstract class SettingManager extends EntityRepository
                 $this->setSetting($field['setting_key'], $field['focus'], $field['default_value'], $field['context']);
             }
         }
+
         //TODO: Increment schema_version setting
     }
 
@@ -51,6 +65,7 @@ abstract class SettingManager extends EntityRepository
         foreach ($settings_objects as $setting_obj){
             $object_fields = $setting_obj->getType()->getFieldTypes();
             foreach($object_fields as $field){
+                // TODO: Create filter to do this.. :)
                 $object_settings[] = array(
                     'setting_key' => $field->getSettingKey(),
                     'label' => $field->getLabel(),
@@ -66,18 +81,6 @@ abstract class SettingManager extends EntityRepository
         return $object_settings;
     }
 
-    /**
-     * Returns true if there is a update of the user fields
-     */
-    public function isUserUpdateAvailable($user, $user_schema_version)
-    {
-        $user_fields_version = $this->getSetting('user_schema_version', 'user_internal', $user);
-        if($user_fields_version < $user_schema_version)
-            return true;
-
-        return false;
-    }
-
 
     /**
      * Create the settings configured for specified object
@@ -86,8 +89,6 @@ abstract class SettingManager extends EntityRepository
     public function loadObjectSettingsDefaults($object_id)
     {
         $em = $this->getEntityManager();
-
-        $class_name = $this->container->getParameter('acs_settings.setting_class');
 
         $object = $em->getRepository('ACSACSPanelBundle:Service')->find($object_id);
         $object_fields = $object->getType()->getFieldTypes();

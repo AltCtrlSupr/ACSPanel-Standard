@@ -25,6 +25,7 @@
         "liip/theme-bundle": "dev-master",
         "craue/formflow-bundle": "dev-master",
         "gregwar/form-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master"
     },
     "scripts": {

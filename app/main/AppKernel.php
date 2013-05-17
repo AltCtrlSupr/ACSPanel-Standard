@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelBackupBundle\ACSACSPanelBackupBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -25,6 +25,13 @@ class IpAddressController extends Controller
 
         $entities = $em->getRepository('ACSACSPanelBundle:IpAddress')->findAll();
 
+
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/
+        );
+
         return $this->render('ACSACSPanelBundle:IpAddress:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -180,7 +187,7 @@ class IpAddressController extends Controller
     }
 
     public function setenabledAction(Request $request, $id)
-    {   
+    {
       $em = $this->getDoctrine()->getManager();
       $entity = $em->getRepository('ACSACSPanelBundle:IpAddress')->find($id);
 

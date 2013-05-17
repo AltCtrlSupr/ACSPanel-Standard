@@ -27,6 +27,13 @@ class ServiceController extends Controller
 
         $entities = $em->getRepository('ACSACSPanelBundle:Service')->findAll();
 
+
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/
+        );
+
         return $this->render('ACSACSPanelBundle:Service:index.html.twig', array(
             'entities' => $entities,
         ));

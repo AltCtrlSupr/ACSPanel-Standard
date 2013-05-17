@@ -97,6 +97,13 @@ class FosUserController extends Controller
 
 
 
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/
+        );
+
+
         return $this->render('ACSACSPanelBundle:FosUser:index.html.twig', array(
             'search_action' => 'user_search',
             'entities' => $entities,
