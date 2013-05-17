@@ -26,7 +26,7 @@ class DomainController extends Controller
 
         // IF is admin can see all the hosts, if is user only their ones...
         if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
-            $entities = $em->getRepository('ACSACSPanelBundle:Domain')->findAll();
+            $entities = $em->getRepository('ACSACSPanelBundle:Domain')->findBy(array('parent_domain' => null));
         }elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')){
             $entities = $em->getRepository('ACSACSPanelBundle:Domain')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
         }elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
@@ -36,13 +36,50 @@ class DomainController extends Controller
         $paginator  = $this->get('knp_paginator');
         $entities = $paginator->paginate(
             $entities,
-            $this->get('request')->query->get('page', 1)/*page number*/
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            6
         );
 
         return $this->render('ACSACSPanelBundle:Domain:index.html.twig', array(
             'entities' => $entities,
+            'search_action' => 'domain_search',
         ));
     }
+
+    /**
+     * Finds and displays a LogItem search results.
+     */
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $rep = $em->getRepository('ACSACSPanelBundle:Domain');
+
+        $term = $request->request->get('term');
+
+        $query = $rep->createQueryBuilder('d')
+            ->where('d.id = ?1')
+            ->orWhere('d.domain LIKE ?2')
+            ->setParameter('1',$term)
+            ->setParameter('2','%'.$term.'%')
+            ->getQuery();
+
+        $entities = $query->execute();
+
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            6
+        );
+
+        return $this->render('ACSACSPanelBundle:Domain:index.html.twig', array(
+            'entities' => $entities,
+            'term' => $term,
+            'search_action' => 'domain_search',
+        ));
+
+    }
+
 
     /**
      * Finds and displays a Domain entity.

@@ -29,6 +29,11 @@ domain_delete:
     defaults: { _controller: "ACSACSPanelBundle:Domain:delete" }
     requirements: { _method: post }
 
+domain_search:
+    pattern:  /search/
+    defaults: { _controller: "ACSACSPanelBundle:Domain:search" }
+    requirements: { _method: post }
+
 domain_setalias:
     pattern:  /{id}/setalias/{type}
     defaults: { _controller: "ACSACSPanelBundle:Domain:setalias" }
