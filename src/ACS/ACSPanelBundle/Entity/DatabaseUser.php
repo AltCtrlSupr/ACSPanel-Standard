@@ -45,6 +45,10 @@ class DatabaseUser
      */
     private $user;
 
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\DB
+     */
+    private $db;
 
     /**
      * Get id
@@ -207,12 +211,6 @@ class DatabaseUser
         // Add your code here
     }
     /**
-     * @var \ACS\ACSPanelBundle\Entity\DB
-     */
-    private $db;
-
-
-    /**
      * Set db
      *
      * @param \ACS\ACSPanelBundle\Entity\DB $db
@@ -274,5 +272,10 @@ class DatabaseUser
         $conn->executeQuery($sql);
 
 
+    }
+
+    public function __tostring()
+    {
+        return $this->username;
     }
 }

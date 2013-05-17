@@ -32,7 +32,12 @@
             <td>{{ entity.version }}</td>
             {# }<td>{% for value in entity.data %}{{ value }}{% endfor %}</td> #}
             <td>
-                <ul>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ path('logitem_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
                     </li>
@@ -42,6 +47,7 @@
                         </li>
                     {% endif %}
                 </ul>
+            </div>
             </td>
         </tr>
     {% endfor %}

@@ -15,7 +15,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Createdat</th>
-            <th>Updatedat</th>
+            {#<th>Updatedat</th>#}
             <th>Actions</th>
         </tr>
     </thead>
@@ -25,9 +25,14 @@
             <td><a href="{{ path('db_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.name }}</td>
             <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            {#<td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
             <td>
-                <ul>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ path('db_show', { 'id': entity.id }) }}">show</a>
                     </li>
@@ -35,6 +40,7 @@
                         <a href="{{ path('db_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
+            </div>
             </td>
         </tr>
     {% endfor %}

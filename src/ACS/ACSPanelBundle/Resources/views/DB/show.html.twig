@@ -5,20 +5,24 @@
 <table class="record_properties table">
     <tbody>
         <tr>
-            <th>Id</th>
+            <th>{% trans %}Id{% endtrans %}</th>
             <td>{{ entity.id }}</td>
         </tr>
         <tr>
-            <th>Name</th>
+            <th>{% trans %}Name{% endtrans %}</th>
             <td>{{ entity.name }}</td>
         </tr>
         <tr>
-            <th>Createdat</th>
+            <th>{% trans %}Created at{% endtrans %}</th>
             <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
-            <th>Updatedat</th>
+            <th>{% trans %}Updated at{% endtrans %}</th>
             <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Database users{% endtrans %}</th>
+            <td><ul>{% for dbuser in entity.databaseUsers %}<li>{{ dbuser }}</li>{% endfor %}</ul></td>
         </tr>
     </tbody>
 </table>
@@ -26,18 +30,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('db') }}">
-            Back to the list
+            {% trans %}Back to the list{% endtrans %}
         </a>
     </li>
     <li>
         <a href="{{ path('db_edit', { 'id': entity.id }) }}">
-            Edit
+            {% trans %}Edit{% endtrans %}
         </a>
     </li>
     <li>
         <form action="{{ path('db_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">{% trans %}Delete{% endtrans %}</button>
         </form>
     </li>
 </ul>

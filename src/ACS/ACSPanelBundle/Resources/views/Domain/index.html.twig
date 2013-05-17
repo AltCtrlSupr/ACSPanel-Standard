@@ -29,14 +29,14 @@
                 <td><a href="{{ path('domain_show', { 'id': entity.id }) }}">{{ entity.domain }}</a></td>
                     <td>
                         {% if entity.childDomains is not empty %}
-                        <table class="records_list">
+                        <table class="records_list table table-stripped table-condensed">
                             <thead>
                                 <tr>
                                     <th class="center">{% trans %}Enabled{% endtrans %}</th>
                                     <th>{% trans %}Domain{% endtrans %}</th>
-                                    <th class="center">{% trans %}Is_httpd_alias{% endtrans %}</th>
-                                    <th class="center">{% trans %}Is_dns_alias{% endtrans %}</th>
-                                    <th class="center">{% trans %}Is_mail_alias{% endtrans %}</th>
+                                    <th class="center">{% trans %}HTTPD Alias{% endtrans %}</th>
+                                    <th class="center">{% trans %}DNS Alias{% endtrans %}</th>
+                                    <th class="center">{% trans %}Mail Alias{% endtrans %}</th>
                                     <th>{% trans %}Actions{% endtrans %}</th>
                                 </tr>
                             </thead>
@@ -50,7 +50,12 @@
                                 <td class="center"><a href="{{ path('domain_setalias', { 'id':child.id, 'type':'dns' }) }}"><img src="{% if child.isdnsalias %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></a></td>
                                 <td class="center"><a href="{{ path('domain_setalias', { 'id':child.id, 'type':'mail' }) }}"><img src="{% if child.ismailalias %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></a></td>
                                 <td>
-                                    <ul>
+                                    <div class="dropdown">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                            {% trans %}Actions{% endtrans %}
+                                            <span class="caret"></span>
+                                        </a>
+                                    <ul class="dropdown-menu" role="menu">
                                         <li>
                                         <a href="{{ path('domain_show', { 'id': child.id }) }}">{% trans %}show{% endtrans %}</a>
                                         </li>
@@ -58,6 +63,7 @@
                                         <a href="{{ path('domain_edit', { 'id': child.id }) }}">{% trans %}edit{% endtrans %}</a>
                                         </li>
                                     </ul>
+                                    </div>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -65,7 +71,12 @@
                         {% endif %}
                     </td>
                 <td>
-                    <ul>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="{{ path('domain_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
                         </li>
@@ -73,6 +84,7 @@
                             <a href="{{ path('domain_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
                         </li>
                     </ul>
+            </div>
                 </td>
             </tr>
         {% endif %}

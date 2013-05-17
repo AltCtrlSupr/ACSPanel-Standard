@@ -27,7 +27,12 @@
             <td>{{ entity.gid }}</td>
             <td>{{ entity.dir }}</td>
             <td>
-                <ul>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ path('ftpduser_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
                     </li>
@@ -35,6 +40,7 @@
                         <a href="{{ path('ftpduser_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
                     </li>
                 </ul>
+            </div>
             </td>
         </tr>
     {% endfor %}

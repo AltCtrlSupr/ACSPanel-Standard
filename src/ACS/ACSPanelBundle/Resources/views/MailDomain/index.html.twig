@@ -16,9 +16,9 @@
             <th>Maxaliases</th>
             <th>Maxmailboxes</th>
             <th>Maxquota</th>
-            <th>Backupmx</th>
+            {#<th>Backupmx</th>#}
             <th>Mailbox</th>
-				<th>Alias</th>
+            <th>Alias</th>
             <th>Enabled</th>
             <th>Actions</th>
         </tr>
@@ -31,29 +31,35 @@
             <td>{{ entity.maxAliases }}</td>
             <td>{{ entity.maxMailboxes }}</td>
             <td>{{ entity.maxQuota }}</td>
-            <td>{{ entity.backupmx }}</td>
-				<td>{% render "ACSACSPanelBundle:MailMailbox:showWidget" with { 'maildomain_id' : entity.id }  %}</td>
-				<td>{% render "ACSACSPanelBundle:MailAlias:showWidget" with { 'maildomain_id' : entity.id }  %}</td>
+            {#<td>{{ entity.backupmx }}</td>#}
+            <td>{% render "ACSACSPanelBundle:MailMailbox:showWidget" with { 'maildomain_id' : entity.id }  %}</td>
+            <td>{% render "ACSACSPanelBundle:MailAlias:showWidget" with { 'maildomain_id' : entity.id }  %}</td>
             <td>
-					<a href="{{ path('maildomain_setenabled', { 'id': entity.id }) }}">
-					 	<img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
-					</a>
-				</td>
+                <a href="{{ path('maildomain_setenabled', { 'id': entity.id }) }}">
+                    <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+                </a>
+            </td>
             <td>
-                <ul>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="{{ path('maildomain_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
                         <a href="{{ path('maildomain_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
-						  <li>
-								<a href="{{ path('mailmailbox_new_with_domain', { 'maildomain_id': entity.id }) }}">new mailbox</a>
-							</li>
-							<li>
-						  		<a href="{{ path('mailalias_new_with_domain', { 'maildomain_id': entity.id }) }}">new alias</a>
-							</li>
+                    <li>
+                        <a href="{{ path('mailmailbox_new_with_domain', { 'maildomain_id': entity.id }) }}">new mailbox</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('mailalias_new_with_domain', { 'maildomain_id': entity.id }) }}">new alias</a>
+                    </li>
                 </ul>
+            </div>
             </td>
         </tr>
     {% endfor %}
