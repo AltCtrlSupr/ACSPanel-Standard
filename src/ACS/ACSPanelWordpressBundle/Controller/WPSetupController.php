@@ -63,7 +63,7 @@ class WPSetupController extends Controller
     public function newAction()
     {
         $entity = new WPSetup();
-        $form   = $this->createForm(new WPSetupType(), $entity);
+        $form   = $this->createForm(new WPSetupType($this->container), $entity);
 
         return $this->render('ACSACSPanelWordpressBundle:WPSetup:new.html.twig', array(
             'entity' => $entity,
@@ -78,7 +78,7 @@ class WPSetupController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new WPSetup();
-        $form = $this->createForm(new WPSetupType(), $entity);
+        $form = $this->createForm(new WPSetupType($this->container), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -109,7 +109,7 @@ class WPSetupController extends Controller
             throw $this->createNotFoundException('Unable to find WPSetup entity.');
         }
 
-        $editForm = $this->createForm(new WPSetupType(), $entity);
+        $editForm = $this->createForm(new WPSetupType($this->container), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelWordpressBundle:WPSetup:edit.html.twig', array(
@@ -134,7 +134,7 @@ class WPSetupController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new WPSetupType(), $entity);
+        $editForm = $this->createForm(new WPSetupType($this->container), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

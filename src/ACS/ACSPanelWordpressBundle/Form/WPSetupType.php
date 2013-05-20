@@ -5,16 +5,42 @@ namespace ACS\ACSPanelWordpressBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class WPSetupType extends AbstractType
 {
+    public $container;
+
+    public function __construct($container){
+        $this->container = $container;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $container = $this->container;
+        $security = $container->get('security.context');
+        $user = $security->getToken()->getUser();
+        $child_ids = $user->getIdChildIds();
+        $superadmin = false;
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            $superadmin = true;
+
         $builder
-            ->add('enabled')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('httpd_host')
+            ->add('httpd_host','entity',array(
+                'class' => 'ACS\ACSPanelBundle\Entity\HttpdHost',
+                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
+                    $query = $er->createQueryBuilder('h')
+                        ->select('h');
+                        if(!$superadmin){
+                            $query->innerJoin('h.domain','d')
+                            ->where('d.user IN (?1)')
+                            ->setParameter('1', $child_ids);
+                        }
+                        return $query;
+                    }
+                )
+            )
+
             ->add('database_user')
             ->add('user')
         ;

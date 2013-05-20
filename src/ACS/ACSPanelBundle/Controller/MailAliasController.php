@@ -93,7 +93,7 @@ class MailAliasController extends Controller
         if($maildomain_id != ''){
             $entity->setMailDomain($em->getRepository('ACSACSPanelBundle:MailDomain')->find($maildomain_id));
         }
-        $form   = $this->createForm(new MailAliasType(), $entity);
+        $form   = $this->createForm(new MailAliasType($this->container), $entity);
 
         return $this->render('ACSACSPanelBundle:MailAlias:new.html.twig', array(
             'entity' => $entity,
@@ -108,7 +108,7 @@ class MailAliasController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new MailAlias();
-        $form = $this->createForm(new MailAliasType(), $entity);
+        $form = $this->createForm(new MailAliasType($this->container), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -140,7 +140,7 @@ class MailAliasController extends Controller
             throw $this->createNotFoundException('Unable to find MailAlias entity.');
         }
 
-        $editForm = $this->createForm(new MailAliasType(), $entity);
+        $editForm = $this->createForm(new MailAliasType($this->container), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:MailAlias:edit.html.twig', array(
@@ -165,7 +165,7 @@ class MailAliasController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new MailAliasType(), $entity);
+        $editForm = $this->createForm(new MailAliasType($this->container), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
