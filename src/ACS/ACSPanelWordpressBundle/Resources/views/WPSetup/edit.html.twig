@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}WPSetup edit{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('wpsetup_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+        {{ form_widget(edit_form) }}
+        <p>
+            <button class="btn" type="submit">Edit</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('wpsetup') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('wpsetup_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>

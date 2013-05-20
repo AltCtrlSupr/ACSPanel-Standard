@@ -1,0 +1,30 @@
+wpsetup:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:index" }
+
+wpsetup_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:show" }
+
+wpsetup_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:new" }
+
+wpsetup_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:create" }
+    requirements: { _method: post }
+
+wpsetup_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:edit" }
+
+wpsetup_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:update" }
+    requirements: { _method: post }
+
+wpsetup_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelWordpressBundle:WPSetup:delete" }
+    requirements: { _method: post }

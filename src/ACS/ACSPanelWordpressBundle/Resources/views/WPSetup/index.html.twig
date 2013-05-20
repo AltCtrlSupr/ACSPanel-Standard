@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}WPSetup list{% endtrans %}{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+        <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+<table class="records_list table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Enabled</th>
+            <th>Createdat</th>
+            <th>Updatedat</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('wpsetup_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.enabled }}</td>
+            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('wpsetup_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('wpsetup_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('wpsetup_new') }}">
+            {% trans %}Create a new entry{% endtrans %}
+        </a>
+    </li>
+</ul>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(entities) }}
+</div>
+{% endblock %}
