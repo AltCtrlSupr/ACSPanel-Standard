@@ -1,3 +1,3 @@
-acsacs_panel_wordpress_homepage:
-    pattern:  /hello/{name}
+acsacs_panel_wordpress_list:
+    pattern:  /wordpress/
     defaults: { _controller: ACSACSPanelWordpressBundle:Default:index }

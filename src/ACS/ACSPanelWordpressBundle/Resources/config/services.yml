@@ -2,6 +2,11 @@ parameters:
 #    acsacs_panel_wordpress.example.class: ACS\ACSPanelWordpressBundle\Example
 
 services:
-#    acsacs_panel_wordpress.example:
-#        class: %acsacs_panel_wordpress.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+## Menu items added with event listener
+    wordpress_menu_subscriber:
+        class: ACS\ACSPanelWordpressBundle\Event\Subscribers\WordpressMenuSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}
+
+
