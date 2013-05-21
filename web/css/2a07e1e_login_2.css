@@ -6,32 +6,137 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
+/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#content {
+  background-color: white;
+}
+
+/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+.main {
+  background-color: #ebe4eb;
+  background: url("images/menu_bg.png");
+}
+
+/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#heading {
+  background-color: #323637;
+  color: white;
+}
+/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#heading a.sys-title {
+  color: #30adf5;
+}
+
+/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#right-sidebar {
+  background-color: #ebe4eb;
+}
+/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#right-sidebar h2 {
+  background-color: #323637;
+  color: #79caf8;
+}
+
+/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#user-tools a {
+  color: #91d4fa;
+}
+
+/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#footer {
+  background-color: #323637;
+  color: white;
+}
+
 /*Document   : main
  *Created on : 30/04/2013, 14:42:46
  *Author     : genar
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 10, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 root {
   display: block;
 }
 
-/* line 13, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 14, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#heading h1 {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+/* line 19, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #sidebar {
   margin: 0;
   padding: 0;
+  height: auto;
+}
+/* line 23, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#sidebar div.clear {
+  clear: both;
+  float: left;
 }
 
-/* line 17, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 28, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#right-sidebar h2 {
+  padding-left: 15px;
+}
+/* line 31, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#right-sidebar p {
+  padding: 40px;
+}
+/* line 35, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#right-sidebar table tr td {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 42, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #content {
   clear: right;
   overflow: hidden;
   padding-left: 40px;
   padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
-/* line 24, ../../../../../../Applications/AMPPS/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#heading #user-tools {
+  padding-top: 20px;
+}
+
+/* line 56, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#footer {
+  min-height: 200px;
+  bottom: 0;
+  bottom: 0;
+}
+/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#footer div {
+  padding: 25px;
+}
+
+/* line 64, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#search-box {
+  float: right;
+  width: 320px;
+  margin-right: 20px;
+}
+/* line 69, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+#search-box form {
+  padding-top: 10px;
+}
+
+/* line 73, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+.form_box form {
+  float: left;
+  clear: both;
+}
+
+/* line 77, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 .tabs-content {
   float: left;
   clear: both;
@@ -41,14 +146,19 @@ root {
   width: 100%;
 }
 
-/* line 7, assetic_compassGYhprz.sass */
+/* line 90, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+table table {
+  width: 100%;
+}
+
+/* line 7, assetic_compassgSST7R.sass */
 ul.loginfields {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 12, assetic_compassGYhprz.sass */
+/* line 12, assetic_compassgSST7R.sass */
 #login-form {
   height: 10%;
   padding-top: 40px;
@@ -56,11 +166,11 @@ ul.loginfields {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 20, assetic_compassGYhprz.sass */
+/* line 20, assetic_compassgSST7R.sass */
 #login-form #centered {
   margin: 0 auto;
 }
-/* line 22, assetic_compassGYhprz.sass */
+/* line 22, assetic_compassgSST7R.sass */
 #login-form #centered form {
   margin: 0 auto;
   background-color: white;
@@ -70,20 +180,22 @@ ul.loginfields {
   padding: 19px 29px 29px;
   max-width: 356px;
 }
-/* line 30, assetic_compassGYhprz.sass */
+/* line 30, assetic_compassgSST7R.sass */
 #login-form #centered div.notice {
   color: red;
 }
-/* line 32, assetic_compassGYhprz.sass */
+/* line 32, assetic_compassgSST7R.sass */
 #login-form #centered ul input {
   color: #555555;
   font-size: 24px;
   font-weight: 200;
   line-height: 1;
+  height: 40px;
   outline: 0 none;
 }
-/* line 45, assetic_compassGYhprz.sass */
+/* line 46, assetic_compassgSST7R.sass */
 #login-form #centered ul input#_submit {
+  height: auto;
   color: white;
   width: 110px;
   margin-top: 20px;
@@ -91,30 +203,30 @@ ul.loginfields {
 }
 
 /* FORMS box */
-/* line 53, assetic_compassGYhprz.sass */
+/* line 55, assetic_compassgSST7R.sass */
 .form_box {
   float: left;
   clear: both;
 }
-/* line 56, assetic_compassGYhprz.sass */
+/* line 58, assetic_compassgSST7R.sass */
 .form_box form div {
   float: left;
   clear: both;
   padding-top: 5px;
   padding-bottom: 10px;
 }
-/* line 61, assetic_compassGYhprz.sass */
+/* line 63, assetic_compassgSST7R.sass */
 .form_box form div.fields_group {
   clear: none;
 }
-/* line 63, assetic_compassGYhprz.sass */
+/* line 65, assetic_compassgSST7R.sass */
 .form_box label {
   color: #555555;
   float: left;
   clear: both;
   width: 200px;
 }
-/* line 68, assetic_compassGYhprz.sass */
+/* line 70, assetic_compassgSST7R.sass */
 .form_box textarea, .form_box select {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -127,27 +239,8 @@ ul.loginfields {
 }
 
 /* Search box */
-/* line 80, assetic_compassGYhprz.sass */
-#search-box {
-  float: right;
-  margin-top: 29px;
-  margin-bottom: 21px;
-}
-
-/* line 85, assetic_compassGYhprz.sass */
-#search-box input[type="text"] {
-  width: 255px;
-  background: none repeat scroll 0 0 #fbfbfb;
-  border: 1px solid #e5e5e5;
-  box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset;
-  font-weight: 200;
-  line-height: 1;
-  outline: 0 none;
-  padding: 3px;
-}
-
 /* Form elements */
-/* line 97, assetic_compassGYhprz.sass */
+/* line 84, assetic_compassgSST7R.sass */
 .form_box input {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -158,29 +251,29 @@ ul.loginfields {
   outline: 0 none;
   padding: 3px;
 }
-/* line 106, assetic_compassGYhprz.sass */
+/* line 93, assetic_compassgSST7R.sass */
 .form_box textarea {
   height: 140px;
 }
 
-/* line 109, assetic_compassGYhprz.sass */
+/* line 96, assetic_compassgSST7R.sass */
 .steps_box {
   float: left;
   margin-bottom: 15px;
   width: 100%;
 }
-/* line 113, assetic_compassGYhprz.sass */
+/* line 100, assetic_compassgSST7R.sass */
 .steps_box li {
   float: left;
   margin-right: 120px;
 }
-/* line 116, assetic_compassGYhprz.sass */
+/* line 103, assetic_compassgSST7R.sass */
 .steps_box li.craue_formflow_current_step {
   font-weight: bold;
 }
 
 /* Body override only for login screen */
-/* line 121, assetic_compassGYhprz.sass */
+/* line 108, assetic_compassgSST7R.sass */
 body {
   background-color: whitesmoke;
 }

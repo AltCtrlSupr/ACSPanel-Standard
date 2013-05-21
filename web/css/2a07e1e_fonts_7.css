@@ -10,19 +10,82 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 11, assetic_compassOfvR3l.sass */
+/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#content {
+  background-color: white;
+}
+
+/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+.main {
+  background-color: #ebe4eb;
+  background: url("images/menu_bg.png");
+}
+
+/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#heading {
+  background-color: #323637;
+  color: white;
+}
+/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#heading a.sys-title {
+  color: #30adf5;
+}
+
+/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#right-sidebar {
+  background-color: #ebe4eb;
+}
+/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#right-sidebar h2 {
+  background-color: #323637;
+  color: #79caf8;
+}
+
+/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#user-tools a {
+  color: #91d4fa;
+}
+
+/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#footer {
+  background-color: #323637;
+  color: white;
+}
+
+/* line 11, assetic_compassWBFW2i.sass */
 body {
   font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
-/* line 15, assetic_compassOfvR3l.sass */
+/* line 15, assetic_compassWBFW2i.sass */
 a:link, a:visited, a:active {
   text-decoration: none;
   color: #0977b6;
 }
-/* line 18, assetic_compassOfvR3l.sass */
+/* line 18, assetic_compassWBFW2i.sass */
 a:hover {
   text-decoration: none;
   color: #0977b6;
   text-decoration: underline;
+}
+
+/* line 23, assetic_compassWBFW2i.sass */
+#sidebar ul {
+  font-weight: bold;
+}
+
+/* line 29, assetic_compassWBFW2i.sass */
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
+/* line 33, assetic_compassWBFW2i.sass */
+td.center, th.center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 37, assetic_compassWBFW2i.sass */
+.center {
+  text-align: center;
 }

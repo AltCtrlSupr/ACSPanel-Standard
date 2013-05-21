@@ -14,24 +14,61 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 17, assetic_compassVNWlG5.sass */
+/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#content {
+  background-color: white;
+}
+
+/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+.main {
+  background-color: #ebe4eb;
+  background: url("images/menu_bg.png");
+}
+
+/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#heading {
+  background-color: #323637;
+  color: white;
+}
+/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#heading a.sys-title {
+  color: #30adf5;
+}
+
+/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#right-sidebar {
+  background-color: #ebe4eb;
+}
+/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#right-sidebar h2 {
+  background-color: #323637;
+  color: #79caf8;
+}
+
+/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#user-tools a {
+  color: #91d4fa;
+}
+
+/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+#footer {
+  background-color: #323637;
+  color: white;
+}
+
+/* line 18, assetic_compassCqwDAz.sass */
 ul.plan_attributes {
   display: none;
 }
 
-/* line 20, assetic_compassVNWlG5.sass */
-#user-tools {
-  float: right;
-}
-
 /* TITLES */
-/* line 25, assetic_compassVNWlG5.sass */
+/* line 23, assetic_compassCqwDAz.sass */
 #content h1 {
   float: left;
   color: #064c75;
 }
 
-/* line 29, assetic_compassVNWlG5.sass */
+/* line 27, assetic_compassCqwDAz.sass */
 ul.tab-nav {
   background: #f1f1f1;
   float: left;
@@ -40,12 +77,12 @@ ul.tab-nav {
   /*height: 40px; */
   width: 100%;
 }
-/* line 36, assetic_compassVNWlG5.sass */
+/* line 34, assetic_compassCqwDAz.sass */
 ul.tab-nav li {
   float: left;
   background: url("images/sep_tabs.png") no-repeat right center;
 }
-/* line 39, assetic_compassVNWlG5.sass */
+/* line 37, assetic_compassCqwDAz.sass */
 ul.tab-nav li a {
   float: left;
   text-decoration: none;
@@ -53,47 +90,47 @@ ul.tab-nav li a {
   height: 24px;
   padding: 12px 14px;
 }
-/* line 45, assetic_compassVNWlG5.sass */
+/* line 43, assetic_compassCqwDAz.sass */
 ul.tab-nav li a.active {
   background: white url("images/sep_tabs.png") no-repeat 101% 1px;
 }
-/* line 47, assetic_compassVNWlG5.sass */
+/* line 45, assetic_compassCqwDAz.sass */
 ul.tab-nav li a:hover {
   text-decoration: underline;
 }
 
 /* Actions list */
-/* line 52, assetic_compassVNWlG5.sass */
+/* line 50, assetic_compassCqwDAz.sass */
 .record_actions {
   float: left;
   clear: both;
 }
 
 /*Search results highlight */
-/* line 58, assetic_compassVNWlG5.sass */
+/* line 56, assetic_compassCqwDAz.sass */
 .highlight {
   background-color: #d3e18a;
 }
 
 /* Dynamic adder */
-/* line 63, assetic_compassVNWlG5.sass */
+/* line 61, assetic_compassCqwDAz.sass */
 .dinamic-adder {
   float: left;
   clear: both;
 }
 
-/* line 67, assetic_compassVNWlG5.sass */
+/* line 65, assetic_compassCqwDAz.sass */
 ul.dinamic-adder {
   list-style: none;
   padding: 0;
 }
-/* line 70, assetic_compassVNWlG5.sass */
+/* line 68, assetic_compassCqwDAz.sass */
 ul.dinamic-adder li {
   float: left;
   clear: both;
 }
 
-/* line 74, assetic_compassVNWlG5.sass */
+/* line 72, assetic_compassCqwDAz.sass */
 .add_tag_link {
   float: left;
   clear: both;
