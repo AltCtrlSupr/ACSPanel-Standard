@@ -36,14 +36,7 @@ Execute the `check.php` script from the command line:
 
     php app/check.php
 
-comming soon.
-
-3) Setting up Apache
---------------------
-
-comming soon.
-
-4) Permissions
+3) Permissions
 --------------
 
 To avoid permissions issues after executing console commands you should do the next
@@ -52,11 +45,16 @@ To avoid permissions issues after executing console commands you should do the n
     sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/main/cache app/main/logs
     sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
 
-5) Setting up ACSPanel
+4) Setting up ACSPanel
 --------------------
 
 Now you set parameters.yml with your database create, you can take parameters.yml.sample as example. (Not necessary when it's installed via deb package).
+
+    cp app/main/config/parameters.yml.sample app/main/config/parameters.yml
+
 You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.
+
+    cp app/main/config/config_dev.yml.sample app/main/config/config_dev.yml
 
 
 To install all the dependencies you have to execute composer.phar command.
@@ -82,8 +80,15 @@ Coming soon.
 
 Congratulations! You're now ready to use ACSPanel.
 
-5) Getting started with ACSPanel
+5) Setting up Apache
+--------------------
+
+comming soon.
+
+6) Getting started with ACSPanel
 -------------------------------
+
+comming soon.
 
 What's inside?
 ---------------
