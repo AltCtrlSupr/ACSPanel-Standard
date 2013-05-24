@@ -29,6 +29,7 @@ class DomainType extends AbstractType
             ->add('domain')
             ->add('parent_domain','entity',array(
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
+                'required' => false,
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('d')
                         ->select('d')
