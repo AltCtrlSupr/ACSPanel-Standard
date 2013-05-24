@@ -368,7 +368,7 @@ class HttpdHost
      */
     public function setUpdatedAtValue()
     {
-	    $this->updatedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -379,23 +379,23 @@ class HttpdHost
         if($this->getUser())
             return;
 
-		global $kernel;
+        global $kernel;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
 
-		$service = $kernel->getContainer()->get('security.context');
+        $service = $kernel->getContainer()->get('security.context');
 
         // Add your code here
-		$user = $service->getToken()->getUser();
-		return $this->setUser($user);
+        $user = $service->getToken()->getUser();
+        return $this->setUser($user);
     }
 
-	public function __toString()
-	{
-		return $this->getName().' ('.$this->getDomain()->getDomain().')';
-	}
+    public function __toString()
+    {
+        return $this->getName().' ('.$this->getDomain()->getDomain().')';
+    }
 
     /**
      * Set service
@@ -466,7 +466,7 @@ class HttpdHost
     {
         $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add user
      *
@@ -476,7 +476,7 @@ class HttpdHost
     public function addUser(\ACS\ACSPanelBundle\Entity\FosUser $user)
     {
         $this->user[] = $user;
-    
+
         return $this;
     }
 

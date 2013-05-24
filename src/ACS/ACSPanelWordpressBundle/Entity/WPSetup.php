@@ -18,7 +18,7 @@ class WPSetup
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -40,17 +40,18 @@ class WPSetup
     private $updatedAt;
 
     /**
-     * @var \ACS\ACSPanelWordpressBundle\Entity\HttpdHost
+     * @var \ACS\ACSPanelBundle\Entity\HttpdHost
      */
     private $httpd_host;
 
+
     /**
-     * @var \ACS\ACSPanelWordpressBundle\Entity\DatabaseUser
+     * @var \ACS\ACSPanelBundle\Entity\DatabaseUser
      */
     private $database_user;
 
     /**
-     * @var \ACS\ACSPanelWordpressBundle\Entity\FosUser
+     * @var \ACS\ACSPanelBundle\Entity\FosUser
      */
     private $user;
 
@@ -64,14 +65,14 @@ class WPSetup
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -87,14 +88,14 @@ class WPSetup
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -110,14 +111,14 @@ class WPSetup
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updatedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -127,20 +128,20 @@ class WPSetup
     /**
      * Set httpd_host
      *
-     * @param \ACS\ACSPanelWordpressBundle\Entity\HttpdHost $httpdHost
+     * @param \ACS\ACSPanelBundle\Entity\HttpdHost $httpdHost
      * @return WPSetup
      */
-    public function setHttpdHost(\ACS\ACSPanelWordpressBundle\Entity\HttpdHost $httpdHost = null)
+    public function setHttpdHost(\ACS\ACSPanelBundle\Entity\HttpdHost $httpdHost = null)
     {
         $this->httpd_host = $httpdHost;
-    
+
         return $this;
     }
 
     /**
      * Get httpd_host
      *
-     * @return \ACS\ACSPanelWordpressBundle\Entity\HttpdHost 
+     * @return \ACS\ACSPanelWordpressBundle\Entity\HttpdHost
      */
     public function getHttpdHost()
     {
@@ -150,20 +151,20 @@ class WPSetup
     /**
      * Set database_user
      *
-     * @param \ACS\ACSPanelWordpressBundle\Entity\DatabaseUser $databaseUser
+     * @param \ACS\ACSPanelBundle\Entity\DatabaseUser $databaseUser
      * @return WPSetup
      */
-    public function setDatabaseUser(\ACS\ACSPanelWordpressBundle\Entity\DatabaseUser $databaseUser = null)
+    public function setDatabaseUser(\ACS\ACSPanelBundle\Entity\DatabaseUser $databaseUser = null)
     {
         $this->database_user = $databaseUser;
-    
+
         return $this;
     }
 
     /**
      * Get database_user
      *
-     * @return \ACS\ACSPanelWordpressBundle\Entity\DatabaseUser 
+     * @return \ACS\ACSPanelWordpressBundle\Entity\DatabaseUser
      */
     public function getDatabaseUser()
     {
@@ -176,20 +177,60 @@ class WPSetup
      * @param \ACS\ACSPanelWordpressBundle\Entity\FosUser $user
      * @return WPSetup
      */
-    public function setUser(\ACS\ACSPanelWordpressBundle\Entity\FosUser $user = null)
+    public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \ACS\ACSPanelWordpressBundle\Entity\FosUser 
+     * @return \ACS\ACSPanelWordpressBundle\Entity\FosUser
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        if(!$this->getCreatedAt())
+        {
+            $this->createdAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setUserValue()
+    {
+        if($this->getUser())
+            return;
+
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $service = $kernel->getContainer()->get('security.context');
+
+        // Add your code here
+        $user = $service->getToken()->getUser();
+        return $this->setUser($user);
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTime();
     }
 }

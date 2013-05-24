@@ -42,4 +42,6 @@ ACS\ACSPanelWordpressBundle\Entity\WPSetup:
             targetEntity: ACS\ACSPanelBundle\Entity\DatabaseUser
             cascade: [ "persist" ]
 
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue, setUserValue ]
+      preUpdate: [ setUpdatedAtValue ]

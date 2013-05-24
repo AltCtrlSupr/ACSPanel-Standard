@@ -41,8 +41,24 @@ class WPSetupType extends AbstractType
                 )
             )
 
-            ->add('database_user')
-            ->add('user')
+            ->add('database_user','entity',array(
+                'class' => 'ACS\ACSPanelBundle\Entity\DatabaseUser',
+                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
+                    $query = $er->createQueryBuilder('dbu')
+                        ->select('dbu');
+                        if(!$superadmin){
+                            $query->innerJoin('dbu.db','db')
+                            ->where('db.user IN (?1)')
+                            ->setParameter('1', $child_ids);
+                        }
+                        return $query;
+                    }
+                )
+            );
+
+            if($superadmin){
+                $builder->add('user');
+            }
         ;
     }
 
