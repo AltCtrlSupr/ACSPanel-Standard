@@ -396,9 +396,9 @@ class FtpdUser
             $kernel = $kernel->getKernel();
         }
 
-        $ftpdusertools = $kernel->getContainer()->get('acs.ftpduser.tools');
+        $usertools = $kernel->getContainer()->get('acs.user.tools');
 
-        $this->setUid($ftpdusertools->getAvailableUid());
+        $this->setUid($usertools->getAvailableUid());
 
     }
 

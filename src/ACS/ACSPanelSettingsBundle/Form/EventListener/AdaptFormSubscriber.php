@@ -57,24 +57,28 @@ class AdaptFormSubscriber implements EventSubscriberInterface
                 $form->add($this->factory->createNamed('service_id','hidden',$data->getService()->getId(),array('mapped' => false)));
         }
 
-        switch($field_config['field_type']){
-            case 'select':
-                $choices = $field_config['choices'];
-                $form->add($this->factory->createNamed('value','choice',$data->getValue(), array(
-                    'label' => $field_config['label'],
-                    'choices' => $choices,
-                )));
-                break;
-            case 'hidden':
-                $form->add($this->factory->createNamed('value','hidden',$data->getValue(),array('label' => $field_config['label'])));
-                break;
-            case 'text':
-                $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $field_config['label'])));
-                break;
-            case 'password':
-                $form->add($this->factory->createNamed('value','password',$data->getValue(),array('label' => $field_config['label'])));
-                break;
 
+        // TODO: Check why is receiving
+        if(!empty($field_config)){
+            switch($field_config['field_type']){
+                case 'select':
+                    $choices = $field_config['choices'];
+                    $form->add($this->factory->createNamed('value','choice',$data->getValue(), array(
+                        'label' => $field_config['label'],
+                        'choices' => $choices,
+                    )));
+                    break;
+                case 'hidden':
+                    $form->add($this->factory->createNamed('value','hidden',$data->getValue(),array('label' => $field_config['label'])));
+                    break;
+                case 'text':
+                    $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $field_config['label'])));
+                    break;
+                case 'password':
+                    $form->add($this->factory->createNamed('value','password',$data->getValue(),array('label' => $field_config['label'])));
+                    break;
+
+            }
         }
         // $form->add($this->factory->createNamed('value','text',$data->getValue(),array('label' => $data->getLabel())));
     }

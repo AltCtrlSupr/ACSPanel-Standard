@@ -18,6 +18,11 @@ ACS\ACSPanelBundle\Entity\DatabaseUser:
             nullable: false
             gedmo:
                 - versioned
+        password:
+            type: string
+            length: 250
+            fixed: false
+            nullable: false
         createdAt:
             type: datetime
             column: created_at

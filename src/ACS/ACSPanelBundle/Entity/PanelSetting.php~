@@ -160,8 +160,10 @@ class PanelSetting extends BaseSetting
 
         $service = $kernel->getContainer()->get('security.context');
 
-        // Add your code here
-        $user = $service->getToken()->getUser();
+        if($service->getToken())
+            $user = $service->getToken()->getUser();
+        else
+            $user = null;
         return $this->setUser($user);
     }
 
