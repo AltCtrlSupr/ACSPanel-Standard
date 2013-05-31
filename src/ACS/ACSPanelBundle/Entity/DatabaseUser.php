@@ -274,7 +274,7 @@ class DatabaseUser
 
     }
 
-    public function __tostring()
+    public function __toString()
     {
         return $this->username;
     }

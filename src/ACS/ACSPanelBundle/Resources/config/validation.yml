@@ -33,3 +33,8 @@ ACS\ACSPanelBundle\Entity\FosUser:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: emailCanonical
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: username
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: usernameCanonical
+
+ACS\ACSPanelBundle\Entity\DatabaseUser:
+    constraints:
+        - ACS\ACSPanelBundle\Validator\Constraints\VariableLimitedLength: 
+            max_length: 16

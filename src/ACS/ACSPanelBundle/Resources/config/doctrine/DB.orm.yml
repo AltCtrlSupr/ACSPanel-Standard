@@ -12,9 +12,14 @@ ACS\ACSPanelBundle\Entity\DB:
                 strategy: IDENTITY
         name:
             type: string
-            length: 50
+            length: 64
             fixed: false
             nullable: false
+        description:
+            type: string
+            length: 250
+            fixed: false
+            nullable: true
         createdAt:
             type: datetime
             column: created_at

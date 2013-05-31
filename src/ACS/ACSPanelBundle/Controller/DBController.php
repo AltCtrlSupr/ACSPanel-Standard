@@ -98,23 +98,36 @@ class DBController extends Controller
         $form = $this->createForm(new DBType($this->container), $entity);
         $form->bind($request);
 
-        if ($form->isValid()) {
+        $users = $entity->getDatabaseUsers();
+
+        $errors = array();
+        $validator = $this->get('validator');
+
+        foreach($users as $dbuser){
+            $dbuser->setUsername($entity->getUser()->getId().'_'.$dbuser->getUsername());
+            $dbuser->setDb($entity);
+            $errors = $validator->validate($dbuser);
+        }
+
+        if ($form->isValid() && !count($errors)) {
+
             $em = $this->getDoctrine()->getManager();
-            $user = $this->get('security.context')->getToken()->getUser();
-            $entity->setName($user->getUsername().'_'.$entity->getName());
-            $users = $entity->getDatabaseUsers();
-            foreach($users as $dbuser){
-                $dbuser->setUsername($user->getUsername().'_'.$dbuser->getUsername());
-                $dbuser->setDb($entity);
-            }
+
+            $entity->setName($entity->getUser()->getUsername().'_'.$entity->getName());
+
+            // foreach($users as $dbuser){
+            // }
+            //
             $em->persist($entity);
             $em->flush();
 
             return $this->redirect($this->generateUrl('db_show', array('id' => $entity->getId())));
+
         }
 
         return $this->render('ACSACSPanelBundle:DB:new.html.twig', array(
             'entity' => $entity,
+            'errors' => $errors,
             'form'   => $form->createView(),
         ));
     }

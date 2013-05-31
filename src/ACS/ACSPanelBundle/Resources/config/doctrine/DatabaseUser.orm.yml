@@ -13,7 +13,7 @@ ACS\ACSPanelBundle\Entity\DatabaseUser:
                 strategy: IDENTITY
         username:
             type: string
-            length: 50
+            length: 16
             fixed: false
             nullable: false
             gedmo:
