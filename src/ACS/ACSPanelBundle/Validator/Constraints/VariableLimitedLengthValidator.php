@@ -13,11 +13,23 @@ use Symfony\Component\Validator\ConstraintValidator;
 //TODO: add more flexibility and more comprehensible validator names
 class VariableLimitedLengthValidator extends ConstraintValidator
 {
+    public $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
+
     public function validate($dbuser, Constraint $constraint)
     {
+        $container = $this->container;
         // Check the limit length
-        //$user_id = $container->get('security.context')->getToken()->getUser()->getId();
-        $user_id = $dbuser->getDB()->getUser()->getId();
+        if(!$dbuser->getDB()->getUser())
+            $user_id = $container->get('security.context')->getToken()->getUser()->getId();
+        else
+            $user_id = $dbuser->getDB()->getUser()->getId();
+
+
 
         $username = $dbuser;
 

@@ -103,8 +103,13 @@ class DBController extends Controller
         $errors = array();
         $validator = $this->get('validator');
 
+        // We get current user, if is admin action we take the form user
+        $user = $this->get('security.context')->getToken()->getUser();
+        if($entity->getUser())
+            $user = $entity->getUser();
+
         foreach($users as $dbuser){
-            $dbuser->setUsername($entity->getUser()->getId().'_'.$dbuser->getUsername());
+            $dbuser->setUsername($user->getId().'_'.$dbuser->getUsername());
             $dbuser->setDb($entity);
             $errors = $validator->validate($dbuser);
         }
@@ -113,7 +118,7 @@ class DBController extends Controller
 
             $em = $this->getDoctrine()->getManager();
 
-            $entity->setName($entity->getUser()->getUsername().'_'.$entity->getName());
+            $entity->setName($user->getUsername().'_'.$entity->getName());
 
             // foreach($users as $dbuser){
             // }

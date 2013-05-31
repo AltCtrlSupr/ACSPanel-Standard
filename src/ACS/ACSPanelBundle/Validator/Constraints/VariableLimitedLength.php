@@ -27,6 +27,10 @@ class VariableLimitedLength extends Constraint
         return self::CLASS_CONSTRAINT;
     }
 
+    public function validatedBy()
+    {
+        return 'db.username.validator';
+    }
 }
 
 ?>

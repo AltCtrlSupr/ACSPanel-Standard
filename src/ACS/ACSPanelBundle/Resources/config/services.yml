@@ -2,6 +2,7 @@
 
 parameters:
     duplicate.host.class: ACS\ACSPanelBundle\Validator\Constraints\DuplicateHostValidator
+    db.username.validator.class: ACS\ACSPanelBundle\Validator\Constraints\VariableLimitedLengthValidator
     domain.tools.class: ACS\ACSPanelBundle\Modules\Domain
     user.tools.class: ACS\ACSPanelBundle\Modules\UserTools
 
@@ -12,6 +13,13 @@ services:
         arguments: ['@doctrine.orm.entity_manager']
         tags:
             - {name: validator.constraint_validator, alias: duplicate.host}
+
+    # Database username length validator
+    db.username.validator:
+        class: %db.username.validator.class%
+        arguments: ['@service_container']
+        tags:
+            - {name: validator.constraint_validator, alias: db.username.validator}
 
     # Domain checking tools
     domain.tools:
