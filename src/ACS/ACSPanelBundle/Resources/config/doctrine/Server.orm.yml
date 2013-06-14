@@ -54,7 +54,7 @@ ACS\ACSPanelBundle\Entity\Server:
                 onDelete: RESTRICT
         ip:
             targetEntity: IpAddress
-            cascade: {  }
+            cascade: [ "persist" ]
             inversedBy: null
             joinTable: null
             joinColumn:
