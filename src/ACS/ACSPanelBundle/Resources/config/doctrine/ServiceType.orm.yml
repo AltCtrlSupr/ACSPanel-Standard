@@ -1,4 +1,5 @@
 ACS\ACSPanelBundle\Entity\ServiceType:
+    repositoryClass: ACS\ACSPanelBundle\Model\ServiceTypeRepository
     type: entity
     table: service_type 
     gedmo:

@@ -80,7 +80,7 @@ class DBController extends Controller
 
         $entity = new DB();
 
-        $form   = $this->createForm(new DBType($this->container), $entity);
+        $form   = $this->createForm(new DBType($this->container, $em), $entity);
 
         return $this->render('ACSACSPanelBundle:DB:new.html.twig', array(
             'entity' => $entity,
@@ -95,7 +95,7 @@ class DBController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new DB();
-        $form = $this->createForm(new DBType($this->container), $entity);
+        $form = $this->createForm(new DBType($this->container, $em), $entity);
         $form->bind($request);
 
         $users = $entity->getDatabaseUsers();
@@ -151,7 +151,7 @@ class DBController extends Controller
             throw $this->createNotFoundException('Unable to find DB entity.');
         }
 
-        $editForm = $this->createForm(new DBType($this->container), $entity);
+        $editForm = $this->createForm(new DBType($this->container, $em), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:DB:edit.html.twig', array(
@@ -176,7 +176,7 @@ class DBController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new DBType($this->container), $entity);
+        $editForm = $this->createForm(new DBType($this->container, $em), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
