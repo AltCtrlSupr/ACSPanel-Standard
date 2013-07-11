@@ -4,6 +4,7 @@ namespace ACS\ACSPanelSettingsBundle\Form\EventListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Event\DataEvent;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
 
@@ -31,7 +32,7 @@ class AdaptFormSubscriber implements EventSubscriberInterface
         return array(FormEvents::PRE_SET_DATA => 'preSetData');
     }
 
-    public function preSetData(DataEvent $event)
+    public function preSetData(FormEvent $event)
     {
         $data = $event->getData();
         $form = $event->getForm();
@@ -66,6 +67,7 @@ class AdaptFormSubscriber implements EventSubscriberInterface
                     $form->add($this->factory->createNamed('value','choice',$data->getValue(), array(
                         'label' => $field_config['label'],
                         'choices' => $choices,
+                        'auto_initialize' => false,
                     )));
                     break;
                 case 'hidden':
