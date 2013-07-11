@@ -32,7 +32,7 @@
             <td>{{ entity.notifiedSerial }}</td>
             <td>
                 <ul>
-                        {% render "ACSACSPanelBundle:DnsRecord:showWidget" with { 'records' : entity.dnsrecords }  %}
+                        {% render controller("ACSACSPanelBundle:DnsRecord:showWidget" ,{ 'records' : entity.dnsrecords })  %}
                 </ul>
             </td>
             <td>
