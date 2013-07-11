@@ -63,7 +63,7 @@ ACS\ACSPanelBundle\Entity\DnsRecord:
             targetEntity: DnsDomain 
             mappedBy: dnsrecords
             cascade: {  }
-            inversedBy: null
+            inversedBy: dnsrecords
             joinTable: null
             orderBy: null
             gedmo:

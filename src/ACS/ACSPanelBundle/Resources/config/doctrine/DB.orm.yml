@@ -35,7 +35,7 @@ ACS\ACSPanelBundle\Entity\DB:
     manyToOne:
         service:
             targetEntity: Service
-            inversedBy: null
+            inversedBy: databases
             joinTable: null
             orderBy: null
             joinColumn:
@@ -44,7 +44,7 @@ ACS\ACSPanelBundle\Entity\DB:
         user:
             targetEntity: FosUser
             cascade: {  }
-            inversedBy: null
+            inversedBy: databases
             joinTable: null
             orderBy: null
             joinColumn:
