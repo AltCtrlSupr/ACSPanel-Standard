@@ -23,7 +23,7 @@ the next command and execute the following commands
 
     cd /server_root_directory/
 
-    git clone [put git url here]
+    git clone git@github.com:AltCtrlSupr/acspanel.git
 
 
 2) Checking your System Configuration
