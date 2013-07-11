@@ -3,10 +3,12 @@
 
         <div id="login-form" class="container">
             <div id="centered">
-                    {% for key, message in app.session.getFlashes() %}
-                    <div class="{{ key }}">
-                        {{ message|trans({}, 'FOSUserBundle') }}
-                    </div>
+                    {% for type, messages in app.session.flashbag.all() %}
+                      {% for message in messages %}
+                        <div class="{{ key }}">
+                            {{ message|trans({}, 'FOSUserBundle') }}
+                        </div>
+                      {% endfor %}
                     {% endfor %}
 
                     {% block fos_user_content %}

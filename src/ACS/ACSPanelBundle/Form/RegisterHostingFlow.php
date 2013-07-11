@@ -15,4 +15,9 @@ class RegisterHostingFlow extends FormFlow {
         );
     }
 
+    public function getName()
+    {
+        return 'register_hosting';
+    }
+
 }
