@@ -70,7 +70,7 @@ ACS\ACSPanelBundle\Entity\Service:
         server:
             targetEntity: Server 
             cascade: {  }
-            inversedBy: null
+            inversedBy: services
             joinTable: null
             joinColumn:
                 onDelete: CASCADE
@@ -89,7 +89,7 @@ ACS\ACSPanelBundle\Entity\Service:
         ip:
             targetEntity: IpAddress
             cascade: {  }
-            inversedBy: null
+            inversedBy: services
             joinTable: null
             joinColumn:
                 onDelete: RESTRICT

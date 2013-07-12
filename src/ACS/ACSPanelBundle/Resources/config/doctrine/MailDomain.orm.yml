@@ -73,7 +73,7 @@ ACS\ACSPanelBundle\Entity\MailDomain:
         user:
             targetEntity: FosUser
             cascade: {  }
-            inversedBy: null
+            inversedBy: maildomains
             joinTable: null
             orderBy: null
             gedmo:
@@ -82,7 +82,7 @@ ACS\ACSPanelBundle\Entity\MailDomain:
                 onDelete: CASCADE
         service:
             targetEntity: Service
-            inversedBy: null
+            inversedBy: mail_domains
             joinTable: null
             orderBy: null
             joinColumn:

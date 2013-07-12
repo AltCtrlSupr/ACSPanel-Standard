@@ -82,7 +82,7 @@ ACS\ACSPanelBundle\Entity\FtpdUser:
                 - versioned
         service:
             targetEntity: Service
-            inversedBy: null
+            inversedBy: ftp_users
             joinTable: null
             orderBy: null
             joinColumn:

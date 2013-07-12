@@ -19,7 +19,7 @@ ACS\ACSPanelBundle\Entity\PanelSetting:
     manyToOne:
         user:
             targetEntity: FosUser
-            inversedBy: null
+            inversedBy: settings
             joinTable: null
             orderBy: null
             joinColumn:
@@ -33,7 +33,7 @@ ACS\ACSPanelBundle\Entity\PanelSetting:
                 onDelete: CASCADE
         service:
             targetEntity: Service
-            inversedBy: null
+            inversedBy: settings
             joinTable: null
             orderBy: null
             joinColumn:

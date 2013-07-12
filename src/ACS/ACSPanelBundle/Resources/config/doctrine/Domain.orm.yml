@@ -51,7 +51,7 @@ ACS\ACSPanelBundle\Entity\Domain:
         user:
             targetEntity: FosUser
             cascade: {  }
-            inversedBy: null
+            inversedBy: domains
             joinTable: null
             orderBy: null
             gedmo:

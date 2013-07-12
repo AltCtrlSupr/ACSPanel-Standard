@@ -75,9 +75,6 @@ ACS\ACSPanelBundle\Entity\FosUser:
         domains:
             targetEntity: Domain
             mappedBy: user
-        httpdhosts:
-            targetEntity: HttpdHost
-            mappedBy: user
         maildomains:
             targetEntity: MailDomain
             mappedBy: user

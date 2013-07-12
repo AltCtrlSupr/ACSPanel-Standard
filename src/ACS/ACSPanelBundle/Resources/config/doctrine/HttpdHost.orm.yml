@@ -47,7 +47,7 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
     manyToOne:
         service:
             targetEntity: Service
-            inversedBy: null
+            inversedBy: httpd_hosts
             joinTable: null
             orderBy: null
             joinColumn:

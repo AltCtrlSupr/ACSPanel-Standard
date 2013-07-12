@@ -21,7 +21,7 @@ class DuplicateHostValidator extends ConstraintValidator
         $this->em = $entityManager;
     }
 
-    public function isValid($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint)
     {
         // Check for the hostname in httpdhosts and httpdalias
         $em = $this->em;

@@ -69,7 +69,7 @@ ACS\ACSPanelBundle\Entity\DnsDomain:
     manyToOne:
         service:
             targetEntity: Service
-            inversedBy: null
+            inversedBy: dns_domains
             joinTable: null
             orderBy: null
             joinColumn:
