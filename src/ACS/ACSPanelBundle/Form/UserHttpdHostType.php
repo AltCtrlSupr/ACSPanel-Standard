@@ -11,9 +11,9 @@ class UserHttpdHostType extends HttpdHostType
 {
     public $container;
 
-    public function __construct($container){
+    /*public function __construct($container){
         $this->container = $container;
-    }
+    }*/
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
