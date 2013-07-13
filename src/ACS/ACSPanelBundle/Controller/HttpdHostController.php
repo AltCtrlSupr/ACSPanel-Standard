@@ -115,7 +115,7 @@ class HttpdHostController extends Controller
 
         $entity = new HttpdHost();
         $entity->setEnabled(true);
-        $form   = $this->createForm(new UserHttpdHostType($this->container), $entity);
+        $form   = $this->createForm(new UserHttpdHostType(), $entity);
 
         return $this->render('ACSACSPanelBundle:HttpdHost:new.html.twig', array(
             'entity' => $entity,
@@ -130,7 +130,7 @@ class HttpdHostController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new HttpdHost();
-        $form = $this->createForm(new UserHttpdHostType($this->container), $entity);
+        $form = $this->createForm(new UserHttpdHostType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -232,7 +232,7 @@ class HttpdHostController extends Controller
             throw $this->createNotFoundException('Unable to find HttpdHost entity.');
         }
 
-        $editForm = $this->createForm(new UserHttpdHostType($this->container), $entity);
+        $editForm = $this->createForm(new UserHttpdHostType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
@@ -257,7 +257,7 @@ class HttpdHostController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new UserHttpdHostType($this->container), $entity);
+        $editForm = $this->createForm(new UserHttpdHostType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
