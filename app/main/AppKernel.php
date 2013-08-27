@@ -51,4 +51,12 @@ class AppKernel extends Kernel
     {
         return __DIR__;
     }
+
+    protected function initializeContainer() {
+        parent::initializeContainer();
+        if (PHP_SAPI == 'cli') {
+            $this->getContainer()->enterScope('request');
+            $this->getContainer()->set('request', new \Symfony\Component\HttpFoundation\Request(), 'request');
+        }
+    }
 }

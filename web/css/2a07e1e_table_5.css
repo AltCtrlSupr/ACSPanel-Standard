@@ -4,16 +4,16 @@
  *Description:
  *Tables */
 /* TABLES */
-/* line 10, assetic_compassc3lDzR.sass */
+/* line 10, assetic_compasscWG1d8.sass */
 table {
   clear: both;
 }
 
-/* line 13, assetic_compassc3lDzR.sass */
+/* line 13, assetic_compasscWG1d8.sass */
 .records_list {
   width: 100%;
 }
-/* line 16, assetic_compassc3lDzR.sass */
+/* line 16, assetic_compasscWG1d8.sass */
 .records_list tbody {
   /* Kind of irrelevant unless your .css is alreadt doing something else */
   margin: 0;
@@ -24,11 +24,11 @@ table {
   vertical-align: baseline;
   background: transparent;
 }
-/* line 25, assetic_compassc3lDzR.sass */
+/* line 25, assetic_compasscWG1d8.sass */
 .records_list thead {
   text-align: left;
 }
-/* line 27, assetic_compassc3lDzR.sass */
+/* line 27, assetic_compasscWG1d8.sass */
 .records_list thead th {
   background: -moz-linear-gradient(top, #f0f0f0 0, #dbdbdb 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0f0f0), color-stop(100%, #dbdbdb));
@@ -39,12 +39,58 @@ table {
   font-weight: bold;
   padding: 3px 10px;
 }
-/* line 36, assetic_compassc3lDzR.sass */
+/* line 36, assetic_compasscWG1d8.sass */
 .records_list td {
   padding: 3px 10px;
   vertical-align: middle;
 }
-/* line 39, assetic_compassc3lDzR.sass */
+/* line 39, assetic_compasscWG1d8.sass */
 .records_list tr:nth-child(even) {
   background: #f2f2f2;
+}
+
+/* Responsive table */
+@media only screen and (max-width: 800px) {
+  /* Force table to not be like tables anymore */
+  /* line 46, assetic_compasscWG1d8.sass */
+  #results-table table, #results-table thead, #results-table tbody, #results-table th, #results-table td, #results-table tr {
+    display: block;
+  }
+  /* line 48, assetic_compasscWG1d8.sass */
+  #results-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  /* line 52, assetic_compasscWG1d8.sass */
+  #results-table tr {
+    border: 1px solid #cccccc;
+  }
+  /* line 54, assetic_compasscWG1d8.sass */
+  #results-table td {
+    /* Behave like a "row" */
+    border: none;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: left;
+  }
+  /* line 62, assetic_compasscWG1d8.sass */
+  #results-table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    content: attr(data-title);
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  /*Label the data */
 }
