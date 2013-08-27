@@ -16,24 +16,24 @@
             <th>{% trans %}Protected dir{% endtrans %}</th>
             <th>{% trans %}Created at{% endtrans %}</th>
             <th>{% trans %}Updated at{% endtrans %}</th>
-				<th>{% trans %}Enabled{% endtrans %}</th>
+            <th>{% trans %}Enabled{% endtrans %}</th>
             <th>{% trans %}Actions{% endtrans %}</th>
         </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('httpduser_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-            <td><a href="{{ path('httpdhost_show', { 'id': entity.httpdhost.id}) }}">{{entity.httpdhost }}</a></td>
-            <td>{{ entity.protecteddir }}</td>
-            <td>{% if entity.createdAt %}{{ entity.createdAt|date(date_format) }}{% endif %}</td>
-            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date(date_format) }}{% endif %}</td>
-				<td>
-					<a href="{{ path('httpduser_setenabled', { 'id': entity.id }) }}">
-						<img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
-					</a>
-				</td>
-            <td>
+            <td data-title="{% trans %}Name{% endtrans %}" ><a href="{{ path('httpduser_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td data-title="{% trans %}Domain{% endtrans %}"><a href="{{ path('httpdhost_show', { 'id': entity.httpdhost.id}) }}">{{entity.httpdhost }}</a></td>
+            <td data-title="{% trans %}Protected dir{% endtrans %}">{{ entity.protecteddir }}</td>
+            <td data-title="{% trans %}Created at{% endtrans %}">{% if entity.createdAt %}{{ entity.createdAt|date(date_format) }}{% endif %}</td>
+            <td data-title="{% trans %}Updated at{% endtrans %}">{% if entity.updatedAt %}{{ entity.updatedAt|date(date_format) }}{% endif %}</td>
+            <td data-title="{% trans %}Enabled{% endtrans %}">
+                <a href="{{ path('httpduser_setenabled', { 'id': entity.id }) }}">
+                    <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+                </a>
+            </td>
+            <td data-title="{% trans %}Actions{% endtrans %}">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             {% trans %}Actions{% endtrans %}

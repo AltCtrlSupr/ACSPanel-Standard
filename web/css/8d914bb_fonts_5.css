@@ -52,40 +52,40 @@
   color: white;
 }
 
-/* line 11, assetic_compass7Gzlre.sass */
+/* line 11, assetic_compasss4zxdL.sass */
 body {
   font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
-/* line 15, assetic_compass7Gzlre.sass */
+/* line 15, assetic_compasss4zxdL.sass */
 a:link, a:visited, a:active {
   text-decoration: none;
   color: #0977b6;
 }
-/* line 18, assetic_compass7Gzlre.sass */
+/* line 18, assetic_compasss4zxdL.sass */
 a:hover {
   text-decoration: none;
   color: #0977b6;
   text-decoration: underline;
 }
 
-/* line 23, assetic_compass7Gzlre.sass */
+/* line 23, assetic_compasss4zxdL.sass */
 #sidebar ul {
   font-weight: bold;
 }
 
-/* line 29, assetic_compass7Gzlre.sass */
+/* line 29, assetic_compasss4zxdL.sass */
 h1, h2, h3, h4 {
   font-weight: normal;
 }
 
-/* line 33, assetic_compass7Gzlre.sass */
+/* line 33, assetic_compasss4zxdL.sass */
 td.center, th.center {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 37, assetic_compass7Gzlre.sass */
+/* line 37, assetic_compasss4zxdL.sass */
 .center {
   text-align: center;
 }

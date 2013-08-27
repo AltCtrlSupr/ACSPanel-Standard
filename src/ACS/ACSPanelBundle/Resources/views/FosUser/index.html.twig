@@ -27,15 +27,15 @@
     {% for entity in entities %}
         {% if is_granted('ROLE_SUPER_ADMIN') or entity.parentUser|length and entity.parentUser.id == app.user.id %}
             <tr>
-                <td class="center"><img src="{% if entity.enabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
-                <td><a href="{{ path('users_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
-                <td>{{ entity.firstname }} {{ entity.lastname }}</td>
-                <td><a href="mailto://{{ entity.email }}">{{ entity.email }}</a></td>
-                <td>{% if entity.lastLogin %}{{ entity.lastLogin|date(date_format) }}{% endif %}</td>
+                <td data-title="{% trans %}Enabled{% endtrans %}" class="center"><img src="{% if entity.enabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
+                <td data-title="{% trans %}Username{% endtrans %}"><a href="{{ path('users_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+                <td data-title="{% trans %}Name{% endtrans %}">{{ entity.firstname }} {{ entity.lastname }}</td>
+                <td data-title="{% trans %}Email{% endtrans %}"><a href="mailto://{{ entity.email }}">{{ entity.email }}</a></td>
+                <td data-title="{% trans %}Lastlogin{% endtrans %}">{% if entity.lastLogin %}{{ entity.lastLogin|date(date_format) }}{% endif %}</td>
                 {#<td align="center"><img src="{% if entity.locked %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>#}
-                <td><ul>{% for plan in entity.plans %} <li> {{ plan }} </li> {% endfor %}</ul></td>
-                <td><ul>{% for role in entity.roles %} <li> {{ role }} </li> {% endfor %}</ul></td>
-                <td>
+                <td data-title="{% trans %}Plans{% endtrans %}"><ul>{% for plan in entity.plans %} <li> {{ plan }} </li> {% endfor %}</ul></td>
+                <td data-title="{% trans %}Roles{% endtrans %}"><ul>{% for role in entity.roles %} <li> {{ role }} </li> {% endfor %}</ul></td>
+                <td data-title="{% trans %}Childs{% endtrans %}">
                     {% if entity.childusers|length %}
                         <ul>
                         {% for child in entity.childusers %}
@@ -44,7 +44,7 @@
                         </ul>
                     {% endif %}
                 </td>
-                <td>
+                <td data-title="{% trans %}Actions{% endtrans %}">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             {% trans %}Actions{% endtrans %}

@@ -4,43 +4,43 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, assetic_compassiHj0jw.sass */
+/* line 37, assetic_compasshHKOXV.sass */
 #content {
   background-color: white;
 }
 
-/* line 40, assetic_compassiHj0jw.sass */
+/* line 40, assetic_compasshHKOXV.sass */
 .main {
   background-color: #ebe4eb;
   background: url("images/menu_bg.png");
 }
 
-/* line 44, assetic_compassiHj0jw.sass */
+/* line 44, assetic_compasshHKOXV.sass */
 #heading {
   background-color: #323637;
   color: white;
 }
-/* line 47, assetic_compassiHj0jw.sass */
+/* line 47, assetic_compasshHKOXV.sass */
 #heading a.sys-title {
   color: #30adf5;
 }
 
-/* line 50, assetic_compassiHj0jw.sass */
+/* line 50, assetic_compasshHKOXV.sass */
 #right-sidebar {
   background-color: #ebe4eb;
 }
-/* line 52, assetic_compassiHj0jw.sass */
+/* line 52, assetic_compasshHKOXV.sass */
 #right-sidebar h2 {
   background-color: #323637;
   color: #79caf8;
 }
 
-/* line 58, assetic_compassiHj0jw.sass */
+/* line 58, assetic_compasshHKOXV.sass */
 #user-tools a {
   color: #91d4fa;
 }
 
-/* line 61, assetic_compassiHj0jw.sass */
+/* line 61, assetic_compasshHKOXV.sass */
 #footer {
   background-color: #323637;
   color: white;

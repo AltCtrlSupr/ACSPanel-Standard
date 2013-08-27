@@ -24,14 +24,14 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('dnsrecord_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-            <td>{{ entity.type }}</td>
-            <td>{{ entity.content }}</td>
-            <td>{{ entity.ttl }}</td>
-            <td>{{ entity.prio }}</td>
-            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>
+            <td data-title="{% trans %}Name{% endtrans %}"><a href="{{ path('dnsrecord_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td data-title="{% trans %}Type{% endtrans %}">{{ entity.type }}</td>
+            <td data-title="{% trans %}Content{% endtrans %}">{{ entity.content }}</td>
+            <td data-title="{% trans %}Ttl{% endtrans %}">{{ entity.ttl }}</td>
+            <td data-title="{% trans %}Prio{% endtrans %}">{{ entity.prio }}</td>
+            <td data-title="{% trans %}Created at{% endtrans %}">{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td data-title="{% trans %}Updated at{% endtrans %}">{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td data-title="{% trans %}Actions{% endtrans %}">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             {% trans %}Actions{% endtrans %}

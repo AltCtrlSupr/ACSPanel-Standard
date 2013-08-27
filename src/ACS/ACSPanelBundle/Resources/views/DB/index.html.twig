@@ -22,11 +22,11 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('db_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td data-title="Id"><a href="{{ path('db_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td data-title="Name">{{ entity.name }}</td>
+            <td data-title="Created at">{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             {#<td>{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>#}
-            <td>
+            <td data-title="Actions">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             {% trans %}Actions{% endtrans %}

@@ -22,11 +22,11 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('ftpduser_show', { 'id': entity.id }) }}">{{ entity.userName }}</a></td>
-            <td>{{ entity.uid }}</td>
-            <td>{{ entity.gid }}</td>
-            <td>{{ entity.dir }}</td>
-            <td>
+            <td data-title="{% trans %}Username{% endtrans %}"><a href="{{ path('ftpduser_show', { 'id': entity.id }) }}">{{ entity.userName }}</a></td>
+            <td data-title="{% trans %}UID{% endtrans %}">{{ entity.uid }}</td>
+            <td data-title="{% trans %}GID{% endtrans %}">{{ entity.gid }}</td>
+            <td data-title="{% trans %}Directory{% endtrans %}">{{ entity.dir }}</td>
+            <td data-title="{% trans %}Actions{% endtrans %}">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             {% trans %}Actions{% endtrans %}

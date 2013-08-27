@@ -18,11 +18,11 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('groups_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-            <td>{% for role in entity.roles %}
+            <td data-title="{% trans %}Name{% endtrans %}" ><a href="{{ path('groups_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td data-title="{% trans %}Roles{% endtrans %}">{% for role in entity.roles %}
                 {{ role }}
                 {% endfor %}</td>
-            <td>
+            <td data-title="{% trans %}Actions{% endtrans %}">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             {% trans %}Actions{% endtrans %}
