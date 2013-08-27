@@ -56,7 +56,8 @@ class UserHttpdHostType extends HttpdHostType
             ->add('php')
             ->add('service')
             ->add('add_www_alias','checkbox',array(
-                'property_path' => false,
+                'mapped' => false,
+                //'property_path' => false,
                 'required' => false,
             ))
         ;
