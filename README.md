@@ -79,23 +79,20 @@ Coming soon.
 
 Congratulations! You're now ready to use ACSPanel.
 
-5) Setting up Apache
+5) Setting up Apache2
 --------------------
 
     <VirtualHost *:80>
         DocumentRoot /home/user/www/acspanel/web
         <Directory /home/user/www/acspanel/web/>
             Options Indexes FollowSymLinks MultiViews
-            AllowOverride None
+            AllowOverride All
             Order allow,deny
             allow from all
-            <IfModule mod_rewrite.c>
-                RewriteEngine On
-                RewriteCond %{REQUEST_FILENAME} !-f
-                RewriteRule ^(.*)$ /app.php [QSA,L]
-            </IfModule>
         </Directory>
     </VirtualHost>
+
+Ensure you have rewrite mode enabled
 
 6) Getting started with ACSPanel
 -------------------------------
