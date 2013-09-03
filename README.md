@@ -23,7 +23,7 @@ the next command and execute the following commands
 
     cd /server_root_directory/
 
-    git clone git@github.com:AltCtrlSupr/acspanel.git
+    git clone https://github.com/AltCtrlSupr/acspanel.git
 
 
 2) Checking your System Configuration
@@ -59,7 +59,6 @@ You should create your own config_dev.yml, as the parameters you can take config
 
 To install all the dependencies you have to execute composer.phar command.
 
-    php composer.phar self-update (TODO: Be sure if it's the best...)
     php composer.phar install
 
 Then you are ready to create the acspanel basic schema executing the next command:
@@ -83,7 +82,20 @@ Congratulations! You're now ready to use ACSPanel.
 5) Setting up Apache
 --------------------
 
-comming soon.
+    <VirtualHost *:80>
+        DocumentRoot /home/user/www/acspanel/web
+        <Directory /home/user/www/acspanel/web/>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride None
+            Order allow,deny
+            allow from all
+            <IfModule mod_rewrite.c>
+                RewriteEngine On
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteRule ^(.*)$ /app.php [QSA,L]
+            </IfModule>
+        </Directory>
+    </VirtualHost>
 
 6) Getting started with ACSPanel
 -------------------------------
