@@ -32,15 +32,16 @@ class DnsSubscriber implements EventSubscriberInterface
     public function addSOA(FilterDnsEvent $dnsfilter)
     {
         $em = $dnsfilter->getEm();
+
         $entity = $dnsfilter->getDnsDomain();
 
         $soa = new DnsRecord();
-        $soa->setDomain($entity);
+        $soa->setDnsDomain($entity);
         $soa->setUser($entity->getUser());
         // TODO: Conf ttl times from config
         $soa->setTtl('3600');
         $soa->setType('SOA');
-        $domainName=$em->getRepository('ACSACSPanelBundle:Domain')->find($entity->getDomain())->getName();
+        $domainName = $em->getRepository('ACSACSPanelBundle:Domain')->find($entity->getDomain())->getName();
         // TODO: Conf ttl times from config
         $soa->setContent($domainName.' webmaster@'.$domainName.' 1 3600 3600 3600 3600');
         $soa->setName($domainName);
