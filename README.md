@@ -36,6 +36,10 @@ Execute the `check.php` script from the command line:
 
     php app/check.php
 
+The panel needs the next requeriments To work right:
+
+    php5-curl
+
 3) Permissions
 --------------
 
