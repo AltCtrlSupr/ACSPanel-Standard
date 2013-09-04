@@ -55,6 +55,7 @@ class UserHttpdHostType extends HttpdHostType
             ->add('ssi')
             ->add('php')
             ->add('service')
+            ->add('proxy_service')
             ->add('add_www_alias','checkbox',array(
                 'mapped' => false,
                 //'property_path' => false,
