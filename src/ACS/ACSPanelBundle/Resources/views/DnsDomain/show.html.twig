@@ -47,7 +47,7 @@
     </tbody>
 </table>
 
-{% render "ACSACSPanelBundle:DnsRecord:showWidget" with { 'records' : entity.dnsrecords }  %}
+{% render(controller("ACSACSPanelBundle:DnsRecord:showWidget", { 'records' : entity.dnsrecords }))  %}
 
 <ul class="record_actions">
     <li>
