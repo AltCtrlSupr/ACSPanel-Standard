@@ -52,6 +52,13 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
             orderBy: null
             joinColumn:
                 onDelete: CASCADE
+        proxy_service:
+            targetEntity: Service
+            inversedBy: httpd_hosts
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
     oneToOne:
         domain:
             targetEntity: Domain

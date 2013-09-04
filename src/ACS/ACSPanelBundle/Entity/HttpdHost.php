@@ -489,4 +489,32 @@ class HttpdHost
     {
         $this->user->removeElement($user);
     }
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\Service
+     */
+    private $proxy_service;
+
+
+    /**
+     * Set proxy_service
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Service $proxyService
+     * @return HttpdHost
+     */
+    public function setProxyService(\ACS\ACSPanelBundle\Entity\Service $proxyService = null)
+    {
+        $this->proxy_service = $proxyService;
+    
+        return $this;
+    }
+
+    /**
+     * Get proxy_service
+     *
+     * @return \ACS\ACSPanelBundle\Entity\Service 
+     */
+    public function getProxyService()
+    {
+        return $this->proxy_service;
+    }
 }

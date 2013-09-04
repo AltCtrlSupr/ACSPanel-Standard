@@ -50,6 +50,10 @@ ACS\ACSPanelBundle\Entity\Service:
             targetEntity: HttpdHost
             mappedBy: service
             #cascade: [ "persist" ]
+        proxyed_httpd_hosts:
+            targetEntity: HttpdHost
+            mappedBy: proxy_service
+            #cascade: [ "persist" ]
         mail_domains:
             targetEntity: MailDomain
             mappedBy: service
