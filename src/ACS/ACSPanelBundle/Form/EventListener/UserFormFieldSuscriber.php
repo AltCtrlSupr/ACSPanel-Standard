@@ -38,7 +38,8 @@ class UserFormFieldSuscriber implements EventSubscriberInterface
 
         // check if the product object is "new"
         if (!$data->getId()) {
-            $form->add($this->factory->createNamed('password', 'password'));
+            //$form->add($this->factory->createNamed('password', 'password'));
+            $form->add('password', 'password');
         }
     }
 }
