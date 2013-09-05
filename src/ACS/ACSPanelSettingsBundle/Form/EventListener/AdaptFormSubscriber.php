@@ -55,7 +55,7 @@ class AdaptFormSubscriber implements EventSubscriberInterface
         }
 
         if($data->getService()){
-                $form->add($this->factory->createNamed('service_id','hidden',$data->getService()->getId(),array('mapped' => false)));
+                $form->add($this->factory->createNamed('service_id','hidden',$data->getService()->getId(),array('mapped' => false, 'auto_initialize' => false)));
         }
 
 
