@@ -66,11 +66,11 @@ class MenuSubscriber implements EventSubscriberInterface
         $menu = $menu_filter->getMenu();
         $menu->addChild('Reseller', array('route' => null));
         $menu['Reseller']->addChild('Panel Users', array( 'route' => 'users'));
-        $menu['Reseller']->addChild('Plans', array( 'route' => 'plans'));
-        $menu['Reseller']->addChild('Servers', array( 'route' => null));
-        $menu['Reseller']['Servers']->addChild('Servers', array( 'route' => 'server'));
-        $menu['Reseller']['Servers']->addChild('Services', array( 'route' => 'service'));
-        $menu['Reseller']['Servers']->addChild('IP Addresses', array( 'route' => 'ipaddress'));
+        //$menu['Reseller']->addChild('Plans', array( 'route' => 'plans'));
+        //$menu['Reseller']->addChild('Servers', array( 'route' => null));
+        //$menu['Reseller']['Servers']->addChild('Servers', array( 'route' => 'server'));
+        //$menu['Reseller']['Servers']->addChild('Services', array( 'route' => 'service'));
+        //$menu['Reseller']['Servers']->addChild('IP Addresses', array( 'route' => 'ipaddress'));
         $menu['Reseller']->addChild('Logs', array( 'route' => 'logs'));
     }
 
