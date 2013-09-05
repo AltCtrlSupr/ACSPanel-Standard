@@ -237,12 +237,11 @@ class DnsRecord
      *
      * @param \ACS\ACSPanelBundle\Entity\DnsDomain $domain
      * @return DnsRecord
+     * @deprecated
      */
     public function setDomain(\ACS\ACSPanelBundle\Entity\DnsDomain $domain = null)
     {
-        $this->domain = $domain;
-
-        return $this;
+        return $this->setDnsDomain($domain);
     }
 
     /**
@@ -337,14 +336,14 @@ class DnsRecord
     public function setDnsDomain(\ACS\ACSPanelBundle\Entity\DnsDomain $dnsDomain = null)
     {
         $this->dns_domain = $dnsDomain;
-    
+
         return $this;
     }
 
     /**
      * Get dns_domain
      *
-     * @return \ACS\ACSPanelBundle\Entity\DnsDomain 
+     * @return \ACS\ACSPanelBundle\Entity\DnsDomain
      */
     public function getDnsDomain()
     {

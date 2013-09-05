@@ -54,7 +54,7 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
                 onDelete: CASCADE
         proxy_service:
             targetEntity: Service
-            inversedBy: httpd_hosts
+            inversedBy: proxyed_httpd_hosts
             joinTable: null
             orderBy: null
             joinColumn:

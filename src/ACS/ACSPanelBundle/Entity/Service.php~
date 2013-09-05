@@ -532,4 +532,42 @@ class Service
     {
         return $this->settings;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $proxyed_httpd_hosts;
+
+
+    /**
+     * Add proxyed_httpd_hosts
+     *
+     * @param \ACS\ACSPanelBundle\Entity\HttpdHost $proxyedHttpdHosts
+     * @return Service
+     */
+    public function addProxyedHttpdHost(\ACS\ACSPanelBundle\Entity\HttpdHost $proxyedHttpdHosts)
+    {
+        $this->proxyed_httpd_hosts[] = $proxyedHttpdHosts;
+    
+        return $this;
+    }
+
+    /**
+     * Remove proxyed_httpd_hosts
+     *
+     * @param \ACS\ACSPanelBundle\Entity\HttpdHost $proxyedHttpdHosts
+     */
+    public function removeProxyedHttpdHost(\ACS\ACSPanelBundle\Entity\HttpdHost $proxyedHttpdHosts)
+    {
+        $this->proxyed_httpd_hosts->removeElement($proxyedHttpdHosts);
+    }
+
+    /**
+     * Get proxyed_httpd_hosts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProxyedHttpdHosts()
+    {
+        return $this->proxyed_httpd_hosts;
+    }
 }
