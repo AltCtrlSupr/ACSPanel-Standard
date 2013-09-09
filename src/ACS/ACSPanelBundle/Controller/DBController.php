@@ -95,6 +95,7 @@ class DBController extends Controller
      */
     public function createAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $entity  = new DB();
         $form = $this->createForm(new DBType($this->container, $em), $entity);
         $form->bind($request);
