@@ -23,7 +23,6 @@ class DBType extends AbstractType
         $service = $container->get('security.context');
 
         $db_services = $this->em->getRepository('ACS\ACSPanelBundle\Entity\ServiceType')->getDbServiceTypes();
-        // print_r($db_services);
 
         $builder
             ->add('name')

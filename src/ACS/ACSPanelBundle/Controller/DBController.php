@@ -74,6 +74,7 @@ class DBController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
+
         if (!$user->canUseResource('Db',$em)) {
             throw new \Exception('You don\'t have enough resources!');
         }

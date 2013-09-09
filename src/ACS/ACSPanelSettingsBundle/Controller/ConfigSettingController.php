@@ -58,6 +58,7 @@ class ConfigSettingController extends Controller
                     // TODO uncouple this
                     'service' => $object,
                 ));
+
             if(!count($setting)){
                 $setting = new $class_name;
                 $setting->setSettingKey($field_config->getSettingKey());
@@ -118,30 +119,6 @@ class ConfigSettingController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $user_fields = $this->loadUserFields();
-
-        // $form_collection = new ConfigSettingCollectionType($user_fields);
-        // Adding one form for each setting field
-        /*foreach($user_fields as $id => $field_config){
-            $params = array(
-                'user' => $user->getId(),
-                'setting_key' => $field_config['setting_key'],
-                'focus' => $field_config['focus'],
-            );
-            if(isset($field_config['service_id']))
-                $params['service'] = $field_config['service_id'];
-
-            $setting = $em->getRepository('ACSACSPanelBundle:PanelSetting')->findOneBy($params);
-
-
-                /*if(isset($field_config['choices']))
-                    $setting->setChoices($field_config['choices']);
-                if(isset($field_config['service_id'])){
-                    $service = $em->getRepository('ACSACSPanelBundle:Service')->findOneById($field_config['service_id']);
-                    $setting->setService($service);
-                }
-                $setting->setLabel($field_config['label']);
-                $setting->setType($field_config['field_type']);*/
-        //}
 
         $user = $this->get('security.context')->getToken()->getUser();
 
