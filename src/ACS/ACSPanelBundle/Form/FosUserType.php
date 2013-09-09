@@ -12,13 +12,30 @@ class FosUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        // TODO: Do the addition of fields with suscriber
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $service = $kernel->getContainer()->get('security.context');
+
         $user = $builder->getData();
+
         $builder
             ->add('username')
             ->add('email')
             ->add('enabled')
             ->add('first_name')
             ->add('last_name');
+
+        if($service->isGranted('ROLE_ADMIN')){
+           $builder->add('uid');
+           $builder->add('gid');
+        }
+
 
         $subscriber = new UserFormFieldSuscriber ($builder->getFormFactory());
         $builder->addEventSubscriber($subscriber);
