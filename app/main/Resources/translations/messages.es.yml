@@ -1,4 +1,4 @@
-## templates.ca.yml
+## templates.es.yml
 Home: Inicio
 Hello: Hola
 Name: Nombre
@@ -18,7 +18,11 @@ Actions: Acciones
 show: muestra
 edit: edita
 Create a new entry: Crear una nueva entrada
+<<<<<<< HEAD
 Enabled: Actividad
+=======
+Enabled: Activo
+>>>>>>> 9ea680fc4b63cf3d608db650a8d13778e6a9cc21
 Users: Usuarios
 New IP Address: Nueva Dirección IP
 Route: Ruta

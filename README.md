@@ -103,6 +103,13 @@ Ensure you have rewrite mode enabled
 
 comming soon.
 
+7) Setting up third party programs
+-------------------------------
+
+To set up roundcube to be able to change the passwords with the password plugin you must use the next query:
+
+    $rcmail_config['password_query'] = 'UPDATE mail_mailbox mb INNER JOIN mail_domain md ON mb.mail_domain_id = md.id INNER JOIN domain d ON md.domain_id = d.id SET mb.password=%p WHERE mb.username=%l AND mb.password=%o AND d.domain=%d';
+
 What's inside?
 ---------------
 

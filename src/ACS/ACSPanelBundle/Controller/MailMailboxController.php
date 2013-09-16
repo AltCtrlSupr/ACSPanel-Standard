@@ -23,7 +23,14 @@ class MailMailboxController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findAll();
+        // IF is admin can see all the hosts, if is user only their ones...
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findAll();
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')){
+            $entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
+        }elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
+            $entities = $em->getRepository('ACSACSPanelBundle:MailMailbox')->findByUser($this->get('security.context')->getToken()->getUser());
+        }
 
 
         $paginator  = $this->get('knp_paginator');
