@@ -5,12 +5,12 @@
 <table class="record_properties table">
     <tbody>
         <tr>
-            <th>{%trans%}Id{%endtrans%}</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
             <th>{%trans%}Name{%endtrans%}</th>
             <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>{%trans%}Parent DNS Domain{%endtrans%}</th>
+            <td>{{ entity.dnsdomain.domain }}</td>
         </tr>
         <tr>
             <th>{%trans%}Type{%endtrans%}</th>
@@ -41,8 +41,8 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('dnsrecord') }}">
-            {%trans%}Back to the list{%endtrans%}
+        <a href="{{ path('dnsdomain') }}">
+            {%trans%}Back to the domain list{%endtrans%}
         </a>
     </li>
     <li>
