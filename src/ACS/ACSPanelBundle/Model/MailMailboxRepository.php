@@ -20,7 +20,7 @@ class MailMailboxRepository extends EntityRepository
 
     public function findByUsers(Array $user)
     {
-        $query = $this->_em->createQuery('SELECT h FROM ACS\ACSPanelBundle\Entity\MailMailbox m INNER JOIN m.mail_domain md INNER JOIN md.domain dd WHERE d.user IN (?1)')->setParameter(1, $user);
+        $query = $this->_em->createQuery('SELECT m FROM ACS\ACSPanelBundle\Entity\MailMailbox m INNER JOIN m.mail_domain md INNER JOIN md.domain d WHERE d.user IN (?1)')->setParameter(1, $user);
         return $query->getResult();
     }
 }
