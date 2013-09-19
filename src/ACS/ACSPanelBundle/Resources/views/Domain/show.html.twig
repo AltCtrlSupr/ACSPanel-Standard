@@ -5,35 +5,31 @@
 <table class="record_properties table">
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Domain</th>
+            <th>{% trans %}Domain{% endtrans %}</th>
             <td>{{ entity.domain }}</td>
         </tr>
         <tr>
-            <th>Enabled</th>
+            <th>{% trans %}Enabled{% endtrans %}</th>
             <td>{{ entity.enabled }}</td>
         </tr>
         <tr>
-            <th>Is_httpd_alias</th>
+            <th>{% trans %}is HTTPD Alias?{% endtrans %}</th>
             <td>{{ entity.ishttpdalias }}</td>
         </tr>
         <tr>
-            <th>Is_dns_alias</th>
+            <th>{% trans %}is DNS Alias?{% endtrans %}</th>
             <td>{{ entity.isdnsalias }}</td>
         </tr>
         <tr>
-            <th>Is_mail_alias</th>
+            <th>{% trans %}is Mail Alias?{% endtrans %}</th>
             <td>{{ entity.ismailalias }}</td>
         </tr>
         <tr>
-            <th>Createdat</th>
+            <th>{% trans %}Created at{% endtrans %}</th>
             <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
-            <th>Updatedat</th>
+            <th>{% trans %}Updated at{% endtrans %}</th>
             <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
         </tr>
     </tbody>
@@ -42,18 +38,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('domain') }}">
-            Back to the list
+            {% trans %}Back to the list{% endtrans %}
         </a>
     </li>
     <li>
         <a href="{{ path('domain_edit', { 'id': entity.id }) }}">
-            Edit
+            {% trans %}Edit{% endtrans %}
         </a>
     </li>
     <li>
         <form action="{{ path('domain_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">{% trans %}Delete{% endtrans %}</button>
         </form>
     </li>
 </ul>
