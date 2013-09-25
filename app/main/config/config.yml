@@ -5,7 +5,7 @@ imports:
     - { resource: panel_settings.yml }
     - { resource: @ACSACSPanelBundle/Resources/config/services.yml }
 framework:
-    translator:      { fallback: en }	
+    translator:      { fallback: es }	
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
