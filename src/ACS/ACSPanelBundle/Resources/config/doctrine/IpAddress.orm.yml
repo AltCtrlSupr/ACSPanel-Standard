@@ -55,6 +55,6 @@ ACS\ACSPanelBundle\Entity\IpAddress:
             mappedBy: ip
             # cascade: [ "persist" ]
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue, setUserValue, setDefaultValues ]
       preUpdate: [ setUpdatedAtValue ]
 
