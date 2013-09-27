@@ -33,7 +33,6 @@ class DBController extends Controller
             $entities = $em->getRepository('ACSACSPanelBundle:DB')->findByUser($this->get('security.context')->getToken()->getUser());
         }
 
-
         $paginator  = $this->get('knp_paginator');
         $entities = $paginator->paginate(
             $entities,

@@ -1,64 +1,11 @@
 ## templates.es.yml
-Home: Inicio
-Hello: Hola
-Name: Nombre
-Host: Host
-Password: Contraseña
-Protected directory: Directorio protegido
-Protected dir: Directorio protegito
-Protected_dir: Directorio protegito
-Domain: Dominio
-Created at: Creado el
-Updated at: Actualitzado el
-Back to the list: Volver a la lista
-Edit: Editar
-Delete: Suprimir
-Create: Crear
-Actions: Acciones
-show: muestra
-edit: edita
-Create a new entry: Crear una nueva entrada
-Enabled: Activo
-Users: Usuarios
-New IP Address: Nueva Dirección IP
-Route: Ruta
-Message: Mensaje
-Are you sure?: ¿Estas seguro?
-Logout: Salir
-Configuration: Configuración
-Servers: Servidores
-Services: Servicios
-Service: Servicio
-Service list: Lista de Servicios
-Service Types: Tipos de Servicios
-Service Type list: Lista de Tipos de Servicios
-IP Addresses: Direcciones IP
-Description: Descripción
-Groups: Grupos
-User: Usuario
-Panel Users: Usuarios del Panel
-User creation: Creación de Usuario
-Logs registry: Registro de Logs
-Plan list: Lista de Planes
-Add www alias: Añadir alias www.
-All: Todos
-Domains: Dominios
-Records: Registros
-The A record for %record% domain already exists: El registro A para el dominio %record% ya existe
-The CNAME record for %record% domain already exists: El registro CNAM para el dominio %record% ya exite
-A dns record type CNAME has been created for the host %domain_name%: Se ha creado un registro CNAME para el host %domain_name%
-A dns record type A has been created for the host %domain_name%: Se ha creado un registro A para el host %domain_name%
-The host %domain_name% has not DNS domain: El host %domain_name% no tiene dominio DNS
-Databases: Bases de datos
-add alias: añadir alias
-Back: Volver
-Username: Nombre de usuario
-Hide attributes: Esconder atributos
-Show attributes: Mostrar atributos
-Quick actions: Acciones rápidas
-Add hosting: Añadir hosting
-Settings: Preferencias
-Plan List: Lista de Planes
-Search: Buscar
-Save: Guardar
-User language: Idioma
+db:
+  fields:
+    name: Nombre
+    users: Usuarios
+    createdat: Creado el
+    actions: Acciones
+  button:
+    show: Ver
+    edit: Editar
+    addnew: Añadir nueva
