@@ -200,7 +200,7 @@ class FosUserController extends Controller
             $em->persist($entity);
             // Persisting plans
             // @todo: Do this with events
-            $postData = $request->request->get('acs_acspanelbundle_fosusertype');
+            /*$postData = $request->request->get('acs_acspanelbundle_fosusertype');
             if(isset($postData['puser'])){
                 $plans = $postData['puser'];
 
@@ -212,7 +212,7 @@ class FosUserController extends Controller
                     $em->persist($new_plan);
                 }
 
-            }
+            }*/
 
             // Password encode setting
             $userManager = $this->container->get('fos_user.user_manager');
@@ -279,26 +279,44 @@ class FosUserController extends Controller
             throw $this->createNotFoundException('Unable to find FosUser entity.');
         }
 
+
+        $originalPlans = array();
+
+        // Create an array of the current Tag objects in the database
+        foreach ($entity->getPuser() as $plan) {
+            $originalPlans[] = $plan;
+        }
+
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new FosUserType(), $entity, array(
             'em' => $this->getDoctrine()->getEntityManager(),
         ));
+
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            // filter $originalPlans to contain tags no longer present
+            foreach ($entity->getPuser() as $plan) {
+                foreach ($originalPlans as $key => $toDel) {
+                    if ($toDel->getId() === $plan->getId()) {
+                        unset($originalPlans[$key]);
+                    }
+                }
+            }
 
-            // Delete previous plans if exists
+            // remove the relationship between the tag and the Task
+            foreach ($originalPlans as $plan) {
+                // if it were a ManyToOne relationship, remove the relationship like this
+                $plan->setPuser(null);
 
-            $userplans = $em->getRepository('ACSACSPanelBundle:UserPlan')->findByPuser($entity);
-            foreach ($userplans as $uplan) {
-                 $em->remove($uplan);
-                 $em->flush();
+                // if you wanted to delete the Tag entirely, you can also do that
+                $em->remove($plan);
             }
 
             $em->persist($entity);
             $em->flush();
 
-            //throw $this->createNotFoundException('Debugging.');
 
             return $this->redirect($this->generateUrl('users_edit', array('id' => $id)));
         }

@@ -5,14 +5,19 @@
 <div class="form_box">
     <form action="{{ path('db_create') }}" method="post" {{ form_enctype(form) }}>
 
-        {{form_label(form.name)}}
-        {{form_widget(form.name)}}
+        <div class="general-section">
+            {{form_row(form.name)}}
+            {{form_row(form.description)}}
+            {{form_row(form.service)}}
 
-        {% macro prototype(databaseuser) %}
-                {{form_widget(databaseuser.username)}}
-                {{form_widget(databaseuser.password)}}
-                <li><a href="#">Remove</a></li>
-        {% endmacro %}
+            {% macro prototype(databaseuser) %}
+                    {{form_widget(databaseuser.username)}}
+                    {{form_widget(databaseuser.password)}}
+                    <li><a href="#">{% trans %}db.button.remove{% endtrans %}</a></li>
+            {% endmacro %}
+
+
+        </div>
 
         <ul class="dinamic-adder" data-prototype="{{ form_widget(form.database_users.vars.prototype) | e }}">
                 {% for databaseuser in form.database_users %}
@@ -20,10 +25,12 @@
                 {% endfor %}
         </ul>
 
+        <div class="admin-section">
+            {{ form_rest(form) }}
+        </div>
 
-        {{ form_rest(form) }}
         <p>
-            <button type="submit">{% trans %}Create{% endtrans %}</button>
+            <button type="submit">{% trans %}db.button.edit{% endtrans %}</button>
         </p>
     </form>
 </div>

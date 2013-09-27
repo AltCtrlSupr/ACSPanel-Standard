@@ -180,10 +180,10 @@ class DatabaseUser
      */
     public function setCreatedAtValue()
     {
-	    if(!$this->getCreatedAt())
-	    {
-		    $this->createdAt = new \DateTime();
-	    }
+        if(!$this->getCreatedAt())
+        {
+            $this->createdAt = new \DateTime();
+        }
     }
 
     /**
@@ -191,8 +191,6 @@ class DatabaseUser
      */
     public function createUserInDatabase()
     {
-
-
     }
 
     /**
@@ -200,7 +198,7 @@ class DatabaseUser
      */
     public function setUpdatedAtValue()
     {
-	    $this->updatedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -210,6 +208,7 @@ class DatabaseUser
     {
         // Add your code here
     }
+
     /**
      * Set db
      *
@@ -238,13 +237,12 @@ class DatabaseUser
      */
     public function removeUserInDatabase()
     {
-        return;
-
+        /* return; */
 		global $kernel;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
 
         $admin_user = '';
         $admin_password = '';
@@ -265,13 +263,11 @@ class DatabaseUser
             'host' => $server_ip,
             'driver' => 'pdo_mysql',
         );
+
         $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-        $sql = "GRANT ALL PRIVILEGES ON `".$this->getDb()."` . * TO '".$this->getUsername()."'@'%'";
-        $conn->executeQuery($sql);
-        $sql = "DROP USER IF EXISTS '".$this->getUsername()."'@'%'";
-        $conn->executeQuery($sql);
+        $sql = "DROP USER '".$this->getUsername()."'@'%';";
 
-
+        $conn->executeQuery($sql);
     }
 
     public function __toString()

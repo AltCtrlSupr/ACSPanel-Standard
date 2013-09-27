@@ -1,5 +1,7 @@
 ## templates.es.yml
 db:
+  title:
+    edit: Editar Base de datos
   fields:
     name: Nombre
     users: Usuarios
@@ -9,3 +11,9 @@ db:
     show: Ver
     edit: Editar
     addnew: Añadir nueva
+    remove: Borrar
+    adduser: Añadir usuario
+    create: Crear 
+    delete: Borrar base de datos
+    back: Volver a la lista
+

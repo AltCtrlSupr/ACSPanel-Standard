@@ -25,15 +25,15 @@ class FosUserType extends AbstractType
         $user = $builder->getData();
 
         $builder
-            ->add('username')
-            ->add('email')
-            ->add('enabled')
-            ->add('first_name')
-            ->add('last_name');
+            ->add('username', null, array('label' => 'user.form.username'))
+            ->add('email', null, array('label' => 'user.form.email'))
+            ->add('enabled', null, array('label' => 'user.form.enabled'))
+            ->add('first_name', null, array('label' => 'user.form.first_name'))
+            ->add('last_name', null, array('label' => 'user.form.last_name'));
 
         if($service->isGranted('ROLE_ADMIN')){
-           $builder->add('uid');
-           $builder->add('gid');
+           $builder->add('uid', null, array('label' => 'user.form.uid'));
+           $builder->add('gid', null, array('label' => 'user.form.gid'));
         }
 
 
@@ -41,7 +41,7 @@ class FosUserType extends AbstractType
         $builder->addEventSubscriber($subscriber);
 
         $builder
-            ->add('groups')
+            ->add('groups', null, array('label' => 'user.form.groups'))
             ->add('puser', 'collection', array(
                 'type' => new UserPlanType($user,$options['em']),
                 'allow_add' => true,
