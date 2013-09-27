@@ -71,6 +71,40 @@ class MailMailbox
      */
     private $active;
 
+    /**
+     * @var integer $quotaLimit
+     */
+    private $quotaLimit;
+
+    /**
+     * @var integer $bytes
+     */
+    private $bytes;
+
+    /**
+     * @var int $messages
+     */
+    private $messages;
+
+    /**
+     * @var \DateTime $createdAt
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime $updatedAt
+     */
+    private $updatedAt;
+
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\MailDomain
+     */
+    private $mail_domain;
+
+    /**
+     * @var boolean
+     */
+    private $enabled;
 
     /**
      * Get id
@@ -335,32 +369,6 @@ class MailMailbox
         return $this->active;
     }
     /**
-     * @var integer $quotaLimit
-     */
-    private $quotaLimit;
-
-    /**
-     * @var integer $bytes
-     */
-    private $bytes;
-
-    /**
-     * @var int $messages
-     */
-    private $messages;
-
-    /**
-     * @var \DateTime $createdAt
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime $updatedAt
-     */
-    private $updatedAt;
-
-
-    /**
      * Set quotaLimit
      *
      * @param integer $quotaLimit
@@ -495,59 +503,6 @@ class MailMailbox
     }
 
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        if($this->getUser())
-            return;
-
-		global $kernel;
-
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
-
-		$service = $kernel->getContainer()->get('security.context');
-
-        // Add your code here
-		$user = $service->getToken()->getUser();
-		return $this->setUser($user);
-    }
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    private $user;
-
-
-    /**
-     * Set user
-     *
-     * @param \ACS\ACSPanelBundle\Entity\FosUser $user
-     * @return MailMailbox
-     */
-    public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-    /**
-     * @var boolean
-     */
-    private $enabled;
-
 
     /**
      * Set enabled
@@ -572,12 +527,6 @@ class MailMailbox
         return $this->enabled;
     }
     /**
-     * @var \ACS\ACSPanelBundle\Entity\MailDomain
-     */
-    private $mail_domain;
-
-
-    /**
      * Set mail_domain
      *
      * @param \ACS\ACSPanelBundle\Entity\MailDomain $mailDomain
@@ -586,17 +535,33 @@ class MailMailbox
     public function setMailDomain(\ACS\ACSPanelBundle\Entity\MailDomain $mailDomain = null)
     {
         $this->mail_domain = $mailDomain;
-    
+
         return $this;
     }
 
     /**
      * Get mail_domain
      *
-     * @return \ACS\ACSPanelBundle\Entity\MailDomain 
+     * @return \ACS\ACSPanelBundle\Entity\MailDomain
      */
     public function getMailDomain()
     {
         return $this->mail_domain;
     }
+
+    /**
+     * Returns true if the user can edit this mailbox
+     *
+     * @return boolean
+     */
+    public function userCanEdit($user)
+    {
+        $childs = $user->getIdChildIds();
+        foreach($childs as $child)
+            if($child == $this->getMailDomain()->getUser()->getId())
+                return true;
+
+        return false;
+    }
+
 }

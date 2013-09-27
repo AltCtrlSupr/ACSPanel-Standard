@@ -40,6 +40,11 @@ class IpAddress
      */
     private $user;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $services;
+
 
     /**
      * Get id
@@ -209,11 +214,6 @@ class IpAddress
         return $this->ip;
 	}
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $services;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -252,5 +252,13 @@ class IpAddress
     public function getServices()
     {
         return $this->services;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setDefaultValues()
+    {
+        $this->setEnabled(true);
     }
 }

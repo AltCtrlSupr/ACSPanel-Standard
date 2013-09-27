@@ -46,6 +46,11 @@ class DB
     private $user;
 
     /**
+     * @var string
+     */
+    private $description;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -201,14 +206,15 @@ class DB
 
     /**
      * @ORM\PrePersist
+     * @todo Error handling
      */
     public function createDatabase()
     {
-		global $kernel;
+        global $kernel;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
 
         $admin_user = '';
         $admin_password = '';
@@ -232,11 +238,12 @@ class DB
         );
         $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
-		//$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
+        //$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
 
         $sql = "CREATE DATABASE IF NOT EXISTS ".$this->getName();
         $conn->executeQuery($sql);
-        $users = $this->getDatabaseUsers();
+
+        /* $users = $this->getDatabaseUsers();
         if(count($users)){
             foreach($users as $usr){
                 $sql = "CREATE USER '".$usr->getUsername()."'@'%' IDENTIFIED BY '".$usr->getPassword()."'";
@@ -246,9 +253,9 @@ class DB
                 $sql = "FLUSH PRIVILEGES";
                 $conn->executeQuery($sql);
             }
-        }
+        } */
 
-		return $this;
+        return $this;
 
     }
 
@@ -267,7 +274,6 @@ class DB
     {
         // Add your code here
     }
-
 
     /**
      * Set user
@@ -291,7 +297,6 @@ class DB
     {
         return $this->user;
     }
-
 
     /**
      * @ORM\PrePersist
@@ -319,11 +324,11 @@ class DB
      */
     public function removeDatabase()
     {
-		global $kernel;
+        global $kernel;
 
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
 
         $admin_user = '';
         $admin_password = '';
@@ -336,12 +341,8 @@ class DB
         }
         $server_ip = $this->getService()->getIp();
 
-        // echo 'server ip: '. $server_ip;
-        // echo 'admin_user: '. $admin_user;
-        // echo 'admin_password: '. $admin_password;
-
         $config = new \Doctrine\DBAL\Configuration();
-        //..
+
         $connectionParams = array(
             'user' => $admin_user,
             'password' => $admin_password,
@@ -363,7 +364,7 @@ class DB
         $sql = "DROP DATABASE IF EXISTS ".$this->getName();
         $conn->executeQuery($sql);
 
-		return $this;
+        return $this;
 
     }
 
@@ -371,11 +372,6 @@ class DB
     {
         return $this->name;
     }
-    /**
-     * @var string
-     */
-    private $description;
-
 
     /**
      * Set description
@@ -386,14 +382,14 @@ class DB
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {

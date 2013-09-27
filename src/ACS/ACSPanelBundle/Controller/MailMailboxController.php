@@ -146,6 +146,11 @@ class MailMailboxController extends Controller
             throw $this->createNotFoundException('Unable to find MailMailbox entity.');
         }
 
+        if (!$entity->userCanEdit($this->get('security.context')->getToken()->getUser())) {
+            throw $this->createNotFoundException('You cannot edit this entry.');
+        }
+
+
         $editForm = $this->createForm(new MailMailboxType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
