@@ -188,9 +188,46 @@ class DatabaseUser
 
     /**
      * @ORM\PostPersist
+     * @todo Error handling
      */
     public function createUserInDatabase()
     {
+        global $kernel;
+
+        if ('AppCache' == get_class($kernel)) {
+            $kernel = $kernel->getKernel();
+        }
+
+        $admin_user = '';
+        $admin_password = '';
+        $settings = $this->getDb()->getService()->getSettings();
+        foreach ($settings as $setting){
+            if($setting->getSettingKey() == 'admin_user')
+                $admin_user = $setting->getValue();
+            if($setting->getSettingKey() == 'admin_password')
+                $admin_password = $setting->getValue();
+        }
+        $server_ip = $this->getDb()->getService()->getIp();
+
+
+        $config = new \Doctrine\DBAL\Configuration();
+
+        $connectionParams = array(
+            'user' => $admin_user,
+            'password' => $admin_password,
+            'host' => $server_ip,
+            'driver' => 'pdo_mysql',
+        );
+
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+        $sql = "CREATE USER '".$this->getUsername()."'@'%' IDENTIFIED BY '".$this->getPassword()."'";
+        $conn->executeQuery($sql);
+        $sql = "GRANT ALL PRIVILEGES ON `".$this->getDb()."`.* TO '".$this->getUsername()."'@'%'";
+        $conn->executeQuery($sql);
+        $sql = "FLUSH PRIVILEGES";
+        $conn->executeQuery($sql);
+
     }
 
     /**
@@ -206,7 +243,10 @@ class DatabaseUser
      */
     public function updateUserInDatabase()
     {
-        // Add your code here
+        $this->removeUserInDatabase();
+
+        $this->createUserInDatabase();
+
     }
 
     /**
@@ -237,8 +277,7 @@ class DatabaseUser
      */
     public function removeUserInDatabase()
     {
-        /* return; */
-		global $kernel;
+        global $kernel;
 
         if ('AppCache' == get_class($kernel)) {
             $kernel = $kernel->getKernel();

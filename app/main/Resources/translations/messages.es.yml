@@ -7,6 +7,12 @@ db:
     users: Usuarios
     createdat: Creado el
     actions: Acciones
+  field:
+    id: ID
+    name: Nombre
+    created_at: Creado el 
+    updated_at: Actualizado el
+    users: Usuarios
   button:
     show: Ver
     edit: Editar
@@ -16,4 +22,15 @@ db:
     create: Crear 
     delete: Borrar base de datos
     back: Volver a la lista
+
+user:
+  form:
+    username: Nombre de usuario
+    email: Correo electrónico
+    enabled: Activado
+    first_name: Nombre
+    last_name: Apellidos
+    groups: Grupos
+    uid: UID
+    gid: GID
 

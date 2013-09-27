@@ -42,7 +42,7 @@ ACS\ACSPanelBundle\Entity\DatabaseUser:
 
     lifecycleCallbacks:
       prePersist: [ setCreatedAtValue ]
-      postPersist: [  createUserInDatabase ]
+      postPersist: [ createUserInDatabase ]
       preUpdate: [ setUpdatedAtValue, updateUserInDatabase ]
       preRemove: [ removeUserInDatabase ]
 

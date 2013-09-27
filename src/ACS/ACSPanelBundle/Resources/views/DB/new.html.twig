@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block header_title %} - {% trans %}Database creation{% endtrans %}{% endblock %}
+{% block header_title %} - {% trans %}db.title.new{% endtrans %}{% endblock %}
 {% block body %}
 
 <div class="form_box">
@@ -30,7 +30,7 @@
         </div>
 
         <p>
-            <button type="submit">{% trans %}db.button.edit{% endtrans %}</button>
+            <button type="submit">{% trans %}db.button.create{% endtrans %}</button>
         </p>
     </form>
 </div>
@@ -38,7 +38,7 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('db') }}">
-            Back to the list
+            {% trans %}db.button.back{% endtrans %}
         </a>
     </li>
 </ul>

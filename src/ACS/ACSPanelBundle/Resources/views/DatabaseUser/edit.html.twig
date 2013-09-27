@@ -1,26 +1,26 @@
 {% extends '::base.html.twig' %}
-{% block header_title %} - {% trans %}DatabaseUser edit{% endtrans %}{% endblock %}
+{% block header_title %} - {% trans %}dbuser.title.edit{% endtrans %}{% endblock %}
 {% block body %}
 
 <div class="form_box">
     <form action="{{ path('databaseuser_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
         {{ form_widget(edit_form) }}
         <p>
-            <button type="submit">Edit</button>
+        <button type="submit">{% trans %}dbuser.button.edit{% endtrans %}</button>
         </p>
     </form>
 </div>
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('databaseuser') }}">
-            Back to the list
+        <a href="{{ path('db') }}">
+            {% trans %}dbuser.button.back{% endtrans %}
         </a>
     </li>
     <li>
         <form action="{{ path('databaseuser_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button class="btn" type="submit">Delete</button>
+            <button class="btn" type="submit">{% trans %}dbuser.button.delete{% endtrans %}</button>
         </form>
     </li>
 </ul>
