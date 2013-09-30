@@ -61,6 +61,7 @@ abstract class SettingManager extends EntityRepository
         $settings_objects = $em->getRepository($object_class)->findBy(array(
             'user' => $user
         ));
+
         $object_settings = array();
         foreach ($settings_objects as $setting_obj){
             $object_fields = $setting_obj->getType()->getFieldTypes();
