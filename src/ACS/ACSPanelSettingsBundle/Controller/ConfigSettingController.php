@@ -13,6 +13,8 @@ use ACS\ACSPanelBundle\Entity\PanelSetting;
 // TODO: Get this from config.yml
 use ACS\ACSPanelBundle\Entity\FosUser;
 
+use ACS\ACSPanelBundle\Model\SettingManager;
+
 use ACS\ACSPanelSettingsBundle\Form\ConfigSettingCollectionType;
 use ACS\ACSPanelSettingsBundle\Form\ConfigSettingType;
 
@@ -114,13 +116,19 @@ class ConfigSettingController extends Controller
      * Displays a form with all the user settings
      *
      */
-    public function userSettingsAction()
+    public function panelSettingsAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        $settingmanager = $this->get('acs.setting_manager');
 
         $user_fields = $this->loadUserFields();
 
-        $user = $this->get('security.context')->getToken()->getUser();
+        $object_settings = $settingmanager->getObjectSettingsPrototype($user);
+
+
+        array_merge($user_fields, $user_fields = $settingmanager->getObjectSettingsPrototype($user));
 
         $form = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
 

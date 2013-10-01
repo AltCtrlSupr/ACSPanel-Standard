@@ -54,7 +54,7 @@ abstract class SettingManager extends EntityRepository
      */
     public function getObjectSettingsPrototype($user, $object_class = 'ACSACSPanelBundle:Service')
     {
-    // TODO: Transform object_fields to config like array
+        // TODO: Transform object_fields to config like array
         // Get the object fields
         $em = $this->getEntityManager();
 
