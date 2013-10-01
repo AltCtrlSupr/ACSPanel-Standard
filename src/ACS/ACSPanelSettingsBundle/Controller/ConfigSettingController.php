@@ -128,7 +128,7 @@ class ConfigSettingController extends Controller
         $object_settings = $settingmanager->getObjectSettingsPrototype($user);
 
 
-        array_merge($user_fields, $user_fields = $settingmanager->getObjectSettingsPrototype($user));
+        array_merge($user_fields, $object_settings);
 
         $form = $this->createForm(new ConfigSettingCollectionType($user_fields, $em), $user);
 
