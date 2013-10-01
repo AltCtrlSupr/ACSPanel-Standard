@@ -12,6 +12,9 @@ class SettingsMenuSubscriber implements EventSubscriberInterface
             'menu.admin.after.items'     => array(
                 array('settingsItems', 10),
             ),
+            'menu.reseller.after.items'     => array(
+                array('settingsItems', 10),
+            ),
             'menu.user.after.items'     => array(
                 array('settingsItems', 10),
             )
