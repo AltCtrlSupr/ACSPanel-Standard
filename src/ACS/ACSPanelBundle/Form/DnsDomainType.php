@@ -29,10 +29,10 @@ class DnsDomainType extends AbstractType
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('d')
-                        ->select('d')
-                        ->where('d.is_httpd_alias != 1');
+                        ->select('d');
+                        //->where('d.is_httpd_alias != 1');
                         if(!$superadmin){
-                            $query->andWhere('d.user IN (?1)')
+                            $query->where('d.user IN (?1)')
                             ->setParameter('1', $child_ids);
                         }
                         return $query;
