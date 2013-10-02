@@ -111,7 +111,10 @@ class DomainController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         if (!$user->canUseResource('Domain',$em)) {
-            throw new \Exception('You don\'t have enough resources!');
+            $this->getResponse()->setStatusCode('403');
+            return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
+                'entity' => 'Domain'
+            ));
         }
 
         $entity = new Domain();
