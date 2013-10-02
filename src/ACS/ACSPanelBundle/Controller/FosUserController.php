@@ -201,7 +201,7 @@ class FosUserController extends Controller
             $em->persist($entity);
             // Persisting plans
             // @todo: Do this with events
-            /*$postData = $request->request->get('acs_acspanelbundle_fosusertype');
+            $postData = $request->request->get('acs_acspanelbundle_fosusertype');
             if(isset($postData['puser'])){
                 $plans = $postData['puser'];
 
@@ -213,7 +213,7 @@ class FosUserController extends Controller
                     $em->persist($new_plan);
                 }
 
-            }*/
+            }
 
             // Password encode setting
             $userManager = $this->container->get('fos_user.user_manager');
