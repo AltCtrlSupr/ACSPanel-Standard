@@ -28,6 +28,7 @@ class MailDomainType extends AbstractType
         $builder
             ->add('domain','entity',array(
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
+                'label' => 'maildomain.form.domain',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('d')
                         ->select('d')
@@ -40,16 +41,21 @@ class MailDomainType extends AbstractType
                     }
                 )
             )
-            ->add('description')
-            ->add('maxAliases')
-            ->add('maxMailboxes')
-            ->add('maxQuota')
-            ->add('backupmx')
-            ->add('service')
+            ->add('description', null, array('label' => 'maildomain.form.description'))
+            ->add('maxAliases', null, array('label' => 'maildomain.form.max_aliases'))
+            ->add('maxMailboxes', null, array('label' => 'maildomain.form.max_mailboxes'))
+            ->add('maxQuota', null, array('label' => 'maildomain.form.max_quota'))
+            ->add('backupmx', null, array('label' => 'maildomain.form.backupmx'))
+            ->add('service', null, array('label' => 'maildomain.form.service'))
+            ->add('add_dns_record','checkbox',array(
+                'mapped' => false,
+                'required' => false,
+                'label' => 'maildomain.form.adddnsrecord'
+            ))
         ;
 
         if($security->isGranted('ROLE_ADMIN'))
-            $builder->add('user');
+            $builder->add('user', null, array('label' => 'maildomain.form.user'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

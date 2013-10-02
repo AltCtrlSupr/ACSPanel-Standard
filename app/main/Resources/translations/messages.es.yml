@@ -90,3 +90,15 @@ httpdhost:
     proxy_service: Servicio de proxy
     addwwwalias: ¿Añadir alias www?
     adddnsrecord: ¿Añadir registro DNS?
+
+maildomain:
+  form:
+    domain: Dominio
+    description: Descripción
+    max_aliases: Máximo de Alias
+    max_mailboxes: Máximo de buzones
+    max_quota: Máximo de quota
+    backupmx: BackupMX
+    service: Servicio
+    adddnsrecord: ¿Añadir registros DNS?
+    user: Propietario

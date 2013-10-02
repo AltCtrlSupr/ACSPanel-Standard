@@ -6,8 +6,15 @@ namespace ACS\ACSPanelBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use ACS\ACSPanelBundle\Entity\DnsRecord;
 use ACS\ACSPanelBundle\Entity\MailDomain;
 use ACS\ACSPanelBundle\Form\MailDomainType;
+
+
+use ACS\ACSPanelBundle\Event\FilterDnsEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+
+use ACS\ACSPanelBundle\Event\DnsEvents;
 
 /**
  * MailDomain controller.
@@ -102,6 +109,29 @@ class MailDomainController extends Controller
             $entity->setEnabled(true);
             $em->persist($entity);
             $em->flush();
+
+            // Add the dns record if user requested
+            if($form['add_dns_record']->getData()){
+                $dnsrecord = new DnsRecord();
+                $dnsdomain = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findOneByDomain($entity->getDomain());
+                $dnsrecord->setDnsDomain($dnsdomain);
+                $dnsrecord->setName('mail.'.$entity->getDomain()->getDomain());
+                $dnsrecord->setType('A');
+                $dnsrecord->setContent($entity->getService()->getIp()->getIp());
+                $em->persist($dnsrecord);
+
+                $mxdnsrecord = new DnsRecord();
+                $mxdnsrecord->setDnsDomain($dnsdomain);
+                $mxdnsrecord->setName($entity->getDomain()->getDomain());
+                $mxdnsrecord->setType('MX');
+                $mxdnsrecord->setContent($dnsrecord->getName());
+                $em->persist($mxdnsrecord);
+
+                $em->flush();
+
+                $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_RECORD_ADD, new FilterDnsEvent($dnsrecord, $em));
+            }
+
 
             return $this->redirect($this->generateUrl('maildomain_show', array('id' => $entity->getId())));
         }
