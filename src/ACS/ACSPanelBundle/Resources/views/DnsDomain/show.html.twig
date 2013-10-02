@@ -1,47 +1,43 @@
 {% extends '::base.html.twig' %}
-{% block header_title %} - {% trans %}DnsDomain{% endtrans %}{% endblock %}
+{% block header_title %} - {% trans %}dnsdomain.title.show{% endtrans %}{% endblock %}
 {% block body %}
 
 <table class="record_properties table">
     <tbody>
         <tr>
-            <th>{%trans%}Id{%endtrans%}</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>{%trans%}Name{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.name{%endtrans%}</th>
             <td>{{ entity.domain }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Master{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.master{%endtrans%}</th>
             <td>{{ entity.master }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Lastcheck{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.lastcheck{%endtrans%}</th>
             <td>{{ entity.lastCheck }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Type{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.type{%endtrans%}</th>
             <td>{{ entity.type }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Notifiedserial{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.notifiedserial{%endtrans%}</th>
             <td>{{ entity.notifiedSerial }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Account{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.account{%endtrans%}</th>
             <td>{{ entity.account }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Enabled{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.enabled{%endtrans%}</th>
             <td>{{ entity.enabled }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Createdat{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.createdat{%endtrans%}</th>
             <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
-            <th>{%trans%}Updatedat{%endtrans%}</th>
+            <th>{%trans%}dnsdomain.field.updatedat{%endtrans%}</th>
             <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
         </tr>
     </tbody>

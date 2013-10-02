@@ -1,8 +1,8 @@
-<table class="widget_record_properties">
+<table class="widget_record_properties table">
     <thead><tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Content</th>
+            <th>{% trans %}dnsrecord.field.name{% endtrans %}</th>
+            <th>{% trans %}dnsrecord.field.type{% endtrans %}</th>
+            <th>{% trans %}dnsrecord.field.content{% endtrans %}</th>
     </tr></thead>
     <tbody>
         {% for record in records %}
