@@ -55,6 +55,12 @@
                             <li>
                                 <a href="{{ path('users_switch', { 'id': entity.id }) }}">{% trans %}user.button.switch{% endtrans %}</a>
                             </li>
+                        {% elseif entity.parentuser %}
+                            {% if entity.parentuser.id == app.user.id  %}
+                                <li>
+                                    <a href="{{ path('users_switch', { 'id': entity.id }) }}">{% trans %}user.button.switch{% endtrans %}</a>
+                                </li>
+                            {% endif %}
                         {% endif %}
                         <li>
                             <a href="{{ path('users_show', { 'id': entity.id }) }}">{% trans %}user.button.show{% endtrans %}</a>

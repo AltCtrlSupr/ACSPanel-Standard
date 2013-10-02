@@ -206,11 +206,13 @@ class FosUserController extends Controller
                 $plans = $postData['puser'];
 
                 foreach ($plans as $plan) {
-                    $new_plan = new UserPlan();
-                    $new_plan->setPuser($entity);
                     $assignplan = $em->getRepository('ACSACSPanelBundle:Plan')->find($plan['uplans']);
-                    $new_plan->setUplans($assignplan);
-                    $em->persist($new_plan);
+                    if($assignplan){
+                        $new_plan = new UserPlan();
+                        $new_plan->setPuser($entity);
+                        $new_plan->setUplans($assignplan);
+                        $em->persist($new_plan);
+                    }
                 }
 
             }
@@ -366,10 +368,12 @@ class FosUserController extends Controller
      */
     public function switchAction($id)
     {
-        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
-            $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-            $user = $em->getRepository('ACSACSPanelBundle:FosUser')->find($id);
+        $curr_user = $this->get('security.context')->getToken()->getUser();
+        $user = $em->getRepository('ACSACSPanelBundle:FosUser')->find($id);
+
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN') || $curr_user == $user->getParentUser()) {
 
             $loginmanager = $this->get('fos_user.security.login_manager');
             $loginmanager->loginUser('main', $user, new Response());
