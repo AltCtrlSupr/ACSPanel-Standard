@@ -34,3 +34,21 @@ user:
     uid: UID
     gid: GID
 
+dnsdomain:
+  title:
+    show: Dominio DNS
+  field:
+    name: Dominio
+    master: MASTER
+    lastcheck: Last check
+    type: Tipo
+    account: Account
+    enabled: Activado
+    createdat: Creado el
+    updatedat: Actualizado el
+
+dnsrecord:
+  field:
+    name: Registro
+    type: Tipo
+    content: Contenido
