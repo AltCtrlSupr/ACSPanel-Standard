@@ -68,3 +68,25 @@ dnsrecord:
     name: Registro
     type: Tipo
     content: Contenido
+
+domain:
+  form:
+    domain: Nombre de dominio
+    parent_domain: Dominio padre
+    is_httpd_alias: ¿Es alias HTTPD?
+    is_dns_alias: ¿Es alias DNS?
+    is_mail_alias: ¿Es alias de Mail?
+    adddnsdomain: ¿Añadir dominio DNS?
+    user: Usuario propietario
+
+httpdhost:
+  form:
+    domain: Dominio
+    configuration: Configuración
+    cgi: CGI
+    ssi: SSI
+    php: PHP
+    service: Servicio
+    proxy_service: Servicio de proxy
+    addwwwalias: ¿Añadir alias www?
+    adddnsrecord: ¿Añadir registro DNS?

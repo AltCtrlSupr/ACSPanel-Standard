@@ -6,10 +6,16 @@ namespace ACS\ACSPanelBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use ACS\ACSPanelBundle\Entity\DnsRecord;
 use ACS\ACSPanelBundle\Entity\HttpdHost;
 use ACS\ACSPanelBundle\Entity\Domain;
 use ACS\ACSPanelBundle\Form\UserHttpdHostType;
 use ACS\ACSPanelBundle\Modules\Domain as DomainModule;
+
+use ACS\ACSPanelBundle\Event\FilterDnsEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+
+use ACS\ACSPanelBundle\Event\DnsEvents;
 
 /**
  * HttpdHost controller.
@@ -155,6 +161,23 @@ class HttpdHostController extends Controller
                 // Check if the domain exists in the dns_domains table
                 $this->addDnsRegister($wwwalias->getDomain(), true);
             }
+
+            // Add the dns record if user requested
+            if($form['add_dns_record']->getData()){
+                $dnsrecord = new DnsRecord();
+                $dnsdomain = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findOneByDomain($entity->getDomain());
+                $dnsrecord->setDnsDomain($dnsdomain);
+                $dnsrecord->setName($entity->getDomain()->getDomain());
+                $dnsrecord->setType('A');
+                if($entity->getProxyService())
+                    $dnsrecord->setContent($entity->getProxyService()->getIp()->getIp());
+                else
+                    $dnsrecord->setContent($entity->getService()->getIp()->getIp());
+                $em->persist($dnsrecord);
+
+                $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_RECORD_ADD, new FilterDnsEvent($dnsrecord, $em));
+            }
+
 
             // Mark webserver to reload
             // TODO: There is a bug when it tries to mark server to reload - Damn it!!

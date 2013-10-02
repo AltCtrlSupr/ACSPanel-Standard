@@ -38,6 +38,7 @@ class UserHttpdHostType extends HttpdHostType
         $builder
             ->add('domain','entity',array(
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
+                'label' => 'httpdhost.form.domain',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('d')
                         ->select('d')
@@ -50,16 +51,21 @@ class UserHttpdHostType extends HttpdHostType
                     }
                 )
             )
-            ->add('configuration')
-            ->add('cgi')
-            ->add('ssi')
-            ->add('php')
-            ->add('service')
-            ->add('proxy_service')
+            ->add('configuration', null, array('label' => 'httpdhost.form.configuration'))
+            ->add('cgi', null, array('label' => 'httpdhost.form.cgi'))
+            ->add('ssi', null, array('label' => 'httpdhost.form.ssi'))
+            ->add('php', null, array('label' => 'httpdhost.form.php'))
+            ->add('service', null, array('label' => 'httpdhost.form.service'))
+            ->add('proxy_service', null, array('label' => 'httpdhost.form.proxy_service'))
             ->add('add_www_alias','checkbox',array(
                 'mapped' => false,
-                //'property_path' => false,
                 'required' => false,
+                'label' => 'httpdhost.form.addwwwalias'
+            ))
+            ->add('add_dns_record','checkbox',array(
+                'mapped' => false,
+                'required' => false,
+                'label' => 'httpdhost.form.adddnsrecord'
             ))
         ;
     }

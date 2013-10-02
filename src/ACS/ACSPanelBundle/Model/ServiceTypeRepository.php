@@ -23,6 +23,20 @@ class ServiceTypeRepository extends EntityRepository
         return $ids;
 
     }
+
+    public function getDNSServiceTypes()
+    {
+        $query = $this->_em->createQuery('SELECT st FROM ACS\ACSPanelBundle\Entity\ServiceType st LEFT JOIN st.parent_type pst WHERE st.name = ?1 OR pst.name = ?1 OR pst.name = ?2')->setParameter(1, 'DNS')->setParameter(2, 'DNS');
+        $result = $query->getResult();
+        $ids = array();
+
+        foreach ($result as $key => $st) {
+            $ids[] = $st->getId();
+        }
+        return $ids;
+
+    }
+
 }
 
 ?>

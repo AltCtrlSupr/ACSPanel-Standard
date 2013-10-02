@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ACS\ACSPanelBundle\Entity\Domain;
+use ACS\ACSPanelBundle\Entity\DnsDomain;
 use ACS\ACSPanelBundle\Form\DomainType;
 use ACS\ACSPanelBundle\Event\DnsEvents;
 use ACS\ACSPanelBundle\Event\FilterDnsEvent;
@@ -142,8 +143,24 @@ class DomainController extends Controller
             #$this->container->get('event_dispatcher')->dispatch(DnsEvents::DOMAIN_BEFORE_ADD, new FilterDnsEvent($entity,$em));
 
             $em->persist($entity);
+
             $em->flush();
 
+            if($form['add_dns_domain']->getData()){
+                $dnsdomain = new DnsDomain();
+                $dnsdomain->setDomain($entity);
+                $dnsdomain->setType('master');
+                $dnsdomain->setEnabled(true);
+                $dnstypes = $em->getRepository('ACSACSPanelBundle:ServiceType')->getDNSServiceTypes();
+                // TODO: Change somehow to get a default DNS server
+                $dnsservice = $em->getRepository('ACSACSPanelBundle:Service')->findByType($dnstypes);
+
+                $dnsdomain->setService($dnsservice[0]);
+
+                $em->persist($dnsdomain);
+                $em->flush();
+                $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($dnsdomain,$em));
+            }
 
             return $this->redirect($this->generateUrl('domain_show', array('id' => $entity->getId())));
         }

@@ -26,8 +26,9 @@ class DomainType extends AbstractType
             $superadmin = true;
 
         $builder
-            ->add('domain')
+            ->add('domain', null, array('label' => 'domain.form.domain'))
             ->add('parent_domain','entity',array(
+                'label' => 'domain.form.parent_domain',
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
                 'required' => false,
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
@@ -42,12 +43,17 @@ class DomainType extends AbstractType
                     }
                 )
             )
-            ->add('is_httpd_alias')
-            ->add('is_dns_alias')
-            ->add('is_mail_alias')
+            ->add('is_httpd_alias', null, array('label' => 'domain.form.is_httpd_alias'))
+            ->add('is_dns_alias', null, array('label' => 'domain.form.is_dns_alias'))
+            ->add('is_mail_alias', null, array('label' => 'domain.form.is_mail_alias'))
+            ->add('add_dns_domain','checkbox',array(
+                'mapped' => false,
+                'required' => false,
+                'label' => 'domain.form.adddnsdomain'
+            ))
         ;
         if($security->isGranted('ROLE_ADMIN'))
-            $builder->add('user');
+            $builder->add('user', null, array('label' => 'domain.form.user'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
