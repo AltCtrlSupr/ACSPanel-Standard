@@ -102,3 +102,10 @@ maildomain:
     service: Servicio
     adddnsrecord: ¿Añadir registros DNS?
     user: Propietario
+
+mailbox:
+  form:
+    mail_domain: Dominio
+    name: Nombre
+    username: Nombre de usuario
+    password: Contraseña
