@@ -82,7 +82,9 @@ class DnsDomainController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         if (!$user->canUseResource('DnsDomain',$em)) {
-            throw new \Exception('You don\'t have enough resources!');
+            return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
+                'entity' => 'Dns Domain'
+            ));
         }
 
         $entity = new DnsDomain();
