@@ -24,6 +24,16 @@ db:
     back: Volver a la lista
 
 user:
+  field:
+    enabled: Activado
+    username: Nombre de usuario
+    name: Nombre
+    email: email
+    lastlogin: Último login
+    plans: Planes
+    roles: Roles
+    childs: Hijos
+    actions: Acciones
   form:
     username: Nombre de usuario
     email: Correo electrónico
@@ -33,6 +43,11 @@ user:
     groups: Grupos
     uid: UID
     gid: GID
+  button:
+    switch: Cambiar a este usuario
+    show: Mostrar
+    edit: Editar
+    add: Nuevo usuario
 
 dnsdomain:
   title:
@@ -42,6 +57,7 @@ dnsdomain:
     master: MASTER
     lastcheck: Last check
     type: Tipo
+    notifiedserial: Notified Serial
     account: Account
     enabled: Activado
     createdat: Creado el

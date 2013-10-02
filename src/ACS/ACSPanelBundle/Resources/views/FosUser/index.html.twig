@@ -11,31 +11,31 @@
 <table class="records_list table table-striped table-bordered">
     <thead>
         <tr>
-            <th class="center">{% trans %}Enabled{% endtrans %}</th>
-            <th>{% trans %}Username{% endtrans %}</th>
-            <th>{% trans %}Name{% endtrans %}</th>
-            <th>{% trans %}Email{% endtrans %}</th>
-            <th>{% trans %}Lastlogin{% endtrans %}</th>
-            {#<th>{% trans %}Locked{% endtrans %}</th>#}
-            <th>{% trans %}Plans{% endtrans %}</th>
-            <th>{% trans %}Roles{% endtrans %}</th>
-            <th>{% trans %}Childs{% endtrans %}</th>
-            <th>{% trans %}Actions{% endtrans %}</th>
+            <th class="center">{% trans %}user.field.enabled{% endtrans %}</th>
+            <th>{% trans %}user.field.username{% endtrans %}</th>
+            <th>{% trans %}user.field.name{% endtrans %}</th>
+            <th>{% trans %}user.field.email{% endtrans %}</th>
+            <th>{% trans %}user.field.lastlogin{% endtrans %}</th>
+            {#<th>{% trans %}user.field.locked{% endtrans %}</th>#}
+            <th>{% trans %}user.field.plans{% endtrans %}</th>
+            <th>{% trans %}user.field.roles{% endtrans %}</th>
+            <th>{% trans %}user.field.childs{% endtrans %}</th>
+            <th>{% trans %}user.field.actions{% endtrans %}</th>
         </tr>
     </thead>
     <tbody>
     {% for entity in entities %}
         {% if is_granted('ROLE_SUPER_ADMIN') or entity.parentUser|length and entity.parentUser.id == app.user.id %}
             <tr>
-                <td data-title="{% trans %}Enabled{% endtrans %}" class="center"><img src="{% if entity.enabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
-                <td data-title="{% trans %}Username{% endtrans %}"><a href="{{ path('users_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
-                <td data-title="{% trans %}Name{% endtrans %}">{{ entity.firstname }} {{ entity.lastname }}</td>
-                <td data-title="{% trans %}Email{% endtrans %}"><a href="mailto://{{ entity.email }}">{{ entity.email }}</a></td>
-                <td data-title="{% trans %}Lastlogin{% endtrans %}">{% if entity.lastLogin %}{{ entity.lastLogin|date(date_format) }}{% endif %}</td>
+                <td data-title="{% trans %}user.field.enabled{% endtrans %}" class="center"><img src="{% if entity.enabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
+                <td data-title="{% trans %}user.field.username{% endtrans %}"><a href="{{ path('users_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+                <td data-title="{% trans %}user.field.name{% endtrans %}">{{ entity.firstname }} {{ entity.lastname }}</td>
+                <td data-title="{% trans %}user.field.email{% endtrans %}"><a href="mailto://{{ entity.email }}">{{ entity.email }}</a></td>
+                <td data-title="{% trans %}user.field.lastlogin{% endtrans %}">{% if entity.lastLogin %}{{ entity.lastLogin|date(date_format) }}{% endif %}</td>
                 {#<td align="center"><img src="{% if entity.locked %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>#}
-                <td data-title="{% trans %}Plans{% endtrans %}"><ul>{% for plan in entity.plans %} <li> {{ plan }} </li> {% endfor %}</ul></td>
-                <td data-title="{% trans %}Roles{% endtrans %}"><ul>{% for role in entity.roles %} <li> {{ role }} </li> {% endfor %}</ul></td>
-                <td data-title="{% trans %}Childs{% endtrans %}">
+                <td data-title="{% trans %}user.field.plans{% endtrans %}"><ul>{% for plan in entity.plans %} <li> {{ plan }} </li> {% endfor %}</ul></td>
+                <td data-title="{% trans %}user.field.roles{% endtrans %}"><ul>{% for role in entity.roles %} <li> {{ role }} </li> {% endfor %}</ul></td>
+                <td data-title="{% trans %}user.field.childs{% endtrans %}">
                     {% if entity.childusers|length %}
                         <ul>
                         {% for child in entity.childusers %}
@@ -44,18 +44,23 @@
                         </ul>
                     {% endif %}
                 </td>
-                <td data-title="{% trans %}Actions{% endtrans %}">
+                <td data-title="{% trans %}user.field.actions{% endtrans %}">
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            {% trans %}Actions{% endtrans %}
+                            {% trans %}user.field.actions{% endtrans %}
                             <span class="caret"></span>
                         </a>
                     <ul class="dropdown-menu" role="menu">
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li>
+                                <a href="{{ path('users_switch', { 'id': entity.id }) }}">{% trans %}user.button.switch{% endtrans %}</a>
+                            </li>
+                        {% endif %}
                         <li>
-                            <a href="{{ path('users_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                            <a href="{{ path('users_show', { 'id': entity.id }) }}">{% trans %}user.button.show{% endtrans %}</a>
                         </li>
                         <li>
-                            <a href="{{ path('users_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                            <a href="{{ path('users_edit', { 'id': entity.id }) }}">{% trans %}user.button.edit{% endtrans %}</a>
                         </li>
                     </ul>
             </div>
@@ -69,7 +74,7 @@
 <ul>
     <li>
         <a href="{{ path('users_new') }}">
-            {% trans %}Create a new entry{% endtrans %}
+            {% trans %}user.button.add{% endtrans %}
         </a>
     </li>
 </ul>

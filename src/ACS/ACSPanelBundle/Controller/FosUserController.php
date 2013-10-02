@@ -15,6 +15,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 
 use ACS\ACSPanelBundle\Event\UserEvents;
 
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * FosUser controller.
@@ -358,6 +359,26 @@ class FosUserController extends Controller
         }
 
         return $this->redirect($this->generateUrl('users'));
+    }
+
+    /**
+     * Switch the session to other user to admin purposes
+     */
+    public function switchAction($id)
+    {
+        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $em = $this->getDoctrine()->getManager();
+
+            $user = $em->getRepository('ACSACSPanelBundle:FosUser')->find($id);
+
+            $loginmanager = $this->get('fos_user.security.login_manager');
+            $loginmanager->loginUser('main', $user, new Response());
+
+            return $this->redirect($this->generateUrl('acs_acspanel_homepage'));
+        }else{
+            throw $this->createNotFoundException('You cannot do this');
+        }
+
     }
 
     private function createDeleteForm($id)

@@ -19,6 +19,10 @@ users_create:
     defaults: { _controller: "ACSACSPanelBundle:FosUser:create" }
     requirements: { _method: post }
 
+users_switch:
+    pattern:  /{id}/swicth
+    defaults: { _controller: "ACSACSPanelBundle:FosUser:switch" }
+
 users_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "ACSACSPanelBundle:FosUser:edit" }
