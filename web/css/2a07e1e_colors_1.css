@@ -4,43 +4,42 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, assetic_compasshHKOXV.sass */
+/* line 37, assetic_compassCtHlkW.sass */
 #content {
   background-color: white;
 }
 
-/* line 40, assetic_compasshHKOXV.sass */
+/* line 40, assetic_compassCtHlkW.sass */
 .main {
-  background-color: #ebe4eb;
-  background: url("images/menu_bg.png");
+  background: url("images/menu_bg.png") #ebe4eb;
 }
 
-/* line 44, assetic_compasshHKOXV.sass */
+/* line 44, assetic_compassCtHlkW.sass */
 #heading {
   background-color: #323637;
   color: white;
 }
-/* line 47, assetic_compasshHKOXV.sass */
+/* line 47, assetic_compassCtHlkW.sass */
 #heading a.sys-title {
   color: #30adf5;
 }
 
-/* line 50, assetic_compasshHKOXV.sass */
+/* line 50, assetic_compassCtHlkW.sass */
 #right-sidebar {
   background-color: #ebe4eb;
 }
-/* line 52, assetic_compasshHKOXV.sass */
+/* line 52, assetic_compassCtHlkW.sass */
 #right-sidebar h2 {
   background-color: #323637;
   color: #79caf8;
 }
 
-/* line 58, assetic_compasshHKOXV.sass */
+/* line 58, assetic_compassCtHlkW.sass */
 #user-tools a {
   color: #91d4fa;
 }
 
-/* line 61, assetic_compasshHKOXV.sass */
+/* line 61, assetic_compassCtHlkW.sass */
 #footer {
   background-color: #323637;
   color: white;

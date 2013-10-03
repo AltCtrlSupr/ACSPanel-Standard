@@ -23,6 +23,6 @@ class WordpressMenuSubscriber implements EventSubscriberInterface
     {
         $menu = $menu_filter->getMenu();
         // TODO: Change the name of settings action
-        $menu->addChild('Wordpress', array( 'route' => 'wpsetup'));
+        $menu->addChild('menu.wordpress.main', array( 'route' => 'wpsetup'));
     }
 }

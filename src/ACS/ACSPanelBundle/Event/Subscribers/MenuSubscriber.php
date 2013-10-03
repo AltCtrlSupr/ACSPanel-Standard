@@ -57,83 +57,76 @@ class MenuSubscriber implements EventSubscriberInterface
     public function quickactionsItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Quick actions', array( 'route' => null));
-        $menu['Quick actions']->addChild('Add hosting', array( 'route' => 'acs_acspanel_register_host'));
+        $menu->addChild('menu.quickactions.main', array( 'route' => null));
+        $menu['menu.quickactions.main']->addChild('manu.quickactions.register_host', array( 'route' => 'acs_acspanel_register_host'));
     }
 
     public function resellerItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Reseller', array('route' => null));
-        $menu['Reseller']->addChild('Panel Users', array( 'route' => 'users'));
-        //$menu['Reseller']->addChild('Plans', array( 'route' => 'plans'));
-        //$menu['Reseller']->addChild('Servers', array( 'route' => null));
-        //$menu['Reseller']['Servers']->addChild('Servers', array( 'route' => 'server'));
-        //$menu['Reseller']['Servers']->addChild('Services', array( 'route' => 'service'));
-        //$menu['Reseller']['Servers']->addChild('IP Addresses', array( 'route' => 'ipaddress'));
-        $menu['Reseller']->addChild('Logs', array( 'route' => 'logs'));
+        $menu->addChild('menu.reseller.main', array('route' => null));
+        $menu['menu.reseller.main']->addChild('manu.reseller.users', array( 'route' => 'users'));
+        $menu['menu.reseller.main']->addChild('menu.reseller.logs', array( 'route' => 'logs'));
     }
 
     public function adminItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Admin', array('route' => null));
-        $menu['Admin']->addChild('Panel Users', array( 'route' => 'users'));
-        $menu['Admin']->addChild('Panel Groups', array( 'route' => 'groups'));
-        $menu['Admin']->addChild('Plans', array( 'route' => 'plans'));
-        $menu['Admin']->addChild('Servers', array( 'route' => null));
-        $menu['Admin']['Servers']->addChild('Servers', array( 'route' => 'server'));
-        $menu['Admin']['Servers']->addChild('Services', array( 'route' => 'service'));
-        $menu['Admin']['Servers']->addChild('Service Types', array( 'route' => 'servicetype'));
-        $menu['Admin']['Servers']->addChild('IP Addresses', array( 'route' => 'ipaddress'));
-        $menu['Admin']->addChild('Logs', array( 'route' => 'logs'));
+        $menu->addChild('menu.admin.main', array('route' => null));
+        $menu['menu.admin.main']->addChild('menu.admin.users', array( 'route' => 'users'));
+        $menu['menu.admin.main']->addChild('menu.admin.groups', array( 'route' => 'groups'));
+        $menu['menu.admin.main']->addChild('menu.admin.plans', array( 'route' => 'plans'));
+        $menu['menu.admin.main']->addChild('menu.admin.servers.main', array( 'route' => null));
+        $menu['menu.admin.main']['menu.admin.servers.main']->addChild('menu.admin.servers.servers', array( 'route' => 'server'));
+        $menu['menu.admin.main']['menu.admin.servers.main']->addChild('menu.admin.servers.services', array( 'route' => 'service'));
+        $menu['menu.admin.main']['menu.admin.servers.main']->addChild('menu.admin.servers.service_types', array( 'route' => 'servicetype'));
+        $menu['menu.admin.main']['menu.admin.servers.main']->addChild('menu.admin.servers.ip', array( 'route' => 'ipaddress'));
+        $menu['menu.admin.main']->addChild('menu.admin.logs', array( 'route' => 'logs'));
     }
 
     public function domainItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Domains', array( 'route' => 'domain'));
+        $menu->addChild('menu.domain.main', array( 'route' => 'domain'));
     }
 
     public function httpdItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('HTTPD', array( 'route' => null));
-        $menu['HTTPD']->addChild('Hosts', array( 'route' => 'httpdhost'));
+        $menu->addChild('menu.httpd.main', array( 'route' => null));
+        $menu['menu.httpd.main']->addChild('menu.httpd.hosts', array( 'route' => 'httpdhost'));
 #        $menu['HTTPD']->addChild('Alias', array( 'route' => 'httpdalias'));
-        $menu['HTTPD']->addChild('Users', array( 'route' => 'httpduser'));
+        $menu['menu.httpd.main']->addChild('menu.httpd.users', array( 'route' => 'httpduser'));
     }
 
     public function dnsItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('DNS', array( 'route' => null));
-        $menu['DNS']->addChild('Domains', array( 'route' => 'dnsdomain'));
+        $menu->addChild('menu.dns.main', array( 'route' => null));
+        $menu['menu.dns.main']->addChild('menu.dns.domains', array( 'route' => 'dnsdomain'));
     }
 
     public function mailItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Mail', array( 'route' => null));
-        $menu['Mail']->addChild('Domain', array( 'route' => 'maildomain'));
-        $menu['Mail']->addChild('Mailbox', array( 'route' => 'mailmailbox'));
-        $menu['Mail']->addChild('Alias', array( 'route' => 'mailalias'));
-		  $menu['Mail']->addChild('W/B List', array ( 'route' => 'mailwblist' ));
-		  $menu['Mail']->addChild('Received msg log', array ( 'route' => 'maillogrcvd' ));
+        $menu->addChild('menu.mail.main', array( 'route' => null));
+        $menu['menu.mail.main']->addChild('menu.mail.domain', array( 'route' => 'maildomain'));
+        $menu['menu.mail.main']->addChild('menu.mail.mailbox', array( 'route' => 'mailmailbox'));
+        $menu['menu.mail.main']->addChild('menu.mail.alias', array( 'route' => 'mailalias'));
+        $menu['menu.mail.main']->addChild('menu.mail.wb_list', array ( 'route' => 'mailwblist' ));
+        $menu['menu.mail.main']->addChild('menu.mail.received_msg_log', array ( 'route' => 'maillogrcvd' ));
     }
 
     public function databaseItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Databases', array( 'route' => 'db'));
-        //$menu['Databases']->addChild('Databases', array( 'route' => 'db'));
-        //$menu['Databases']->addChild('Users', array( 'route' => 'databaseuser'));
+        $menu->addChild('menu.database.main', array( 'route' => 'db'));
     }
 
     public function ftpItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('FTP', array( 'route' => 'ftpduser'));
+        $menu->addChild('menu.ftp.main', array( 'route' => 'ftpduser'));
     }
 
 
@@ -141,6 +134,6 @@ class MenuSubscriber implements EventSubscriberInterface
     public function logoutItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
-        $menu->addChild('Logout', array( 'route' => 'fos_user_security_logout'));
+        $menu->addChild('menu.logout.main', array( 'route' => 'fos_user_security_logout'));
     }
 }

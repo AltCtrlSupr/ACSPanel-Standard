@@ -94,6 +94,6 @@ ACS\ACSPanelBundle\Entity\MailMailbox:
 
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue ]
       preUpdate: [ setUpdatedAtValue ]
 

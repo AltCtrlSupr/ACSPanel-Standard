@@ -1,4 +1,45 @@
 ## templates.es.yml
+menu:
+  admin:
+    main: Administrador
+    users: Usuarios del panel
+    groups: Grupos
+    plans: Planes
+    servers: 
+      main: Servidores
+      servers: Servidores
+      services: Servicios
+      service_types: Tipos de servicio
+      ip: Direcciones IP
+    logs: Logs
+  domain:
+    main: Dominios
+  httpd:
+    main: Web
+    hosts: Hosts
+    users: Usuarios web
+  dns:
+    main: DNS
+    domains: Dominios
+  mail:
+    main: Mail
+    domain: Dominios Mail
+    mailbox: Buzones de correo
+    alias: Alias
+    wb_list: W/B Lists
+    received_msg_log: Log de mensajes recibidos
+  database:
+    main: Bases de datos
+  ftp:
+    main: FTP
+  settings:
+    main: Ajustes
+  wordpress:
+    main: Granja Wordpress
+  logout:
+    main: Salir
+
+
 db:
   title:
     edit: Editar Base de datos
