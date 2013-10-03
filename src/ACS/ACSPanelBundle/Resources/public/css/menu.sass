@@ -9,10 +9,16 @@
 
 /* MENU
 .main
-  background: url('images/menu_bg.png') $menu-bg
+  background: url('web/images/menu_bg.png') $menu-bg
 
 #sidebar
   background-color: $menu-bg
+
+
+@mixin menu-item-separation
+  border:
+    bottom: 1px solid #FFFFFF
+    top: 1px solid #D8D8D8
 
 #sidebar ul
   @include menu-item-separation
@@ -45,7 +51,7 @@
       padding: 8px 15px
     span:hover, a:hover
       color: $menu-selected-item-color
-      background-color: lighten($menu-selected-item-bg-color, 0)
+      background-color: lighten($menu-selected-item-bg-color, 5)
       text-decoration: none
   span:hover
     color: $menu-selected-item-color
@@ -67,7 +73,6 @@
       display: none
       border: medium none
       margin: 0 0 8px
-      padding-left: 30px
 
 #sidebar ul li
   &.current_ancestor ul, &.current ul, &.current_ancestor ul li.current_ancestor ul, &.current ul li.current_ancestor ul
@@ -75,12 +80,13 @@
   &.current_ancestor ul li ul, &.current ul li ul
     display: none
   ul
+    margin: 0
     ul
+      list-style: none
       margin: 0
-      padding-left: 15px
     li
+      margin: 0
       background: none repeat scroll 0 0 transparent
+      padding-left: 30px
       border: medium none
       font-size: 13px
-      list-style: disc outside
-      margin: 0

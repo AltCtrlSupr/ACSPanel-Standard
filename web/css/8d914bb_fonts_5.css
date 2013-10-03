@@ -10,86 +10,45 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#content {
-  background-color: white;
-}
-
-/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-.main {
-  background: url("images/menu_bg.png") #ebe4eb;
-}
-
-/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#heading {
-  background-color: #323637;
-  color: white;
-}
-/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#heading a.sys-title {
-  color: #30adf5;
-}
-
-/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#right-sidebar {
-  background-color: #ebe4eb;
-}
-/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#right-sidebar h2 {
-  background-color: #323637;
-  color: #79caf8;
-}
-
-/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#user-tools a {
-  color: #91d4fa;
-}
-
-/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#footer {
-  background-color: #323637;
-  color: white;
-}
-
-/* line 11, assetic_compassdqsbl9.sass */
+/* line 11, assetic_compassbH0xgJ.sass */
 body {
   font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
-/* line 15, assetic_compassdqsbl9.sass */
+/* line 15, assetic_compassbH0xgJ.sass */
 a:link, a:visited, a:active {
   text-decoration: none;
   color: #0977b6;
 }
-/* line 18, assetic_compassdqsbl9.sass */
+/* line 18, assetic_compassbH0xgJ.sass */
 a:hover {
   text-decoration: none;
   color: #0977b6;
   text-decoration: underline;
 }
 
-/* line 23, assetic_compassdqsbl9.sass */
+/* line 23, assetic_compassbH0xgJ.sass */
 #sidebar ul {
   font-weight: bold;
 }
 
-/* line 29, assetic_compassdqsbl9.sass */
+/* line 29, assetic_compassbH0xgJ.sass */
 h1 {
   font-size: 30px;
 }
 
-/* line 32, assetic_compassdqsbl9.sass */
+/* line 32, assetic_compassbH0xgJ.sass */
 h1, h2, h3, h4 {
   font-weight: normal;
 }
 
-/* line 36, assetic_compassdqsbl9.sass */
+/* line 36, assetic_compassbH0xgJ.sass */
 td.center, th.center {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 40, assetic_compassdqsbl9.sass */
+/* line 40, assetic_compassbH0xgJ.sass */
 .center {
   text-align: center;
 }

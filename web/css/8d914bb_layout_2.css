@@ -4,38 +4,26 @@
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, assetic_compasskBfpGW.sass */
+/* line 10, assetic_compass4xQPmR.sass */
 root {
   display: block;
 }
 
-/* line 14, assetic_compasskBfpGW.sass */
+/* line 14, assetic_compass4xQPmR.sass */
 #heading h1 {
   padding-top: 20px;
   padding-left: 20px;
 }
 
-/* line 19, assetic_compasskBfpGW.sass */
-#sidebar {
-  margin: 0;
-  padding: 0;
-  height: auto;
-}
-/* line 23, assetic_compasskBfpGW.sass */
-#sidebar div.clear {
-  clear: both;
-  float: left;
-}
-
-/* line 28, assetic_compasskBfpGW.sass */
+/* line 22, assetic_compass4xQPmR.sass */
 #right-sidebar h2 {
   padding-left: 15px;
 }
-/* line 31, assetic_compasskBfpGW.sass */
+/* line 25, assetic_compass4xQPmR.sass */
 #right-sidebar p {
   padding: 40px;
 }
-/* line 35, assetic_compasskBfpGW.sass */
+/* line 29, assetic_compass4xQPmR.sass */
 #right-sidebar table tr td {
   padding-left: 10px;
   padding-right: 10px;
@@ -43,50 +31,52 @@ root {
   padding-bottom: 10px;
 }
 
-/* line 42, assetic_compasskBfpGW.sass */
+/* line 36, assetic_compass4xQPmR.sass */
 #content {
   clear: right;
   overflow: hidden;
+  min-height: 730px;
+  margin-left: 0;
+  width: 85.39%;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 40px;
   padding-bottom: 60px;
 }
 
-/* line 52, assetic_compasskBfpGW.sass */
+/* line 49, assetic_compass4xQPmR.sass */
 #heading #user-tools {
   padding-top: 20px;
 }
 
-/* line 56, assetic_compasskBfpGW.sass */
+/* line 53, assetic_compass4xQPmR.sass */
 #footer {
-  min-height: 200px;
   bottom: 0;
   bottom: 0;
 }
-/* line 61, assetic_compasskBfpGW.sass */
+/* line 56, assetic_compass4xQPmR.sass */
 #footer div {
   padding: 25px;
 }
 
-/* line 64, assetic_compasskBfpGW.sass */
+/* line 59, assetic_compass4xQPmR.sass */
 #search-box {
   float: right;
   width: 320px;
   margin-right: 20px;
 }
-/* line 69, assetic_compasskBfpGW.sass */
+/* line 64, assetic_compass4xQPmR.sass */
 #search-box form {
   padding-top: 10px;
 }
 
-/* line 73, assetic_compasskBfpGW.sass */
+/* line 68, assetic_compass4xQPmR.sass */
 .form_box form {
   float: left;
   clear: both;
 }
 
-/* line 77, assetic_compasskBfpGW.sass */
+/* line 72, assetic_compass4xQPmR.sass */
 .tabs-content {
   float: left;
   clear: both;
@@ -96,7 +86,7 @@ root {
   width: 100%;
 }
 
-/* line 90, assetic_compasskBfpGW.sass */
+/* line 85, assetic_compass4xQPmR.sass */
 table table {
   width: 100%;
 }

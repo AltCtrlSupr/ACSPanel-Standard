@@ -4,46 +4,6 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, assetic_compassduNU5k.sass */
-#content {
-  background-color: white;
-}
-
-/* line 40, assetic_compassduNU5k.sass */
-.main {
-  background: url("images/menu_bg.png") #ebe4eb;
-}
-
-/* line 44, assetic_compassduNU5k.sass */
-#heading {
-  background-color: #323637;
-  color: white;
-}
-/* line 47, assetic_compassduNU5k.sass */
-#heading a.sys-title {
-  color: #30adf5;
-}
-
-/* line 50, assetic_compassduNU5k.sass */
-#right-sidebar {
-  background-color: #ebe4eb;
-}
-/* line 52, assetic_compassduNU5k.sass */
-#right-sidebar h2 {
-  background-color: #323637;
-  color: #79caf8;
-}
-
-/* line 58, assetic_compassduNU5k.sass */
-#user-tools a {
-  color: #91d4fa;
-}
-
-/* line 61, assetic_compassduNU5k.sass */
-#footer {
-  background-color: #323637;
-  color: white;
-}
 
 /*Document   : main
  *Created on : 30/04/2013, 14:42:46
@@ -51,38 +11,26 @@
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, assetic_compassL5po1c.sass */
+/* line 10, assetic_compassxlIb3L.sass */
 root {
   display: block;
 }
 
-/* line 14, assetic_compassL5po1c.sass */
+/* line 14, assetic_compassxlIb3L.sass */
 #heading h1 {
   padding-top: 20px;
   padding-left: 20px;
 }
 
-/* line 19, assetic_compassL5po1c.sass */
-#sidebar {
-  margin: 0;
-  padding: 0;
-  height: auto;
-}
-/* line 23, assetic_compassL5po1c.sass */
-#sidebar div.clear {
-  clear: both;
-  float: left;
-}
-
-/* line 28, assetic_compassL5po1c.sass */
+/* line 22, assetic_compassxlIb3L.sass */
 #right-sidebar h2 {
   padding-left: 15px;
 }
-/* line 31, assetic_compassL5po1c.sass */
+/* line 25, assetic_compassxlIb3L.sass */
 #right-sidebar p {
   padding: 40px;
 }
-/* line 35, assetic_compassL5po1c.sass */
+/* line 29, assetic_compassxlIb3L.sass */
 #right-sidebar table tr td {
   padding-left: 10px;
   padding-right: 10px;
@@ -90,50 +38,52 @@ root {
   padding-bottom: 10px;
 }
 
-/* line 42, assetic_compassL5po1c.sass */
+/* line 36, assetic_compassxlIb3L.sass */
 #content {
   clear: right;
   overflow: hidden;
+  min-height: 730px;
+  margin-left: 0;
+  width: 85.39%;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 40px;
   padding-bottom: 60px;
 }
 
-/* line 52, assetic_compassL5po1c.sass */
+/* line 49, assetic_compassxlIb3L.sass */
 #heading #user-tools {
   padding-top: 20px;
 }
 
-/* line 56, assetic_compassL5po1c.sass */
+/* line 53, assetic_compassxlIb3L.sass */
 #footer {
-  min-height: 200px;
   bottom: 0;
   bottom: 0;
 }
-/* line 61, assetic_compassL5po1c.sass */
+/* line 56, assetic_compassxlIb3L.sass */
 #footer div {
   padding: 25px;
 }
 
-/* line 64, assetic_compassL5po1c.sass */
+/* line 59, assetic_compassxlIb3L.sass */
 #search-box {
   float: right;
   width: 320px;
   margin-right: 20px;
 }
-/* line 69, assetic_compassL5po1c.sass */
+/* line 64, assetic_compassxlIb3L.sass */
 #search-box form {
   padding-top: 10px;
 }
 
-/* line 73, assetic_compassL5po1c.sass */
+/* line 68, assetic_compassxlIb3L.sass */
 .form_box form {
   float: left;
   clear: both;
 }
 
-/* line 77, assetic_compassL5po1c.sass */
+/* line 72, assetic_compassxlIb3L.sass */
 .tabs-content {
   float: left;
   clear: both;
@@ -143,7 +93,7 @@ root {
   width: 100%;
 }
 
-/* line 90, assetic_compassL5po1c.sass */
+/* line 85, assetic_compassxlIb3L.sass */
 table table {
   width: 100%;
 }
@@ -159,59 +109,18 @@ table table {
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#content {
-  background-color: white;
-}
-
-/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-.main {
-  background: url("images/menu_bg.png") #ebe4eb;
-}
-
-/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#heading {
-  background-color: #323637;
-  color: white;
-}
-/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#heading a.sys-title {
-  color: #30adf5;
-}
-
-/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#right-sidebar {
-  background-color: #ebe4eb;
-}
-/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#right-sidebar h2 {
-  background-color: #323637;
-  color: #79caf8;
-}
-
-/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#user-tools a {
-  color: #91d4fa;
-}
-
-/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#footer {
-  background-color: #323637;
-  color: white;
-}
-
 /* MENU */
-/* line 11, assetic_compassFiNTs6.sass */
+/* line 11, assetic_compassIrrW9d.sass */
 .main {
   background: url("images/menu_bg.png") #ebe4eb;
 }
 
-/* line 14, assetic_compassFiNTs6.sass */
+/* line 14, assetic_compassIrrW9d.sass */
 #sidebar {
   background-color: #ebe4eb;
 }
 
-/* line 17, assetic_compassFiNTs6.sass */
+/* line 23, assetic_compassIrrW9d.sass */
 #sidebar ul {
   border-bottom: 1px solid white;
   border-top: 1px solid #d8d8d8;
@@ -220,104 +129,107 @@ table table {
   padding: 0;
   list-style: none;
 }
-/* line 23, assetic_compassFiNTs6.sass */
+/* line 29, assetic_compassIrrW9d.sass */
 #sidebar ul li {
   border-bottom: 1px solid #d8d8d8;
   color: #0977b6;
 }
-/* line 26, assetic_compassFiNTs6.sass */
+/* line 32, assetic_compassIrrW9d.sass */
 #sidebar ul span.current {
-  background-color: #006699;
+  background: url("images/item-hover.png");
 }
-/* line 29, assetic_compassFiNTs6.sass */
+/* line 36, assetic_compassIrrW9d.sass */
 #sidebar ul li.current {
   background-color: #006699;
 }
-/* line 31, assetic_compassFiNTs6.sass */
+/* line 38, assetic_compassIrrW9d.sass */
 #sidebar ul li.current a {
   color: white;
 }
-/* line 33, assetic_compassFiNTs6.sass */
+/* line 40, assetic_compassIrrW9d.sass */
 #sidebar ul li span {
   cursor: pointer;
   display: block;
   padding: 8px 15px;
 }
-/* line 38, assetic_compassFiNTs6.sass */
+/* line 45, assetic_compassIrrW9d.sass */
 #sidebar ul li ul li span, #sidebar ul li ul li a {
   cursor: pointer;
   display: block;
   padding: 8px 15px;
 }
-/* line 42, assetic_compassFiNTs6.sass */
+/* line 49, assetic_compassIrrW9d.sass */
 #sidebar ul li a {
   cursor: pointer;
   display: block;
   padding: 8px 15px;
 }
-/* line 46, assetic_compassFiNTs6.sass */
+/* line 53, assetic_compassIrrW9d.sass */
 #sidebar ul li span:hover, #sidebar ul li a:hover {
   color: white;
-  background-color: #006699;
+  background-color: #0077b3;
   text-decoration: none;
 }
-/* line 50, assetic_compassFiNTs6.sass */
+/* line 57, assetic_compassIrrW9d.sass */
 #sidebar ul span:hover {
   color: white;
   background-color: #0077b3;
 }
-/* line 54, assetic_compassFiNTs6.sass */
+/* line 61, assetic_compassIrrW9d.sass */
 #sidebar ul li:hover {
   background-color: #0077b3;
 }
-/* line 56, assetic_compassFiNTs6.sass */
+/* line 63, assetic_compassIrrW9d.sass */
 #sidebar ul li:hover a, #sidebar ul li:hover span {
   color: white;
 }
-/* line 58, assetic_compassFiNTs6.sass */
+/* line 65, assetic_compassIrrW9d.sass */
 #sidebar ul li.current_ancestor {
   background-color: #0088cc;
 }
-/* line 60, assetic_compassFiNTs6.sass */
+/* line 67, assetic_compassIrrW9d.sass */
 #sidebar ul li.current_ancestor a, #sidebar ul li.current_ancestor span {
   color: white;
 }
-/* line 62, assetic_compassFiNTs6.sass */
+/* line 69, assetic_compassIrrW9d.sass */
 #sidebar ul li:active {
   background-color: #006699;
 }
-/* line 64, assetic_compassFiNTs6.sass */
+/* line 71, assetic_compassIrrW9d.sass */
 #sidebar ul li:active a {
   color: white;
 }
-/* line 66, assetic_compassFiNTs6.sass */
+/* line 73, assetic_compassIrrW9d.sass */
 #sidebar ul li ul {
   display: none;
   border: medium none;
   margin: 0 0 8px;
-  padding-left: 30px;
 }
 
-/* line 73, assetic_compassFiNTs6.sass */
+/* line 79, assetic_compassIrrW9d.sass */
 #sidebar ul li.current_ancestor ul, #sidebar ul li.current ul, #sidebar ul li.current_ancestor ul li.current_ancestor ul, #sidebar ul li.current ul li.current_ancestor ul {
   display: block;
 }
-/* line 75, assetic_compassFiNTs6.sass */
+/* line 81, assetic_compassIrrW9d.sass */
 #sidebar ul li.current_ancestor ul li ul, #sidebar ul li.current ul li ul {
   display: none;
 }
-/* line 78, assetic_compassFiNTs6.sass */
-#sidebar ul li ul ul {
+/* line 83, assetic_compassIrrW9d.sass */
+#sidebar ul li ul {
   margin: 0;
-  padding-left: 15px;
 }
-/* line 81, assetic_compassFiNTs6.sass */
+/* line 85, assetic_compassIrrW9d.sass */
+#sidebar ul li ul ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 88, assetic_compassIrrW9d.sass */
 #sidebar ul li ul li {
+  margin: 0;
   background: none repeat scroll 0 0 transparent;
+  padding-left: 30px;
   border: medium none;
   font-size: 13px;
-  list-style: disc outside;
-  margin: 0;
 }
 
 /*Document   : main
@@ -336,60 +248,60 @@ table table {
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 22, assetic_compassTyvLRH.sass */
 #content {
   background-color: white;
 }
 
-/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 25, assetic_compassTyvLRH.sass */
 .main {
   background: url("images/menu_bg.png") #ebe4eb;
 }
 
-/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 29, assetic_compassTyvLRH.sass */
 #heading {
   background-color: #323637;
   color: white;
 }
-/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 32, assetic_compassTyvLRH.sass */
 #heading a.sys-title {
   color: #30adf5;
 }
 
-/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 35, assetic_compassTyvLRH.sass */
 #right-sidebar {
   background-color: #ebe4eb;
 }
-/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 37, assetic_compassTyvLRH.sass */
 #right-sidebar h2 {
   background-color: #323637;
   color: #79caf8;
 }
 
-/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 43, assetic_compassTyvLRH.sass */
 #user-tools a {
   color: #91d4fa;
 }
 
-/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 46, assetic_compassTyvLRH.sass */
 #footer {
   background-color: #323637;
   color: white;
 }
 
-/* line 18, assetic_compassOwNuu1.sass */
+/* line 50, assetic_compassTyvLRH.sass */
 ul.plan_attributes {
   display: none;
 }
 
 /* TITLES */
-/* line 23, assetic_compassOwNuu1.sass */
+/* line 55, assetic_compassTyvLRH.sass */
 #content h1 {
   float: left;
   color: #064c75;
 }
 
-/* line 27, assetic_compassOwNuu1.sass */
+/* line 59, assetic_compassTyvLRH.sass */
 ul.tab-nav {
   background: #f1f1f1;
   float: left;
@@ -398,12 +310,12 @@ ul.tab-nav {
   /*height: 40px; */
   width: 100%;
 }
-/* line 34, assetic_compassOwNuu1.sass */
+/* line 66, assetic_compassTyvLRH.sass */
 ul.tab-nav li {
   float: left;
   background: url("images/sep_tabs.png") no-repeat right center;
 }
-/* line 37, assetic_compassOwNuu1.sass */
+/* line 69, assetic_compassTyvLRH.sass */
 ul.tab-nav li a {
   float: left;
   text-decoration: none;
@@ -411,47 +323,47 @@ ul.tab-nav li a {
   height: 24px;
   padding: 12px 14px;
 }
-/* line 43, assetic_compassOwNuu1.sass */
+/* line 75, assetic_compassTyvLRH.sass */
 ul.tab-nav li a.active {
   background: white url("images/sep_tabs.png") no-repeat 101% 1px;
 }
-/* line 45, assetic_compassOwNuu1.sass */
+/* line 77, assetic_compassTyvLRH.sass */
 ul.tab-nav li a:hover {
   text-decoration: underline;
 }
 
 /* Actions list */
-/* line 50, assetic_compassOwNuu1.sass */
+/* line 82, assetic_compassTyvLRH.sass */
 .record_actions {
   float: left;
   clear: both;
 }
 
 /*Search results highlight */
-/* line 56, assetic_compassOwNuu1.sass */
+/* line 88, assetic_compassTyvLRH.sass */
 .highlight {
   background-color: #d3e18a;
 }
 
 /* Dynamic adder */
-/* line 61, assetic_compassOwNuu1.sass */
+/* line 93, assetic_compassTyvLRH.sass */
 .dinamic-adder {
   float: left;
   clear: both;
 }
 
-/* line 65, assetic_compassOwNuu1.sass */
+/* line 97, assetic_compassTyvLRH.sass */
 ul.dinamic-adder {
   list-style: none;
   padding: 0;
 }
-/* line 68, assetic_compassOwNuu1.sass */
+/* line 100, assetic_compassTyvLRH.sass */
 ul.dinamic-adder li {
   float: left;
   clear: both;
 }
 
-/* line 72, assetic_compassOwNuu1.sass */
+/* line 104, assetic_compassTyvLRH.sass */
 .add_tag_link {
   float: left;
   clear: both;
@@ -469,86 +381,45 @@ ul.dinamic-adder li {
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#content {
-  background-color: white;
-}
-
-/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-.main {
-  background: url("images/menu_bg.png") #ebe4eb;
-}
-
-/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#heading {
-  background-color: #323637;
-  color: white;
-}
-/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#heading a.sys-title {
-  color: #30adf5;
-}
-
-/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#right-sidebar {
-  background-color: #ebe4eb;
-}
-/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#right-sidebar h2 {
-  background-color: #323637;
-  color: #79caf8;
-}
-
-/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#user-tools a {
-  color: #91d4fa;
-}
-
-/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
-#footer {
-  background-color: #323637;
-  color: white;
-}
-
-/* line 11, assetic_compassJHOn2X.sass */
+/* line 11, assetic_compassONuK7c.sass */
 body {
   font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
-/* line 15, assetic_compassJHOn2X.sass */
+/* line 15, assetic_compassONuK7c.sass */
 a:link, a:visited, a:active {
   text-decoration: none;
   color: #0977b6;
 }
-/* line 18, assetic_compassJHOn2X.sass */
+/* line 18, assetic_compassONuK7c.sass */
 a:hover {
   text-decoration: none;
   color: #0977b6;
   text-decoration: underline;
 }
 
-/* line 23, assetic_compassJHOn2X.sass */
+/* line 23, assetic_compassONuK7c.sass */
 #sidebar ul {
   font-weight: bold;
 }
 
-/* line 29, assetic_compassJHOn2X.sass */
+/* line 29, assetic_compassONuK7c.sass */
 h1 {
   font-size: 30px;
 }
 
-/* line 32, assetic_compassJHOn2X.sass */
+/* line 32, assetic_compassONuK7c.sass */
 h1, h2, h3, h4 {
   font-weight: normal;
 }
 
-/* line 36, assetic_compassJHOn2X.sass */
+/* line 36, assetic_compassONuK7c.sass */
 td.center, th.center {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 40, assetic_compassJHOn2X.sass */
+/* line 40, assetic_compassONuK7c.sass */
 .center {
   text-align: center;
 }
@@ -561,21 +432,21 @@ td.center, th.center {
 /* Responsive table */
 @media only screen and (max-width: 800px) {
   /* Force table to not be like tables anymore */
-  /* line 12, assetic_compasspQ7w6V.sass */
+  /* line 12, assetic_compassfclrLJ.sass */
   #content table, #content thead, #content tbody, #content th, #content td, #content tr {
     display: block;
   }
-  /* line 14, assetic_compasspQ7w6V.sass */
+  /* line 14, assetic_compassfclrLJ.sass */
   #content thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-  /* line 18, assetic_compasspQ7w6V.sass */
+  /* line 18, assetic_compassfclrLJ.sass */
   #content tr {
     border: 1px solid #cccccc;
   }
-  /* line 20, assetic_compasspQ7w6V.sass */
+  /* line 20, assetic_compassfclrLJ.sass */
   #content td {
     /* Behave like a "row" */
     border: none;
@@ -585,7 +456,7 @@ td.center, th.center {
     white-space: normal;
     text-align: left;
   }
-  /* line 28, assetic_compasspQ7w6V.sass */
+  /* line 28, assetic_compassfclrLJ.sass */
   #content td:before {
     /* Now like a table header */
     position: absolute;

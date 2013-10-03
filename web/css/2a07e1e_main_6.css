@@ -14,60 +14,60 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 37, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 22, assetic_compassSLX52y.sass */
 #content {
   background-color: white;
 }
 
-/* line 40, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 25, assetic_compassSLX52y.sass */
 .main {
   background: url("images/menu_bg.png") #ebe4eb;
 }
 
-/* line 44, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 29, assetic_compassSLX52y.sass */
 #heading {
   background-color: #323637;
   color: white;
 }
-/* line 47, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 32, assetic_compassSLX52y.sass */
 #heading a.sys-title {
   color: #30adf5;
 }
 
-/* line 50, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 35, assetic_compassSLX52y.sass */
 #right-sidebar {
   background-color: #ebe4eb;
 }
-/* line 52, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 37, assetic_compassSLX52y.sass */
 #right-sidebar h2 {
   background-color: #323637;
   color: #79caf8;
 }
 
-/* line 58, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 43, assetic_compassSLX52y.sass */
 #user-tools a {
   color: #91d4fa;
 }
 
-/* line 61, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/colors.sass */
+/* line 46, assetic_compassSLX52y.sass */
 #footer {
   background-color: #323637;
   color: white;
 }
 
-/* line 18, assetic_compassAGjjHF.sass */
+/* line 50, assetic_compassSLX52y.sass */
 ul.plan_attributes {
   display: none;
 }
 
 /* TITLES */
-/* line 23, assetic_compassAGjjHF.sass */
+/* line 55, assetic_compassSLX52y.sass */
 #content h1 {
   float: left;
   color: #064c75;
 }
 
-/* line 27, assetic_compassAGjjHF.sass */
+/* line 59, assetic_compassSLX52y.sass */
 ul.tab-nav {
   background: #f1f1f1;
   float: left;
@@ -76,12 +76,12 @@ ul.tab-nav {
   /*height: 40px; */
   width: 100%;
 }
-/* line 34, assetic_compassAGjjHF.sass */
+/* line 66, assetic_compassSLX52y.sass */
 ul.tab-nav li {
   float: left;
   background: url("images/sep_tabs.png") no-repeat right center;
 }
-/* line 37, assetic_compassAGjjHF.sass */
+/* line 69, assetic_compassSLX52y.sass */
 ul.tab-nav li a {
   float: left;
   text-decoration: none;
@@ -89,47 +89,47 @@ ul.tab-nav li a {
   height: 24px;
   padding: 12px 14px;
 }
-/* line 43, assetic_compassAGjjHF.sass */
+/* line 75, assetic_compassSLX52y.sass */
 ul.tab-nav li a.active {
   background: white url("images/sep_tabs.png") no-repeat 101% 1px;
 }
-/* line 45, assetic_compassAGjjHF.sass */
+/* line 77, assetic_compassSLX52y.sass */
 ul.tab-nav li a:hover {
   text-decoration: underline;
 }
 
 /* Actions list */
-/* line 50, assetic_compassAGjjHF.sass */
+/* line 82, assetic_compassSLX52y.sass */
 .record_actions {
   float: left;
   clear: both;
 }
 
 /*Search results highlight */
-/* line 56, assetic_compassAGjjHF.sass */
+/* line 88, assetic_compassSLX52y.sass */
 .highlight {
   background-color: #d3e18a;
 }
 
 /* Dynamic adder */
-/* line 61, assetic_compassAGjjHF.sass */
+/* line 93, assetic_compassSLX52y.sass */
 .dinamic-adder {
   float: left;
   clear: both;
 }
 
-/* line 65, assetic_compassAGjjHF.sass */
+/* line 97, assetic_compassSLX52y.sass */
 ul.dinamic-adder {
   list-style: none;
   padding: 0;
 }
-/* line 68, assetic_compassAGjjHF.sass */
+/* line 100, assetic_compassSLX52y.sass */
 ul.dinamic-adder li {
   float: left;
   clear: both;
 }
 
-/* line 72, assetic_compassAGjjHF.sass */
+/* line 104, assetic_compassSLX52y.sass */
 .add_tag_link {
   float: left;
   clear: both;
