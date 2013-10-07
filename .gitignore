@@ -3,6 +3,7 @@ nbproject/
 *.un~
 tags
 *.swp
+.DS_Store
 
 # Symfony2 gitignore from https://github.com/github/gitignore
 # Bootstrap
