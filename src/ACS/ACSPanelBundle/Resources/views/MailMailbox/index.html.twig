@@ -23,7 +23,7 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('mailmailbox_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+            <td><a href="{{ path('mailmailbox_show', { 'id': entity.id }) }}">{{ entity.username }}@{{ entity.maildomain }}</a></td>
             <td>{{ entity.name }}</td>
             <td>{{ entity.maildir }}</td>
             <td>{{ entity.quotaLimit }}</td>
