@@ -564,4 +564,12 @@ class MailMailbox
         return false;
     }
 
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setUserValue()
+    {
+        // Add your code here
+    }
 }

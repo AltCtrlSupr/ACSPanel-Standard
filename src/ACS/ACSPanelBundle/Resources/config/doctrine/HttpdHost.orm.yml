@@ -32,11 +32,26 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
             nullable: true
             gedmo:
                 - versioned
+        ssl:
+            type: boolean
+            nullable: true
         enabled:
             type: boolean
             nullable: true 
             gedmo:
                 - versioned
+        certificate:
+            type: text
+            nullable: true
+        certificate_key:
+            type: text
+            nullable: true
+        certificate_chain:
+            type: text
+            nullable: true
+        certificate_authority:
+            type: text
+            nullable: true
         createdAt:
             type: datetime
             column: created_at
