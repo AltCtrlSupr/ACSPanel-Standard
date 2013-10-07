@@ -23,7 +23,9 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     globals:
+        panel_name: ACSPanel
         date_format: d-m-Y H:i:s
+        title_separator: >
     form:
         resources:
             - '::acspanel.forms.html.twig'

@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}ACSPanel{% endblock %}</title>
+        <title>{% block title %}{{ panel_name }}{% endblock %}</title>
         {% block stylesheets %}
             {% include "::stylesheets.html.twig" %}
             <link href="{{ asset('bundles/acsacspanel/css/jquery-ui/themes/base/jquery-ui-1.10.0.custom.min.css')}}" rel="stylesheet" type="text/css" />

@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block header_title %} - {% trans %}db.title.show {% endtrans %}{{ entity.name }}{% endblock %}
+{% block header_title %} {{ title_separator }} {% trans %}db.title.show{% endtrans %} {{ entity.name }}{% endblock %}
 {% block body %}
 
 <table class="record_properties table">
