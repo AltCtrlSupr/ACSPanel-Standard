@@ -517,4 +517,144 @@ class HttpdHost
     {
         return $this->proxy_service;
     }
+    /**
+     * @var boolean
+     */
+    private $ssl;
+
+    /**
+     * @var string
+     */
+    private $certificate;
+
+    /**
+     * @var string
+     */
+    private $certificate_key;
+
+    /**
+     * @var string
+     */
+    private $certificate_chain;
+
+    /**
+     * @var string
+     */
+    private $certificate_authority;
+
+
+    /**
+     * Set ssl
+     *
+     * @param boolean $ssl
+     * @return HttpdHost
+     */
+    public function setSsl($ssl)
+    {
+        $this->ssl = $ssl;
+    
+        return $this;
+    }
+
+    /**
+     * Get ssl
+     *
+     * @return boolean 
+     */
+    public function getSsl()
+    {
+        return $this->ssl;
+    }
+
+    /**
+     * Set certificate
+     *
+     * @param string $certificate
+     * @return HttpdHost
+     */
+    public function setCertificate($certificate)
+    {
+        $this->certificate = $certificate;
+    
+        return $this;
+    }
+
+    /**
+     * Get certificate
+     *
+     * @return string 
+     */
+    public function getCertificate()
+    {
+        return $this->certificate;
+    }
+
+    /**
+     * Set certificate_key
+     *
+     * @param string $certificateKey
+     * @return HttpdHost
+     */
+    public function setCertificateKey($certificateKey)
+    {
+        $this->certificate_key = $certificateKey;
+    
+        return $this;
+    }
+
+    /**
+     * Get certificate_key
+     *
+     * @return string 
+     */
+    public function getCertificateKey()
+    {
+        return $this->certificate_key;
+    }
+
+    /**
+     * Set certificate_chain
+     *
+     * @param string $certificateChain
+     * @return HttpdHost
+     */
+    public function setCertificateChain($certificateChain)
+    {
+        $this->certificate_chain = $certificateChain;
+    
+        return $this;
+    }
+
+    /**
+     * Get certificate_chain
+     *
+     * @return string 
+     */
+    public function getCertificateChain()
+    {
+        return $this->certificate_chain;
+    }
+
+    /**
+     * Set certificate_authority
+     *
+     * @param string $certificateAuthority
+     * @return HttpdHost
+     */
+    public function setCertificateAuthority($certificateAuthority)
+    {
+        $this->certificate_authority = $certificateAuthority;
+    
+        return $this;
+    }
+
+    /**
+     * Get certificate_authority
+     *
+     * @return string 
+     */
+    public function getCertificateAuthority()
+    {
+        return $this->certificate_authority;
+    }
 }

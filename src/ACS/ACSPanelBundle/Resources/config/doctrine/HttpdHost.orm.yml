@@ -35,6 +35,7 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
         ssl:
             type: boolean
             nullable: true
+            column: usessl
         enabled:
             type: boolean
             nullable: true 
