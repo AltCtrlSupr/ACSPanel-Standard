@@ -58,7 +58,7 @@ class MenuSubscriber implements EventSubscriberInterface
     {
         $menu = $menu_filter->getMenu();
         $menu->addChild('menu.quickactions.main', array( 'route' => null));
-        $menu['menu.quickactions.main']->addChild('manu.quickactions.register_host', array( 'route' => 'acs_acspanel_register_host'));
+        $menu['menu.quickactions.main']->addChild('menu.quickactions.register_host', array( 'route' => 'acs_acspanel_register_host'));
     }
 
     public function resellerItems(FilterMenuEvent $menu_filter)
