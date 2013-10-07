@@ -131,10 +131,29 @@ httpdhost:
     cgi: CGI
     ssi: SSI
     php: PHP
+    ssl: SSL
+    certificate: Certificado (.crt)
+    certificate_key: Clave de certificado (.key)
+    certificate_chain: Chain de certificadora (.ca.pem)
+    certificate_authority: Autoridad certificadora (.ca.pem)
     service: Servicio
     proxy_service: Servicio de proxy
     addwwwalias: ¿Añadir alias www?
     adddnsrecord: ¿Añadir registro DNS?
+  field:
+    enabled: Activado
+    name: Nombre
+    cgi: CGI
+    ssi: SSI
+    php: PHP
+    ssl: SSL
+    aliases: Alias
+    owner: Propietario
+    actions: Acciones
+  button:
+    show: Ver
+    edit: Editar
+    add: Añadir nuevo
 
 maildomain:
   form:

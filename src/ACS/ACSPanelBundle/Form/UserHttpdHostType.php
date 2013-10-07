@@ -55,6 +55,7 @@ class UserHttpdHostType extends HttpdHostType
             ->add('cgi', null, array('label' => 'httpdhost.form.cgi'))
             ->add('ssi', null, array('label' => 'httpdhost.form.ssi'))
             ->add('php', null, array('label' => 'httpdhost.form.php'))
+            ->add('ssl', null, array('label' => 'httpdhost.form.ssl'))
             ->add('service', null, array('label' => 'httpdhost.form.service'))
             ->add('proxy_service', null, array('label' => 'httpdhost.form.proxy_service'))
             ->add('add_www_alias','checkbox',array(
@@ -67,6 +68,10 @@ class UserHttpdHostType extends HttpdHostType
                 'required' => false,
                 'label' => 'httpdhost.form.adddnsrecord'
             ))
+            ->add('certificate', null, array('label' => 'httpdhost.form.certificate'))
+            ->add('certificate_key', null, array('label' => 'httpdhost.form.certificate_key'))
+            ->add('certificate_chain', null, array('label' => 'httpdhost.form.certificate_chain'))
+            ->add('certificate_authority', null, array('label' => 'httpdhost.form.certificate_authority'))
         ;
     }
 
