@@ -12,6 +12,8 @@ menu:
       service_types: Tipos de servicio
       ip: Direcciones IP
     logs: Logs
+  reseller:
+    main: Reseller
   domain:
     main: Dominios
   httpd:
