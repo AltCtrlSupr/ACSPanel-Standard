@@ -35,7 +35,7 @@
     <body>
         <div>
             <div id="heading" class="row-fluid">
-                <h1 role="heading" class="ui-title span9"><a href="{{ path('acs_acspanel_homepage') }}" class="sys-title">ACSPanel</a>{% block header_title %}{% endblock %}</h1>
+                <h1 role="heading" class="ui-title span9"><a href="{{ path('acs_acspanel_homepage') }}" class="sys-title">{{ panel_name }}</a>{% block header_title %}{% endblock %}</h1>
                 <div id="user-tools" class="span3">
                     <div id="search-box">
                         {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
