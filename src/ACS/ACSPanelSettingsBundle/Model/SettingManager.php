@@ -41,8 +41,9 @@ abstract class SettingManager extends EntityRepository
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         foreach($fields as $field){
+
             if(!$this->getSetting($field['setting_key'], $field['focus'], $user)){
-                $this->setSetting($field['setting_key'], $field['focus'], $field['default_value'], $field['context']);
+                $this->setSetting($field['setting_key'], $field['focus'], $field['default_value'], $field['context'], $user);
             }
         }
 
@@ -120,14 +121,20 @@ abstract class SettingManager extends EntityRepository
     /**
      * Sets a setting value
      */
-    public function setSetting($setting_key, $focus, $value, $context = '')
+    public function setSetting($setting_key, $focus, $value, $context = '', $user = null)
     {
         $em = $this->getEntityManager();
 
-        $setting = $this->findOneBy(array(
-            'setting_key' => $setting_key,
-            'focus' => $focus,
-        ));
+        $params = array();
+        $params['setting_key'] = $setting_key;
+        $params['focus'] = $focus;
+        if($context)
+            $params['context'] = $context;
+        if($user)
+            $params['user'] = $user;
+
+        $setting = $this->findOneBy($params);
+
 
         // We create the new setting if it not exists
         if(!$setting){

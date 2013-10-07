@@ -18,6 +18,8 @@ class SettingsSubscriber implements EventSubscriberInterface
         );
     }
 
+
+
     /**
      * Create new added fields to user or missing fields
      *
@@ -30,9 +32,9 @@ class SettingsSubscriber implements EventSubscriberInterface
 
         $fields_template = $userfields_filter->getUserFields();
 
-        if($settings_manager->isUpdateAvailable($user, 'user_schema_version', $fields_template['user_schema_version']['default_value'])){
+        //if($settings_manager->isUpdateAvailable($user, 'user_schema_version', $fields_template['user_schema_version']['default_value'])){
             // We have an update in the user fields
             $settings_manager->loadSettingDefaults($fields_template, $user);
-        }
+        //}
     }
 }

@@ -14,6 +14,8 @@ menu:
     logs: Logs
   reseller:
     main: Reseller
+    users: Usuarios del panel
+    logs: Logs
   domain:
     main: Dominios
   httpd:
