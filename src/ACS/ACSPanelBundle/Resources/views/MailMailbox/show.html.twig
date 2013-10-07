@@ -5,47 +5,43 @@
 <table class="record_properties table">
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Username</th>
+            <th>{% trans %}mailbox.field.username{% endtrans %}</th>
             <td>{{ entity.username }}</td>
         </tr>
         <tr>
-            <th>Password</th>
+            <th>{% trans %}mailbox.field.password{% endtrans %}</th>
             <td>{{ entity.password }}</td>
         </tr>
         <tr>
-            <th>Name</th>
+            <th>{% trans %}mailbox.field.name{% endtrans %}</th>
             <td>{{ entity.name }}</td>
         </tr>
         <tr>
-            <th>Maildir</th>
+            <th>{% trans %}mailbox.field.maildir{% endtrans %}</th>
             <td>{{ entity.maildir }}</td>
         </tr>
         <tr>
-            <th>Quotalimit</th>
+            <th>{% trans %}mailbox.field.quotalimit{% endtrans %}</th>
             <td>{{ entity.quotaLimit }}</td>
         </tr>
         <tr>
-            <th>Usedquota</th>
+            <th>{% trans %}mailbox.field.usedquota{% endtrans %}</th>
             <td>{{ entity.usedQuota }}</td>
         </tr>
         <tr>
-            <th>Bytes</th>
+            <th>{% trans %}mailbox.field.bytes{% endtrans %}</th>
             <td>{{ entity.bytes }}</td>
         </tr>
         <tr>
-            <th>Messages</th>
+            <th>{% trans %}mailbox.field.messages{% endtrans %}</th>
             <td>{{ entity.messages }}</td>
         </tr>
         <tr>
-            <th>Createdat</th>
+            <th>{% trans %}mailbox.field.created_at{% endtrans %}</th>
             <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
-            <th>Updatedat</th>
+            <th>{% trans %}mailbox.field.updated_at{% endtrans %}</th>
             <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
         </tr>
     </tbody>
@@ -54,18 +50,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('mailmailbox') }}">
-            Back to the list
+            {% trans %}Back to the list{% endtrans %}
         </a>
     </li>
     <li>
         <a href="{{ path('mailmailbox_edit', { 'id': entity.id }) }}">
-            Edit
+            {% trans %}Edit{% endtrans %}
         </a>
     </li>
     <li>
         <form action="{{ path('mailmailbox_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">{% trans %}Delete{% endtrans %}</button>
         </form>
     </li>
 </ul>

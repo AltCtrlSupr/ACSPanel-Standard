@@ -12,13 +12,6 @@ acsacs_panel_settings:
            default_value: '1'
            context: 'User internal'
            focus: 'user_internal'
-        test_field:
-           setting_key: test_field
-           label: 'Test field'
-           field_type: text 
-           default_value: '1'
-           context: 'User settings'
-           focus: 'user_setting'
         language:
            setting_key: user_language
            label: 'User language'
