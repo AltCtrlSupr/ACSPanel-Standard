@@ -88,6 +88,7 @@ user:
     groups: Grupos
     uid: UID
     gid: GID
+    parent_user: Usuario propietario
   button:
     switch: Cambiar a este usuario
     show: Mostrar

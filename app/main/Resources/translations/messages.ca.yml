@@ -1,64 +1,176 @@
 ## templates.ca.yml
-Home: Inici
-Hello: Hola
-Name: Nom
-Host: Host
-Password: Contrasenya
-Protected directory: Directori protegit
-Protected dir: Directori protegit
-Protected_dir: Directori protegit
-Domain: Domini
-Created at: Creat el
-Updated at: Actualitzat el
-Back to the list: Torna a la llista
-Edit: Edita
-Delete: Suprimeix
-Create: Crea
-Actions: Accions
-show: mostra
-edit: edita
-Create a new entry: Crea una nova entrada
-Enabled: Activat
-Users: Usuaris
-New IP Address: Nova Direcció IP
-Route: Ruta
-Message: Missatge
-Are you sure?: Estas segur?
-Logout: Surt
-Configuration: Configuració
-Servers: Servidors
-Services: Serveis
-Service: Servei
-Service list: Llista de Serveis
-Service Types: Tipus de Serveis
-Service Type list: Llista de Tipus de Serveis
-IP Addresses: Adreces IP
-Description: Descripció
-Groups: Grups
-User: Usuari
-Panel Users: Usuaris del Panell
-User creation: Creació d'Usuari
-Logs registry: Registre de Logs
-Plan list: Llista de Plans
-Add www alias: Afegir alias www.
-All: Tots
-Domains: Dominis
-Records: Registres
-The A record for %record% domain already exists: El registre A pel domini %record% ja existeix
-The CNAME record for %record% domain already exists: El registre CNAME pel domini %record% ja existeix
-A dns record type CNAME has been created for the host %domain_name%: S'ha creat un registre CNAME pel host %domain_name%
-A dns record type A has been created for the host %domain_name%: S'ha creat un registre A pel host %domain_name%
-The host %domain_name% has not DNS domain: El host %domain_name% no te domini DNS
-Databases: Bases de dades
-add alias: afegir alies
-Back: Torna
-Username: Nom d'usuari
-Hide attributes: Amaga atributs
-Show attributes: Mostra atributs
-Quick actions: Accions ràpides
-Add hosting: Afegir hosting
-Settings: Preferències
-Plan List: Llista de Plans
-Search: Cerca
-Save: Desa
-User language: Idioma
+menu:
+  admin:
+    main: Administrador
+    users: Usuaris del panell
+    groups: Grups
+    plans: Plans
+    servers: 
+      main: Servidors
+      servers: Servidors
+      services: Serveis
+      service_types: Tipus de servei
+      ip: Direccions IP
+    logs: Logs
+  reseller:
+    main: Reseller
+    users: Usuaris del panell
+    logs: Logs
+  domain:
+    main: Dominis
+  httpd:
+    main: Web
+    hosts: Hosts
+    users: Usuaris web
+  dns:
+    main: DNS
+    domains: Dominis
+  mail:
+    main: Mail
+    domain: Dominis Mail
+    mailbox: Bústies de correu
+    alias: Alies
+    wb_list: W/B Lists
+    received_msg_log: Log de missatges rebuts
+  database:
+    main: Bases de dades
+  ftp:
+    main: FTP
+  settings:
+    main: Preferencies
+  wordpress:
+    main: Granja Wordpress
+  logout:
+    main: Sortir
+
+
+db:
+  title:
+    edit: Editar Base de dades
+  fields:
+    name: Nom
+    users: Usuaris
+    createdat: Creat el
+    actions: Accions
+  field:
+    id: ID
+    name: Nom
+    created_at: Creat el 
+    updated_at: Actualizat el
+    users: Usuaris
+  button:
+    show: Veure
+    edit: Editar
+    addnew: Afegir nova
+    remove: Borrar
+    adduser: Afegir usuari
+    create: Crear 
+    delete: Borrar base de dades
+    back: Tornar a la lista
+
+user:
+  field:
+    enabled: Activat
+    username: Nom d'usuari
+    name: Nom
+    email: email
+    lastlogin: Últim login
+    plans: Plans
+    roles: Rols
+    childs: Fills
+    actions: Accions
+  form:
+    username: Nom d'usuari
+    email: Correu electronic
+    enabled: Activat
+    first_name: Nom
+    last_name: Cognoms
+    groups: Grups
+    uid: UID
+    gid: GID
+    parent_user: Usuari propietari
+  button:
+    switch: Cambiar a aquest Usuari
+    show: Mostra
+    edit: Edita
+    add: Nou usuari
+
+dnsdomain:
+  title:
+    show: Domini DNS
+  field:
+    name: Domini
+    master: MASTER
+    lastcheck: Last check
+    type: Tipus
+    notifiedserial: Notified Serial
+    account: Account
+    enabled: Activat
+    createdat: Creat el
+    updatedat: Actualizat el
+
+dnsrecord:
+  field:
+    name: Registe
+    type: Tipus
+    content: Contingut
+
+domain:
+  form:
+    domain: Nom de domini
+    parent_domain: Domini pare
+    is_httpd_alias: ¿Es alies HTTPD?
+    is_dns_alias: ¿Es alies DNS?
+    is_mail_alias: ¿Es alies de Mail?
+    adddnsdomain: ¿Afegir domini DNS?
+    user: Usuari propietari
+
+httpdhost:
+  form:
+    domain: Domini
+    configuration: Configuració
+    cgi: CGI
+    ssi: SSI
+    php: PHP
+    ssl: SSL
+    certificate: Certificat (.crt)
+    certificate_key: Clau de certificat (.key)
+    certificate_chain: Chain de certificadora (.ca.pem)
+    certificate_authority: Autoritat certificadora (.ca.pem)
+    service: Servei
+    proxy_service: Servei de proxy
+    addwwwalias: ¿Afegir alies www?
+    adddnsrecord: ¿Afegir registre DNS?
+  field:
+    enabled: Activat
+    name: Nom
+    cgi: CGI
+    ssi: SSI
+    php: PHP
+    ssl: SSL
+    aliases: Alies
+    owner: Propietari
+    actions: Accions
+  button:
+    show: Veure
+    edit: Edita
+    add: Afegir nou
+
+maildomain:
+  form:
+    domain: Domini
+    description: Descripció
+    max_aliases: Màxim de Alias
+    max_mailboxes: Màxim de buzones
+    max_quota: Màxim de quota
+    backupmx: BackupMX
+    service: Servei
+    adddnsrecord: ¿Añadir registros DNS?
+    user: Propietari
+
+mailbox:
+  form:
+    mail_domain: Domini
+    name: Nom
+    username: Nom de usuari
+    password: Contrasenya
