@@ -31,6 +31,10 @@ class FosUserType extends AbstractType
             ->add('first_name', null, array('label' => 'user.form.first_name'))
             ->add('last_name', null, array('label' => 'user.form.last_name'));
 
+        if($service->isGranted('ROLE_SUPER_ADMIN')){
+           $builder->add('parent_user', null, array('label' => 'user.form.parent_user'));
+        }
+
         if($service->isGranted('ROLE_ADMIN')){
            $builder->add('uid', null, array('label' => 'user.form.uid'));
            $builder->add('gid', null, array('label' => 'user.form.gid'));
