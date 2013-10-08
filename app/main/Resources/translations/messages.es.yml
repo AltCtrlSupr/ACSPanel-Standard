@@ -178,7 +178,6 @@ maildomain:
     enabled: Activado
     createdat: Creado el
     updatedat: Actualizado el
-    setup_instructions: Instrucciones de configuración
   button:
     back: Volver al listado
     edit: Editar domino de correo
@@ -190,24 +189,14 @@ mailbox:
     name: Nombre
     username: Nombre de usuario
     password: Contraseña
-
-
-email:
-  setup:
-    imap:
-      server_name: Nombre de servidor
-      port: Puerto
-      security: Tipo de seguridad
-      authmethod: Método de autenticación
-    pop:
-      server_name: Nombre de servidor
-      port: Puerto
-      security: Tipo de seguridad
-      authmethod: Método de autenticación
-    smtp:
-      server_name: Nombre de servidor
-      port: Puerto
-      security: Tipo de seguridad
-      authmethod: Método de autenticación
-    general:
-      user_name: Nombre de usuario
+  field:
+    username: Nombre de usuario
+    password: Contraseña
+    name: Nombre
+    maildir: Directorio
+    quotalimit: Límite de quota
+    usedquota: Quota usada
+    bytes: Bytes
+    messages: Mensajes
+    created_at: Creado el
+    updated_at: Actualizad el
