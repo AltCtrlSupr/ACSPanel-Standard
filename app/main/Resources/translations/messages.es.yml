@@ -167,6 +167,22 @@ maildomain:
     service: Servicio
     adddnsrecord: ¿Añadir registros DNS?
     user: Propietario
+  field:
+    domain: Dominio
+    description: Descripción
+    maxaliases: Máximo alias
+    maxmailboxes: Máximo buzones
+    maxquota: Máximo de quota
+    transport: Transporte
+    backupmx: BackupMX
+    enabled: Activado
+    createdat: Creado el
+    updatedat: Actualizado el
+    setup_instructions: Instrucciones de configuración
+  button:
+    back: Volver al listado
+    edit: Editar domino de correo
+    delete: Borrar
 
 mailbox:
   form:
@@ -174,3 +190,24 @@ mailbox:
     name: Nombre
     username: Nombre de usuario
     password: Contraseña
+
+
+email:
+  setup:
+    imap:
+      server_name: Nombre de servidor
+      port: Puerto
+      security: Tipo de seguridad
+      authmethod: Método de autenticación
+    pop:
+      server_name: Nombre de servidor
+      port: Puerto
+      security: Tipo de seguridad
+      authmethod: Método de autenticación
+    smtp:
+      server_name: Nombre de servidor
+      port: Puerto
+      security: Tipo de seguridad
+      authmethod: Método de autenticación
+    general:
+      user_name: Nombre de usuario

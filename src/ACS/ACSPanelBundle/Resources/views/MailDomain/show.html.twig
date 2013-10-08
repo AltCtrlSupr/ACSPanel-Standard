@@ -5,52 +5,48 @@
 <table class="record_properties table">
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Domain</th>
+            <th>{% trans %}maildomain.field.domain{% endtrans %}</th>
             <td>{{ entity.domain }}</td>
         </tr>
         <tr>
-            <th>Description</th>
+            <th>{% trans %}maildomain.field.description{% endtrans %}</th>
             <td>{{ entity.description }}</td>
         </tr>
         <tr>
-            <th>Maxaliases</th>
+            <th>{% trans %}maildomain.field.maxaliases{% endtrans %}</th>
             <td>{{ entity.maxAliases }}</td>
         </tr>
         <tr>
-            <th>Maxmailboxes</th>
+            <th>{% trans %}maildomain.field.maxmailboxes{% endtrans %}</th>
             <td>{{ entity.maxMailboxes }}</td>
         </tr>
         <tr>
-            <th>Maxquota</th>
+            <th>{% trans %}maildomain.field.maxquota{% endtrans %}</th>
             <td>{{ entity.maxQuota }}</td>
         </tr>
         <tr>
-            <th>Transport</th>
+            <th>{% trans %}maildomain.field.transport{% endtrans %}</th>
             <td>{{ entity.transport }}</td>
         </tr>
         <tr>
-            <th>Backupmx</th>
+            <th>{% trans %}maildomain.field.backupmx{% endtrans %}</th>
             <td>{{ entity.backupmx }}</td>
         </tr>
         <tr>
-            <th>Created</th>
-            <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
-        </tr>
-        <tr>
-            <th>Enabled</th>
+            <th>{% trans %}maildomain.field.enabled{% endtrans %}</th>
             <td>{{ entity.enabled }}</td>
         </tr>
         <tr>
-            <th>Createdat</th>
+            <th>{% trans %}maildomain.field.createdat{% endtrans %}</th>
             <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
-            <th>Updatedat</th>
+            <th>{% trans %}maildomain.field.updatedat{% endtrans %}</th>
             <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}maildomain.field.setup_instructions{% endtrans %}</th>
+            <td>{% include "ACSACSPanelBundle:Email:email_setup.html.twig" %}</td>
         </tr>
     </tbody>
 </table>
@@ -58,18 +54,18 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('maildomain') }}">
-            Back to the list
+            {% trans %}maildomain.button.back{% endtrans %}
         </a>
     </li>
     <li>
         <a href="{{ path('maildomain_edit', { 'id': entity.id }) }}">
-            Edit
+            {% trans %}maildomain.button.edit{% endtrans %}
         </a>
     </li>
     <li>
         <form action="{{ path('maildomain_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">{% trans %}maildomain.button.delete{% endtrans %}</button>
         </form>
     </li>
 </ul>
