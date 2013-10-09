@@ -6,7 +6,7 @@
 <table class="records_list table table-striped table-bordered">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Sent at</th>
             <th>Sender</th>
 				<th>Sender actions</th>
             <th>Rcpt</th>
@@ -17,7 +17,7 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('maillogrcvd_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td><a href="{{ path('maillogrcvd_show', { 'id': entity.id }) }}">{{ entity.createdat }}</a></td>
             <td>{{ entity.sender }}</td>
 				<td>
 					<ul>
