@@ -3,7 +3,7 @@
 {% block fos_user_content %}
 
         <form action="{{ path("fos_user_security_check") }}" method="post">
-            <h1>ACSPanel</h1>
+            <h1>{{ panel_name }}</h1>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
             <ul class="loginfields">

@@ -38,7 +38,9 @@
                 <h1 role="heading" class="ui-title span9"><a href="{{ path('acs_acspanel_homepage') }}" class="sys-title">{{ panel_name }}</a>{% block header_title %}{% endblock %}</h1>
                 <div id="user-tools" class="span3">
                     <div id="search-box">
+                        {% if app.session.get('is_superior_user') == 'true' %}Is superior user{% endif %}
                         {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+
                         <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
                         <form class="form-search" method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
                             <input name="term" class="search-query" placeholder="{% trans %}Type search terms..{% endtrans %}" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />

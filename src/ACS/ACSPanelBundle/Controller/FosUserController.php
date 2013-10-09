@@ -378,6 +378,8 @@ class FosUserController extends Controller
             $loginmanager = $this->get('fos_user.security.login_manager');
             $loginmanager->loginUser('main', $user, new Response());
 
+            //$this->get('session')->set('is_superior_user','true');
+
             return $this->redirect($this->generateUrl('acs_acspanel_homepage'));
         }else{
             throw $this->createNotFoundException('You cannot do this');
