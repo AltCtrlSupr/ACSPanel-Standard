@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}ACSPanel{% endblock %}</title>
+        <title>{% block title %}{{ panel_name }}{% endblock %}</title>
         {% block stylesheets %}
             {% include "::stylesheets.anon.html.twig" %}
         {% endblock %}
