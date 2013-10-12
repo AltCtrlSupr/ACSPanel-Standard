@@ -14,11 +14,41 @@
 
 @import "colors"
 
+body
+  background-color: $heading-bg-color
+
 #content
   background-color: $content-bg
+  box-shadow: -5px 0 14px rgba(0, 0, 0, 0.13)
 
 .main
   background: url('images/menu_bg.png') $menu-bg
+  margin-left: 20px
+  margin-right: 20px
+  width: auto
+
+#section-info
+  background: lighten($heading-bg-color, 45%)
+  border-radius: 5px 5px 0px 0px
+  padding: 8px
+  ul
+    list-style: none
+    margin: 0
+    padding-left: 6px
+    a
+      color: white
+      text-shadow: 1px 1px 0px #333
+      font-size: 20px
+  
+
+#footer-info
+  border-radius: 0px 0px 5px 5px
+  padding: 
+    top: 40px
+    bottom: 25px
+    left: 25px
+    right: 25px
+
   //background: url('images/menu_bg.png')
 
 #heading
