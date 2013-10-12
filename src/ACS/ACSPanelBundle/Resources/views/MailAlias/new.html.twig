@@ -4,7 +4,12 @@
 
 <div class="form_box">
     <form action="{{ path('mailalias_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
+        {{ form_label(form.address) }}
+        {{ form_widget(form.address) }}
+	@
+        {{ form_widget(form.mail_domain) }}
+        {{ form_label(form.goto) }}
+        {{ form_widget(form.goto) }}
         <p>
             <button class="btn" type="submit">Create</button>
         </p>

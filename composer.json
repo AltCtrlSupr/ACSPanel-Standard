@@ -27,7 +27,8 @@
         "gregwar/form-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "jms/serializer-bundle": "dev-master"
+        "jms/serializer-bundle": "dev-master",
+        "apy/breadcrumbtrail-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
