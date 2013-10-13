@@ -23,13 +23,13 @@ class HostingController extends Controller
         $flow->bind($fosuser);
 
         // form of the current step
-        $form = $flow->createForm($fosuser);
+        $form = $flow->createForm();
 
         if ($flow->isValid($form)) {
-            $flow->saveCurrentStepData();
+            $flow->saveCurrentStepData($form);
 
             if($flow->nextStep()){
-                $form = $flow->createForm($fosuser);
+                $form = $flow->createForm();
             }else{
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($fosuser);
@@ -45,6 +45,4 @@ class HostingController extends Controller
             'flow' => $flow,
         ));
     }
-
-
 }

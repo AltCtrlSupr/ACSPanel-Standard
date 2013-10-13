@@ -93,6 +93,7 @@ class MenuSubscriber implements EventSubscriberInterface
     public function httpdItems(FilterMenuEvent $menu_filter)
     {
         $menu = $menu_filter->getMenu();
+        $menu->addChild('menu.httpd.newhosting', array( 'route' => 'acs_acspanel_register_host'));
         $menu->addChild('menu.httpd.main', array( 'route' => null));
         $menu['menu.httpd.main']->addChild('menu.httpd.hosts', array( 'route' => 'httpdhost'));
 #        $menu['HTTPD']->addChild('Alias', array( 'route' => 'httpdalias'));

@@ -540,7 +540,8 @@ class FosUser extends BaseUser
      */
     public function removeHttpdhost(\ACS\ACSPanelBundle\Entity\HttpdHost $httpdhosts)
     {
-        $this->httpdhosts->removeElement($httpdhosts);
+	if($this->httpdhosts)
+		$this->httpdhosts->removeElement($httpdhosts);
     }
 
     /**

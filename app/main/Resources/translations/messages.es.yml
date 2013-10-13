@@ -1,4 +1,6 @@
 ## templates.es.yml
+common:
+  home: Inicio
 menu:
   admin:
     main: Administrador

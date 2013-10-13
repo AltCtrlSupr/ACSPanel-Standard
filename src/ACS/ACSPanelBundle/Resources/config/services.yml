@@ -56,12 +56,12 @@ services:
 
     # Forms flows
     acs.form.registerHosting:
-        class: ACS\ACSPanelBundle\Form\RegisterHostingType
+        class: ACS\ACSPanelBundle\Form\HostingFlow\RegisterHostingType
         tags:
             - { name: form.type, alias: registerHosting }
 
     acs.form.flow.registerHosting:
-        class: ACS\ACSPanelBundle\Form\RegisterHostingFlow
+        class: ACS\ACSPanelBundle\Form\HostingFlow\RegisterHostingFlow
         parent: craue.form.flow
         scope: request
         calls:

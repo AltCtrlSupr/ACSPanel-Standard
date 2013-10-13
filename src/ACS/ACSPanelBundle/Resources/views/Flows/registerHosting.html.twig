@@ -10,13 +10,13 @@
 
         {{ form_errors(form) }}
 
-        {% if flow.getCurrentStep() == 1 %}
+        {% if flow.getCurrentStepNumber() == 1 %}
             {{ form_row(form.httpdhosts) }}
         {% endif %}
-        {% if flow.getCurrentStep() == 2 %}
+        {% if flow.getCurrentStepNumber() == 2 %}
             {{ form_row(form.maildomains) }}
         {% endif %}
-        {% if flow.getCurrentStep() == 3 %}
+        {% if flow.getCurrentStepNumber() == 3 %}
             {{ form_row(form.databases) }}
         {% endif %}
 

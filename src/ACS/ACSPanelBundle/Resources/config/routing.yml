@@ -6,10 +6,6 @@ acs_acspanel_register_host:
     pattern:  /register_hosting
     defaults: { _controller: ACSACSPanelBundle:Hosting:registerHosting }
 
-acs_acspanel_admin:
-    pattern: /admin
-    defaults: { _controller: ACSACSPanelBundle:Admin:index }
-
 acs_acspanel_httpdhost:
     resource: "@ACSACSPanelBundle/Resources/config/routing/httpdhost.yml"
     prefix:   /httpdhost
