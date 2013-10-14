@@ -12,26 +12,26 @@
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 10, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 root {
   display: block;
 }
 
-/* line 14, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 14, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #heading h1 {
   padding-top: 20px;
   padding-left: 20px;
 }
 
-/* line 22, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 22, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #right-sidebar h2 {
   padding-left: 15px;
 }
-/* line 25, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 25, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #right-sidebar p {
   padding: 40px;
 }
-/* line 29, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 29, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #right-sidebar table tr td {
   padding-left: 10px;
   padding-right: 10px;
@@ -39,52 +39,52 @@ root {
   padding-bottom: 10px;
 }
 
-/* line 36, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 36, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #content {
   clear: right;
   overflow: hidden;
   min-height: 730px;
   margin-left: 0;
-  width: 85.39%;
+  float: right;
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 40px;
   padding-bottom: 60px;
 }
 
-/* line 49, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 49, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #heading #user-tools {
   padding-top: 20px;
 }
 
-/* line 53, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 53, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #footer {
   bottom: 0;
   bottom: 0;
 }
-/* line 56, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 56, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #footer div {
   padding: 25px;
 }
 
-/* line 59, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 59, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #search-box {
   float: right;
   width: 320px;
   margin-right: 20px;
 }
-/* line 64, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 64, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 #search-box form {
   padding-top: 10px;
 }
 
-/* line 68, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 68, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 .form_box form {
   float: left;
   clear: both;
 }
 
-/* line 72, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 72, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 .tabs-content {
   float: left;
   clear: both;
@@ -94,19 +94,19 @@ root {
   width: 100%;
 }
 
-/* line 85, ../var/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
+/* line 85, ../../../../../../Volumes/www/acspanel/src/ACS/ACSPanelBundle/Resources/public/css/layout.sass */
 table table {
   width: 100%;
 }
 
-/* line 7, assetic_compasstOVU5h.sass */
+/* line 7, assetic_compassvCV9VA.sass */
 ul.loginfields {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 12, assetic_compasstOVU5h.sass */
+/* line 12, assetic_compassvCV9VA.sass */
 #login-form {
   height: 10%;
   padding-top: 40px;
@@ -114,11 +114,11 @@ ul.loginfields {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 20, assetic_compasstOVU5h.sass */
+/* line 20, assetic_compassvCV9VA.sass */
 #login-form #centered {
   margin: 0 auto;
 }
-/* line 22, assetic_compasstOVU5h.sass */
+/* line 22, assetic_compassvCV9VA.sass */
 #login-form #centered form {
   margin: 0 auto;
   background-color: white;
@@ -128,11 +128,11 @@ ul.loginfields {
   padding: 19px 29px 29px;
   max-width: 356px;
 }
-/* line 30, assetic_compasstOVU5h.sass */
+/* line 30, assetic_compassvCV9VA.sass */
 #login-form #centered div.notice {
   color: red;
 }
-/* line 32, assetic_compasstOVU5h.sass */
+/* line 32, assetic_compassvCV9VA.sass */
 #login-form #centered ul input {
   color: #555555;
   font-size: 24px;
@@ -141,7 +141,7 @@ ul.loginfields {
   height: 40px;
   outline: 0 none;
 }
-/* line 46, assetic_compasstOVU5h.sass */
+/* line 46, assetic_compassvCV9VA.sass */
 #login-form #centered ul input#_submit {
   height: auto;
   color: white;
@@ -151,30 +151,30 @@ ul.loginfields {
 }
 
 /* FORMS box */
-/* line 55, assetic_compasstOVU5h.sass */
+/* line 55, assetic_compassvCV9VA.sass */
 .form_box {
   float: left;
   clear: both;
 }
-/* line 58, assetic_compasstOVU5h.sass */
+/* line 58, assetic_compassvCV9VA.sass */
 .form_box form div {
   float: left;
   clear: both;
   padding-top: 5px;
   padding-bottom: 10px;
 }
-/* line 63, assetic_compasstOVU5h.sass */
+/* line 63, assetic_compassvCV9VA.sass */
 .form_box form div.fields_group {
   clear: none;
 }
-/* line 65, assetic_compasstOVU5h.sass */
+/* line 65, assetic_compassvCV9VA.sass */
 .form_box label {
   color: #555555;
   float: left;
   clear: both;
   width: 200px;
 }
-/* line 70, assetic_compasstOVU5h.sass */
+/* line 70, assetic_compassvCV9VA.sass */
 .form_box textarea, .form_box select {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -188,7 +188,7 @@ ul.loginfields {
 
 /* Search box */
 /* Form elements */
-/* line 84, assetic_compasstOVU5h.sass */
+/* line 84, assetic_compassvCV9VA.sass */
 .form_box input {
   width: 255px;
   background: none repeat scroll 0 0 #fbfbfb;
@@ -199,29 +199,29 @@ ul.loginfields {
   outline: 0 none;
   padding: 3px;
 }
-/* line 93, assetic_compasstOVU5h.sass */
+/* line 93, assetic_compassvCV9VA.sass */
 .form_box textarea {
   height: 140px;
 }
 
-/* line 96, assetic_compasstOVU5h.sass */
+/* line 96, assetic_compassvCV9VA.sass */
 .steps_box {
   float: left;
   margin-bottom: 15px;
   width: 100%;
 }
-/* line 100, assetic_compasstOVU5h.sass */
+/* line 100, assetic_compassvCV9VA.sass */
 .steps_box li {
   float: left;
   margin-right: 120px;
 }
-/* line 103, assetic_compasstOVU5h.sass */
+/* line 103, assetic_compassvCV9VA.sass */
 .steps_box li.craue_formflow_current_step {
   font-weight: bold;
 }
 
 /* Body override only for login screen */
-/* line 108, assetic_compasstOVU5h.sass */
+/* line 108, assetic_compassvCV9VA.sass */
 body {
   background-color: whitesmoke;
 }
