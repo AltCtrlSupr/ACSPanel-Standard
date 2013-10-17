@@ -17,18 +17,31 @@ class RegisterHostingFlow extends FormFlow {
     protected function loadStepsConfig() {
 
         return array(
-            array(
+            1 => array(
                 'label' => 'hosting.flow.basic',
                 'type' => $this->formType,
             ),
-            array(
-                'label' => 'hosting.flow.mail',
+            2 => array(
+                'label' => 'hosting.flow.dns',
                 'type' => $this->formType,
             ),
-            array(
-                'label' => 'hosting.flow.database',
+            2 => array(
+                'label' => 'hosting.flow.users',
+                'type' => $this->formType,
             ),
         );
+    }
+
+    public function getFormOptions($step, array $options = array()) {
+        $options = parent::getFormOptions($step, $options);
+
+        $formData = $this->getFormData();
+
+        /*if ($step === 2) {
+            $options['domain'] = $formData->getDomain();
+        }*/
+
+        return $options;
     }
 
     public function getName()

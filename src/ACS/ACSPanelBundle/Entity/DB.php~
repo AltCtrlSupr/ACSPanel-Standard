@@ -240,7 +240,7 @@ class DB
 
         //$em = $kernel->getContainer()->get('doctrine.dbal.admin_con_connection');
 
-        $sql = "CREATE DATABASE IF NOT EXISTS ".$this->getName();
+        $sql = "CREATE DATABASE IF NOT EXISTS ".$this->getName()." DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
         $conn->executeQuery($sql);
 
         /* $users = $this->getDatabaseUsers();

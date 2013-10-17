@@ -55,17 +55,17 @@ services:
     # end of FosUser forms override
 
     # Forms flows
-    acs.form.registerHosting:
+    acs.form.register_hosting:
         class: ACS\ACSPanelBundle\Form\HostingFlow\RegisterHostingType
         tags:
             - { name: form.type, alias: registerHosting }
 
-    acs.form.flow.registerHosting:
+    acs.form.flow.register_hosting:
         class: ACS\ACSPanelBundle\Form\HostingFlow\RegisterHostingFlow
         parent: craue.form.flow
         scope: request
         calls:
-            - [ setFormType, ['@acs.form.registerHosting'] ]
+            - [ setFormType, ['@acs.form.register_hosting'] ]
     # END Forms flows
 
     # Kernel response events

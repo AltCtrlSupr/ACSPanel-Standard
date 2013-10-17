@@ -540,7 +540,8 @@ class FosUser extends BaseUser
      */
     public function removeHttpdhost(\ACS\ACSPanelBundle\Entity\HttpdHost $httpdhosts)
     {
-        $this->httpdhosts->removeElement($httpdhosts);
+	if($this->httpdhosts)
+		$this->httpdhosts->removeElement($httpdhosts);
     }
 
     /**
@@ -702,38 +703,6 @@ class FosUser extends BaseUser
         }
         return $user_ids;
      }
-
-    /**
-     * Add domains
-     *
-     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
-     * @return FosUser
-     */
-    public function addDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
-    {
-        $this->domains[] = $domains;
-        return $this;
-    }
-
-    /**
-     * Remove domains
-     *
-     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
-     */
-    public function removeDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
-    {
-        $this->domains->removeElement($domains);
-    }
-
-    /**
-     * Get domains
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDomains()
-    {
-        return $this->domains;
-    }
 
     /**
      * @ORM\PrePersist

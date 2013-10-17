@@ -15,33 +15,35 @@ class RegisterHostingType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         switch ($options['flow_step']) {
         case 1:
-            $builder->add('httpdhosts', 'collection', array(
-                'type' => new HostingHttpdHostType(),
+            $builder->add('domains', new HostingDomainType(), array(
+                        'label' => null,
+                    ))
+                    ->add('php_hosting','checkbox',array(
+                        'label' => 'httpdhost.form.php_hosting',
+                        'required' => false,
+                        'value' => true,
+                        'mapped' => false
+                    ));
+
+            break;
+        case 2:
+            $builder->add('dns', 'collection', array(
+                'type' => new HostingDnsType(),
                 'allow_add' => true,
-                'data' => array(new HttpdHost()),
+                'data' => array(new DB()),
                 'label' => null,
             ));
             break;
-        case 2:
-            $builder->add('databases', 'collection', array(
-                'type' => new HostingDBType(),
-                'allow_add' => true,
-                'data' => array(new DB()),
+        case 3:
+            $builder->add('domains', new HostingDomainType(), array(
                 'label' => null,
             ));
             break;
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver) {
-        $resolver->setDefaults(array(
-            'flowStep' => 0,
-            'data_class' => 'ACS\ACSPanelBundle\Entity\FosUser', // should point to your user entity
-        ));
-    }
-
     public function getName() {
-        return 'registerhosting';
+        return 'register_hosting';
     }
 
 }

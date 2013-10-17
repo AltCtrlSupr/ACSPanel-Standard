@@ -7,22 +7,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
-class HostingDomainType extends AbstractType
+class HostingDnsType extends \ACS\ACSPanelBundle\Form\HttpdHostType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('domain', 'text', array('label' => 'domain.form.domain'))
-	;
-    }
-
-    public function getName() {
-        return 'register_hosting';
-    }
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver) {
-        $resolver->setDefaults(array(
-        ));
+            ->add('domain',new HostingDomainType(),array(
+                'label' => 'httpdhost.form.domain'
+            ))
+        ;
     }
 
 }

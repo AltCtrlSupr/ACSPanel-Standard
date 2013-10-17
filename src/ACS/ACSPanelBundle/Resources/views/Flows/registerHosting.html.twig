@@ -1,4 +1,10 @@
 {% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="@CraueFormFlowBundle/Resources/assets/css/buttons.css" />
+{% endblock %}
+
 {% block header_title %} - {% trans %}Add hosting{% endtrans %}{% endblock %}
 {% block body %}
 <div class="form_box">
@@ -11,13 +17,13 @@
         {{ form_errors(form) }}
 
         {% if flow.getCurrentStepNumber() == 1 %}
-            {{ form_row(form.httpdhosts) }}
+            {{ form_row(form.domains) }}
         {% endif %}
         {% if flow.getCurrentStepNumber() == 2 %}
-            {{ form_row(form.maildomains) }}
+            {{ form_row(form.dns) }}
         {% endif %}
         {% if flow.getCurrentStepNumber() == 3 %}
-            {{ form_row(form.databases) }}
+            {{ form_row(form.users) }}
         {% endif %}
 
         {{ form_rest(form) }}
