@@ -1,5 +1,6 @@
 {% extends '::base.html.twig' %}
-{% block header_title %} - {% trans %}HttpdHost{% endtrans %}{% endblock %}
+{% block title %}{{ parent() }} - {% trans %}httpdhost.title.show{% endtrans %}{% endblock %}
+{% block header_title %} - {% trans %}httpdhost.title.show{% endtrans %}{% endblock %}
 {% block body %}
 
 {% for flashMessage in app.session.flashbag.get('notice') %}

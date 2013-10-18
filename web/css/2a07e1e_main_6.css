@@ -14,18 +14,19 @@
  *Description:
  *Fonts styles. */
 /* COLORS */
-/* line 17, assetic_compasszOemYf.sass */
+/* $headers-bg: #b5441b */
+/* line 17, assetic_compasssr9975.sass */
 body {
   background-color: #323637;
 }
 
-/* line 21, assetic_compasszOemYf.sass */
+/* line 21, assetic_compasssr9975.sass */
 #content {
   background-color: white;
   box-shadow: -5px 0 14px rgba(0, 0, 0, 0.13);
 }
 
-/* line 25, assetic_compasszOemYf.sass */
+/* line 25, assetic_compasssr9975.sass */
 .main {
   background: url("images/menu_bg.png") #ebe4eb;
   margin-left: 20px;
@@ -33,84 +34,104 @@ body {
   width: auto;
 }
 
-/* line 31, assetic_compasszOemYf.sass */
+/* line 31, assetic_compasssr9975.sass */
+.main-container {
+  overflow: hidden !important;
+}
+
+/* line 34, assetic_compasssr9975.sass */
 #section-info {
-  background: #a3aaab;
+  /*background: lighten($heading-bg-color, 45%) */
+  background: #326999;
   border-radius: 5px 5px 0px 0px;
   padding: 8px;
-}
-/* line 35, assetic_compasszOemYf.sass */
-#section-info ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 6px;
-}
-/* line 39, assetic_compasszOemYf.sass */
-#section-info ul a {
   color: white;
   text-shadow: 1px 1px 0px #333333;
   font-size: 20px;
 }
-
-/* line 45, assetic_compasszOemYf.sass */
-#footer-info {
-  background: #a3aaab;
-  border-radius: 0px 0px 5px 5px;
-  padding-top: 40px;
-  padding-bottom: 25px;
-  padding-left: 25px;
-  padding-right: 25px;
+/* line 42, assetic_compasssr9975.sass */
+#section-info ul {
+  list-style: none;
+  margin: 0;
+  margin-top: 4px;
+  padding-left: 6px;
+}
+/* line 47, assetic_compasssr9975.sass */
+#section-info ul li {
+  float: left;
+  margin-right: 10px;
+}
+/* line 50, assetic_compasssr9975.sass */
+#section-info ul a {
+  color: white;
 }
 
-/* line 56, assetic_compasszOemYf.sass */
+/* line 53, assetic_compasssr9975.sass */
+#footer-info {
+  background: #326999;
+  border-radius: 0px 0px 5px 5px;
+  padding: 10px 25px 0;
+}
+/* line 57, assetic_compasssr9975.sass */
+#footer-info a {
+  color: white;
+}
+
+/* line 61, assetic_compasssr9975.sass */
+#section-info.admin,
+#footer-info.admin {
+  background: #d9471a;
+}
+
+/* line 67, assetic_compasssr9975.sass */
 #heading {
   background-color: #323637;
   color: white;
 }
-/* line 59, assetic_compasszOemYf.sass */
+/* line 70, assetic_compasssr9975.sass */
 #heading a.sys-title {
   color: #30adf5;
 }
 
-/* line 63, assetic_compasszOemYf.sass */
+/* line 74, assetic_compasssr9975.sass */
 #sidebar .menu {
   top: 10px;
 }
 
-/* line 66, assetic_compasszOemYf.sass */
+/* line 77, assetic_compasssr9975.sass */
 #right-sidebar {
   background-color: #ebe4eb;
 }
-/* line 68, assetic_compasszOemYf.sass */
+/* line 79, assetic_compasssr9975.sass */
 #right-sidebar h2 {
   background-color: #323637;
   color: #79caf8;
 }
 
-/* line 74, assetic_compasszOemYf.sass */
+/* line 85, assetic_compasssr9975.sass */
 #user-tools a {
   color: #91d4fa;
 }
 
-/* line 77, assetic_compasszOemYf.sass */
+/* line 88, assetic_compasssr9975.sass */
 #footer {
   background-color: #323637;
   color: white;
 }
 
-/* line 81, assetic_compasszOemYf.sass */
+/* line 92, assetic_compasssr9975.sass */
 ul.plan_attributes {
   display: none;
 }
 
 /* TITLES */
-/* line 86, assetic_compasszOemYf.sass */
+/* line 97, assetic_compasssr9975.sass */
 #content h1 {
   float: left;
   color: #064c75;
 }
 
-/* line 90, assetic_compasszOemYf.sass */
+/* line 101, assetic_compasssr9975.sass */
 ul.tab-nav {
   background: #f1f1f1;
   float: left;
@@ -119,12 +140,12 @@ ul.tab-nav {
   /*height: 40px; */
   width: 100%;
 }
-/* line 97, assetic_compasszOemYf.sass */
+/* line 108, assetic_compasssr9975.sass */
 ul.tab-nav li {
   float: left;
   background: url("images/sep_tabs.png") no-repeat right center;
 }
-/* line 100, assetic_compasszOemYf.sass */
+/* line 111, assetic_compasssr9975.sass */
 ul.tab-nav li a {
   float: left;
   text-decoration: none;
@@ -132,47 +153,47 @@ ul.tab-nav li a {
   height: 24px;
   padding: 12px 14px;
 }
-/* line 106, assetic_compasszOemYf.sass */
+/* line 117, assetic_compasssr9975.sass */
 ul.tab-nav li a.active {
   background: white url("images/sep_tabs.png") no-repeat 101% 1px;
 }
-/* line 108, assetic_compasszOemYf.sass */
+/* line 119, assetic_compasssr9975.sass */
 ul.tab-nav li a:hover {
   text-decoration: underline;
 }
 
 /* Actions list */
-/* line 113, assetic_compasszOemYf.sass */
+/* line 124, assetic_compasssr9975.sass */
 .record_actions {
   float: left;
   clear: both;
 }
 
 /*Search results highlight */
-/* line 119, assetic_compasszOemYf.sass */
+/* line 130, assetic_compasssr9975.sass */
 .highlight {
   background-color: #d3e18a;
 }
 
 /* Dynamic adder */
-/* line 124, assetic_compasszOemYf.sass */
+/* line 135, assetic_compasssr9975.sass */
 .dinamic-adder {
   float: left;
   clear: both;
 }
 
-/* line 128, assetic_compasszOemYf.sass */
+/* line 139, assetic_compasssr9975.sass */
 ul.dinamic-adder {
   list-style: none;
   padding: 0;
 }
-/* line 131, assetic_compasszOemYf.sass */
+/* line 142, assetic_compasssr9975.sass */
 ul.dinamic-adder li {
   float: left;
   clear: both;
 }
 
-/* line 135, assetic_compasszOemYf.sass */
+/* line 146, assetic_compasssr9975.sass */
 .add_tag_link {
   float: left;
   clear: both;

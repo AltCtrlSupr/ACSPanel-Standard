@@ -1,9 +1,15 @@
 {% extends '::base.html.twig' %}
-{% block header_title %} - {% trans %}MailDomain list{% endtrans %}{% endblock %}
+{% block header_title %} - {% trans %}maildomain.title.index{% endtrans %}{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
         <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('maildomain') }}"> {% trans %}maildomain{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}maildomain.title.index{% endtrans %}</li>
 {% endblock %}
 
 {% block body %}
