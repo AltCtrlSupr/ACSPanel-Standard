@@ -47,12 +47,13 @@
 
             <div id="section-info" class="row-fluid main {% if is_granted('ROLE_ADMIN') %}admin{% endif %}">
               <div class="span9">
+                    <ul class="breadcumb">
                     {% block breadcumb %}
-			<ul class="breadcumb">
 				{#<li><a href="{{ path('acs_acspanel_homepage') }}">{% trans %}common.home{% endtrans %}</a></li>#}
-				<li><a href="{{ path('acs_acspanel_homepage') }}">{% trans %}common.home{% endtrans %}</a></li>
-			</ul>
+                                <li><a href="{{ path('acs_acspanel_homepage') }}">
+                                  {% if app.request.locale == 'gk' %}{{ app.user.username }}{% endif %}{% trans %}common.home{% endtrans %}{% if app.request.locale == 'gk' %}~{% if is_granted('ROLE_ADMIN') %}#{% else %}${% endif %}{% endif %}</a></li>
 		    {% endblock %}
+                    </ul>
                   </div>
 
                 <div class="span3">
@@ -68,7 +69,7 @@
 
             </div>
 
-            <div class="row-fluid main">
+            <div class="row-fluid main main-container">
                 <div id="sidebar" class="">
                     {% block sidebar %}
                         <!-- TODO: Move this check to Builder -->

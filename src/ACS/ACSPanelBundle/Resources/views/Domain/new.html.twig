@@ -1,13 +1,26 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}Domain creation{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('domain') }}"> {% trans %}domain{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}domain.title.new{% endtrans %}</li>
+{% endblock %}
+
 {% block body %}
 
 <div class="form_box">
     <form action="{{ path('domain_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_widget(form) }}
+        {{ form_row(form.domain) }}
+        {{ form_row(form.parent_domain) }}
+        <div class="control-group"><div class="controls">{{ form_widget(form.is_httpd_alias) }}{{ form_label(form.is_httpd_alias, null, {'label_attr': {'class':'checkbox inline'}})}}</div></div>
+        <div class="control-group"><div class="controls">{{ form_widget(form.is_dns_alias) }}{{ form_label(form.is_dns_alias, null, {'label_attr': {'class':'checkbox inline'}})}}</div></div>
+        <div class="control-group"><div class="controls">{{ form_widget(form.is_mail_alias) }}{{ form_label(form.is_mail_alias, null, {'label_attr': {'class':'checkbox inline'}})}}</div></div>
+        <div class="control-group"><div class="controls">{{ form_widget(form.add_dns_domain) }}{{ form_label(form.add_dns_domain, null, {'label_attr': {'class':'checkbox inline'}})}}</div></div>
         <p>
             <button class="btn" type="submit">Create</button>
         </p>
+        {{ form_rest(form) }}
     </form>
 </div>
 

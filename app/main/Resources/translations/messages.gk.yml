@@ -1,6 +1,6 @@
 ## templates.es.yml
 common:
-  home: Inicio
+  home: @acspanel:
 menu:
   admin:
     main: Administrador
@@ -120,7 +120,7 @@ dnsrecord:
 
 domain:
   title:
-    index: listado
+    index: list
   form:
     domain: Nombre de dominio
     parent_domain: Dominio padre
@@ -219,4 +219,4 @@ hosting:
     add_mx_records: Añadir registro 'MX'
 
 breadcumb:
-  sep: ">"
+  sep: ""

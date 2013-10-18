@@ -1,5 +1,12 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}Domain{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('domain') }}"> {% trans %}domain{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}domain.title.show{% endtrans %}</li>
+{% endblock %}
+
 {% block body %}
 
 <table class="record_properties table">

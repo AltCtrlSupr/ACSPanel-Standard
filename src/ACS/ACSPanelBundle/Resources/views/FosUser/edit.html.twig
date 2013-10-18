@@ -1,5 +1,12 @@
 {% extends '::base.html.twig' %}
 {% block header_title %} - {% trans %}User edit{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('users') }}"> {% trans %}users{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}users.title.edit{% endtrans %}</li>
+{% endblock %}
+
 {% block body %}
 
 <div class="form_box">

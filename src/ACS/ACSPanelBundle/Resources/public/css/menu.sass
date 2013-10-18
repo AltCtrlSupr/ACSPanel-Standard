@@ -13,9 +13,8 @@
 
 #sidebar
   background-color: $menu-bg
-  position: absolute
   width: auto
-
+  float: left
 
 @mixin menu-item-separation
   border:
@@ -32,12 +31,13 @@
     //border-bottom: 1px solid #D8D8D8
     color: #0977B6
   span.current
-    background-color: lighten($menu-selected-item-bg-color, 0)
+    //background-color: lighten($menu-selected-item-bg-color, 0)
   li
     &.current
-      background-color: lighten($menu-selected-item-bg-color, 0)
+      //background-color: lighten($menu-selected-item-bg-color, 0)
       a
-        color: $menu-selected-item-color
+        //color: $menu-selected-item-color
+        color: #D9471A
     span
       cursor: pointer
       display: block
@@ -52,25 +52,26 @@
       display: block
       padding: 8px 15px
     span:hover, a:hover
-      color: $menu-selected-item-color
-      background-color: lighten($menu-selected-item-bg-color, 5)
+      color: #D9471A
+      //color: $menu-selected-item-color
+      //background-color: lighten($menu-selected-item-bg-color, 5)
       text-decoration: none
   span:hover
-    color: $menu-selected-item-color
-    background-color: lighten($menu-selected-item-bg-color, 5)
+    //color: $menu-selected-item-color
+    //background-color: lighten($menu-selected-item-bg-color, 5)
   li
     &:hover 
-      background-color: lighten($menu-selected-item-bg-color, 5)
+      //background-color: lighten($menu-selected-item-bg-color, 5)
       a, span
-        color: $menu-selected-item-color
+        //color: $menu-selected-item-color
     &.current_ancestor
-      background-color: lighten($menu-selected-item-bg-color, 10)
+      //background-color: lighten($menu-selected-item-bg-color, 10)
       a, span
-        color: $menu-selected-item-color
+        //color: $menu-selected-item-color
     &:active
-      background-color: lighten($menu-selected-item-bg-color, 0)
+      //background-color: lighten($menu-selected-item-bg-color, 0)
       a
-        color: $menu-selected-item-color
+        //color: $menu-selected-item-color
     ul
       display: none
       border: medium none

@@ -20,6 +20,7 @@ acsacs_panel_settings:
              en: 'English'
              es: 'Spanish'
              ca: 'Catalan'
+             gk: 'Geek'
            default_value: 'en'
            context: 'User settings'
            focus: 'user_setting'

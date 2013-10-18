@@ -6,6 +6,12 @@
         <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
 {% endblock %}
 
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('server') }}"> {% trans %}server{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}server.title.index{% endtrans %}</li>
+{% endblock %}
+
 {% block body %}
 
 <table class="records_list table table-striped table-bordered">
@@ -15,7 +21,7 @@
             <th>{% trans %}IP Address{% endtrans %}</th>
             <th>{% trans %}Description{% endtrans %}</th>
             <th>{% trans %}Services{% endtrans %}</th>
-				<th>{% trans %}Enabled{% endtrans %}</th>
+            <th>{% trans %}Enabled{% endtrans %}</th>
             <th>{% trans %}Actions{% endtrans %}</th>
         </tr>
     </thead>

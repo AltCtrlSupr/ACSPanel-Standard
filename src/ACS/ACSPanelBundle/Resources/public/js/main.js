@@ -30,6 +30,16 @@ $(document).ready(function(){
       $("table.records_list tr td").highlight(hls_query);
     }
 
+    // TODO: Load only when desktop versions
+    $(document).scroll(function(){
+        if($(this).scrollTop() > 110){
+            $('#sidebar').css('position', 'fixed');
+            $('#sidebar').css('top', '0px');
+        }else{
+            $('#sidebar').css('position', '');
+        }
+    });
+
 
 });
 
