@@ -31,6 +31,14 @@ body
 .main-container
   overflow: hidden !important
 
+#top-border
+  background: $headers-bg
+  height: 5px
+  position: relative
+  top: 0
+  z-index: 9999
+  width: auto
+
 #section-info
   /*background: lighten($heading-bg-color, 45%)
   background: $headers-bg
@@ -58,6 +66,7 @@ body
     color: #fff
 
 
+#top-border.admin,
 #section-info.admin,
 #footer-info.admin
   background: $headers-admin-bg

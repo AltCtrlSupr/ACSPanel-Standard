@@ -35,8 +35,13 @@ $(document).ready(function(){
         if($(this).scrollTop() > 110){
             $('#sidebar').css('position', 'fixed');
             $('#sidebar').css('top', '0px');
+            $('#top-border').parent().show();
+            $('#top-border').css('position', 'fixed');
+
         }else{
             $('#sidebar').css('position', '');
+            $('#top-border').css('position', '');
+            $('#top-border').parent().hide();
         }
     });
 
