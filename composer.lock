@@ -3,54 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "b53bd50af5c68b41f49d4e572d03406f",
+    "hash": "e145177b9bae6321e19cb55d8b3c9501",
     "packages": [
-        {
-            "name": "apy/breadcrumbtrail-bundle",
-            "version": "dev-master",
-            "target-dir": "APY/BreadcrumbTrailBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Abhoryo/APYBreadcrumbTrailBundle.git",
-                "reference": "e3cb88330d0fd55aaebf4daad43caab3593ddf32"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Abhoryo/APYBreadcrumbTrailBundle/zipball/e3cb88330d0fd55aaebf4daad43caab3593ddf32",
-                "reference": "e3cb88330d0fd55aaebf4daad43caab3593ddf32",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
-            },
-            "suggest": {
-                "ext-intl": "*"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "APY\\BreadcrumbTrailBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Yoann Petit",
-                    "email": "abhoryo@free.fr"
-                }
-            ],
-            "description": "Symfony2 Breadcrumbs Bundle with annotations and PHP",
-            "homepage": "https://github.com/Abhoryo/APYBreadcrumbTrailBundle",
-            "keywords": [
-                "Breadcrumb Trail",
-                "annotation",
-                "breadcrumbs",
-                "fil ariane",
-                "symfony"
-            ],
-            "time": "2013-09-16 08:20:07"
-        },
         {
             "name": "craue/formflow-bundle",
             "version": "dev-master",
@@ -392,12 +346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "8ffac1c63f34124f693b93889fa32f4036eb241b"
+                "reference": "dfc0dc9a3f6258c878768218fe49cc092ea8a8d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/8ffac1c63f34124f693b93889fa32f4036eb241b",
-                "reference": "8ffac1c63f34124f693b93889fa32f4036eb241b",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/dfc0dc9a3f6258c878768218fe49cc092ea8a8d1",
+                "reference": "dfc0dc9a3f6258c878768218fe49cc092ea8a8d1",
                 "shasum": ""
             },
             "require": {
@@ -439,7 +393,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2013-10-10 22:08:39"
+            "time": "2013-10-16 14:26:38"
         },
         {
             "name": "doctrine/dbal",
@@ -1011,6 +965,58 @@
             "time": "2013-10-09 09:05:56"
         },
         {
+            "name": "incenteev/composer-parameter-handler",
+            "version": "dev-master",
+            "target-dir": "Incenteev/ParameterHandler",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Incenteev/ParameterHandler.git",
+                "reference": "bc06242a63298affc72d2089f93d8986a6217c4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/bc06242a63298affc72d2089f93d8986a6217c4c",
+                "reference": "bc06242a63298affc72d2089f93d8986a6217c4c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/yaml": "~2.0"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpspec/prophecy-phpunit": "~1.0",
+                "symfony/filesystem": "~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Incenteev\\ParameterHandler": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Composer script handling your ignored parameter file",
+            "homepage": "https://github.com/Incenteev/ParameterHandler",
+            "keywords": [
+                "parameters management"
+            ],
+            "time": "2013-09-03 08:29:03"
+        },
+        {
             "name": "jdorn/sql-formatter",
             "version": "dev-master",
             "source": {
@@ -1228,12 +1234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "246d7096801ce29b5aea30a1abf0277ccfb9f055"
+                "reference": "24c5fc557ae1cec99891bef6e87742481a540975"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/246d7096801ce29b5aea30a1abf0277ccfb9f055",
-                "reference": "246d7096801ce29b5aea30a1abf0277ccfb9f055",
+                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/24c5fc557ae1cec99891bef6e87742481a540975",
+                "reference": "24c5fc557ae1cec99891bef6e87742481a540975",
                 "shasum": ""
             },
             "require": {
@@ -1272,7 +1278,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2013-09-13 09:05:44"
+            "time": "2013-10-15 10:32:52"
         },
         {
             "name": "jms/parser-lib",
@@ -1454,12 +1460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "0c98dc74502b729ce473d387cf72fd294dae5b0e"
+                "reference": "7bf5700aafbd40ba5c2ac3e10548158cec1919c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/0c98dc74502b729ce473d387cf72fd294dae5b0e",
-                "reference": "0c98dc74502b729ce473d387cf72fd294dae5b0e",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/7bf5700aafbd40ba5c2ac3e10548158cec1919c5",
+                "reference": "7bf5700aafbd40ba5c2ac3e10548158cec1919c5",
                 "shasum": ""
             },
             "require": {
@@ -1515,7 +1521,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2013-09-09 07:25:33"
+            "time": "2013-10-16 00:35:01"
         },
         {
             "name": "knplabs/knp-components",
@@ -1886,12 +1892,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4"
+                "reference": "620922356a36d8903d213c986568fe159b530747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/8e5a671eef6e1096d764e6f3524e6f732afa53b4",
-                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/620922356a36d8903d213c986568fe159b530747",
+                "reference": "620922356a36d8903d213c986568fe159b530747",
                 "shasum": ""
             },
             "require": {
@@ -1941,7 +1947,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-11 16:18:40"
+            "time": "2013-10-16 16:27:10"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2082,17 +2088,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "2.2.x-dev",
+            "version": "dev-master",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "2779c8b532def5a4df79b7e750444149c12cf329"
+                "reference": "45664e203fd1364705091a58971cc6bd94fb5189"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/2779c8b532def5a4df79b7e750444149c12cf329",
-                "reference": "2779c8b532def5a4df79b7e750444149c12cf329",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/45664e203fd1364705091a58971cc6bd94fb5189",
+                "reference": "45664e203fd1364705091a58971cc6bd94fb5189",
                 "shasum": ""
             },
             "require": {
@@ -2101,7 +2107,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
@@ -2124,7 +2130,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2013-09-18 07:48:04"
+            "time": "2013-09-18 07:48:10"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2180,12 +2186,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "766205eccd54314beec018a13d6f7fd0c42d45a1"
+                "reference": "e2572e829cc7b3d37c8fc46c9dfad9362378aad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/766205eccd54314beec018a13d6f7fd0c42d45a1",
-                "reference": "766205eccd54314beec018a13d6f7fd0c42d45a1",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/e2572e829cc7b3d37c8fc46c9dfad9362378aad1",
+                "reference": "e2572e829cc7b3d37c8fc46c9dfad9362378aad1",
                 "shasum": ""
             },
             "require": {
@@ -2219,7 +2225,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2013-09-23 18:03:41"
+            "time": "2013-10-15 18:51:32"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -2228,12 +2234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "6e8dc798687963ffc4e4e0dfa687b361699855a9"
+                "reference": "9da4489322c5442ff021c4cd3f28dd79b2a8df07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/6e8dc798687963ffc4e4e0dfa687b361699855a9",
-                "reference": "6e8dc798687963ffc4e4e0dfa687b361699855a9",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/9da4489322c5442ff021c4cd3f28dd79b2a8df07",
+                "reference": "9da4489322c5442ff021c4cd3f28dd79b2a8df07",
                 "shasum": ""
             },
             "require": {
@@ -2281,7 +2287,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2013-09-16 09:35:16"
+            "time": "2013-10-13 16:27:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2561,12 +2567,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "e219481579f5058b6ccaa29efa76b32b119d8792"
+                "reference": "408769ead1990d6277f7d3ddd654110058b17c62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/e219481579f5058b6ccaa29efa76b32b119d8792",
-                "reference": "e219481579f5058b6ccaa29efa76b32b119d8792",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/408769ead1990d6277f7d3ddd654110058b17c62",
+                "reference": "408769ead1990d6277f7d3ddd654110058b17c62",
                 "shasum": ""
             },
             "require": {
@@ -2661,7 +2667,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-11 11:59:44"
+            "time": "2013-10-17 21:24:37"
         },
         {
             "name": "twig/extensions",
@@ -2716,12 +2722,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "09c386b3359cc22b4112197c2d8c6d6f7a49c918"
+                "reference": "27bd8b185f9e7e217952de05756fdfce6bdc4673"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/09c386b3359cc22b4112197c2d8c6d6f7a49c918",
-                "reference": "09c386b3359cc22b4112197c2d8c6d6f7a49c918",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/27bd8b185f9e7e217952de05756fdfce6bdc4673",
+                "reference": "27bd8b185f9e7e217952de05756fdfce6bdc4673",
                 "shasum": ""
             },
             "require": {
@@ -2757,7 +2763,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-07 10:00:50"
+            "time": "2013-10-17 08:34:06"
         }
     ],
     "packages-dev": [
@@ -2777,8 +2783,7 @@
         "gregwar/form-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
-        "jms/serializer-bundle": 20,
-        "apy/breadcrumbtrail-bundle": 20
+        "jms/serializer-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
