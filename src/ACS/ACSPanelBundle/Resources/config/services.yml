@@ -66,6 +66,8 @@ services:
         scope: request
         calls:
             - [ setFormType, ['@acs.form.register_hosting'] ]
+            - [ setContainer, ['@service_container'] ]
+            - [ setEm, ['@doctrine.orm.entity_manager'] ]
     # END Forms flows
 
     # Kernel response events

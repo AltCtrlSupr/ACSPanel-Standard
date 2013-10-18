@@ -24,6 +24,7 @@ menu:
     main: Web
     hosts: Hosts
     users: Usuarios web
+    newhosting: Nuevo alojamiento
   dns:
     main: DNS
     domains: Dominios
@@ -202,3 +203,15 @@ mailbox:
     messages: Mensajes
     created_at: Creado el
     updated_at: Actualizad el
+
+hosting:
+  flow:
+    basic: Básico
+    users: Usuarios
+    dns: DNS
+  form:
+    php_hosting: Activar PHP
+    add_a_records: Añadir registro 'A'
+    add_ns1_records: Añadir primer registro 'NS'
+    add_ns2_records: Añadir segundo registro 'NS'
+    add_mx_records: Añadir registro 'MX'

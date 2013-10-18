@@ -36,12 +36,27 @@
         <div class="container-fluid">
             <div id="heading" class="row-fluid">
                 <h1 role="heading" class="ui-title span9"><a href="{{ path('acs_acspanel_homepage') }}" class="sys-title">{{ panel_name }}</a>{% block header_title %}{% endblock %}</h1>
-                <div id="user-tools" class="span3">
-                    <div id="search-box">
-                        {% if app.session.get('is_superior_user') == 'true' %}Is superior user{% endif %}
-                        {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+                <div  id="user-tools" class="span3">
+                  <p>
+                  {% if app.session.get('is_superior_user') == 'true' %}Is superior user{% endif %}
+                  {% trans %}Hello{%endtrans%}, <a href="{{ path('fos_user_profile_edit') }}" title="{{ app.user.username }}">{{ app.user.username }}</a> /
+                  <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
+                  </p>
+                </div>
+            </div>
 
-                        <a href="{{ path('fos_user_security_logout') }}" title="{% trans %}Logout{% endtrans %}">{% trans %}Logout{% endtrans %}</a>
+            <div id="section-info" class="row-fluid main {% if is_granted('ROLE_ADMIN') %}admin{% endif %}">
+              <div class="span9">
+                    {% block breadcumb %}
+			<ul class="breadcumb">
+				{#<li><a href="{{ path('acs_acspanel_homepage') }}">{% trans %}common.home{% endtrans %}</a></li>#}
+				<li><a href="{{ path('acs_acspanel_homepage') }}">{% trans %}common.home{% endtrans %}</a></li>
+			</ul>
+		    {% endblock %}
+                  </div>
+
+                <div class="span3">
+                    <div id="search-box">
                         <form class="" method="POST" action="{% if search_action is defined %}{{ path(search_action) }}{% else %}{{ path('global_search') }}{% endif %}">
 <div class="input-append">
                             <input name="term"  placeholder="{% trans %}Type search terms..{% endtrans %}" type="TEXT" value="{% if term is defined %}{{ term }}{% endif %}" />
@@ -53,16 +68,8 @@
 
             </div>
 
-            <div id="section-info" class="row-fluid main">
-                    {% block breadcumb %}
-			<ul class="breadcumb">
-				<li><a href="{{ path('acs_acspanel_homepage') }}">{% trans %}common.home{% endtrans %}</a></li>
-			</ul>
-		    {% endblock %}
-            </div>
-
             <div class="row-fluid main">
-                <div id="sidebar" class="fill span2">
+                <div id="sidebar" class="">
                     {% block sidebar %}
                         <!-- TODO: Move this check to Builder -->
                         {% if is_granted('ROLE_ADMIN') %}
@@ -88,7 +95,7 @@
                 {#</div>#}
             </div>
 
-            <div id="footer-info" class="row-fluid main">
+            <div id="footer-info" class="row-fluid main {% if is_granted('ROLE_ADMIN') %}admin{% endif %}">
 	      <p class="pull-right"><a href="#">ACSPanel is GPL licensed</p></p>
             </div>
 

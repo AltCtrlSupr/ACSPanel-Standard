@@ -32,10 +32,16 @@ class HostingController extends Controller
                 $form = $flow->createForm();
             }else{
                 $em = $this->getDoctrine()->getEntityManager();
+                //$domain = $flow->getFormData();
+                //print_r($domain->getKeys());
+                //exit;
                 $em->persist($fosuser);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('homepage'));
+                return $this->render('ACSACSPanelBundle:Flows:showHosting.html.twig', array(
+                    'form' => $form->createView(),
+                    'flow' => $flow,
+                ));
 
             }
         }

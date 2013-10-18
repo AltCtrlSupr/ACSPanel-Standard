@@ -10,8 +10,20 @@ class RegisterHostingFlow extends FormFlow {
      */
     protected $formType;
 
+    protected $container;
+
+    protected $em;
+
     public function setFormType($formType) {
         $this->formType = $formType;
+    }
+
+    public function setContainer($container) {
+        $this->container = $container;
+    }
+
+    public function setEm($em) {
+        $this->em = $em;
     }
 
     protected function loadStepsConfig() {
@@ -25,7 +37,7 @@ class RegisterHostingFlow extends FormFlow {
                 'label' => 'hosting.flow.dns',
                 'type' => $this->formType,
             ),
-            2 => array(
+            3 => array(
                 'label' => 'hosting.flow.users',
                 'type' => $this->formType,
             ),
@@ -37,9 +49,14 @@ class RegisterHostingFlow extends FormFlow {
 
         $formData = $this->getFormData();
 
-        /*if ($step === 2) {
-            $options['domain'] = $formData->getDomain();
-        }*/
+        $options['container'] = $this->container;
+
+        $options['em'] = $this->em;
+
+
+        if ($step === 2) {
+            $options['domain'] = $formData->getDomains()->first();
+        }
 
         return $options;
     }

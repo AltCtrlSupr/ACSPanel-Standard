@@ -17,29 +17,71 @@ class RegisterHostingType extends AbstractType {
         case 1:
             $builder->add('domains', new HostingDomainType(), array(
                         'label' => null,
+                        'mapped' => false
                     ))
                     ->add('php_hosting','checkbox',array(
-                        'label' => 'httpdhost.form.php_hosting',
+                        'label' => 'hosting.form.php_hosting',
                         'required' => false,
                         'value' => true,
+                        'attr'     => array('checked'   => 'checked'),
                         'mapped' => false
                     ));
 
             break;
         case 2:
-            $builder->add('dns', 'collection', array(
-                'type' => new HostingDnsType(),
-                'allow_add' => true,
-                'data' => array(new DB()),
-                'label' => null,
+            $builder->add('add_a_records', 'checkbox', array(
+                'label' => 'hosting.form.add_a_records',
+                'required' => false,
+                'value' => true,
+                'attr'     => array('checked'   => 'checked'),
+                'mapped' => false
+            ));
+            $builder->add('add_ns1_records', 'checkbox', array(
+                'label' => 'hosting.form.add_ns1_records',
+                'required' => false,
+                'value' => true,
+                'attr'     => array('checked'   => 'checked'),
+                'mapped' => false
+            ));
+            $builder->add('add_ns2_records', 'checkbox', array(
+                'label' => 'hosting.form.add_ns2_records',
+                'required' => false,
+                'value' => true,
+                'attr'     => array('checked'   => 'checked'),
+                'mapped' => false
+            ));
+            $builder->add('add_mx_records', 'checkbox', array(
+                'label' => 'hosting.form.add_mx_records',
+                'required' => false,
+                'value' => true,
+                'attr'     => array('checked'   => 'checked'),
+                'mapped' => false
             ));
             break;
         case 3:
-            $builder->add('domains', new HostingDomainType(), array(
+            $builder->add('databases', 'collection', array(
+                'type' => new HostingDatabasesType($options['container'],$options['em']),
                 'label' => null,
+                'mapped' => false
+            ));
+            $builder->add('maildomains', 'collection', array(
+                'type' => new HostingDomainType(),
+                'label' => null,
+                'mapped' => false
             ));
             break;
         }
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver) {
+        $resolver->setDefaults(array(
+            'flow_step' => 1,
+            'domain' => '',
+            'default_webserver' => '127.0.0.1',
+            'container' => null,
+            'em' => null,
+            'data_class' => 'ACS\ACSPanelBundle\Entity\FosUser', // should point to your user entity
+        ));
     }
 
     public function getName() {

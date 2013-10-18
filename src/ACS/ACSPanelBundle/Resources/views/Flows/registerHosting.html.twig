@@ -17,13 +17,13 @@
         {{ form_errors(form) }}
 
         {% if flow.getCurrentStepNumber() == 1 %}
-            {{ form_row(form.domains) }}
+            {{ form_row(form) }}
         {% endif %}
         {% if flow.getCurrentStepNumber() == 2 %}
-            {{ form_row(form.dns) }}
+            {{ form_row(form) }}
         {% endif %}
         {% if flow.getCurrentStepNumber() == 3 %}
-            {{ form_row(form.users) }}
+            {{ form_row(form) }}
         {% endif %}
 
         {{ form_rest(form) }}
