@@ -5,6 +5,10 @@ ACS\ACSPanelBundle\Entity\IpAddress:
         ip:
             - Ip:  { version: all }
 
+ACS\ACSPanelBundle\Entity\MailMailbox:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: domain, username
+
 ACS\ACSPanelBundle\Entity\Domain:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: domain
@@ -17,16 +21,6 @@ ACS\ACSPanelBundle\Entity\Domain:
                 #target_entity: ACSACSPanelBundle:HttpdAlias
                 #target_field: alias
 
-#TODO: Check if is still needed
-ACS\ACSPanelBundle\Entity\PdnsDomain:
-    #constraints:
-        #- Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
-    #properties:
-        #name:
-            #- Regex:
-                #pattern: "/^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$/"
-                #message: The domain must be valid alias name
-                #
 ACS\ACSPanelBundle\Entity\FosUser:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
