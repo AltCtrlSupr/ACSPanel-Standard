@@ -96,11 +96,17 @@ class DomainController extends Controller
             throw $this->createNotFoundException('Unable to find Domain entity.');
         }
 
+        $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findByDomain($entity);
+        $maildomains = $em->getRepository('ACSACSPanelBundle:MailDomain')->findByDomain($entity);
+
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:Domain:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+            'dnsdomains' => $dnsdomains,
+            'maildomains' => $maildomains,
+        ));
     }
 
     /**
