@@ -55,11 +55,19 @@ class RegisterHostingFlow extends FormFlow {
 
 
         if ($step === 2) {
-            $options['domain'] = $formData->getDomains()->first();
+            //$options['domain'] = $formData->getDomains()->first();
         }
 
         return $options;
     }
+
+    public function getFormData() {
+        $stepData = $this->retrieveStepData();
+
+        return $stepData;
+
+    }
+
 
     public function getName()
     {

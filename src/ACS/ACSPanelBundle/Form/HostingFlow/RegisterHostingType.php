@@ -15,9 +15,15 @@ class RegisterHostingType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         switch ($options['flow_step']) {
         case 1:
+            //$web_services = $this->em->getRepository('ACS\ACSPanelBundle\Entity\ServiceType')->getWebServiceTypes();
             $builder->add('domains', new HostingDomainType(), array(
                         'label' => null,
                         'mapped' => false
+                    ))
+                    ->add('service', 'entity',array(
+                        'class' => 'ACSACSPanelBundle:Service',
+                        'mapped' => false,
+                        'property' => 'name'
                     ))
                     ->add('php_hosting','checkbox',array(
                         'label' => 'hosting.form.php_hosting',
@@ -56,6 +62,11 @@ class RegisterHostingType extends AbstractType {
                 'value' => true,
                 'attr'     => array('checked'   => 'checked'),
                 'mapped' => false
+            ));
+            $builder->add('service', 'entity',array(
+                'class' => 'ACSACSPanelBundle:Service',
+                'mapped' => false,
+                'property' => 'name'
             ));
             break;
         case 3:

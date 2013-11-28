@@ -155,7 +155,7 @@ class HttpdHostController extends Controller
                 // TODO: check set enabled isn't working
                 $wwwalias->setEnabled($entity->getEnabled());
                 $wwwalias->setParentDomain($entity->getDomain());
-					 $wwwalias->setIsHttpdAlias(true);
+                 $wwwalias->setIsHttpdAlias(true);
                 $em->persist($wwwalias);
                 // We create A type DNS record automatically
                 // Check if the domain exists in the dns_domains table
@@ -179,13 +179,7 @@ class HttpdHostController extends Controller
             }
 
 
-            // Mark webserver to reload
-            // TODO: There is a bug when it tries to mark server to reload - Damn it!!
-            // $this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
-
             $em->flush();
-
-            //throw new \Exception('Debug exception!');
 
             return $this->redirect($this->generateUrl('httpdhost_show', array('id' => $entity->getId())));
         }
@@ -285,8 +279,6 @@ class HttpdHostController extends Controller
 
         if ($editForm->isValid()) {
             $em->persist($entity);
-            // Mark webserver to reload
-            //$this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
             $em->flush();
 
             return $this->redirect($this->generateUrl('httpdhost_edit', array('id' => $id)));
@@ -317,8 +309,6 @@ class HttpdHostController extends Controller
             }
 
             $em->remove($entity);
-            // Mark webserver to reload
-            //$this->get('server.actions')->setWebserverToReload($entity->getService()->getServer());
             $em->flush();
         }
 
