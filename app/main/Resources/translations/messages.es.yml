@@ -129,6 +129,10 @@ domain:
     is_mail_alias: ¿Es alias de Mail?
     adddnsdomain: ¿Añadir dominio DNS?
     user: Usuario propietario
+  fields:
+    httpdhost: HTTPD hosts
+    dns: Registros DNS
+    mail: Maildomains
 
 httpdhost:
   form:
