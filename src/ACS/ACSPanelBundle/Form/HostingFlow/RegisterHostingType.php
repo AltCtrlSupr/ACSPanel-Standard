@@ -63,7 +63,7 @@ class RegisterHostingType extends AbstractType {
                 'attr'     => array('checked'   => 'checked'),
                 'mapped' => false
             ));
-            $builder->add('servie', 'entity',array(
+            $builder->add('service', 'entity',array(
                 'class' => 'ACSACSPanelBundle:Service',
                 'mapped' => false,
                 'property' => 'name'

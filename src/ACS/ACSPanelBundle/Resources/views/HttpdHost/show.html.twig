@@ -16,20 +16,28 @@
             <td>{{ entity.domain }}</td>
         </tr>
         <tr>
-            <th>{% trans %}Configuration{% endtrans %}</th>
-            <td>{{ entity.configuration }}</td>
+            <th>{% trans %}Enabled{% endtrans %}</th>
+            <td data-title="{% trans %}httpdhost.field.enabled{% endtrans %}">
+                <a href="{{ path('httpdhost_setenabled', { 'id': entity.id }) }}">
+                    <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+                </a>
+            </td>
         </tr>
         <tr>
             <th>{% trans %}Cgi{% endtrans %}</th>
-            <td>{{ entity.cgi }}</td>
+            <td data-title="{% trans %}httpdhost.field.cgi{% endtrans %}"><img src="{% if entity.cgi %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
         </tr>
         <tr>
             <th>{% trans %}Ssi{% endtrans %}</th>
-            <td>{{ entity.ssi }}</td>
+            <td data-title="{% trans %}httpdhost.field.ssi{% endtrans %}"><img src="{% if entity.ssi %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
         </tr>
         <tr>
             <th>{% trans %}Php{% endtrans %}</th>
-            <td>{{ entity.php }}</td>
+            <td data-title="{% trans %}httpdhost.field.php{% endtrans %}"><img src="{% if entity.php %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" /></td>
+        </tr>
+        <tr>
+            <th>{% trans %}Configuration{% endtrans %}</th>
+            <td>{{ entity.configuration }}</td>
         </tr>
         <tr>
             <th>{% trans %}Aliases{% endtrans %}</th>
@@ -40,10 +48,6 @@
                 {% endfor %}
                 </ul>
             </td>
-        </tr>
-        <tr>
-            <th>{% trans %}Enabled{% endtrans %}</th>
-            <td>{{ entity.enabled }}</td>
         </tr>
         <tr>
             <th>{% trans %}Created at{% endtrans %}</th>

@@ -85,11 +85,7 @@ class HostingController extends Controller
 
                 $em->flush();
 
-                return $this->render('ACSACSPanelBundle:Flows:showHosting.html.twig', array(
-                    'form' => $form->createView(),
-                    'flow' => $flow,
-                ));
-
+                return $this->redirect($this->generateUrl('domain_show', array('id' => $domain->getId())));
             }
         }
 

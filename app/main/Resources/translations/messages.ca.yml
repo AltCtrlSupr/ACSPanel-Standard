@@ -90,7 +90,7 @@ user:
     gid: GID
     parent_user: Usuari propietari
   button:
-    switch: Cambiar a aquest Usuari
+    switch: Canviar a aquest Usuari
     show: Mostra
     edit: Edita
     add: Nou usuari
