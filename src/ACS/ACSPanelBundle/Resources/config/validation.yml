@@ -8,7 +8,7 @@ ACS\ACSPanelBundle\Entity\IpAddress:
 ACS\ACSPanelBundle\Entity\MailMailbox:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
-            fields: mail_domain, username
+            fields: [mail_domain, username]
 
 ACS\ACSPanelBundle\Entity\Domain:
     constraints:
