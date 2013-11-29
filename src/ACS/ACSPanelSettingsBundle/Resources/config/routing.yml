@@ -1,3 +1,0 @@
-ACSACSPanelSettingsBundle_settings:
-   resource: "@ACSACSPanelSettingsBundle/Resources/config/routing/configsetting.yml"
-   prefix:   /settings

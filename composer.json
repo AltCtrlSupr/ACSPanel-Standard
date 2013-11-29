@@ -40,7 +40,8 @@
         "knplabs/knp-paginator-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "incenteev/composer-parameter-handler": "~2.0",
-        "jms/serializer-bundle": "dev-master"
+        "jms/serializer-bundle": "dev-master",
+        "acs/panelsettings": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
