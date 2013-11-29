@@ -1,9 +1,21 @@
 {
     "name": "acs/acspanel",
     "description": "The server administration tool written in Symfony2",
+    "type": "project"
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "authors": [
+        {
+            "name": "Genar Trias",
+            "email": "genar@acs.li",
+            "homepage": "http://genar.me/"
+        }
+        {
+            "name": "Martí Cardús",
+            "email": "marti@acs.li"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
