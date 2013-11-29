@@ -135,17 +135,7 @@ To set up roundcube to be able to change the passwords with the password plugin 
 What's inside?
 ---------------
 
-The Symfony Standard Edition is configured with the following defaults:
-
-  * Twig is the only configured template engine;
-
-  * Doctrine ORM/DBAL is configured;
-
-  * Swiftmailer is configured;
-
-  * Annotations for everything are enabled.
-
-It comes pre-configured with the following bundles:
+Symfony2 comes pre-configured with the following bundles:
 
   * **FrameworkBundle** - The core Symfony framework bundle
 
@@ -185,6 +175,24 @@ It comes pre-configured with the following bundles:
   * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
     code
 
+And ACSPanel adds the following Bundles:
+
+  * [**FOSUserBundle**][26] - Adds the user authentication and administration.
+
+  * [**StofDoctrineExtensionsBundle**][27] - Adds loggable support to entities.
+
+  * [**KnpMenuBundle**][28] - Adds the menu generation system.
+
+  * [**LiipThemeBundle**][29] - Adds the themes support.
+
+  * [**CraueFormFlowBundle**][29] - Used in add hosting form flow.
+
+  * [**GregwarFormBundle**][30]
+
+  * [**KnpPaginatorBundle**][31]
+
+  * [**DoctrineFixturesBundle**][32]
+
 Enjoy!
 
 [1]:  http://symfony.com/doc/2.1/book/installation.html
@@ -212,4 +220,11 @@ Enjoy!
 [23]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-mysql
 [24]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-proftpd
 [25]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-pureftpd
-
+[26]: https://github.com/FriendsOfSymfony/FOSUserBundle
+[27]: https://github.com/stof/StofDoctrineExtensionsBundle
+[28]: https://github.com/KnpLabs/KnpMenuBundle
+[29]: https://github.com/liip/LiipThemeBundle
+[30]: https://github.com/craue/CraueFormFlowBundle
+[31]: https://github.com/Gregwar/FormBundle
+[32]: https://github.com/KnpLabs/KnpPaginatorBundle
+[33]: https://github.com/doctrine/DoctrineFixturesBundle
