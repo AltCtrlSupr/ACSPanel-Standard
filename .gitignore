@@ -2,6 +2,7 @@
 nbproject/
 *.un~
 tags
+ctags
 *.swp
 .DS_Store
 
