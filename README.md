@@ -6,6 +6,28 @@ Welcome to ACSPanel - The server administration tool written in Symfony2
 This document contains information on how to download, install, and start
 using ACSPanel.
 
+Features:
+---------
+
+  - Multiserver: ACSPanel can be decentralized, you can have how many servers as you wish for each service. Each server will know what has to do.
+  - Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.
+  - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
+  - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
+  - Themeable
+  - Mobile front-end (Comming soon...): 
+  - Wordpress farm (Comming soon...)
+
+How it works:
+-------------
+
+ACSPanel is just a Front-end for a custom Database with all the information related with your. All the services
+
+Services supported:
+    - DNS: PowerDNS
+    - Web: Apache2
+    - Database: MySQL
+    - FTP: ProFTPd, PureFTPd
+
 1) Installing ACSPanel
 ----------------------
 
@@ -180,3 +202,5 @@ Enjoy!
 [13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
 [14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
+[16]: https://github.com/stof/StofDoctrineExtensionsBundle 
+[17]: https://github.com/l3pp4rd/DoctrineExtensions 

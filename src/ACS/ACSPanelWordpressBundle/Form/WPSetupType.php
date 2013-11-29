@@ -7,6 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
+use ACS\ACSPanelBundle\Form\UserHttpdHostType;
+use ACS\ACSPanelBundle\Form\DBType;
+
 class WPSetupType extends AbstractType
 {
     public $container;
@@ -26,7 +29,7 @@ class WPSetupType extends AbstractType
             $superadmin = true;
 
         $builder
-            ->add('httpd_host','entity',array(
+            /*->add('httpd_host','entity',array(
                 'class' => 'ACS\ACSPanelBundle\Entity\HttpdHost',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('h')
@@ -39,7 +42,11 @@ class WPSetupType extends AbstractType
                         return $query;
                     }
                 )
-            )
+                )*/
+
+            // TODO: Change form type to something simpler
+            ->add('httpd_host', new UserHttpdHostType())
+
 
             ->add('database_user','entity',array(
                 'class' => 'ACS\ACSPanelBundle\Entity\DatabaseUser',
@@ -54,7 +61,9 @@ class WPSetupType extends AbstractType
                         return $query;
                     }
                 )
-            );
+                );
+
+            //->add('db', new DBType($container, $em));
 
             if($superadmin){
                 $builder->add('user');
