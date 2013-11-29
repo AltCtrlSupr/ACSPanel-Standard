@@ -13,14 +13,14 @@ Features:
   - Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.
   - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
   - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
-  - Themeable
+  - Themeable. Thanks to [LiipThemeBundle][https://github.com/liip/LiipThemeBundle]
   - Mobile front-end (Comming soon...): 
   - Wordpress farm (Comming soon...)
 
 How it works:
 -------------
 
-ACSPanel is just a Front-end for a custom Database with all the information related with your. All the services
+ACSPanel is just a Front-end for a custom Database with all the information related with your. All the services ask to the panel database what configuration has to load.
 
 Services supported:
   - DNS: PowerDNS
