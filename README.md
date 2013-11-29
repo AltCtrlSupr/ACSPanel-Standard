@@ -13,9 +13,10 @@ Features:
   - Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.
   - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
   - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
-  - Themeable. Thanks to [LiipThemeBundle][18]
+  - Themeable. Thanks to [LiipThemeBundle][18], (GUI Designers needed)
   - Mobile front-end (Comming soon...): 
   - Wordpress farm: See [PanelWordpressBundle][19]
+  - Multilanguage: Each user can select the prefered language. (Translators needed)
 
 How it works:
 -------------
@@ -214,12 +215,12 @@ Enjoy!
 [17]: https://github.com/l3pp4rd/DoctrineExtensions 
 [18]: https://github.com/liip/LiipThemeBundle
 [19]: https://github.com/AltCtrlSupr/PanelWordpressBundle
-[20]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pdns
-[21]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2
-[22]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-webproxy
-[23]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-mysql
-[24]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-proftpd
-[25]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-pureftpd
+[20]: https://github.com/AltCtrlSupr/acspanel-deb/
+[21]: https://github.com/AltCtrlSupr/acspanel-deb/
+[22]: https://github.com/AltCtrlSupr/acspanel-deb/
+[23]: https://github.com/AltCtrlSupr/acspanel-deb/
+[24]: https://github.com/AltCtrlSupr/acspanel-deb/
+[25]: https://github.com/AltCtrlSupr/acspanel-deb/
 [26]: https://github.com/FriendsOfSymfony/FOSUserBundle
 [27]: https://github.com/stof/StofDoctrineExtensionsBundle
 [28]: https://github.com/KnpLabs/KnpMenuBundle
