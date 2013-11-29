@@ -1,7 +1,0 @@
-acsacs_panel_wordpress_list:
-    pattern:  /wordpress/
-    defaults: { _controller: ACSACSPanelWordpressBundle:Default:index }
-ACSACSPanelWordpressBundle_wpsetup:
-    resource: "@ACSACSPanelWordpressBundle/Resources/config/routing/wpsetup.yml"
-    prefix:   /wpsetup
-

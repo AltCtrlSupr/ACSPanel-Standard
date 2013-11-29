@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d04bc1418414517cf913aada78875402",
+    "hash": "f23d574013d5c4a2f72ef66b93bfba85",
     "packages": [
         {
             "name": "acs/panelsettings",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/PanelSettingsBundle.git",
-                "reference": "6d6e3422fdfa19beb5077152c90e47e4801a1341"
+                "reference": "3685a01a62476bad40426bf2cc7a60bc0a5121ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/PanelSettingsBundle/zipball/6d6e3422fdfa19beb5077152c90e47e4801a1341",
-                "reference": "6d6e3422fdfa19beb5077152c90e47e4801a1341",
+                "url": "https://api.github.com/repos/AltCtrlSupr/PanelSettingsBundle/zipball/3685a01a62476bad40426bf2cc7a60bc0a5121ea",
+                "reference": "3685a01a62476bad40426bf2cc7a60bc0a5121ea",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,44 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2013-11-29 17:28:28"
+            "time": "2013-11-29 17:33:21"
+        },
+        {
+            "name": "acs/panelwordpress",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AltCtrlSupr/ACSPanelWordpressBundle.git",
+                "reference": "4651584e2dc9f701d0fb37c3ae5447086d344977"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanelWordpressBundle/zipball/4651584e2dc9f701d0fb37c3ae5447086d344977",
+                "reference": "4651584e2dc9f701d0fb37c3ae5447086d344977",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Genar Trias",
+                    "email": "genar@acs.li",
+                    "homepage": "http://genar.me/"
+                }
+            ],
+            "description": "Wordpress Farm bundle for ACSPanel",
+            "time": "2013-11-29 17:52:16"
         },
         {
             "name": "craue/formflow-bundle",
@@ -2839,7 +2876,8 @@
         "knplabs/knp-paginator-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "jms/serializer-bundle": 20,
-        "acs/panelsettings": 20
+        "acs/panelsettings": 20,
+        "acs/panelwordpress": 20
     },
     "platform": {
         "php": ">=5.3.3"
