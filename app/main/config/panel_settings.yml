@@ -90,3 +90,9 @@ acsacs_panel_settings:
            default_value: '/home/'
            context: 'System settings'
            focus: 'system_setting'
+        default_dns_service:
+           label: 'Default DNS Service'
+           setting_key: default_dns_service
+           field_type: text
+           context: 'System settings'
+           focus: 'system_setting'

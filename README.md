@@ -13,20 +13,20 @@ Features:
   - Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.
   - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
   - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
-  - Themeable. Thanks to [LiipThemeBundle][https://github.com/liip/LiipThemeBundle]
+  - Themeable. Thanks to [LiipThemeBundle][18]
   - Mobile front-end (Comming soon...): 
-  - Wordpress farm (Comming soon...)
+  - Wordpress farm: See [PanelWordpressBundle][19]
 
 How it works:
 -------------
 
-ACSPanel is just a Front-end for a custom Database with all the information related with your. All the services ask to the panel database what configuration has to load.
+ACSPanel is just a Front-end for a custom Database with all the information related with your services. All the services ask to the panel database what configuration has to load.
 
-Services supported:
-  - DNS: PowerDNS
-  - Web: Apache2
-  - Database: MySQL
-  - FTP: ProFTPd, PureFTPd
+Services supported (At the moment):
+  - DNS: [PowerDNS][20]
+  - Web: [Apache2][21], [Apache2 webproxy][22]
+  - Database: [MySQL][23]
+  - FTP: [ProFTPd][24], [PureFTPd][25]
 
 1) Installing ACSPanel
 ----------------------
@@ -204,3 +204,12 @@ Enjoy!
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
 [16]: https://github.com/stof/StofDoctrineExtensionsBundle 
 [17]: https://github.com/l3pp4rd/DoctrineExtensions 
+[18]: https://github.com/liip/LiipThemeBundle
+[19]: https://github.com/AltCtrlSupr/PanelWordpressBundle
+[20]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pdns
+[21]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2
+[22]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-webproxy
+[23]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-mysql
+[24]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-proftpd
+[25]: https://github.com/AltCtrlSupr/acspanel-deb/tree/master/acspanel-srv-pache2-pureftpd
+
