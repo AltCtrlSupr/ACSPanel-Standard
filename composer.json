@@ -1,6 +1,6 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "name": "acs/acspanel",
+    "description": "The server administration tool written in Symfony2",
     "autoload": {
         "psr-0": { "": "src/" }
     },

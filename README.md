@@ -23,10 +23,10 @@ How it works:
 ACSPanel is just a Front-end for a custom Database with all the information related with your. All the services
 
 Services supported:
-    - DNS: PowerDNS
-    - Web: Apache2
-    - Database: MySQL
-    - FTP: ProFTPd, PureFTPd
+  - DNS: PowerDNS
+  - Web: Apache2
+  - Database: MySQL
+  - FTP: ProFTPd, PureFTPd
 
 1) Installing ACSPanel
 ----------------------
