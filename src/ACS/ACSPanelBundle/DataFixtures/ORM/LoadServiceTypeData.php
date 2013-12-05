@@ -11,6 +11,7 @@ class LoadServiceTypeData implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        // Database types
         $db_type = new ServiceType();
         $db_type->setName('DB');
 
@@ -41,9 +42,9 @@ class LoadServiceTypeData implements FixtureInterface
         $manager->persist($mysql_type);
         $manager->flush();
 
+        // HTTP Types
         $http_type = new ServiceType();
         $http_type->setName('HTTP');
-
         $manager->persist($http_type);
         $manager->flush();
 
@@ -59,22 +60,46 @@ class LoadServiceTypeData implements FixtureInterface
         $manager->persist($apache2wc_type);
         $manager->flush();
 
+        // DNS Types
         $dns_type = new ServiceType();
         $dns_type->setName('DNS');
-
         $manager->persist($dns_type);
         $manager->flush();
 
+        // FTP Types
         $ftp_type = new ServiceType();
         $ftp_type->setName('FTP');
-
         $manager->persist($ftp_type);
         $manager->flush();
 
+        $pureftp = new ServiceType();
+        $pureftp->setName('PureFTPd');
+        $pureftp->setParentType($ftp_type);
+        $manager->persist($pureftp);
+        $manager->flush();
+
+        $proftp = new ServiceType();
+        $proftp->setName('ProFTPd');
+        $proftp->setParentType($ftp_type);
+        $manager->persist($proftp);
+        $manager->flush();
+
+        // Mail types
         $mail_type = new ServiceType();
         $mail_type->setName('Mail');
-
         $manager->persist($mail_type);
+        $manager->flush();
+
+        $dovecot_type = new ServiceType();
+        $dovecot_type->setName('Dovecot (IMAP/POP3)');
+        $dovecot_type->steParentType($mail_type);
+        $manager->persist($dovecot_type);
+        $manager->flush();
+
+        $postfix_type = new ServiceType();
+        $postfix_type->setName('Postfix (SMTP)');
+        $postfix_type->steParentType($mail_type);
+        $manager->persist($postfix_type);
         $manager->flush();
     }
 }
