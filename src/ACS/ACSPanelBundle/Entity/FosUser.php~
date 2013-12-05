@@ -104,6 +104,7 @@ class FosUser extends BaseUser
     public function __construct()
     {
         parent::__construct();
+
     }
 
     /**
@@ -784,5 +785,39 @@ class FosUser extends BaseUser
     public function getDomains()
     {
         return $this->domains;
+    }
+    /**
+     * @var \DateTime
+     */
+    private $password_changed_at;
+
+    public function setPlainPassword($password)
+    {
+        $today = new \DateTime();
+        $this->setPasswordChangedAt($today);
+        parent::setPlainPassword($password);
+    }
+
+    /**
+     * Set password_changed_at
+     *
+     * @param \DateTime $passwordChangedAt
+     * @return FosUser
+     */
+    public function setPasswordChangedAt($passwordChangedAt)
+    {
+        $this->password_changed_at = $passwordChangedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get password_changed_at
+     *
+     * @return \DateTime
+     */
+    public function getPasswordChangedAt()
+    {
+        return $this->password_changed_at;
     }
 }

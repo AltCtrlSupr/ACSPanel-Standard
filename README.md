@@ -96,7 +96,7 @@ You can load some basic fixtures doing next, like basic groups and admin to star
 
     php app/main/console doctrine:fixtures:load
 
-The basic fixtures, adds the superadmin user to let you start to work with the panel. Its default password is 1234. The acspanel will redirect you to password change screen where you should change the password (Comming soon..).
+The basic fixtures, adds the superadmin user to let you start to work with the panel. Its default password is 1234. The acspanel will redirect you to password change screen where you should change the password.
 
 You should install the assets as well:
 
@@ -134,6 +134,24 @@ comming soon.
 To set up roundcube to be able to change the passwords with the password plugin you must use the next query:
 
     $rcmail_config['password_query'] = 'UPDATE mail_mailbox mb INNER JOIN mail_domain md ON mb.mail_domain_id = md.id INNER JOIN domain d ON md.domain_id = d.id SET mb.password=%p WHERE mb.username=%l AND mb.password=%o AND d.domain=%d';
+
+8) Updating the panel
+---------------------
+
+    Get the latest version of the code
+
+    git pull
+
+    Install the latest version of the dependecies
+
+    ./composer.phar install
+
+    Update the database
+    php app/main/console doctrine:schema:update --force
+
+    And install the assets
+    php app/main/console assets:install --symlink
+
 
 What's inside?
 ---------------

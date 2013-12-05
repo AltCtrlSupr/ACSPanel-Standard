@@ -5,7 +5,7 @@
             <div id="centered">
                     {% for type, messages in app.session.flashbag.all() %}
                       {% for message in messages %}
-                        <div class="{{ key }}">
+                        <div class="{{ type }}">
                             {{ message|trans({}, 'FOSUserBundle') }}
                         </div>
                       {% endfor %}

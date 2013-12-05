@@ -40,7 +40,7 @@ ACS\ACSPanelBundle\Entity\FosUser:
             idetityGenerator:
                 initialValue: 3000
         password_changed_at:
-            type: date
+            type: datetime
             nullable: true
     manyToMany:
         groups:

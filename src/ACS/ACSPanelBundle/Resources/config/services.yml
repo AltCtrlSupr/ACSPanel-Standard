@@ -52,6 +52,7 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
         - { name: form.type, alias: acs_acspanelbundle_userprofiletype }
+
     # end of FosUser forms override
 
     # Forms flows
@@ -73,7 +74,7 @@ services:
     # Kernel response events
     kernel_subscriber:
         class: ACS\ACSPanelBundle\Event\Subscribers\KernelSubscriber
-        arguments: ['@event_dispatcher']
+        arguments: ['@event_dispatcher', '@router', '@session']
         tags:
             - {name: kernel.event_subscriber}
 
