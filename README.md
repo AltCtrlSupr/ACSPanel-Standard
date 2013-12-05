@@ -135,21 +135,23 @@ To set up roundcube to be able to change the passwords with the password plugin 
 
     $rcmail_config['password_query'] = 'UPDATE mail_mailbox mb INNER JOIN mail_domain md ON mb.mail_domain_id = md.id INNER JOIN domain d ON md.domain_id = d.id SET mb.password=%p WHERE mb.username=%l AND mb.password=%o AND d.domain=%d';
 
-8) Updating the panel
----------------------
+8) Updating the panel (DO BACKUPS FIRST!!)
+------------------------------------------
 
-    Get the latest version of the code
+Get the latest version of the code
 
     git pull
 
-    Install the latest version of the dependecies
+Install the latest version of the dependecies
 
     ./composer.phar install
 
-    Update the database
+Update the database
+
     php app/main/console doctrine:schema:update --force
 
-    And install the assets
+And install the assets
+
     php app/main/console assets:install --symlink
 
 

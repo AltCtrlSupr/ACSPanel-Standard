@@ -99,7 +99,10 @@ class FosUser extends BaseUser
      */
     private $domains;
 
-
+    /**
+     * @var \DateTime
+     */
+    private $password_changed_at;
 
     public function __construct()
     {
@@ -753,7 +756,6 @@ class FosUser extends BaseUser
         return $setting_manager->setInternalSetting('last_used_gid',$this->getGid());
     }
 
-
     /**
      * Add domains
      *
@@ -786,10 +788,6 @@ class FosUser extends BaseUser
     {
         return $this->domains;
     }
-    /**
-     * @var \DateTime
-     */
-    private $password_changed_at;
 
     public function setPlainPassword($password)
     {
