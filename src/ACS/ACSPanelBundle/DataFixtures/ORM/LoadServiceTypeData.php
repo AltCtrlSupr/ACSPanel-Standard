@@ -47,6 +47,18 @@ class LoadServiceTypeData implements FixtureInterface
         $manager->persist($http_type);
         $manager->flush();
 
+        $apache2_type = new ServiceType();
+        $apache2_type->setName('Apache2');
+        $apache2_type->setParentType($http_type);
+        $manager->persist($apache2_type);
+        $manager->flush();
+
+        $apache2wc_type = new ServiceType();
+        $apache2wc_type->setName('Apache2 Webcache');
+        $apache2wc_type->setParentType($http_type);
+        $manager->persist($apache2wc_type);
+        $manager->flush();
+
         $dns_type = new ServiceType();
         $dns_type->setName('DNS');
 
