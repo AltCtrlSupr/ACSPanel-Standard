@@ -785,4 +785,32 @@ class FosUser extends BaseUser
     {
         return $this->domains;
     }
+    /**
+     * @var \DateTime
+     */
+    private $password_changed_at;
+
+
+    /**
+     * Set password_changed_at
+     *
+     * @param \DateTime $passwordChangedAt
+     * @return FosUser
+     */
+    public function setPasswordChangedAt($passwordChangedAt)
+    {
+        $this->password_changed_at = $passwordChangedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get password_changed_at
+     *
+     * @return \DateTime 
+     */
+    public function getPasswordChangedAt()
+    {
+        return $this->password_changed_at;
+    }
 }

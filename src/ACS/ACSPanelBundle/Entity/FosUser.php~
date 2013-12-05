@@ -2,7 +2,7 @@
 
 
 namespace ACS\ACSPanelBundle\Entity;
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\GroupInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -752,4 +752,37 @@ class FosUser extends BaseUser
         return $setting_manager->setInternalSetting('last_used_gid',$this->getGid());
     }
 
+
+    /**
+     * Add domains
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
+     * @return FosUser
+     */
+    public function addDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
+    {
+        $this->domains[] = $domains;
+
+        return $this;
+    }
+
+    /**
+     * Remove domains
+     *
+     * @param \ACS\ACSPanelBundle\Entity\Domain $domains
+     */
+    public function removeDomain(\ACS\ACSPanelBundle\Entity\Domain $domains)
+    {
+        $this->domains->removeElement($domains);
+    }
+
+    /**
+     * Get domains
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDomains()
+    {
+        return $this->domains;
+    }
 }

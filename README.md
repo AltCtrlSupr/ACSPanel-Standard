@@ -96,6 +96,8 @@ You can load some basic fixtures doing next, like basic groups and admin to star
 
     php app/main/console doctrine:fixtures:load
 
+The basic fixtures, adds the superadmin user to let you start to work with the panel. Its default password is 1234. The acspanel will redirect you to password change screen where you should change the password (Comming soon..).
+
 You should install the assets as well:
 
     php app/console assets:install --symlink

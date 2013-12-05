@@ -39,6 +39,9 @@ ACS\ACSPanelBundle\Entity\FosUser:
                 strategy: IDENTITY
             idetityGenerator:
                 initialValue: 3000
+        password_changed_at:
+            type: date
+            nullable: true
     manyToMany:
         groups:
             targetEntity: FosGroup
