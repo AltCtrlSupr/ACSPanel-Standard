@@ -19,8 +19,6 @@
         {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
     </div>
     <form method="post" {{ form_enctype(form) }}>
-        {% include 'CraueFormFlowBundle:FormFlow:stepField.html.twig' %}
-
         {{ form_errors(form) }}
 
         {% if flow.getCurrentStepNumber() == 1 %}
