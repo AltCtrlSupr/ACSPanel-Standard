@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Acspanel by AltCtrlSupr</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Acspanel</h1>
+        <h2>ACS Control Server Panel</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/AltCtrlSupr/acspanel/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/AltCtrlSupr/acspanel/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/AltCtrlSupr/acspanel" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="acspanel-acs-control-server-panel" class="anchor" href="#acspanel-acs-control-server-panel"><span class="octicon octicon-link"></span></a>ACSPanel (ACS Control Server Panel)</h1>
+
+<p>Welcome to ACSPanel - The server administration tool written in Symfony2</p>
+
+<p>This document contains information on how to download, install, and start
+using ACSPanel.</p>
+
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features:</h2>
+
+<ul>
+<li>Multiserver: ACSPanel can be decentralized, you can have how many servers as you wish for each service. Each server will know what has to do.</li>
+<li>Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.</li>
+<li>Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.</li>
+<li>Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to <a href="https://github.com/stof/StofDoctrineExtensionsBundle">StofDoctrineExtensionsBundle</a> and <a href="https://github.com/l3pp4rd/DoctrineExtensions">DoctrineExtensions</a>
+</li>
+<li>Themeable. Thanks to <a href="https://github.com/liip/LiipThemeBundle">LiipThemeBundle</a>, (GUI Designers needed)</li>
+<li>Mobile front-end (Comming soon...): </li>
+<li>Wordpress farm: See <a href="https://github.com/AltCtrlSupr/PanelWordpressBundle">PanelWordpressBundle</a>
+</li>
+<li>Multilanguage: Each user can select the prefered language. (Translators needed)</li>
+</ul><h2>
+<a name="how-it-works" class="anchor" href="#how-it-works"><span class="octicon octicon-link"></span></a>How it works:</h2>
+
+<p>ACSPanel is just a Front-end for a custom Database with all the information related with your services. All the services ask to the panel database what configuration has to load.</p>
+
+<p>Services supported (At the moment):</p>
+
+<ul>
+<li>DNS: <a href="https://github.com/AltCtrlSupr/acspanel-deb/">PowerDNS</a>
+</li>
+<li>Web: <a href="https://github.com/AltCtrlSupr/acspanel-deb/">Apache2</a>, <a href="https://github.com/AltCtrlSupr/acspanel-deb/">Apache2 webproxy</a>
+</li>
+<li>Database: <a href="https://github.com/AltCtrlSupr/acspanel-deb/">MySQL</a>
+</li>
+<li>FTP: <a href="https://github.com/AltCtrlSupr/acspanel-deb/">ProFTPd</a>, <a href="https://github.com/AltCtrlSupr/acspanel-deb/">PureFTPd</a>
+</li>
+</ul><h2>
+<a name="1-installing-acspanel" class="anchor" href="#1-installing-acspanel"><span class="octicon octicon-link"></span></a>1) Installing ACSPanel</h2>
+
+<p>When it comes to installing the ACSPanel, you have the
+following options.</p>
+
+<h3>
+<a name="use-debian-packagerecommended" class="anchor" href="#use-debian-packagerecommended"><span class="octicon octicon-link"></span></a>Use Debian Package(<em>recommended</em>)</h3>
+
+<p>Coming soon</p>
+
+<h3>
+<a name="download-from-git-repository" class="anchor" href="#download-from-git-repository"><span class="octicon octicon-link"></span></a>Download from GIT repository</h3>
+
+<p>To install ACSPanel from git repository, you have to clone the project with 
+the next command and execute the following commands </p>
+
+<pre><code>cd /server_root_directory/
+
+git clone https://github.com/AltCtrlSupr/acspanel.git
+</code></pre>
+
+<h2>
+<a name="2-checking-your-system-configuration" class="anchor" href="#2-checking-your-system-configuration"><span class="octicon octicon-link"></span></a>2) Checking your System Configuration</h2>
+
+<p>Before starting using ACSPanel you should make sure that your local system is properly
+configured.</p>
+
+<p>Execute the <code>check.php</code> script from the command line:</p>
+
+<pre><code>php app/check.php
+</code></pre>
+
+<p>The panel needs the next requeriments To work right:</p>
+
+<pre><code>php5-curl
+</code></pre>
+
+<h2>
+<a name="3-permissions" class="anchor" href="#3-permissions"><span class="octicon octicon-link"></span></a>3) Permissions</h2>
+
+<p>To avoid permissions issues after executing console commands you should do the next</p>
+
+<pre><code>mkdir app/main/cache &amp;&amp; mkdir app/main/logs (TODO: check this to be created with the initial files...)
+sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/main/cache app/main/logs
+sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
+</code></pre>
+
+<h2>
+<a name="4-setting-up-acspanel" class="anchor" href="#4-setting-up-acspanel"><span class="octicon octicon-link"></span></a>4) Setting up ACSPanel</h2>
+
+<p>Now you set parameters.yml with your database create, you can take parameters.yml.sample as example. (Not necessary when it's installed via deb package).</p>
+
+<pre><code>cp app/main/config/parameters.yml.sample app/main/config/parameters.yml
+</code></pre>
+
+<p>You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.</p>
+
+<pre><code>cp app/main/config/config_dev.yml.sample app/main/config/config_dev.yml
+</code></pre>
+
+<p>To install all the dependencies you have to execute composer.phar command.</p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<p>Then you are ready to create the acspanel basic schema executing the next command:</p>
+
+<pre><code>php app/console doctrine:schema:create
+</code></pre>
+
+<p>You can load some basic fixtures doing next, like basic groups and admin to start using the panel:</p>
+
+<pre><code>php app/main/console doctrine:fixtures:load
+</code></pre>
+
+<p>The basic fixtures, adds the superadmin user to let you start to work with the panel. Its default password is 1234. The acspanel will redirect you to password change screen where you should change the password.</p>
+
+<p>You should install the assets as well:</p>
+
+<pre><code>php app/console assets:install --symlink
+</code></pre>
+
+<p>(Opcional) Install additional ACSPanel bundles:</p>
+
+<p>Coming soon.</p>
+
+<p>Congratulations! You're now ready to use ACSPanel.</p>
+
+<h2>
+<a name="5-setting-up-apache2" class="anchor" href="#5-setting-up-apache2"><span class="octicon octicon-link"></span></a>5) Setting up Apache2</h2>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+    DocumentRoot /home/user/www/acspanel/web
+    &lt;Directory /home/user/www/acspanel/web/&gt;
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>Ensure you have rewrite mode enabled</p>
+
+<h2>
+<a name="6-getting-started-with-acspanel" class="anchor" href="#6-getting-started-with-acspanel"><span class="octicon octicon-link"></span></a>6) Getting started with ACSPanel</h2>
+
+<p>comming soon.</p>
+
+<h2>
+<a name="7-setting-up-third-party-programs" class="anchor" href="#7-setting-up-third-party-programs"><span class="octicon octicon-link"></span></a>7) Setting up third party programs</h2>
+
+<p>To set up roundcube to be able to change the passwords with the password plugin you must use the next query:</p>
+
+<pre><code>$rcmail_config['password_query'] = 'UPDATE mail_mailbox mb INNER JOIN mail_domain md ON mb.mail_domain_id = md.id INNER JOIN domain d ON md.domain_id = d.id SET mb.password=%p WHERE mb.username=%l AND mb.password=%o AND d.domain=%d';
+</code></pre>
+
+<h2>
+<a name="8-updating-the-panel-do-backups-first" class="anchor" href="#8-updating-the-panel-do-backups-first"><span class="octicon octicon-link"></span></a>8) Updating the panel (DO BACKUPS FIRST!!)</h2>
+
+<p>Get the latest version of the code</p>
+
+<pre><code>git pull
+</code></pre>
+
+<p>Install the latest version of the dependecies</p>
+
+<pre><code>./composer.phar install
+</code></pre>
+
+<p>Update the database</p>
+
+<pre><code>php app/main/console doctrine:schema:update --force
+</code></pre>
+
+<p>And install the assets</p>
+
+<pre><code>php app/main/console assets:install --symlink
+</code></pre>
+
+<h2>
+<a name="whats-inside" class="anchor" href="#whats-inside"><span class="octicon octicon-link"></span></a>What's inside?</h2>
+
+<p>Symfony2 comes pre-configured with the following bundles:</p>
+
+<ul>
+<li><p><strong>FrameworkBundle</strong> - The core Symfony framework bundle</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/bundles/SensioFrameworkExtraBundle/index.html"><strong>SensioFrameworkExtraBundle</strong></a> - Adds several enhancements, including
+template and routing annotation capability</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/book/doctrine.html"><strong>DoctrineBundle</strong></a> - Adds support for the Doctrine ORM</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/book/templating.html"><strong>TwigBundle</strong></a> - Adds support for the Twig templating engine</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/book/security.html"><strong>SecurityBundle</strong></a> - Adds security by integrating Symfony's security
+component</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/cookbook/email.html"><strong>SwiftmailerBundle</strong></a> - Adds support for Swiftmailer, a library for
+sending emails</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/cookbook/logging/monolog.html"><strong>MonologBundle</strong></a> - Adds support for Monolog, a logging library</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/cookbook/assetic/asset_management.html"><strong>AsseticBundle</strong></a> - Adds support for Assetic, an asset processing
+library</p></li>
+<li><p><a href="http://jmsyst.com/bundles/JMSSecurityExtraBundle/master"><strong>JMSSecurityExtraBundle</strong></a> - Allows security to be added via
+annotations</p></li>
+<li><p><a href="http://jmsyst.com/bundles/JMSDiExtraBundle/master"><strong>JMSDiExtraBundle</strong></a> - Adds more powerful dependency injection
+features</p></li>
+<li><p><strong>WebProfilerBundle</strong> (in dev/test env) - Adds profiling functionality and
+the web debug toolbar</p></li>
+<li><p><strong>SensioDistributionBundle</strong> (in dev/test env) - Adds functionality for
+configuring and working with Symfony distributions</p></li>
+<li><p><a href="http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html"><strong>SensioGeneratorBundle</strong></a> (in dev/test env) - Adds code generation
+capabilities</p></li>
+<li><p><strong>AcmeDemoBundle</strong> (in dev/test env) - A demo bundle with some example
+code</p></li>
+</ul><p>And ACSPanel adds the following Bundles:</p>
+
+<ul>
+<li><p><a href="https://github.com/FriendsOfSymfony/FOSUserBundle"><strong>FOSUserBundle</strong></a> - Adds the user authentication and administration.</p></li>
+<li><p><a href="https://github.com/stof/StofDoctrineExtensionsBundle"><strong>StofDoctrineExtensionsBundle</strong></a> - Adds loggable support to entities.</p></li>
+<li><p><a href="https://github.com/KnpLabs/KnpMenuBundle"><strong>KnpMenuBundle</strong></a> - Adds the menu generation system.</p></li>
+<li><p><a href="https://github.com/liip/LiipThemeBundle"><strong>LiipThemeBundle</strong></a> - Adds the themes support.</p></li>
+<li><p><a href="https://github.com/liip/LiipThemeBundle"><strong>CraueFormFlowBundle</strong></a> - Used in add hosting form flow.</p></li>
+<li><p><a href="https://github.com/craue/CraueFormFlowBundle"><strong>GregwarFormBundle</strong></a></p></li>
+<li><p><a href="https://github.com/Gregwar/FormBundle"><strong>KnpPaginatorBundle</strong></a></p></li>
+<li><p><a href="https://github.com/KnpLabs/KnpPaginatorBundle"><strong>DoctrineFixturesBundle</strong></a></p></li>
+</ul><p>Enjoy!</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
