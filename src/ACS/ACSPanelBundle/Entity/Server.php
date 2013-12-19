@@ -45,6 +45,16 @@ class Server
      */
     private $user;
 
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $services;
+
 
     /**
      * Get id
@@ -238,11 +248,6 @@ class Server
         return $this->hostname;
     }
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $services;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -282,11 +287,6 @@ class Server
     {
         return $this->services;
     }
-    /**
-     * @var boolean
-     */
-    private $enabled;
-
 
     /**
      * Set enabled
@@ -310,4 +310,33 @@ class Server
     {
         return $this->enabled;
     }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check)
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

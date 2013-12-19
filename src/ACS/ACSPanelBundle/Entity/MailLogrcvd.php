@@ -35,11 +35,6 @@ class MailLogrcvd
     private $createdAt;
 
     /**
-     * @var \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    private $user;
-
-    /**
      * @var \ACS\ACSPanelBundle\Entity\MailDomain
      */
     private $domain;
@@ -48,7 +43,7 @@ class MailLogrcvd
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,14 +59,14 @@ class MailLogrcvd
     public function setSender($sender)
     {
         $this->sender = $sender;
-    
+
         return $this;
     }
 
     /**
      * Get sender
      *
-     * @return string 
+     * @return string
      */
     public function getSender()
     {
@@ -87,14 +82,14 @@ class MailLogrcvd
     public function setRcpt($rcpt)
     {
         $this->rcpt = $rcpt;
-    
+
         return $this;
     }
 
     /**
      * Get rcpt
      *
-     * @return string 
+     * @return string
      */
     public function getRcpt()
     {
@@ -110,14 +105,14 @@ class MailLogrcvd
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -133,14 +128,14 @@ class MailLogrcvd
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -148,22 +143,9 @@ class MailLogrcvd
     }
 
     /**
-     * Set user
-     *
-     * @param \ACS\ACSPanelBundle\Entity\FosUser $user
-     * @return MailLogrcvd
-     */
-    public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
-    {
-        $this->user = $user;
-    
-        return $this;
-    }
-
-    /**
      * Get user
      *
-     * @return \ACS\ACSPanelBundle\Entity\FosUser 
+     * @return \ACS\ACSPanelBundle\Entity\FosUser
      */
     public function getUser()
     {
@@ -179,14 +161,14 @@ class MailLogrcvd
     public function setDomain(\ACS\ACSPanelBundle\Entity\MailDomain $domain = null)
     {
         $this->domain = $domain;
-    
+
         return $this;
     }
 
     /**
      * Get domain
      *
-     * @return \ACS\ACSPanelBundle\Entity\MailDomain 
+     * @return \ACS\ACSPanelBundle\Entity\MailDomain
      */
     public function getDomain()
     {
@@ -207,17 +189,45 @@ class MailLogrcvd
     public function setMailDomain(\ACS\ACSPanelBundle\Entity\MailDomain $mailDomain = null)
     {
         $this->mail_domain = $mailDomain;
-    
+
         return $this;
     }
 
     /**
      * Get mail_domain
      *
-     * @return \ACS\ACSPanelBundle\Entity\MailDomain 
+     * @return \ACS\ACSPanelBundle\Entity\MailDomain
      */
     public function getMailDomain()
     {
         return $this->mail_domain;
+    }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getMailDomain()->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check)
+                    return true;
+            }
+        }
+
+        return false;
+
     }
 }

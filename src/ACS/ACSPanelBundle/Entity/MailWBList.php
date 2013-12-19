@@ -287,4 +287,32 @@ class MailWBList
     {
 		  $this->updatedAt = new \DateTime();
     }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check)
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
 }

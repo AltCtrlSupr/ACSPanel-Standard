@@ -36,6 +36,10 @@ class HttpdUser
      */
     private $groups;
 
+    /**
+     * @var boolean
+     */
+    private $enabled;
 
     /**
      * Get id
@@ -271,12 +275,6 @@ class HttpdUser
     }
 
     /**
-     * @var boolean
-     */
-    private $enabled;
-
-
-    /**
      * Set enabled
      *
      * @param boolean $enabled
@@ -285,17 +283,47 @@ class HttpdUser
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
+
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
         return $this->enabled;
     }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getHttpdHost()->getDomain()->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check)
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

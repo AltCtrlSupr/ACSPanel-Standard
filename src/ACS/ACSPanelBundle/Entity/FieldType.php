@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * FieldType
+ * @todo Move to settingsbundle
  */
 class FieldType
 {
@@ -30,6 +31,30 @@ class FieldType
      */
     private $field_type;
 
+   /**
+     * @var string
+     */
+    private $setting_key;
+
+    /**
+     * @var string
+     */
+    private $label;
+
+    /**
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @var string
+     */
+    private $context;
+
+    /**
+     * @var string
+     */
+    private $default_value;
 
     /**
      * Get id
@@ -110,32 +135,6 @@ class FieldType
         return $this->field_type;
     }
     /**
-     * @var string
-     */
-    private $setting_key;
-
-    /**
-     * @var string
-     */
-    private $label;
-
-    /**
-     * @var string
-     */
-    private $type;
-
-    /**
-     * @var string
-     */
-    private $context;
-
-    /**
-     * @var string
-     */
-    private $default_value;
-
-
-    /**
      * Set setting_key
      *
      * @param string $settingKey
@@ -144,14 +143,14 @@ class FieldType
     public function setSettingKey($settingKey)
     {
         $this->setting_key = $settingKey;
-    
+
         return $this;
     }
 
     /**
      * Get setting_key
      *
-     * @return string 
+     * @return string
      */
     public function getSettingKey()
     {
@@ -167,14 +166,14 @@ class FieldType
     public function setLabel($label)
     {
         $this->label = $label;
-    
+
         return $this;
     }
 
     /**
      * Get label
      *
-     * @return string 
+     * @return string
      */
     public function getLabel()
     {
@@ -190,14 +189,14 @@ class FieldType
     public function setType($type)
     {
         $this->type = $type;
-    
+
         return $this;
     }
 
     /**
      * Get type
      *
-     * @return string 
+     * @return string
      */
     public function getType()
     {
@@ -213,14 +212,14 @@ class FieldType
     public function setContext($context)
     {
         $this->context = $context;
-    
+
         return $this;
     }
 
     /**
      * Get context
      *
-     * @return string 
+     * @return string
      */
     public function getContext()
     {
@@ -236,14 +235,14 @@ class FieldType
     public function setDefaultValue($defaultValue)
     {
         $this->default_value = $defaultValue;
-    
+
         return $this;
     }
 
     /**
      * Get default_value
      *
-     * @return string 
+     * @return string
      */
     public function getDefaultValue()
     {

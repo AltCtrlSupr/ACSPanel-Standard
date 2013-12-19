@@ -53,13 +53,7 @@ class DnsRecord
     /**
      * @var \ACS\ACSPanelBundle\Entity\DnsDomain
      */
-    private $domain;
-
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    private $user;
-
+    private $dns_domain;
 
     /**
      * Get id
@@ -232,50 +226,7 @@ class DnsRecord
         return $this->updatedAt;
     }
 
-    /**
-     * Set domain
-     *
-     * @param \ACS\ACSPanelBundle\Entity\DnsDomain $domain
-     * @return DnsRecord
-     * @deprecated
-     */
-    public function setDomain(\ACS\ACSPanelBundle\Entity\DnsDomain $domain = null)
-    {
-        return $this->setDnsDomain($domain);
-    }
 
-    /**
-     * Get domain
-     *
-     * @return \ACS\ACSPanelBundle\Entity\DnsDomain
-     */
-    public function getDomain()
-    {
-        return $this->domain;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \ACS\ACSPanelBundle\Entity\FosUser $user
-     * @return DnsRecord
-     */
-    public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
     /**
      * @ORM\PrePersist
      */
@@ -295,37 +246,11 @@ class DnsRecord
        $this->updatedAt = new \DateTime();
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        if($this->getUser())
-            return;
-
-
-      global $kernel;
-
-      if ('AppCache' == get_class($kernel)) {
-         $kernel = $kernel->getKernel();
-      }
-
-      $service = $kernel->getContainer()->get('security.context');
-
-        // Add your code here
-      $user = $service->getToken()->getUser();
-      return $this->setUser($user);
-    }
 
 	public function __toString()
 	{
 		return $this->name;
 	}
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\DnsDomain
-     */
-    private $dns_domain;
-
 
     /**
      * Set dns_domain
@@ -349,4 +274,30 @@ class DnsRecord
     {
         return $this->dns_domain;
     }
+
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getDnsDomain()->getDomain()->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check)
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

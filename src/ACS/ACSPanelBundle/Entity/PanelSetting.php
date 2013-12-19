@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * PanelSetting
+ * @todo Move to settingsbundle
  */
 class PanelSetting extends BaseSetting
 {

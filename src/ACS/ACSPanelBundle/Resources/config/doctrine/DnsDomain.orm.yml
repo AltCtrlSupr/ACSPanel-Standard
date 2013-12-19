@@ -80,6 +80,6 @@ ACS\ACSPanelBundle\Entity\DnsDomain:
             mappedBy: dns_domain
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue ]
       preUpdate: [ setUpdatedAtValue ]
 
