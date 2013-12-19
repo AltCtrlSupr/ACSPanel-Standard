@@ -65,6 +65,10 @@ class MailDomainController extends Controller
             throw $this->createNotFoundException('Unable to find MailDomain entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:MailDomain:show.html.twig', array(

@@ -60,6 +60,10 @@ class DnsRecordController extends Controller
             throw $this->createNotFoundException('Unable to find DnsRecord entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:DnsRecord:show.html.twig', array(

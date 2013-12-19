@@ -155,6 +155,9 @@ class FosUserController extends Controller
 
         $entity = $em->getRepository('ACSACSPanelBundle:FosUser')->find($id);
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
 
         $deleteForm = $this->createDeleteForm($id);
 

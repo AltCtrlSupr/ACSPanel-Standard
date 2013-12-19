@@ -48,6 +48,10 @@ class MailLogrcvdController extends Controller
             throw $this->createNotFoundException('Unable to find MailLogrcvd entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         return $this->render('ACSACSPanelBundle:MailLogrcvd:show.html.twig', array(
             'entity'      => $entity,
         ));

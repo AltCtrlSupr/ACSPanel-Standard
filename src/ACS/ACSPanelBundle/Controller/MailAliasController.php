@@ -59,6 +59,10 @@ class MailAliasController extends Controller
             throw $this->createNotFoundException('Unable to find MailAlias entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:MailAlias:show.html.twig', array(

@@ -96,6 +96,10 @@ class DomainController extends Controller
             throw $this->createNotFoundException('Unable to find Domain entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findByDomain($entity);
         $maildomains = $em->getRepository('ACSACSPanelBundle:MailDomain')->findByDomain($entity);
 

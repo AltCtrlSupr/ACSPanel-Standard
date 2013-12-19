@@ -59,6 +59,10 @@ class FtpdUserController extends Controller
             throw $this->createNotFoundException('Unable to find FtpdUser entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:FtpdUser:show.html.twig', array(

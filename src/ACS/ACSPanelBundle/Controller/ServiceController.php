@@ -53,6 +53,10 @@ class ServiceController extends Controller
             throw $this->createNotFoundException('Unable to find Service entity.');
         }
 
+        if (!$entity->userCanSee($this->get('security.context'))) {
+            throw new \Exception('You cannot edit this entity!');
+        }
+
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:Service:show.html.twig', array(
