@@ -7,7 +7,7 @@
     <tbody>
         {% for record in records %}
         <tr>
-            <td><a href="{{ path('dnsrecord_show', { 'id': record.id })  }}">{{ record.name }}</a></td>
+            <td><i class="icon-pencil"></i><a href="{{ path('dnsrecord_edit', { 'id': record.id })  }}">{{ record.name }}</a></td>
             <td>{{ record.type }}</td>
             <td>{{ record.content }}</td>
         </tr>
