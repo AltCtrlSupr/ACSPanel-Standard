@@ -307,7 +307,7 @@ class MailWBList
         if($security->isGranted('ROLE_RESELLER')){
             $users = $user->getIdChildIds();
             foreach($users as $childuser){
-                if($childuser == $user_to_check)
+                if($childuser == $user_to_check->getId())
                     return true;
             }
         }
