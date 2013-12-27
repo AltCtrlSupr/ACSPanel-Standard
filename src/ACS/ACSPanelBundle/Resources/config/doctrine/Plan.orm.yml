@@ -117,8 +117,6 @@ ACS\ACSPanelBundle\Entity\Plan:
             column: max_db_user
             gedmo:
                 - versioned
-
-
         createdAt:
             type: datetime
             column: created_at

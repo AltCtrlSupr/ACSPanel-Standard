@@ -27,10 +27,11 @@ class AppKernel extends Kernel
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Gregwar\FormBundle\GregwarFormBundle(),
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelBackupBundle\ACSACSPanelBackupBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
+            new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

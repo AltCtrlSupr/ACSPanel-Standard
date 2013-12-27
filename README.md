@@ -102,7 +102,7 @@ You should install the assets as well:
 
     php app/console assets:install --symlink
 
-(Opcional) Install additional ACSPanel bundles:
+(Optional) Install additional ACSPanel bundles:
 
 Coming soon.
 
@@ -126,7 +126,9 @@ Ensure you have rewrite mode enabled
 6) Getting started with ACSPanel
 -------------------------------
 
-comming soon.
+Changing the panel view parameters:
+
+    edit app/main/config/config.yml // Set variables from twig globals, you can change the default date format, the panel name and breadcumb separation character
 
 7) Setting up third party programs
 -------------------------------
@@ -142,7 +144,7 @@ Get the latest version of the code
 
     git pull
 
-Install the latest version of the dependecies
+Install the latest version of the dependencies
 
     ./composer.phar install
 
