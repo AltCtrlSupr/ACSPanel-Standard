@@ -59,7 +59,7 @@ class DBController extends Controller
         }
 
         if (!$entity->userCanSee($this->get('security.context'))) {
-            throw new \Exception('You cannot edit this entity!');
+            throw new \Exception('You cannot see this entity!');
         }
 
         $deleteForm = $this->createDeleteForm($id);

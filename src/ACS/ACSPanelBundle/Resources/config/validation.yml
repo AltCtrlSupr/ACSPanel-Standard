@@ -16,7 +16,7 @@ ACS\ACSPanelBundle\Entity\Domain:
     properties:
         domain:
             - Regex:
-                pattern: "/^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$/"
+                pattern: "/^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$|^localhost$/"
                 message: The domain must be valid domain name
             #- ACS\ACSPanelBundle\Validator\Constraints\DuplicateHost: 
                 #target_entity: ACSACSPanelBundle:HttpdAlias
