@@ -401,7 +401,7 @@ class DB
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             return true;
 
-        $user_to_check = $this->getDomain()->getUser();
+        $user_to_check = $this->getUser();
         $user = $security->getToken()->getUser();
 
         if($security->isGranted('ROLE_USER')){
