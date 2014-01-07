@@ -57,6 +57,9 @@
         </a>
     </li>
     <li>
+        <a href="{{ path('dnsrecord_new_with_domain', { 'dnsdomain_id': entity.id }) }}">{%trans%}add record{%endtrans%}</a>
+    </li>
+    <li>
         <form action="{{ path('dnsdomain_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
