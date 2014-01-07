@@ -37,7 +37,6 @@ class DnsSubscriber implements EventSubscriberInterface
 
         $soa = new DnsRecord();
         $soa->setDnsDomain($entity);
-        $soa->setUser($entity->getUser());
         // TODO: Conf ttl times from config
         $soa->setTtl('3600');
         $soa->setType('SOA');
