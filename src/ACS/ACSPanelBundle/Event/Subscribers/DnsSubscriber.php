@@ -80,7 +80,7 @@ class DnsSubscriber implements EventSubscriberInterface
         $parentDnsDomain = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findOneBy(array('domain'=>$entity->getParentDomain()));
 
         // Getting the dnsrecord for entity parent domain
-        $dnsRecords = $em->getRepository('ACSACSPanelBundle:DnsRecord')->findBy(array('domain' => $parentDnsDomain));
+        $dnsRecords = $em->getRepository('ACSACSPanelBundle:DnsRecord')->findBy(array('dns_domain' => $parentDnsDomain));
 
         foreach($dnsRecords as $dnsRecord){
          $pattern = '/'.$parentDnsDomain->getDomain().'$/';
