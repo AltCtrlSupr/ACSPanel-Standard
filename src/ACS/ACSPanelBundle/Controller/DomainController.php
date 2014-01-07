@@ -10,6 +10,7 @@ use ACS\ACSPanelBundle\Entity\DnsDomain;
 use ACS\ACSPanelBundle\Form\DomainType;
 use ACS\ACSPanelBundle\Event\DnsEvents;
 use ACS\ACSPanelBundle\Event\FilterDnsEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * Domain controller.
@@ -150,7 +151,7 @@ class DomainController extends Controller
             $em = $this->getDoctrine()->getManager();
             $entity->setEnabled(true);
 
-            #$this->container->get('event_dispatcher')->dispatch(DnsEvents::DOMAIN_BEFORE_ADD, new FilterDnsEvent($entity,$em));
+            $this->container->get('event_dispatcher')->dispatch(DnsEvents::DOMAIN_BEFORE_ADD, new FilterDnsEvent($entity,$em));
 
             $em->persist($entity);
 
@@ -170,7 +171,7 @@ class DomainController extends Controller
                 $em->persist($dnsdomain);
                 $em->flush();
 
-                // $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($dnsdomain,$em));
+                $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($dnsdomain,$em));
             }
 
             return $this->redirect($this->generateUrl('domain_show', array('id' => $entity->getId())));
