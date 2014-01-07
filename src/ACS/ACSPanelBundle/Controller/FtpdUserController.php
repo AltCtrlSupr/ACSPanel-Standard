@@ -79,7 +79,9 @@ class FtpdUserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         if (!$user->canUseResource('FtpdUser',$em)) {
-            throw new \Exception('You don\'t have enough resources!');
+            return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
+                'entity' => 'FtpdUser'
+            ));
         }
 
         $entity = new FtpdUser();

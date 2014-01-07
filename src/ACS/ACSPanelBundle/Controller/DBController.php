@@ -79,7 +79,9 @@ class DBController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
 
         if (!$user->canUseResource('Db',$em)) {
-            throw new \Exception('You don\'t have enough resources!');
+            return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
+                'entity' => 'Db'
+            ));
         }
 
         $entity = new DB();

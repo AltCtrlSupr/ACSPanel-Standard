@@ -80,7 +80,9 @@ class HttpdUserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         if (!$user->canUseResource('HttpdUser',$em)) {
-            throw new \Exception('You don\'t have enough resources!');
+            return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
+                'entity' => 'HttpdUser'
+            ));
         }
 
         $entity = new HttpdUser();

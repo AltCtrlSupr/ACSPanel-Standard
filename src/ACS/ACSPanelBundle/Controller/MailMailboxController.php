@@ -88,7 +88,9 @@ class MailMailboxController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         if (!$user->canUseResource('MailMailbox',$em)) {
-            throw new \Exception('You don\'t have enough resources!');
+            return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
+                'entity' => 'MailMailbox'
+            ));
         }
 
         $entity = new MailMailbox();
