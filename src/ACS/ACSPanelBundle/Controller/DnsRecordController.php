@@ -173,7 +173,7 @@ class DnsRecordController extends Controller
 
             $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_RECORD_UPDATE, new FilterDnsEvent($entity,$em));
 
-            return $this->redirect($this->generateUrl('dnsrecord_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('dnsdomain_show', array('id' => $entity->getDnsDomain()->getId())));
         }
 
         return $this->render('ACSACSPanelBundle:DnsRecord:edit.html.twig', array(
@@ -203,10 +203,10 @@ class DnsRecordController extends Controller
             $em->remove($entity);
             $em->flush();
 
-				$this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_RECORD_DELETE, new FilterDnsEvent($entity,$em));
+            $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_RECORD_DELETE, new FilterDnsEvent($entity,$em));
         }
 
-        return $this->redirect($this->generateUrl('dnsrecord'));
+        return $this->redirect($this->generateUrl('dnsdomain'));
     }
 
     private function createDeleteForm($id)
