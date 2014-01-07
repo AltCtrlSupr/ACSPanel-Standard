@@ -169,7 +169,8 @@ class DomainController extends Controller
 
                 $em->persist($dnsdomain);
                 $em->flush();
-                $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($dnsdomain,$em));
+
+                // $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_DOMAIN_ADD, new FilterDnsEvent($dnsdomain,$em));
             }
 
             return $this->redirect($this->generateUrl('domain_show', array('id' => $entity->getId())));
