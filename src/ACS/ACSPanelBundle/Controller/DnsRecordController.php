@@ -116,7 +116,7 @@ class DnsRecordController extends Controller
 
             $this->container->get('event_dispatcher')->dispatch(DnsEvents::DNS_AFTER_RECORD_ADD, new FilterDnsEvent($entity,$em));
 
-            return $this->redirect($this->generateUrl('dnsrecord_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('dnsdomain_show', array('id' => $entity->getDnsDomain()->getId())));
         }
 
         return $this->render('ACSACSPanelBundle:DnsRecord:new.html.twig', array(
