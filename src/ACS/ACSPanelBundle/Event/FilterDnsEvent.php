@@ -21,6 +21,6 @@ class FilterDnsEvent extends Event
 
 	public function getEm()
 	{
-			  return $this->em;
+        return $this->em;
 	}
 }

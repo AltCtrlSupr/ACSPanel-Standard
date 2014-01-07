@@ -41,7 +41,7 @@ class DnsSubscriber implements EventSubscriberInterface
         // TODO: Conf ttl times from config
         $soa->setTtl('3600');
         $soa->setType('SOA');
-        $domainName = $em->getRepository('ACSACSPanelBundle:Domain')->find($entity->getDomain())->getName();
+        $domainName = $entity->getDomain()->getName();
         // TODO: Conf ttl times from config
         $soa->setContent($domainName.' webmaster@'.$domainName.' 1 3600 3600 3600 3600');
         $soa->setName($domainName);
@@ -71,6 +71,9 @@ class DnsSubscriber implements EventSubscriberInterface
         $em->flush();
     }
 
+    /**
+     * Copy Dns records from parent domain to current
+     */
     public function cloneDnsRecords(FilterDnsEvent $dnsfilter)
     {
         $em = $dnsfilter->getEm();
