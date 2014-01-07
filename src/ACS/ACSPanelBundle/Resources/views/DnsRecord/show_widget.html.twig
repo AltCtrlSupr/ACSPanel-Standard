@@ -2,6 +2,7 @@
     <thead><tr>
             <th>{% trans %}dnsrecord.field.name{% endtrans %}</th>
             <th>{% trans %}dnsrecord.field.type{% endtrans %}</th>
+            <th>{% trans %}dnsrecord.field.prio{% endtrans %}</th>
             <th>{% trans %}dnsrecord.field.content{% endtrans %}</th>
     </tr></thead>
     <tbody>
@@ -9,6 +10,7 @@
         <tr>
             <td><i class="icon-pencil"></i><a href="{{ path('dnsrecord_edit', { 'id': record.id })  }}">{{ record.name }}</a></td>
             <td>{{ record.type }}</td>
+            <td>{{ record.prio }}</td>
             <td>{{ record.content }}</td>
         </tr>
         {% endfor %}

@@ -47,6 +47,11 @@
 
 <ul class="record_actions">
     <li>
+        <a href="{{ path('dnsrecord_new_with_domain', { 'dnsdomain_id': entity.id }) }}">
+            {%trans%}Add record{%endtrans%}
+        </a>
+    </li>
+    <li>
         <a href="{{ path('dnsdomain') }}">
             {%trans%}Back to the list{%endtrans%}
         </a>
@@ -55,9 +60,6 @@
         <a href="{{ path('dnsdomain_edit', { 'id': entity.id }) }}">
             {%trans%}Edit{%endtrans%}
         </a>
-    </li>
-    <li>
-        <a href="{{ path('dnsrecord_new_with_domain', { 'dnsdomain_id': entity.id }) }}">{%trans%}add record{%endtrans%}</a>
     </li>
     <li>
         <form action="{{ path('dnsdomain_delete', { 'id': entity.id }) }}" method="post">
