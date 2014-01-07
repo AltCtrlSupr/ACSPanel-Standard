@@ -10,6 +10,7 @@
 {% block body %}
 
 <div class="form_box">
+        <span class="label label-important">{{ form_errors(form) }}</span>
     <form action="{{ path('users_create') }}" method="post" {{ form_enctype(form) }}>
 
         {% macro prototype(plan) %}

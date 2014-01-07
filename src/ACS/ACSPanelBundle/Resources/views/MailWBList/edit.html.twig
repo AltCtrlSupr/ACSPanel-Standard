@@ -4,6 +4,7 @@
 
 
 <form action="{{ path('mailwblist_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <span class="label label-important">{{ form_errors(edit_form) }}</span>
     {{ form_widget(edit_form) }}
     <p>
         <button class="btn" type="submit">Edit</button>

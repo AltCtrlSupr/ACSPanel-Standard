@@ -5,6 +5,8 @@
 <div class="form_box">
     <form action="{{ path('db_create') }}" method="post" {{ form_enctype(form) }}>
 
+        <span class="label label-important">{{ form_errors(form) }}</span>
+
         <div class="general-section">
             {{form_row(form.name)}}
             {{form_row(form.description)}}

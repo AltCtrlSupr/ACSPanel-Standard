@@ -12,6 +12,7 @@
     <form action="{{ path('httpdhost_create') }}" method="post" {{ form_enctype(form) }}>
         <div class="form_box row-fluid">
             <div class="span6">
+                <span class="label label-important">{{ form_errors(form) }}</span>
                 {{ form_row(form.domain) }}
                 {{ form_row(form.configuration) }}
                 <div class="control-group"><div class="controls">{{ form_widget(form.cgi) }}{{ form_label(form.cgi, null, {'label_attr': {'class':'checkbox inline'}})}}</div></div>

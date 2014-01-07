@@ -4,7 +4,7 @@
 
 <div class="form_box">
     <form action="{{ path('mailalias_create') }}" method="post" {{ form_enctype(form) }}>
-        {{ form_errors(form) }}
+        <span class="label label-important">{{ form_errors(form) }}</span>
         {{ form_label(form.address) }}
         {{ form_widget(form.address) }} @ {{ form_widget(form.mail_domain) }}
         {{ form_label(form.goto) }}

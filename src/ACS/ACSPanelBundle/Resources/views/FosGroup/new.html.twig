@@ -4,6 +4,7 @@
 
 <div class="form_box">
     <form action="{{ path('groups_create') }}" method="post" {{ form_enctype(form) }}>
+        <span class="label label-important">{{ form_errors(form) }}</span>
         {{ form_widget(form) }}
         <p>
             <button class="btn" type="submit">{% trans %}Create{% endtrans %}</button>
