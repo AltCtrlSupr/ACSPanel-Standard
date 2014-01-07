@@ -51,6 +51,7 @@ class DnsSubscriber implements EventSubscriberInterface
 
     }
 
+    // TODO: Add ns servers from panel settings
     public function addNS(FilterDnsEvent $dnsfilter)
     {
     }
