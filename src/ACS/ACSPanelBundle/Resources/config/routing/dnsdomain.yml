@@ -32,3 +32,8 @@ dnsdomain_delete:
 dnsdomain_setenabled:
     pattern: /{id}/setenabled
     defaults: { _controller: "ACSACSPanelBundle:DnsDomain:setenabled" }
+
+dnsdomain_search:
+    pattern:  /search/
+    defaults: { _controller: "ACSACSPanelBundle:DnsDomain:search" }
+    requirements: { _method: post }

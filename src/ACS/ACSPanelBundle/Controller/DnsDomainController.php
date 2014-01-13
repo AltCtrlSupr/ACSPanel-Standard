@@ -48,6 +48,7 @@ class DnsDomainController extends Controller
 
         return $this->render('ACSACSPanelBundle:DnsDomain:index.html.twig', array(
             'entities' => $entities,
+            'search_action' => 'dnsdomain_search',
         ));
     }
 
@@ -73,6 +74,7 @@ class DnsDomainController extends Controller
 
         return $this->render('ACSACSPanelBundle:DnsDomain:show.html.twig', array(
             'entity'      => $entity,
+            'search_action' => 'dnsdomain_search',
             'delete_form' => $deleteForm->createView(),        ));
     }
 
@@ -98,6 +100,7 @@ class DnsDomainController extends Controller
 
         return $this->render('ACSACSPanelBundle:DnsDomain:new.html.twig', array(
             'entity' => $entity,
+            'search_action' => 'dnsdomain_search',
             'form'   => $form->createView(),
         ));
     }
@@ -125,6 +128,7 @@ class DnsDomainController extends Controller
 
         return $this->render('ACSACSPanelBundle:DnsDomain:new.html.twig', array(
             'entity' => $entity,
+            'search_action' => 'dnsdomain_search',
             'form'   => $form->createView(),
         ));
     }
@@ -148,6 +152,7 @@ class DnsDomainController extends Controller
 
         return $this->render('ACSACSPanelBundle:DnsDomain:edit.html.twig', array(
             'entity'      => $entity,
+            'search_action' => 'dnsdomain_search',
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -180,6 +185,7 @@ class DnsDomainController extends Controller
         }
 
         return $this->render('ACSACSPanelBundle:DnsDomain:edit.html.twig', array(
+            'search_action' => 'dnsdomain_search',
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -233,5 +239,41 @@ class DnsDomainController extends Controller
 
       return $this->redirect($this->generateUrl('dnsdomain'));
     }
+
+    /**
+     * Finds and displays a LogItem search results.
+     */
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $rep = $em->getRepository('ACSACSPanelBundle:DnsDomain');
+
+        $term = $request->request->get('term');
+
+        $query = $rep->createQueryBuilder('d')
+            ->where('d.id = ?1')
+            ->innerJoin('d.domain','dom')
+            ->orWhere('dom.domain LIKE ?2')
+            ->setParameter('1',$term)
+            ->setParameter('2','%'.$term.'%')
+            ->getQuery();
+
+        $entities = $query->execute();
+
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            6
+        );
+
+        return $this->render('ACSACSPanelBundle:DnsDomain:index.html.twig', array(
+            'entities' => $entities,
+            'term' => $term,
+            'search_action' => 'dnsdomain_search',
+        ));
+
+    }
+
 
 }
