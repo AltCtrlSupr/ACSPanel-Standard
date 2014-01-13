@@ -241,7 +241,8 @@ class DnsDomainController extends Controller
     }
 
     /**
-     * Finds and displays a LogItem search results.
+     * Finds and displays a DnsDomain search results.
+     * @todo add dns records to the search
      */
     public function searchAction(Request $request)
     {
@@ -254,6 +255,8 @@ class DnsDomainController extends Controller
             ->where('d.id = ?1')
             ->innerJoin('d.domain','dom')
             ->orWhere('dom.domain LIKE ?2')
+            ->orWhere('d.type LIKE ?2')
+            ->orWhere('d.account LIKE ?2')
             ->setParameter('1',$term)
             ->setParameter('2','%'.$term.'%')
             ->getQuery();
