@@ -32,7 +32,7 @@ class MailDomainType extends AbstractType
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('d')
                         ->select('d')
-                        ->where('d.is_httpd_alias != 1');
+                        ->where('d.is_httpd_alias != 1 OR d.is_httpd_alias IS NULL');
                         if(!$superadmin){
                             $query->andWhere('d.user IN (?1)')
                             ->setParameter('1', $child_ids);
