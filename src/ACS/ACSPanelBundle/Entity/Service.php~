@@ -50,6 +50,45 @@ class Service
      */
     private $type;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $databases;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $dns_domains;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $ftp_users;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $httpd_hosts;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $mail_domains;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $proxyed_httpd_hosts;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $settings;
+
+    /**
+     * @var boolean
+     */
+    private $enabled;
 
     /**
      * Get id
@@ -266,31 +305,6 @@ class Service
 		return $this->name;
 	}
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $databases;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $dns_domains;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $ftp_users;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $httpd_hosts;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $mail_domains;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -466,11 +480,6 @@ class Service
     {
         return $this->mail_domains;
     }
-    /**
-     * @var boolean
-     */
-    private $enabled;
-
 
     /**
      * Set enabled
@@ -494,11 +503,6 @@ class Service
     {
         return $this->enabled;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $settings;
-
 
     /**
      * Add settings
@@ -532,11 +536,6 @@ class Service
     {
         return $this->settings;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $proxyed_httpd_hosts;
-
 
     /**
      * Add proxyed_httpd_hosts
@@ -547,7 +546,7 @@ class Service
     public function addProxyedHttpdHost(\ACS\ACSPanelBundle\Entity\HttpdHost $proxyedHttpdHosts)
     {
         $this->proxyed_httpd_hosts[] = $proxyedHttpdHosts;
-    
+
         return $this;
     }
 
@@ -564,10 +563,39 @@ class Service
     /**
      * Get proxyed_httpd_hosts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getProxyedHttpdHosts()
     {
         return $this->proxyed_httpd_hosts;
     }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check->getId())
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

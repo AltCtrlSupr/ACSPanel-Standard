@@ -46,6 +46,25 @@ class MailAlias
      */
     private $active;
 
+    /**
+     * @var \ACS\ACSPanelBundle\Entity\MailDomain
+     */
+    private $mail_domain;
+
+    /**
+     * @var boolean $enabled
+     */
+    private $enabled;
+
+    /**
+     * @var \DateTime $createdAt
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime $updatedAt
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -195,22 +214,6 @@ class MailAlias
         return $this->active;
     }
     /**
-     * @var boolean $enabled
-     */
-    private $enabled;
-
-    /**
-     * @var \DateTime $createdAt
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime $updatedAt
-     */
-    private $updatedAt;
-
-
-    /**
      * Set enabled
      *
      * @param boolean $enabled
@@ -298,11 +301,6 @@ class MailAlias
 	    $this->updatedAt = new \DateTime();
     }
 
-    /**
-     * @var \ACS\ACSPanelBundle\Entity\MailDomain
-     */
-    private $mail_domain;
-
 
     /**
      * Set mail_domain
@@ -313,17 +311,46 @@ class MailAlias
     public function setMailDomain(\ACS\ACSPanelBundle\Entity\MailDomain $mailDomain = null)
     {
         $this->mail_domain = $mailDomain;
-    
+
         return $this;
     }
 
     /**
      * Get mail_domain
      *
-     * @return \ACS\ACSPanelBundle\Entity\MailDomain 
+     * @return \ACS\ACSPanelBundle\Entity\MailDomain
      */
     public function getMailDomain()
     {
         return $this->mail_domain;
     }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getMailDomain()->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check->getId())
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

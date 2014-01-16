@@ -101,6 +101,8 @@ class DnsSubscriber implements EventSubscriberInterface
                 $newRecord->setName($name);
                 $newRecord->setType($type);
 
+                $newRecord->setDnsDomain($parentDnsDomain);
+
                 $newRecord->setContent($content);
                 $newRecord->setTtl($dnsRecord->getTtl());
                 $newRecord->setPrio($dnsRecord->getPrio());

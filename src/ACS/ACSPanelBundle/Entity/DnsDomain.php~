@@ -71,11 +71,6 @@ class DnsDomain
     private $dnsrecords;
 
     /**
-     * @var \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    private $user;
-
-    /**
      * @var \ACS\ACSPanelBundle\Entity\Service
      */
     private $service;
@@ -361,28 +356,6 @@ class DnsDomain
         return $this->dnsrecords;
     }
 
-    /**
-     * Set user
-     *
-     * @param \ACS\ACSPanelBundle\Entity\FosUser $user
-     * @return DnsDomain
-     */
-    public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \ACS\ACSPanelBundle\Entity\FosUser
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
 
     /**
      * Set service
@@ -417,26 +390,6 @@ class DnsDomain
 	    }
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        if($this->getUser())
-            return;
-
-		global $kernel;
-
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
-
-		$service = $kernel->getContainer()->get('security.context');
-
-        // Add your code here
-		$user = $service->getToken()->getUser();
-		return $this->setUser($user);
-    }
 
     /**
      * @ORM\PreUpdate
@@ -450,4 +403,30 @@ class DnsDomain
 	 {
 				return $this->domain->__toString();
 	 }
+
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getDomain()->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check->getId())
+                    return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }

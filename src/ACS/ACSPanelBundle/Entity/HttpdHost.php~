@@ -504,14 +504,14 @@ class HttpdHost
     public function setProxyService(\ACS\ACSPanelBundle\Entity\Service $proxyService = null)
     {
         $this->proxy_service = $proxyService;
-    
+
         return $this;
     }
 
     /**
      * Get proxy_service
      *
-     * @return \ACS\ACSPanelBundle\Entity\Service 
+     * @return \ACS\ACSPanelBundle\Entity\Service
      */
     public function getProxyService()
     {
@@ -552,14 +552,14 @@ class HttpdHost
     public function setSsl($ssl)
     {
         $this->ssl = $ssl;
-    
+
         return $this;
     }
 
     /**
      * Get ssl
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getSsl()
     {
@@ -575,14 +575,14 @@ class HttpdHost
     public function setCertificate($certificate)
     {
         $this->certificate = $certificate;
-    
+
         return $this;
     }
 
     /**
      * Get certificate
      *
-     * @return string 
+     * @return string
      */
     public function getCertificate()
     {
@@ -598,14 +598,14 @@ class HttpdHost
     public function setCertificateKey($certificateKey)
     {
         $this->certificate_key = $certificateKey;
-    
+
         return $this;
     }
 
     /**
      * Get certificate_key
      *
-     * @return string 
+     * @return string
      */
     public function getCertificateKey()
     {
@@ -621,14 +621,14 @@ class HttpdHost
     public function setCertificateChain($certificateChain)
     {
         $this->certificate_chain = $certificateChain;
-    
+
         return $this;
     }
 
     /**
      * Get certificate_chain
      *
-     * @return string 
+     * @return string
      */
     public function getCertificateChain()
     {
@@ -644,17 +644,45 @@ class HttpdHost
     public function setCertificateAuthority($certificateAuthority)
     {
         $this->certificate_authority = $certificateAuthority;
-    
+
         return $this;
     }
 
     /**
      * Get certificate_authority
      *
-     * @return string 
+     * @return string
      */
     public function getCertificateAuthority()
     {
         return $this->certificate_authority;
+    }
+
+    /**
+     * Check if user has privileges to see this entity
+     */
+    public function userCanSee($security)
+    {
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            return true;
+
+        $user_to_check = $this->getDomain()->getUser();
+        $user = $security->getToken()->getUser();
+
+        if($security->isGranted('ROLE_USER')){
+            if($user == $user_to_check)
+                return true;
+        }
+
+        if($security->isGranted('ROLE_RESELLER')){
+            $users = $user->getIdChildIds();
+            foreach($users as $childuser){
+                if($childuser == $user_to_check->getId())
+                    return true;
+            }
+        }
+
+        return false;
+
     }
 }

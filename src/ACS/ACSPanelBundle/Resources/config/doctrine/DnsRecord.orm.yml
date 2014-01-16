@@ -69,6 +69,7 @@ ACS\ACSPanelBundle\Entity\DnsRecord:
             gedmo:
                 - versioned
             joinColumn:
+                nullable: false
                 onDelete: CASCADE
 
     lifecycleCallbacks:
