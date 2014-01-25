@@ -64,6 +64,12 @@ class PlanController extends Controller
      */
     public function newAction()
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            return $this->render('ACSACSPanelBundle:Error:access_denied', array(
+                'entity' => 'Plan'
+            ));
+        }
+
         $entity = new Plan();
         $form   = $this->createForm(new PlanType(), $entity);
 
@@ -103,6 +109,12 @@ class PlanController extends Controller
      */
     public function editAction($id)
     {
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            return $this->render('ACSACSPanelBundle:Error:access_denied', array(
+                'entity' => 'Plan'
+            ));
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ACSACSPanelBundle:Plan')->find($id);
@@ -127,6 +139,7 @@ class PlanController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ACSACSPanelBundle:Plan')->find($id);
