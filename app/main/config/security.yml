@@ -52,7 +52,6 @@ security:
         - { path: ^/ipaddress, role: ROLE_ADMIN }
         - { path: ^/users, role: ROLE_RESELLER }
         - { path: ^/groups, role: ROLE_ADMIN }
-        - { path: ^/plans/, role: ROLE_ADMIN }
         - { path: ^/users, role: ROLE_RESELLER }
         - { path: ^/plans, role: ROLE_USER }
         - { path: ^/, role: ROLE_USER}
