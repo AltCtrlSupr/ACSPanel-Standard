@@ -44,7 +44,7 @@ class MailMailboxType extends AbstractType
 
             ->add('name', null, array('label' => 'mailbox.form.name'))
             ->add('username', null, array('label' => 'mailbox.form.username'))
-            ->add('password', null, array('label' => 'mailbox.form.password'))
+            ->add('password', 'password', array('label' => 'mailbox.form.password'))
         ;
     }
 
