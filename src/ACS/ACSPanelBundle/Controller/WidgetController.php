@@ -15,8 +15,8 @@ class WidgetController extends Controller
         $max_httpd_host = $current_user->getPlanMax('HttpdHost');
         $used_httpd_host = $current_user->getUsedResource('HttpdHost',$em);
 
-        // $max_httpd_alias = $current_user->getPlanMax('HttpdAlias');
-        // $used_httpd_alias = $current_user->getUsedResource('HttpdAlias',$em);
+        $max_httpd_alias = $current_user->getPlanMax('HttpdAlias');
+        $used_httpd_alias = $current_user->getUsedResource('Domain',$em,array('is_httpd_alias' => true));
 
         $max_httpd_user = $current_user->getPlanMax('HttpdUser');
         $used_httpd_user = $current_user->getUsedResource('HttpdUser',$em);
@@ -46,8 +46,8 @@ class WidgetController extends Controller
         return $this->render('ACSACSPanelBundle:Widget:quotaList.html.twig', array(
             'max_httpd_host' => $max_httpd_host,
             'used_httpd_host' => $used_httpd_host,
-            // 'max_httpd_alias' => $max_httpd_alias,
-            // 'used_httpd_alias' => $used_httpd_alias,
+            'max_httpd_alias' => $max_httpd_alias,
+            'used_httpd_alias' => $used_httpd_alias,
             'max_httpd_user' => $max_httpd_user,
             'used_httpd_user' => $used_httpd_user,
             'max_dns_domain' => $max_dns_domain,
@@ -59,7 +59,7 @@ class WidgetController extends Controller
             'max_mail_alias' => $max_mail_alias,
             'used_mail_alias' => $used_mail_alias,
             'max_mail_alias_domain' => $max_mail_alias_domain,
-            //'used_mail_alias_domain' => $used_mail_alias_domain,
+            'used_mail_alias_domain' => $used_mail_alias_domain,
             'max_ftpd' => $max_ftpd,
             'used_ftpd' => $used_ftpd,
         ));

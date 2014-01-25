@@ -2,6 +2,8 @@
 {% block header_title %} - {% trans %}Home{% endtrans %}{% endblock %}
 {% block body %}
 
-{% include dashboard_widgets %}
+{#{% include(dashboard_widgets) %}#}
+{% render controller("ACSACSPanelBundle:Widget:planList") %}
+{% render controller("ACSACSPanelBundle:Widget:quotaList") %}
 
 {% endblock %}

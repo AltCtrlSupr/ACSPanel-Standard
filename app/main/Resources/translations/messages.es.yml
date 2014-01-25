@@ -222,5 +222,9 @@ hosting:
     add_ns2_records: Añadir segundo registro 'NS'
     add_mx_records: Añadir registro 'MX'
 
+widget:
+  title:
+    plans: Tus planes
+
 breadcumb:
   sep: ">"
