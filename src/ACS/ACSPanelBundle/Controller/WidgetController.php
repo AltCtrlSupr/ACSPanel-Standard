@@ -16,7 +16,7 @@ class WidgetController extends Controller
         $used_httpd_host = $current_user->getUsedResource('HttpdHost',$em);
 
         $max_httpd_alias = $current_user->getPlanMax('HttpdAlias');
-        $used_httpd_alias = $current_user->getUsedResource('Domain',$em,array('is_httpd_alias' => true));
+        $used_httpd_alias = $current_user->getUsedResource('HttpdAlias',$em,'Domain',array('user' => $current_user,'is_httpd_alias' => true));
 
         $max_httpd_user = $current_user->getPlanMax('HttpdUser');
         $used_httpd_user = $current_user->getUsedResource('HttpdUser',$em);

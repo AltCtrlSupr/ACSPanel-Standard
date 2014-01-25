@@ -231,7 +231,7 @@ class FosUser extends BaseUser
      * Returns the used amount of a resource
      * @todo make compatible with resource HttpdAlias
      */
-    public function getUsedResource($resource, $em, $additional_cond = null)
+    public function getUsedResource($resource, $em, $alternative_max_resource = null, $additional_cond = null)
     {
         $used_amount = 0;
 
@@ -246,11 +246,15 @@ class FosUser extends BaseUser
         }
 
         // Check for own used resources
-        $repository_name = 'ACSACSPanelBundle:'.$resource;
+        if(!$alternative_max_resource)
+            $repository_name = 'ACSACSPanelBundle:'.$resource;
+        else
+            $repository_name = 'ACSACSPanelBundle:'.$alternative_max_resource;
+
         if(!$additional_cond)
             $resources = $em->getRepository($repository_name)->findByUser($this);
         else
-            $resources = $em->getRepository($repository_name)->findBy(array('user' => $this, 'is_httpd_alias' => true));
+            $resources = $em->getRepository($repository_name)->findBy($additional_cond);
 
         $used_amount += count($resources);
 
