@@ -1,4 +1,6 @@
 ## templates.ca.yml
+common:
+  home: Inici
 menu:
   admin:
     main: Administrador
@@ -22,6 +24,7 @@ menu:
     main: Web
     hosts: Hosts
     users: Usuaris web
+    newhosting: Nou allotjament
   dns:
     main: DNS
     domains: Dominis
@@ -116,6 +119,8 @@ dnsrecord:
     content: Contingut
 
 domain:
+  title:
+    index: llistat
   form:
     domain: Nom de domini
     parent_domain: Domini pare
@@ -124,6 +129,10 @@ domain:
     is_mail_alias: ¿Es alies de Mail?
     adddnsdomain: ¿Afegir domini DNS?
     user: Usuari propietari
+  fields:
+    httpdhost: HTTPD hosts
+    dns: Registres DNS
+    mail: Maildomains
 
 httpdhost:
   form:
@@ -165,8 +174,23 @@ maildomain:
     max_quota: Màxim de quota
     backupmx: BackupMX
     service: Servei
-    adddnsrecord: ¿Añadir registros DNS?
+    adddnsrecord: ¿Afegir registres DNS?
     user: Propietari
+  field:
+    domain: Domini
+    description: Descripció
+    maxaliases: Máxim alies
+    maxmailboxes: Màxim bústies
+    maxquota: Màxim de quota
+    transport: Transport
+    backupmx: BackupMX
+    enabled: Activat
+    createdat: Creat el
+    updatedat: Actualizat el
+  button:
+    back: Tornar al llistat
+    edit: Editar domini de correu
+    delete: Borrar
 
 mailbox:
   form:
@@ -174,3 +198,53 @@ mailbox:
     name: Nom
     username: Nom de usuari
     password: Contrasenya
+  field:
+    username: Nom d'usuari
+    password: Contrassenya
+    name: Nom
+    maildir: Directori
+    quotalimit: Límit de quota
+    usedquota: Quota utilitzada
+    bytes: Bytes
+    messages: Missatges
+    created_at: Creat el
+    updated_at: Actualitzat el
+
+hosting:
+  flow:
+    basic: Bàsic
+    users: Usuaris
+    dns: DNS
+  form:
+    php_hosting: Activar PHP
+    add_a_records: Afegir registre 'A'
+    add_ns1_records: Afegir primer registre 'NS'
+    add_ns2_records: Afegir segon registre 'NS'
+    add_mx_records: Afegir registre 'MX'
+
+widget:
+  title:
+    plans: Els teus plans
+
+breadcumb:
+  sep: ">"
+
+plans:
+  field:
+    name: Nom del plà
+    created_at: Creat el
+    updated_at: Modificat el
+    quotas: Límits
+    maxpanelreseller: Resellers màxims
+    maxpaneluser: Usuaris màxims
+    maxhttpdhost: HTTPD hosts màxims
+    maxhttpdalias: HTTPD alias màxims
+    maxhttpduser: Usuaris HTTPD màxims
+    maxdomain: Dominis màxims
+    maxdnsdomain: Dominis DNS màxims
+    maxmaildomain: Dominis Mail màxims
+    maxmailmailbox: Bústies de correu màxims
+    maxmailalias: Alias de correu màxims
+    maxmailaliasdomain: Alias de dominis mail màxims
+    maxdb: Bases de dades máximes
+    maxdbuser: Usuaris de base de dades màxims

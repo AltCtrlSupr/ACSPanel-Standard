@@ -228,3 +228,23 @@ widget:
 
 breadcumb:
   sep: ">"
+
+plans:
+  field:
+    name: Nombre del plan
+    created_at: Creado el
+    updated_at: Modificado el
+    quotas: Límites
+    maxpanelreseller: Resellers máximos
+    maxpaneluser: Usuarios máximos
+    maxhttpdhost: HTTPD hosts máximos
+    maxhttpdalias: HTTPD alias máximos
+    maxhttpduser: Usuarios HTTPD máximos
+    maxdomain: Dominios máximos
+    maxdnsdomain: Dominios DNS máximos
+    maxmaildomain: Dominios Mail máximos
+    maxmailmailbox: Buzones de correo máximos
+    maxmailalias: Alias de correo máximos
+    maxmailaliasdomain: Alias de dominios mail máximos
+    maxdb: Bases de datos máximas
+    maxdbuser: Usuarios de base de datos máximos
