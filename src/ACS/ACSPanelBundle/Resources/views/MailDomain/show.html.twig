@@ -45,6 +45,10 @@
             <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
         </tr>
         <tr>
+            <th>{% trans %}maildomain.field.mailboxes{% endtrans %}</th>
+            <td>{% render(controller("ACSACSPanelBundle:MailMailbox:showWidget" , { 'maildomain_id' : entity.id }))  %}</td>
+        </tr>
+        <tr>
             <th>{% trans %}maildomain.field.setup_instructions{% endtrans %}</th>
             <td>{% include "ACSACSPanelBundle:Email:email_setup.html.twig" %}</td>
         </tr>
