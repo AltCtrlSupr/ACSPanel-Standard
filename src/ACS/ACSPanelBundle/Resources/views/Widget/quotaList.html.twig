@@ -57,8 +57,8 @@
     <tr>
         <td>Mail Alias Domain</td>
         <td>
-          {#{{ utils.progressbar(max_httpd_host,used_httpd_host) }}#}
-          {{max_mail_alias_domain}} / Fix retrieve used mail alias domain{#{used_mail_alias_domain}#}</td>
+          {{ utils.progressbar(max_mail_alias_domain,used_mail_alias_domain) }}
+          {{max_mail_alias_domain}} {{used_mail_alias_domain}}</td>
     </tr>
     <tr>
         <td>FTPD</td>

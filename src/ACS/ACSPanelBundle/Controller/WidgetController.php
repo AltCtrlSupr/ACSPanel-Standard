@@ -37,7 +37,7 @@ class WidgetController extends Controller
         $used_mail_alias = $current_user->getUsedResource('MailAlias',$em);
 
         $max_mail_alias_domain = $current_user->getPlanMax('MailAliasDomain');
-        //$used_mail_alias_domain = $current_user->getUsedResource('MailAliasDomain',$em);
+        $used_mail_alias_domain = $current_user->getUsedResource('MailAliasDomain',$em,'Domain',array('user' => $current_user,'is_mail_alias' => true));
 
         $max_ftpd = $current_user->getPlanMax('FtpdUser');
         $used_ftpd = $current_user->getUsedResource('FtpdUser',$em);
