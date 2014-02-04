@@ -137,6 +137,7 @@ To set up roundcube to be able to change the passwords with the password plugin 
 
     $rcmail_config['password_query'] = 'UPDATE mail_mailbox mb INNER JOIN mail_domain md ON mb.mail_domain_id = md.id INNER JOIN domain d ON md.domain_id = d.id SET mb.password=%p WHERE mb.username=%l AND mb.password=%o AND d.domain=%d';
 
+
 8) Updating the panel (DO BACKUPS FIRST!!)
 ------------------------------------------
 
@@ -155,6 +156,18 @@ Update the database
 And install the assets
 
     php app/main/console assets:install --symlink
+
+
+9) Setting up services to automatic apply panel settings
+--------------------------------------------------------
+
+Apache: Copy the script tools/acspanel-srv-apache2-reboot to each Apache2 server and give execution permission to the script. Change the panel database access details and add to crontab.
+Create a file in /etc/cron.d/ folder with the next contents:
+
+	* *     * * *   root    /usr/local/sbin/acspanel-srv-apache2-reboot
+
+Change the route to your script location
+
 
 
 What's inside?
