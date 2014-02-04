@@ -246,5 +246,5 @@ plans:
     maxmailmailbox: Bústies de correu màxims
     maxmailalias: Alias de correu màxims
     maxmailaliasdomain: Alias de dominis mail màxims
-    maxdb: Bases de dades máximes
+    maxdb: Bases de dades màximes
     maxdbuser: Usuaris de base de dades màxims
