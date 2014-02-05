@@ -2,10 +2,14 @@
 
 REBOOT=0
 LAST_REBOOT_FILE=/tmp/acspanel-srv-apache2-last-reboot
-MYSQL="mysql -hHOST -uUSER -pPASS DATABASE -B -e "
+MYSQL="mysql -hHOST -uUSER -pPASSWORD DATABASE -B -e "
 
 if [ -e $LAST_REBOOT_FILE ]; then
-        LAST_REBOOT=$(stat $LAST_REBOOT_FILE|grep Modify|cut -d\  -f2-3|cut -d\. -f1)
+        LAST_REBOOT=$(stat $LAST_REBOOT_FILE| sed -n 6p |cut -d\  -f2-3|cut -d\. -f1)
+
+	if [[ -z $LAST_REBOOT ]]; then
+		LAST_REBOOT=$(date +"%Y-%m-%d %T")
+	fi
 
         SQL="SELECT 'OK' 
                 FROM httpd_host 
@@ -23,8 +27,7 @@ if [ -e $LAST_REBOOT_FILE ]; then
                         ) 
                 ) 
                 AND (
-			STR_TO_DATE('$LAST_REBOOT', '%Y-%m-%d %H:%i:%s') IS NULL
-			OR STR_TO_DATE('$LAST_REBOOT', '%Y-%m-%d %H:%i:%s') < httpd_host.updated_at
+			STR_TO_DATE('$LAST_REBOOT', '%Y-%m-%d %H:%i:%s') < httpd_host.updated_at
                         OR STR_TO_DATE('$LAST_REBOOT', '%Y-%m-%d %H:%i:%s') < domain.updated_at 
                         OR STR_TO_DATE('$LAST_REBOOT', '%Y-%m-%d %H:%i:%s') < service.updated_at 
                         OR STR_TO_DATE('$LAST_REBOOT', '%Y-%m-%d %H:%i:%s') < server.updated_at 
@@ -50,11 +53,7 @@ fi
 if [ $REBOOT -eq 1 ]; then
         /usr/sbin/apache2ctl configtest > /dev/null 2> /dev/null
         if [ $? -eq 0 ]; then
-                service apache2 reload  > /dev/null 2> /dev/null
-
-		if [[ -z $LAST_REBOOT ]]; then
-			LAST_REBOOT=$(date +"%Y-%m-%d %T")
-		fi
+                /usr/sbin/service apache2 reload  > /dev/null 2> /dev/null
                 echo "$LAST_REBOOT" > $LAST_REBOOT_FILE
         fi
 fi
