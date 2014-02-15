@@ -56,10 +56,11 @@ class MailDomainType extends AbstractType
                         ->OrWhere('t.name LIKE ?2')
                         ->setParameter('1','%smtp%')
                         ->setParameter('2','%SMTP%');
-                        if(!$superadmin){
+                        // TODO: Check te best way to do this
+                        /*if(!$superadmin){
                             $query->andWhere('s.user IN (?3)')
                             ->setParameter('3', $child_ids);
-                        }
+                        }*/
                         return $query;
                     }
                 )
