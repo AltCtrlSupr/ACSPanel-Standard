@@ -46,7 +46,24 @@ class MailDomainType extends AbstractType
             ->add('maxMailboxes', null, array('label' => 'maildomain.form.max_mailboxes'))
             ->add('maxQuota', null, array('label' => 'maildomain.form.max_quota'))
             ->add('backupmx', null, array('label' => 'maildomain.form.backupmx'))
-            ->add('service', null, array('label' => 'maildomain.form.service'))
+            ->add('service', null, array(
+                'label' => 'maildomain.form.service',
+                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
+                    $query = $er->createQueryBuilder('s')
+                        ->select('s')
+                        ->innerJoin('s.type','t')
+                        ->where('t.name LIKE ?1')
+                        ->OrWhere('t.name LIKE ?2')
+                        ->setParameter('1','%smtp%')
+                        ->setParameter('2','%SMTP%');
+                        if(!$superadmin){
+                            $query->andWhere('s.user IN (?1)')
+                            ->setParameter('1', $child_ids);
+                        }
+                        return $query;
+                    }
+                )
+             )
             ->add('add_dns_record','checkbox',array(
                 'mapped' => false,
                 'required' => false,

@@ -248,3 +248,7 @@ plans:
     maxmailaliasdomain: Alias de dominios mail máximos
     maxdb: Bases de datos máximas
     maxdbuser: Usuarios de base de datos máximos
+
+error:
+  resources:
+    not_enough: No tienes suficientes recursos para crear 

@@ -127,7 +127,7 @@ class HttpdHostController extends Controller
 
         $entity = new HttpdHost();
         $entity->setEnabled(true);
-        $form   = $this->createForm(new UserHttpdHostType(), $entity);
+        $form   = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
 
         return $this->render('ACSACSPanelBundle:HttpdHost:new.html.twig', array(
             'entity' => $entity,
@@ -142,7 +142,7 @@ class HttpdHostController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new HttpdHost();
-        $form = $this->createForm(new UserHttpdHostType(), $entity);
+        $form = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -255,7 +255,7 @@ class HttpdHostController extends Controller
             throw $this->createNotFoundException('Unable to find HttpdHost entity.');
         }
 
-        $editForm = $this->createForm(new UserHttpdHostType(), $entity);
+        $editForm = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:HttpdHost:edit.html.twig', array(
@@ -280,7 +280,7 @@ class HttpdHostController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new UserHttpdHostType(), $entity);
+        $editForm = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -341,7 +341,7 @@ class HttpdHostController extends Controller
         $query = $rep->createQueryBuilder('dnsd')
             ->innerJoin('dnsd.domain', 'd')
             ->where('d.domain IN (?1)')
-            ->setParameter('1',$term)
+            ->setParameter('1',$names)
             ->getQuery();
 
         $dnsdomains = $query->execute();

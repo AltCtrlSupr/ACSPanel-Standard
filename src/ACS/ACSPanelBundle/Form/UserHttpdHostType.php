@@ -11,9 +11,10 @@ class UserHttpdHostType extends HttpdHostType
 {
     public $container;
 
-    /*public function __construct($container){
+    public function __construct($container, $em){
         $this->container = $container;
-    }*/
+        $this->em = $em;
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -35,29 +36,31 @@ class UserHttpdHostType extends HttpdHostType
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             $superadmin = true;
 
+        $web_sercices_ids = $this->em->getRepository('ACS\ACSPanelBundle\Entity\ServiceType')->getWebServiceTypes();
+
         $builder
-            ->add('domain','entity',array(
-                'class' => 'ACS\ACSPanelBundle\Entity\Domain',
-                'label' => 'httpdhost.form.domain',
-                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
-                    $query = $er->createQueryBuilder('d')
-                        ->select('d')
-                        ->leftJoin('d.httpd_host','h')
-                        ->where('h.id IS NULL AND d.is_httpd_alias != 1 OR d.is_httpd_alias IS NULL');
-                        if(!$superadmin){
-                            $query->andWhere('d.user IN (?1)')
-                            ->setParameter('1', $child_ids);
-                        }
-                        return $query;
-                    }
-                )
-            )
+            ->add('domain','entity',array( 'class' => 'ACS\ACSPanelBundle\Entity\Domain', 'label' => 'httpdhost.form.domain'))
             ->add('configuration', null, array('label' => 'httpdhost.form.configuration'))
             ->add('cgi', null, array('label' => 'httpdhost.form.cgi'))
             ->add('ssi', null, array('label' => 'httpdhost.form.ssi'))
             ->add('php', null, array('label' => 'httpdhost.form.php'))
             ->add('ssl', null, array('label' => 'httpdhost.form.ssl'))
-            ->add('service', null, array('label' => 'httpdhost.form.service'))
+            // TODO: Add only http services
+            ->add('service', null, array(
+                'label' => 'httpdhost.form.service',
+                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin, $web_sercices_ids){
+                    $query = $er->createQueryBuilder('s')
+                        ->select('s')
+                        ->innerJoin('s.type','st','WITH','st.id IN (?1)')
+                        ->setParameter('1', $web_sercices_ids);
+                        if(!$superadmin){
+                            $query->andWhere('s.user IN (?2)')
+                            ->setParameter('2', $child_ids);
+                        }
+                        return $query;
+                    }
+                )
+            )
             ->add('proxy_service', null, array('label' => 'httpdhost.form.proxy_service'))
             ->add('add_www_alias','checkbox',array(
                 'mapped' => false,
