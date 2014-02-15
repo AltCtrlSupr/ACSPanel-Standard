@@ -57,8 +57,8 @@ class MailDomainType extends AbstractType
                         ->setParameter('1','%smtp%')
                         ->setParameter('2','%SMTP%');
                         if(!$superadmin){
-                            $query->andWhere('s.user IN (?1)')
-                            ->setParameter('1', $child_ids);
+                            $query->andWhere('s.user IN (?3)')
+                            ->setParameter('3', $child_ids);
                         }
                         return $query;
                     }
