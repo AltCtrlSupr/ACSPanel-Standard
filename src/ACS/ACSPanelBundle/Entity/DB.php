@@ -218,7 +218,9 @@ class DB
 
         $admin_user = '';
         $admin_password = '';
+
         $settings = $this->getService()->getSettings();
+
         foreach ($settings as $setting){
             if($setting->getSettingKey() == 'admin_user')
                 $admin_user = $setting->getValue();
@@ -226,7 +228,6 @@ class DB
                 $admin_password = $setting->getValue();
         }
         $server_ip = $this->getService()->getIp();
-
 
         $config = new \Doctrine\DBAL\Configuration();
         //..
