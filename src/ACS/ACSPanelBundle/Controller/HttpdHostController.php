@@ -335,17 +335,19 @@ class HttpdHostController extends Controller
      */
     public function dnsAliasOrDomainExists($names = array())
     {
-        //TODO: To fix
-        return false;
         $em = $this->getDoctrine()->getManager();
-        // check if thereis a full or alias dns domain
-        //$domain = new Domain();
-        //$domain->setDomain($names);
-        $dnsdomains = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findByDomain($domain);
+        $rep = $em->getRepository('ACSACSPanelBundle:DnsDomain');
+
+        $query = $rep->createQueryBuilder('dnsd')
+            ->innerJoin('dnsd.domain', 'd')
+            ->where('d.domain IN (?1)')
+            ->setParameter('1',$term)
+            ->getQuery();
+
+        $dnsdomains = $query->execute();
+
         if(count($dnsdomains))
             return $dnsdomains;
-
-        //return false;
     }
 
     /**
