@@ -1,6 +1,10 @@
-acsacs_panel_billing:
-    resource: "@ACSACSPanelBillingBundle/Resources/config/routing.yml"
+acsacs_panel_dyn_host:
+    resource: "@ACSACSPanelDynHostBundle/Resources/config/routing.yml"
     prefix:   /
+
+#acsacs_panel_billing:
+#resource: "@ACSACSPanelBillingBundle/Resources/config/routing.yml"
+#prefix:   /
 
 acsacs_panel_wordpress:
     resource: "@ACSACSPanelWordpressBundle/Resources/config/routing.yml"

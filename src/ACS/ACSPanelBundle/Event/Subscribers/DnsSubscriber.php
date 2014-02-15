@@ -82,6 +82,11 @@ class DnsSubscriber implements EventSubscriberInterface
         $em = $dnsfilter->getEm();
         $entity = $dnsfilter->getDnsDomain();
 
+        $domain = $entity->getDomain();
+
+        if(!$domain>getIsDnsAlias())
+            return;
+
         // Getting the Dns domain for entity parent domain
         $parentDnsDomain = $em->getRepository('ACSACSPanelBundle:DnsDomain')->findOneBy(array('domain'=>$entity->getParentDomain()));
 
