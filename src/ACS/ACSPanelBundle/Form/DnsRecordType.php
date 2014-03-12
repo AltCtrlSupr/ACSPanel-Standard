@@ -8,11 +8,39 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class DnsRecordType extends AbstractType
 {
+    private $container;
+
+    public function __construct($container)
+    {
+      $this->container = $container;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $security = $this->container->get('security.context');
+        $user = $security->getToken()->getUser();
+        $child_ids = $user->getIdChildIds();
+        $superadmin = false;
+        if($security->isGranted('ROLE_SUPER_ADMIN'))
+            $superadmin = true;
+
         $builder
-            // TODO: Show only user relevant dns_domains
-            ->add('dns_domain')
+            ->add('dns_domain','entity',array(
+                'label' => 'dnsdomain.form.dns_domain',
+                'class' => 'ACS\ACSPanelBundle\Entity\DnsDomain',
+                'required' => true,
+                'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
+                    $query = $er->createQueryBuilder('dd')
+                        ->select('dd')
+			->innerJoin('dd.domain','d');
+                        if(!$superadmin){
+                            $query->andWhere('d.user IN (?1)')
+                            ->setParameter('1', $child_ids);
+                        }
+                        return $query;
+                    }
+                )
+	    )
             ->add('name')
             ->add('type', 'choice', array(
                 'choices' => array(
