@@ -141,12 +141,12 @@ class HttpdHostController extends Controller
      */
     public function createAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $entity  = new HttpdHost();
         $form = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $entity->setEnabled(true);
             $em->persist($entity);
 
