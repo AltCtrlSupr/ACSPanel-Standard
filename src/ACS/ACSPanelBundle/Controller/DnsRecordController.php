@@ -91,7 +91,7 @@ class DnsRecordController extends Controller
             $em = $this->getDoctrine()->getManager();
             $entity->setDnsDomain($em->getRepository('ACSACSPanelBundle:DnsDomain')->find($dnsdomain_id));
         }
-        $form   = $this->createForm(new DnsRecordType(), $entity);
+        $form   = $this->createForm(new DnsRecordType($this->container), $entity);
 
         return $this->render('ACSACSPanelBundle:DnsRecord:new.html.twig', array(
             'entity' => $entity,
@@ -106,7 +106,7 @@ class DnsRecordController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new DnsRecord();
-        $form = $this->createForm(new DnsRecordType(), $entity);
+        $form = $this->createForm(new DnsRecordType($this->container), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -139,7 +139,7 @@ class DnsRecordController extends Controller
             throw $this->createNotFoundException('Unable to find DnsRecord entity.');
         }
 
-        $editForm = $this->createForm(new DnsRecordType(), $entity);
+        $editForm = $this->createForm(new DnsRecordType($this->container), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:DnsRecord:edit.html.twig', array(
@@ -164,7 +164,7 @@ class DnsRecordController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new DnsRecordType(), $entity);
+        $editForm = $this->createForm(new DnsRecordType($this->container), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
