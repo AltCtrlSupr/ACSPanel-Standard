@@ -112,7 +112,7 @@ dnsdomain:
     createdat: Creado el
     updatedat: Actualizado el
   form:
-    dnsdomain: Dominio DNS
+    dns_domain: Dominio DNS
 
 dnsrecord:
   field:
