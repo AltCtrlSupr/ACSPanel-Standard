@@ -111,6 +111,8 @@ dnsdomain:
     enabled: Activado
     createdat: Creado el
     updatedat: Actualizado el
+  form:
+    dnsdomain: Dominio DNS
 
 dnsrecord:
   field:
