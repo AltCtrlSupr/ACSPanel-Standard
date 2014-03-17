@@ -41,6 +41,7 @@ class MailMailboxController extends Controller
 
         return $this->render('ACSACSPanelBundle:MailMailbox:index.html.twig', array(
             'entities' => $entities,
+            'search_action' => 'mailmailbox_search',
         ));
     }
 
@@ -66,6 +67,7 @@ class MailMailboxController extends Controller
 
         return $this->render('ACSACSPanelBundle:MailMailbox:show.html.twig', array(
             'entity'      => $entity,
+            'search_action' => 'mailmailbox_search',
             'delete_form' => $deleteForm->createView(),        ));
     }
 
@@ -101,6 +103,7 @@ class MailMailboxController extends Controller
 
         return $this->render('ACSACSPanelBundle:MailMailbox:new.html.twig', array(
             'entity' => $entity,
+            'search_action' => 'mailmailbox_search',
             'form'   => $form->createView(),
         ));
     }
@@ -134,6 +137,7 @@ class MailMailboxController extends Controller
 
         return $this->render('ACSACSPanelBundle:MailMailbox:new.html.twig', array(
             'entity' => $entity,
+            'search_action' => 'mailmailbox_search',
             'form'   => $form->createView(),
         ));
     }
@@ -162,6 +166,7 @@ class MailMailboxController extends Controller
 
         return $this->render('ACSACSPanelBundle:MailMailbox:edit.html.twig', array(
             'entity'      => $entity,
+            'search_action' => 'mailmailbox_search',
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -196,6 +201,7 @@ class MailMailboxController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'search_action' => 'mailmailbox_search',
         ));
     }
 
@@ -247,5 +253,44 @@ class MailMailboxController extends Controller
 
       return $this->redirect($this->generateUrl('mailmailbox'));
     }
+
+    /**
+     * Finds and displays MailMailbox search results.
+     */
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $rep = $em->getRepository('ACSACSPanelBundle:MailMailbox');
+
+        $term = $request->request->get('term');
+
+        $query = $rep->createQueryBuilder('m')
+            ->where('m.id = ?1')
+            ->innerJoin('m.mail_domain','md')
+	    ->innerJoin('md.domain','d')
+            ->orWhere('d.domain LIKE ?2')
+            ->orWhere('m.name LIKE ?2')
+            ->orWhere('m.maildir LIKE ?2')
+            ->setParameter('1',$term)
+            ->setParameter('2','%'.$term.'%')
+            ->getQuery();
+
+        $entities = $query->execute();
+
+        $paginator  = $this->get('knp_paginator');
+        $entities = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            6
+        );
+
+        return $this->render('ACSACSPanelBundle:MailMailbox:index.html.twig', array(
+            'entities' => $entities,
+            'term' => $term,
+            'search_action' => 'mailmailbox_search',
+        ));
+
+    }
+
 
 }

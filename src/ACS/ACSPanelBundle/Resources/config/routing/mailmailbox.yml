@@ -36,3 +36,8 @@ mailmailbox_delete:
 mailmailbox_setenabled:
     pattern: /{id}/setenabled
     defaults: { _controller: "ACSACSPanelBundle:MailMailbox:setenabled" }
+
+mailmailbox_search:
+    pattern:  /search/
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:search" }
+    requirements: { _method: post }
