@@ -369,7 +369,7 @@ class HttpdHostController extends Controller
      * Extracts only the domain.tls from a url
      * @todo: Check for a better place to put his
      */
-    function getDomain($url) {
+    private function getDomain($url) {
         $domain_tools = new DomainModule($url);
         return $domain_tools->get_reg_domain();
     }
