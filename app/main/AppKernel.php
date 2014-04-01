@@ -29,7 +29,6 @@ class AppKernel extends Kernel
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
-            new ACS\ACSPanelBackupBundle\ACSACSPanelBackupBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
             //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
             //new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),

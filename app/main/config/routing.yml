@@ -10,10 +10,6 @@ acsacs_panel_wordpress:
     resource: "@ACSACSPanelWordpressBundle/Resources/config/routing.yml"
     prefix:   /
 
-zaspanel_backup:
-    resource: "@ACSACSPanelBackupBundle/Resources/config/routing.yml"
-    prefix:   /
-
 acs_settings:
     resource: "@ACSACSPanelSettingsBundle/Resources/config/routing.yml"
     prefix:   /

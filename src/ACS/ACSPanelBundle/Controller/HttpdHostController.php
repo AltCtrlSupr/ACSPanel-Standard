@@ -200,7 +200,7 @@ class HttpdHostController extends Controller
     /**
      * Adds the dns register if it's don't exists
      */
-    public function addDnsRegister($domain_name, $is_www = false)
+    private function addDnsRegister($domain_name, $is_www = false)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -333,7 +333,7 @@ class HttpdHostController extends Controller
      * Check if the host has dns_domain
      * @todo: Check for a better place to put this function
      */
-    public function dnsAliasOrDomainExists($names = array())
+    private function dnsAliasOrDomainExists($names = array())
     {
         $em = $this->getDoctrine()->getManager();
         $rep = $em->getRepository('ACSACSPanelBundle:DnsDomain');
@@ -353,7 +353,7 @@ class HttpdHostController extends Controller
     /**
      * Check if the dns register exists for the specified type of register
      */
-    public function dnsRecordExists($names = array())
+    private function dnsRecordExists($names = array())
     {
         $em = $this->getDoctrine()->getManager();
         // check if thereis a full or alias dns domain
@@ -369,7 +369,7 @@ class HttpdHostController extends Controller
      * Extracts only the domain.tls from a url
      * @todo: Check for a better place to put his
      */
-    function getDomain($url) {
+    private function getDomain($url) {
         $domain_tools = new DomainModule($url);
         return $domain_tools->get_reg_domain();
     }
