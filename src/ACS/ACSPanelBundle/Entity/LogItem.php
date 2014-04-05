@@ -5,6 +5,7 @@ namespace ACS\ACSPanelBundle\Entity;
 
 use Monolog\Logger;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Loggable\Entity\LogEntry;
 
 /**
  * LogItem
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @Entity(repositoryClass="Gedmo\Loggable\Entity\Repository\LogEntryRepository")
  */
-class LogItem extends \Gedmo\Loggable\Entity\LogEntry
+class LogItem extends LogEntry
 {
     protected $id;
     protected $action;
@@ -51,7 +52,7 @@ class LogItem extends \Gedmo\Loggable\Entity\LogEntry
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -67,14 +68,14 @@ class LogItem extends \Gedmo\Loggable\Entity\LogEntry
     public function setRoute($route)
     {
         $this->route = $route;
-    
+
         return $this;
     }
 
     /**
      * Get route
      *
-     * @return string 
+     * @return string
      */
     public function getRoute()
     {
@@ -90,14 +91,14 @@ class LogItem extends \Gedmo\Loggable\Entity\LogEntry
     public function setObjectReference($objectReference)
     {
         $this->object_reference = $objectReference;
-    
+
         return $this;
     }
 
     /**
      * Get object_reference
      *
-     * @return string 
+     * @return string
      */
     public function getObjectReference()
     {
@@ -113,14 +114,14 @@ class LogItem extends \Gedmo\Loggable\Entity\LogEntry
     public function setMessage($message)
     {
         $this->message = $message;
-    
+
         return $this;
     }
 
     /**
      * Get message
      *
-     * @return string 
+     * @return string
      */
     public function getMessage()
     {
@@ -136,14 +137,14 @@ class LogItem extends \Gedmo\Loggable\Entity\LogEntry
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -159,14 +160,14 @@ class LogItem extends \Gedmo\Loggable\Entity\LogEntry
     public function setUser(\ACS\ACSPanelBundle\Entity\FosUser $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \ACS\ACSPanelBundle\Entity\FosUser 
+     * @return \ACS\ACSPanelBundle\Entity\FosUser
      */
     public function getUser()
     {

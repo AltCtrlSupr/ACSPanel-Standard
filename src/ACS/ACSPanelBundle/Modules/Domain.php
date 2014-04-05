@@ -1,10 +1,7 @@
-<?php 
+<?php
 
 namespace ACS\ACSPanelBundle\Modules;
 use Exception;
-
- error_reporting(E_ALL);
- ini_set('display_errors', 1);
 
 /**
 ** PHP Domain Class with Effective TLD Functionality.
@@ -262,7 +259,7 @@ class Domain
     **/
     public function __tostring ()
     {
-        return $this->domain; 
+        return $this->domain;
     }
 
 }

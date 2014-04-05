@@ -1,3 +1,0 @@
-zaspanel_backup_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: ACSPanelBackupBundle:Default:index }

@@ -44,16 +44,19 @@
         "raulfraile/ladybug-bundle": "~1.0.0",
         "acs/panelsettings": "dev-master",
         "acs/panelwordpress": "dev-master",
-        "acs/paneldynhost": "dev-master"
+        "acs/paneldynhost": "dev-master",
+        "raulfraile/ladybug": "~1.0"
     },
     "scripts": {
         "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -66,7 +69,7 @@
     "minimum-stability": "dev",
     "extra": {
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/main/config/parameters.yml"
         },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",

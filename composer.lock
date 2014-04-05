@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "29771040915390cf3ea88aec0bd7d57d",
+    "hash": "46ee3f61aac94d2d32179db6f83cd870",
     "packages": [
         {
             "name": "acs/paneldynhost",
