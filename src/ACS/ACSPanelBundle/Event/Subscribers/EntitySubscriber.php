@@ -16,6 +16,7 @@ class EntitySubscriber implements EventSubscriber
             'postUpdate',
             'preUpdate',
             'preRemove',
+            'postRemove',
         );
     }
 
@@ -29,7 +30,7 @@ class EntitySubscriber implements EventSubscriber
         }
     }
 
-    public function postUpdate(LifecycleEventArgs $args)
+    public function postRemove(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
         $entityManager = $args->getEntityManager();
