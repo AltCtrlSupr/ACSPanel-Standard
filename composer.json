@@ -44,7 +44,6 @@
         "raulfraile/ladybug-bundle": "~1.0.0",
         "acs/panelsettings": "dev-master",
         "acs/panelwordpress": "dev-master",
-        "acs/paneldynhost": "dev-master",
         "raulfraile/ladybug": "~1.0"
     },
     "scripts": {

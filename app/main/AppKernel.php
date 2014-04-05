@@ -32,7 +32,7 @@ class AppKernel extends Kernel
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
             //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
             //new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),
-            new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
+            //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

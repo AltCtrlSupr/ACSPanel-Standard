@@ -41,8 +41,8 @@ ACS\ACSPanelBundle\Entity\DatabaseUser:
                 onDelete: CASCADE
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue ]
-      postPersist: [ createUserInDatabase ]
-      preUpdate: [ setUpdatedAtValue, updateUserInDatabase ]
-      preRemove: [ removeUserInDatabase ]
+      prePersist: [ ]
+      postPersist: [ ]
+      preUpdate: [ ]
+      preRemove: [ ]
 

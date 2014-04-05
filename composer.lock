@@ -3,49 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "46ee3f61aac94d2d32179db6f83cd870",
+    "hash": "e9f0cc1bdabda8ac5793b8d079c1a2bb",
     "packages": [
-        {
-            "name": "acs/paneldynhost",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/AltCtrlSupr/PanelDynHostBundle.git",
-                "reference": "8974d8b247ba3deed869b1c41737d2e7069a32a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/PanelDynHostBundle/zipball/8974d8b247ba3deed869b1c41737d2e7069a32a3",
-                "reference": "8974d8b247ba3deed869b1c41737d2e7069a32a3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ACS\\ACSPanelDynHostBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Genar Trias",
-                    "email": "genar@acs.li",
-                    "homepage": "http://genar.me/"
-                }
-            ],
-            "description": "Dynhost service creation for ACSPanel",
-            "keywords": [
-                "acspanel",
-                "dynamic domain"
-            ],
-            "time": "2014-02-14 14:19:57"
-        },
         {
             "name": "acs/panelsettings",
             "version": "dev-master",
@@ -875,7 +834,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -3123,12 +3082,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "a8c16c1fb2760771f30e0381b21f3e5688ec0215"
+                "reference": "6be75528d92b91be79c3332fe8fe4595f4a1aa28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/a8c16c1fb2760771f30e0381b21f3e5688ec0215",
-                "reference": "a8c16c1fb2760771f30e0381b21f3e5688ec0215",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/6be75528d92b91be79c3332fe8fe4595f4a1aa28",
+                "reference": "6be75528d92b91be79c3332fe8fe4595f4a1aa28",
                 "shasum": ""
             },
             "require": {
@@ -3176,7 +3135,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-04-04 15:32:37"
+            "time": "2014-04-05 16:00:30"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3185,12 +3144,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle.git",
-                "reference": "d272424f01656f9327198fd6c07a48499622d133"
+                "reference": "e98defd402f72e8b54a029ba4d3ac4cb51dc3577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/d272424f01656f9327198fd6c07a48499622d133",
-                "reference": "d272424f01656f9327198fd6c07a48499622d133",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/e98defd402f72e8b54a029ba4d3ac4cb51dc3577",
+                "reference": "e98defd402f72e8b54a029ba4d3ac4cb51dc3577",
                 "shasum": ""
             },
             "require": {
@@ -3233,7 +3192,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2014-04-03 07:36:17"
+            "time": "2014-04-05 17:15:52"
         },
         {
             "name": "symfony/symfony",
@@ -3850,8 +3809,7 @@
         "doctrine/doctrine-fixtures-bundle": 20,
         "jms/serializer-bundle": 20,
         "acs/panelsettings": 20,
-        "acs/panelwordpress": 20,
-        "acs/paneldynhost": 20
+        "acs/panelwordpress": 20
     },
     "platform": {
         "php": ">=5.3.3"

@@ -176,80 +176,6 @@ class DatabaseUser
     }
 
     /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAtValue()
-    {
-        if(!$this->getCreatedAt())
-        {
-            $this->createdAt = new \DateTime();
-        }
-    }
-
-    /**
-     * @ORM\PostPersist
-     * @todo Error handling
-     */
-    public function createUserInDatabase()
-    {
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-
-        $admin_user = '';
-        $admin_password = '';
-        $settings = $this->getDb()->getService()->getSettings();
-        foreach ($settings as $setting){
-            if($setting->getSettingKey() == 'admin_user')
-                $admin_user = $setting->getValue();
-            if($setting->getSettingKey() == 'admin_password')
-                $admin_password = $setting->getValue();
-        }
-        $server_ip = $this->getDb()->getService()->getIp();
-
-
-        $config = new \Doctrine\DBAL\Configuration();
-
-        $connectionParams = array(
-            'user' => $admin_user,
-            'password' => $admin_password,
-            'host' => $server_ip,
-            'driver' => 'pdo_mysql',
-        );
-
-        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-
-        $sql = "CREATE USER '".$this->getUsername()."'@'%' IDENTIFIED BY '".$this->getPassword()."'";
-        $conn->executeQuery($sql);
-        $sql = "GRANT ALL PRIVILEGES ON `".$this->getDb()."`.* TO '".$this->getUsername()."'@'%'";
-        $conn->executeQuery($sql);
-        $sql = "FLUSH PRIVILEGES";
-        $conn->executeQuery($sql);
-
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedAtValue()
-    {
-        $this->updatedAt = new \DateTime();
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function updateUserInDatabase()
-    {
-        $this->removeUserInDatabase();
-
-        $this->createUserInDatabase();
-
-    }
-
-    /**
      * Set db
      *
      * @param \ACS\ACSPanelBundle\Entity\DB $db
@@ -272,48 +198,10 @@ class DatabaseUser
         return $this->db;
     }
 
-    /**
-     * @ORM\PreRemove
-     */
-    public function removeUserInDatabase()
-    {
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-
-        $admin_user = '';
-        $admin_password = '';
-        $settings = $this->getDb()->getService()->getSettings();
-        foreach ($settings as $setting){
-            if($setting->getSettingKey() == 'admin_user')
-                $admin_user = $setting->getValue();
-            if($setting->getSettingKey() == 'admin_password')
-                $admin_password = $setting->getValue();
-        }
-        $server_ip = $this->getDb()->getService()->getIp();
-
-        $config = new \Doctrine\DBAL\Configuration();
-        //..
-        $connectionParams = array(
-            'user' => $admin_user,
-            'password' => $admin_password,
-            'host' => $server_ip,
-            'driver' => 'pdo_mysql',
-        );
-
-        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-        $sql = "DROP USER '".$this->getUsername()."'@'%';";
-
-        $conn->executeQuery($sql);
-    }
-
     public function __toString()
     {
         return $this->username;
     }
-
 
     public function userCanSee($security)
     {
