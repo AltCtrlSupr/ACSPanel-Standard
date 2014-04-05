@@ -82,7 +82,6 @@ services:
     # Entity subscribers
     entity_subscriber:
         class: %entity_subscriber.class%
-        arguments: [@em]
         tags:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }
