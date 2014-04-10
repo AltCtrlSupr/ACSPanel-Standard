@@ -1,11 +1,13 @@
 imports:
     - { resource: config_dev.yml }
-    - { resource: security_dev.yml }
+    - { resource: security_test.yml }
 
 framework:
     test: ~
     session:
         storage_id: session.storage.mock_file
+    profiler:
+        enabled: false
 
 web_profiler:
     toolbar: false
@@ -14,7 +16,10 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
-security:
-    firewalls:
-       main: 
-           http_basic:
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        dbname:   bw_test_db
+        path:     %kernel.root_dir%/data/data.db3
+        user:     test_user
+        password: test_password
