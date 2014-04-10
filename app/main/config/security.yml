@@ -13,11 +13,6 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
 
     providers:
-        # in_memory:
-            # memory:
-                # users:
-                    # user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    # admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         fos_userbundle:
             id: fos_user.user_provider.username
 
@@ -25,10 +20,6 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        #login:
-            #pattern:  ^/login/
-            #security: false
 
         main:
             pattern: ^/
