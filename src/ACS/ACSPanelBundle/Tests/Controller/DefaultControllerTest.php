@@ -2,14 +2,12 @@
 
 namespace ACS\ACSPanelBundle\Tests\Controller;
 
-class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends CommonTestCase
 {
     public function testIndex()
     {
-        // TODO: Change from fixtures file
-        $client = static::createAuthClient('superadmin','1234');
 
-        $crawler = $client->request('GET', '/users');
+        $crawler = $this->requestWithAuth('superadmin',$this->client, 'GET', '/users');
 
         //echo($client->getResponse()->getContent());
 
