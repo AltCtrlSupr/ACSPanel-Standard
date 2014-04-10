@@ -14,11 +14,3 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
-
-doctrine:
-    dbal:
-        driver:   pdo_sqlite
-        dbname:   bw_test_db
-        path:     %kernel.root_dir%/data/data.db3
-        user:     test_user
-        password: test_password
