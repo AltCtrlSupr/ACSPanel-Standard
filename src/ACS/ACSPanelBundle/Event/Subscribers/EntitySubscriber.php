@@ -1,5 +1,5 @@
 <?php
-namespace ACS\ACSPanelBundle\Event;
+namespace ACS\ACSPanelBundle\Event\Subscribers;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
