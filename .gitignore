@@ -26,3 +26,5 @@ app/main/config/parameters.ini
 app/main/config/parameters.yml
 app/main/config/config_dev.yml
 
+#composer.phar
+composer.phar
