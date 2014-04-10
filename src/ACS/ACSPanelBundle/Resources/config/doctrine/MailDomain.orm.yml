@@ -92,6 +92,6 @@ ACS\ACSPanelBundle\Entity\MailDomain:
             joinColumn:
                 onDelete: CASCADE
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue, setTransportValue ]
+      prePersist: [ setCreatedAtValue, setTransportValue ]
       preUpdate: [ setUpdatedAtValue ]
 

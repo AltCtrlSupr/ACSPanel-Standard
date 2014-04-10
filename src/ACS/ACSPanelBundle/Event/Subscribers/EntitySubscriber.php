@@ -3,19 +3,19 @@ namespace ACS\ACSPanelBundle\Event\Subscribers;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use ACS\ACSPanelBundle\Entity\DatabaseUser;
 
 class EntitySubscriber implements EventSubscriber
 {
 
-    private $security_context;
+    protected $container;
 
-    /*public function __construct($event_dispatcher, $security_context)
+    public function __construct(ContainerInterface $container)
     {
-        parent::__construct($event_dispatcher);
-        $this->security_context;
-    }*/
+        $this->container = $container;
+    }
 
     public function getSubscribedEvents()
     {
@@ -29,6 +29,16 @@ class EntitySubscriber implements EventSubscriber
         );
     }
 
+    public function preRemove(LifecycleEventArgs $args)
+    {
+        $entity = $args->getEntity();
+        $entityManager = $args->getEntityManager();
+
+        if ($entity instanceof DatabaseUser){
+            $this->removeDatabase($entity);
+        }
+    }
+
     public function prePersist(LifecycleEventArgs $args)
     {
         $entity = $args->getEntity();
@@ -37,6 +47,37 @@ class EntitySubscriber implements EventSubscriber
         if ($entity instanceof DatabaseUser){
             $this->crateDatabase($entity);
             $this->setCreatedAtValue($entity);
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof Domain){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof FtpdUser){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof HttpdHost){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof IpAddress){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof MailDomain){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof MailWBList){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof PanelSetting){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof Server){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof Service){
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof FosUser){
+            $this->setFosUserUserValue($entity);
         }
     }
 
@@ -70,6 +111,9 @@ class EntitySubscriber implements EventSubscriber
         if ($entity instanceof DatabaseUser){
             $this->removeUserInDatabase($entity);
             $this->createUserInDatabase($entity);
+            $this->setUpdatedAtValue($entity);
+        }
+        if ($entity instanceof Domain){
             $this->setUpdatedAtValue($entity);
         }
     }
@@ -163,7 +207,7 @@ class EntitySubscriber implements EventSubscriber
         $admin_user = '';
         $admin_password = '';
 
-        $settings = $this->getService()->getSettings();
+        $settings = $entity->getService()->getSettings();
 
         foreach ($settings as $setting){
             if($setting->getSettingKey() == 'admin_user')
@@ -171,7 +215,7 @@ class EntitySubscriber implements EventSubscriber
             if($setting->getSettingKey() == 'admin_password')
                 $admin_password = $setting->getValue();
         }
-        $server_ip = $this->getService()->getIp();
+        $server_ip = $entity->getService()->getIp();
 
         $config = new \Doctrine\DBAL\Configuration();
         //..
@@ -198,10 +242,73 @@ class EntitySubscriber implements EventSubscriber
         if($entity->getUser())
             return;
 
-        $service = $this->security_cotext;
+        $service = $this->container->get('security.context');
 
         $user = $service->getToken()->getUser();
         return $entity->setUser($user);
+    }
+
+    public function removeDatabase($entity)
+    {
+        $admin_user = '';
+        $admin_password = '';
+        $settings = $entity->getService()->getSettings();
+        foreach ($settings as $setting){
+            if($setting->getSettingKey() == 'admin_user')
+                $admin_user = $setting->getValue();
+            if($setting->getSettingKey() == 'admin_password')
+                $admin_password = $setting->getValue();
+        }
+        $server_ip = $entity->getService()->getIp();
+
+        $config = new \Doctrine\DBAL\Configuration();
+
+        $connectionParams = array(
+            'user' => $admin_user,
+            'password' => $admin_password,
+            'host' => $server_ip,
+            'driver' => 'pdo_mysql',
+        );
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+        $users = $entity->getDatabaseUsers();
+        if(count($users)){
+            foreach($users as $usr){
+                $sql = "GRANT ALL PRIVILEGES ON `".$entity->getName()."` . * TO '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+                $sql = "DROP USER '".$usr->getUsername()."'@'%'";
+                $conn->executeQuery($sql);
+            }
+        }
+
+        $sql = "DROP DATABASE IF EXISTS ".$entity->getName();
+        $conn->executeQuery($sql);
+
+        return $entity;
+
+    }
+
+    public function setFosUserUserValue()
+    {
+        if($this->getParentUser())
+            return;
+
+
+        $service = $this->container->get('security.context');
+
+        if ($service) {
+            if ($service->getToken()) {
+                $user = $service->getToken()->getUser();
+                // TODO: Get system user and set if its register from register form
+                if($user != 'anon.'){
+                    return $this->setParentUser($user);
+                }else{
+                    // $system_user = new FosUser();
+                    // $system_user->setId(1);
+                    // return $this->setParentUser($system_user);
+                }
+            }
+        }
     }
 
 }

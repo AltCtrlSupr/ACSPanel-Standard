@@ -334,38 +334,6 @@ class FosUser extends BaseUser
     }
 
     /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        if($this->getParentUser())
-            return;
-
-
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-
-        $service = $kernel->getContainer()->get('security.context');
-
-        if ($service) {
-            if ($service->getToken()) {
-                $user = $service->getToken()->getUser();
-                // TODO: Get system user and set if its register from register form
-                if($user != 'anon.'){
-                    return $this->setParentUser($user);
-                }else{
-                    // $system_user = new FosUser();
-                    // $system_user->setId(1);
-                    // return $this->setParentUser($system_user);
-                }
-            }
-        }
-    }
-
-    /**
      * Get plan
      *
      * @return \Doctrine\Common\Collections\Collection

@@ -279,26 +279,6 @@ class Service
 	    $this->updatedAt = new \DateTime();
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        if($this->getUser())
-            return;
-
-		global $kernel;
-
-		if ('AppCache' == get_class($kernel)) {
-			$kernel = $kernel->getKernel();
-		}
-
-		$service = $kernel->getContainer()->get('security.context');
-
-        // Add your code here
-		$user = $service->getToken()->getUser();
-		return $this->setUser($user);
-    }
 
 	public function __toString()
 	{

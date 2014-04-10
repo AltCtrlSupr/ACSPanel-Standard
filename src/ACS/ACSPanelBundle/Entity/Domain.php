@@ -167,34 +167,6 @@ class Domain
 	    }
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        if($this->getUser())
-            return;
-
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-
-        $service = $kernel->getContainer()->get('security.context');
-
-        $user = $service->getToken()->getUser();
-        return $this->setUser($user);
-
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedAtValue()
-    {
-	    $this->updatedAt = new \DateTime();
-    }
 
     /**
      * Set enabled

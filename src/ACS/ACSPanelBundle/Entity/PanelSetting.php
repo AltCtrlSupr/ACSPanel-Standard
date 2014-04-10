@@ -148,25 +148,6 @@ class PanelSetting extends BaseSetting
         }
     }
 
-    /**
-     * @ORM\PrePersist
-     */
-    public function setUserValue()
-    {
-        global $kernel;
-
-        if ('AppCache' == get_class($kernel)) {
-            $kernel = $kernel->getKernel();
-        }
-
-        $service = $kernel->getContainer()->get('security.context');
-
-        if($service->getToken())
-            $user = $service->getToken()->getUser();
-        else
-            $user = null;
-        return $this->setUser($user);
-    }
 
     /**
      * Set service

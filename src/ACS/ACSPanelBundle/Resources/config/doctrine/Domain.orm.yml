@@ -79,8 +79,8 @@ ACS\ACSPanelBundle\Entity\Domain:
                 - versioned
 
     lifecycleCallbacks:
-        prePersist: [ setCreatedAtValue, setUserValue ]
-        preUpdate: [ setUpdatedAtValue ]
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ ]
     uniqueConstraints:
         domain_name_x:
             columns: domain

@@ -40,6 +40,6 @@ ACS\ACSPanelBundle\Entity\PanelSetting:
                 onDelete: CASCADE
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue ]
       preUpdate: [ setUpdatedAtValue ]
 

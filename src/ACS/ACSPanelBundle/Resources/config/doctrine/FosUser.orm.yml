@@ -90,7 +90,7 @@ ACS\ACSPanelBundle\Entity\FosUser:
             cascade: [ persist ]
 
     lifecycleCallbacks:
-      prePersist: [ setUserValue , setGidAndUidValues ]
+      prePersist: [ setGidAndUidValues ]
       postPersist: [ incrementUidSetting, incrementGidSetting ]
       preUpdate: []
 
