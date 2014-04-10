@@ -80,6 +80,7 @@ services:
     # Entity subscribers
     entity_subscriber:
         class: %entity_subscriber.class%
+        #arguments: ['@event_dispatcher','@security.context']
         tags:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preUpdate }

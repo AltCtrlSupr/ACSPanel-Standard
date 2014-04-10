@@ -51,7 +51,7 @@ ACS\ACSPanelBundle\Entity\DB:
                 onDelete: CASCADE
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue, createDatabase ]
-      preUpdate: [ setUpdatedAtValue, updateDatabase ]
+      prePersist: [ setCreatedAtValue, setUserValue ]
+      preUpdate: [  ]
       preRemove: [ removeDatabase ]
 
