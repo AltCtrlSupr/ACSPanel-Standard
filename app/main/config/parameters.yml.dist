@@ -5,7 +5,6 @@ parameters:
     database_name: databasename
     database_user: username
     database_password: yourpassword
-    # database_socket: /var/mysql/mysql.sock
 
     mailer_transport: smtp
     mailer_host: localhost

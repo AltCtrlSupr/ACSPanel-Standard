@@ -36,7 +36,7 @@ class CommonTestCase extends WebTestCase
     protected function loadTestFixtures()
     {
         $loader = new Loader();
-        $loader->loadFromDirectory('src/Picmedia/BetaBundle/Tests/DataFixtures/');
+        $loader->loadFromDirectory('src/ACS/ACSPanelBundle/Tests/DataFixtures/');
         $fixtures = $loader->getFixtures();
 
         $purger = new ORMPurger();

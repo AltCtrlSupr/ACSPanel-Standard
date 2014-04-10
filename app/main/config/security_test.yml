@@ -1,7 +1,0 @@
-security:
-    firewalls:
-        main:
-            pattern: .*
-            http_basic: true
-            stateless: false
-            provider: in_memory
