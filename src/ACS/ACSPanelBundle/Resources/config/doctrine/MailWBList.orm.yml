@@ -60,6 +60,6 @@ ACS\ACSPanelBundle\Entity\MailWBList:
                 onDelete: CASCADE
 
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue ]
       preUpdate: [ setUpdatedAtValue ]
 

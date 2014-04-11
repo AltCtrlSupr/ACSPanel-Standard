@@ -44,7 +44,7 @@ class CommonTestCase extends WebTestCase
         $executor->execute($loader->getFixtures());
     }
 
-    protected function requestWithAuth($role, $client, $method, $uri, $parameters = array())
+    protected function requestWithAuth($role, $method, $uri, $parameters = array())
     {
         $this->client = $this->createAuthorizedClient($role);
         return $this->client->request($method, $uri, $parameters, array(), array());
@@ -52,8 +52,7 @@ class CommonTestCase extends WebTestCase
 
     protected function createAuthorizedClient($username)
     {
-        $client = static::createClient();
-        $container = $client->getContainer();
+        $container = $this->client->getContainer();
 
         $session = $container->get('session');
         /** @var $userManager \FOS\UserBundle\Doctrine\UserManager */
@@ -63,14 +62,15 @@ class CommonTestCase extends WebTestCase
         $firewallName = $container->getParameter('fos_user.firewall_name');
 
         $user = $userManager->findUserBy(array('username' => $username));
+
         $loginManager->loginUser($firewallName, $user);
 
         // save the login token into the session and put it in a cookie
         $container->get('session')->set('_security_' . $firewallName,
-            serialize($container->get('security.context')->getToken()));
+        serialize($container->get('security.context')->getToken()));
         $container->get('session')->save();
-        $client->getCookieJar()->set(new Cookie($session->getName(), $session->getId()));
+        $this->client->getCookieJar()->set(new Cookie($session->getName(), $session->getId()));
 
-        return $client;
+        return $this->client;
     }
 }

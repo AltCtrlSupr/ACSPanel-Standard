@@ -101,6 +101,6 @@ ACS\ACSPanelBundle\Entity\Service:
             gedmo:
                 - versioned
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue ]
       preUpdate: [ setUpdatedAtValue ]
 

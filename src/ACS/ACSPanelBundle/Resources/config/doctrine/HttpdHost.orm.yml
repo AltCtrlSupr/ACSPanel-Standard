@@ -85,6 +85,6 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
                 onDelete: CASCADE
             cascade: [ "persist" ]
     lifecycleCallbacks:
-      prePersist: [ setCreatedAtValue, setUserValue ]
+      prePersist: [ setCreatedAtValue ]
       preUpdate: [ setUpdatedAtValue ]
 

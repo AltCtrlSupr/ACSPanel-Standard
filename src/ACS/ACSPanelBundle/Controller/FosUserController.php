@@ -355,9 +355,7 @@ class FosUserController extends Controller
             $userplans = $em->getRepository('ACSACSPanelBundle:UserPlan')->findByPuser($entity);
             foreach ($userplans as $uplan) {
                  $em->remove($uplan);
-                 $em->flush();
             }
-
 
             $em->remove($entity);
             $em->flush();

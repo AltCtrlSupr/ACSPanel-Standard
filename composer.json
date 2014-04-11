@@ -66,7 +66,8 @@
     "minimum-stability": "dev",
     "extra": {
         "incenteev-parameters": {
-            "file": "app/main/config/parameters.yml"
+            "file": "app/main/config/parameters.yml",
+            "file": "app/main/config/config_test.yml"
         },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",

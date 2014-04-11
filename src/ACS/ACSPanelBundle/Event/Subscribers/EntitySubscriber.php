@@ -5,7 +5,18 @@ use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+use ACS\ACSPanelBundle\Entity\DB;
 use ACS\ACSPanelBundle\Entity\DatabaseUser;
+use ACS\ACSPanelBundle\Entity\Domain;
+use ACS\ACSPanelBundle\Entity\HttpdHost;
+use ACS\ACSPanelBundle\Entity\FtpdUser;
+use ACS\ACSPanelBundle\Entity\IpAddress;
+use ACS\ACSPanelBundle\Entity\MailDomain;
+use ACS\ACSPanelBundle\Entity\MailWBList;
+use ACS\ACSPanelBundle\Entity\PanelSetting;
+use ACS\ACSPanelBundle\Entity\Server;
+use ACS\ACSPanelBundle\Entity\Service;
+use ACS\ACSPanelBundle\Entity\FosUser;
 
 class EntitySubscriber implements EventSubscriber
 {
@@ -44,8 +55,12 @@ class EntitySubscriber implements EventSubscriber
         $entity = $args->getEntity();
         $entityManager = $args->getEntityManager();
 
-        if ($entity instanceof DatabaseUser){
+        if ($entity instanceof DB){
             $this->crateDatabase($entity);
+            $this->setCreatedAtValue($entity);
+            $this->setUserValue($entity);
+        }
+        if ($entity instanceof DatabaseUser){
             $this->setCreatedAtValue($entity);
             $this->setUserValue($entity);
         }
@@ -244,6 +259,9 @@ class EntitySubscriber implements EventSubscriber
 
         $service = $this->container->get('security.context');
 
+        if(!$service->getToken())
+            return;
+
         $user = $service->getToken()->getUser();
         return $entity->setUser($user);
     }
@@ -288,9 +306,9 @@ class EntitySubscriber implements EventSubscriber
 
     }
 
-    public function setFosUserUserValue()
+    public function setFosUserUserValue($entity)
     {
-        if($this->getParentUser())
+        if($entity->getParentUser())
             return;
 
 
@@ -301,7 +319,7 @@ class EntitySubscriber implements EventSubscriber
                 $user = $service->getToken()->getUser();
                 // TODO: Get system user and set if its register from register form
                 if($user != 'anon.'){
-                    return $this->setParentUser($user);
+                    return $entity->setParentUser($user);
                 }else{
                     // $system_user = new FosUser();
                     // $system_user->setId(1);
