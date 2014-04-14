@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
-use Doctrine\Common\DataFixtures\Loader;
+use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 
@@ -15,6 +15,7 @@ class CommonTestCase extends WebTestCase
 {
     public $client;
 
+    protected $_application;
     /**
      * @var \Doctrine\ORM\EntityManager
      */
@@ -25,23 +26,22 @@ class CommonTestCase extends WebTestCase
         $this->client = static::createClient();
         $this->client->followRedirects();
 
-        static::$kernel = static::createkernel();
-        static::$kernel->boot();
-        $this->em = static::$kernel->getcontainer()
-            ->get('doctrine')
-            ->getmanager()
-        ;
+        $kernel = new \AppKernel("test", true);
+        $kernel->boot();
+        $this->_application = new \Symfony\Bundle\FrameworkBundle\Console\Application($kernel);
+        $this->_application->setAutoExit(false);
+        $this->runConsole("doctrine:schema:drop", array("--force" => true));
+        $this->runConsole("doctrine:schema:create");
+        $this->runConsole("doctrine:fixtures:load", array("--fixtures" => __DIR__ . "/../DataFixtures"));
     }
 
-    protected function loadTestFixtures()
+    protected function runConsole($command, Array $options = array())
     {
-        $loader = new Loader();
-        $loader->loadFromDirectory('src/ACS/ACSPanelBundle/Tests/DataFixtures/');
-        $fixtures = $loader->getFixtures();
-
-        $purger = new ORMPurger();
-        $executor = new ORMExecutor($this->em, $purger);
-        $executor->execute($loader->getFixtures());
+        $options["-e"] = "test";
+        $options["-n"] = null;
+        $options["-q"] = null;
+        $options = array_merge($options, array('command' => $command));
+        return $this->_application->run(new \Symfony\Component\Console\Input\ArrayInput($options));
     }
 
     protected function requestWithAuth($role, $method, $uri, $parameters = array())
