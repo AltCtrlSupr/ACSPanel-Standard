@@ -1,10 +1,10 @@
 parameters:
     database_driver: pdo_mysql
     database_host: localhost
-    database_port: null
+    database_port: ~
     database_name: databasename
     database_user: username
-    database_password: yourpassword
+    database_password: ~
 
     mailer_transport: smtp
     mailer_host: localhost
@@ -12,7 +12,6 @@ parameters:
     mailer_password: null
     locale: en
     secret: 9e410dfd0d98704184c8b163064a31fdd122eb90
-    database_path: null
 
     # Assetic
     assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images
