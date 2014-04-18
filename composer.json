@@ -1,7 +1,10 @@
 {
-    "name": "acs/acspanel",
+    "name": "acs/acspanel-standard",
     "description": "The server administration tool written in Symfony2",
+    "keywords": ["symfony","symfony2","acspanel","distribution","server","administration","sysadmin"],
     "type": "project",
+    "licence": "GPLv3",
+    "homepage": "acspanel.acs.li",
     "autoload": {
         "psr-0": { "": "src/" }
     },
@@ -44,6 +47,11 @@
         "acs/panelsettings": "dev-master",
         "acs/panelwordpress": "dev-master"
     },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "raulfraile/ladybug-bundle": "~1.0.0",
+        "raulfraile/ladybug": "~1.0"
+    },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -73,10 +81,5 @@
         "branch-alias": {
             "dev-master": "2.4-dev"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "raulfraile/ladybug-bundle": "~1.0.0",
-        "raulfraile/ladybug": "~1.0"
     }
 }
