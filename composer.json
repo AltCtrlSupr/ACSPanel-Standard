@@ -45,8 +45,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "dev-master",
         "acs/acspanel-core": "dev-master",
-        "acs/panelsettings": "dev-master",
-        "acs/panelwordpress": "dev-master"
+        "acs/acspanel-settings": "dev-master",
+        "acs/acspanel-wordpress": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
