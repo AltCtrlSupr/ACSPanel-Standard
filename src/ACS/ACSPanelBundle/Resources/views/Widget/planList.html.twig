@@ -1,7 +1,0 @@
-<h2>{% trans %}widget.title.plans{% endtrans %}</h2>
-<ul>
-    {% for plan in plans  %}
-      <li><a href="{{ path('plans_show', {'id': plan.id}) }}">{{ plan }}</a></li>
-    {% endfor %}
-</ul>
-
