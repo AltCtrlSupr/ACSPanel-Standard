@@ -1,0 +1,109 @@
+/* 
+
+/* Login form
+@import "colors"
+@import "layout"
+
+ul.loginfields
+  list-style: none
+  padding: 0
+  margin: 0
+
+#login-form
+  height: 10%
+  padding: 
+    top: 40px
+    bottom: 10px
+    left: 10px
+    right: 10px
+
+  #centered
+    @include centered
+    form
+      @include centered
+      background-color: $login-form-bg
+      border: 1px solid #E5E5E5
+      border-radius: 5px 5px 5px 5px
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05)
+      padding: 19px 29px 29px
+      max-width: 356px
+    div.notice
+      color: red
+    ul input
+      //background: $login-input-bg
+      //border: $login-input-border
+      //box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset
+      color: $login-input-font-color
+      font-size: 24px
+      font-weight: 200
+      line-height: 1
+      height: 40px
+      //margin-bottom: 16px
+      //margin-top: 2px
+      outline: 0 none
+      //padding: 3px
+      //width: 100%
+      &#_submit
+        height: auto
+        color: #fff
+        width: 110px
+        margin-top: 20px
+        margin: 0 auto
+
+/* FORMS box
+
+.form_box
+  float: left
+  clear: both
+  form div
+    float: left
+    clear: both
+    padding-top: 5px
+    padding-bottom: 10px
+    &.fields_group
+      clear: none
+  label
+    color: #555555
+    float: left
+    clear: both
+    width: 200px
+  textarea, select
+    width: 255px
+    background: none repeat scroll 0 0 #FBFBFB
+    border: 1px solid #E5E5E5
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset
+    font-weight: 200
+    line-height: 1
+    outline: 0 none
+    padding: 3px
+
+/* Search box
+
+/* Form elements
+.form_box
+  input
+    width: 255px
+    background: none repeat scroll 0 0 #FBFBFB
+    border: 1px solid #E5E5E5
+    box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.2) inset
+    font-weight: 200
+    line-height: 1
+    outline: 0 none
+    padding: 3px
+  textarea
+    height: 140px
+
+.steps_box
+  float: left
+  margin-bottom: 15px
+  width: 100%
+  li
+    float: left
+    margin-right: 120px
+    &.craue_formflow_current_step
+      font-weight: bold
+
+
+/* Body override only for login screen
+body
+  background-color: $login-body-bg

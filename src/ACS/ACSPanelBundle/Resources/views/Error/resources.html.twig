@@ -1,0 +1,5 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}Error{% endtrans %}{% endblock %}
+{% block body %}
+<p class="error-msg">{% trans %}error.resources.not_enough{% endtrans %} {{ entity }}</p>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}maildomain.title.index{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+        <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('maildomain') }}"> {% trans %}maildomain{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}maildomain.title.index{% endtrans %}</li>
+{% endblock %}
+
+{% block body %}
+
+<table class="records_list table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Domain</th>
+            <th>Description</th>
+            <th>Maxaliases</th>
+            <th>Maxmailboxes</th>
+            <th>Maxquota</th>
+            {#<th>Backupmx</th>#}
+            <th>Mailbox</th>
+            <th>Alias</th>
+            <th>Enabled</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td data-title="{% trans %}Domain{% endtrans %}"><a href="{{ path('maildomain_show', { 'id': entity.id }) }}">{{ entity.domain }}</a></td>
+            <td data-title="{% trans %}Description{% endtrans %}">{{ entity.description }}</td>
+            <td data-title="{% trans %}Max aliases{% endtrans %}">{{ entity.maxAliases }}</td>
+            <td data-title="{% trans %}Max mailboxes{% endtrans %}">{{ entity.maxMailboxes }}</td>
+            <td data-title="{% trans %}Max quota{% endtrans %}">{{ entity.maxQuota }}</td>
+            {#<td>{{ entity.backupmx }}</td>#}
+            <td data-title="{% trans %}Mailbox{% endtrans %}">{% render(controller("ACSACSPanelBundle:MailMailbox:showWidget" , { 'maildomain_id' : entity.id }))  %}</td>
+            <td data-title="{% trans %}Alias{% endtrans %}">{% render(controller("ACSACSPanelBundle:MailAlias:showWidget" , { 'maildomain_id' : entity.id }))  %}</td>
+            <td data-title="{% trans %}Enabled{% endtrans %}">
+                <a href="{{ path('maildomain_setenabled', { 'id': entity.id }) }}">
+                    <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+                </a>
+            </td>
+            <td data-title="{% trans %}Actions{% endtrans %}">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="{{ path('maildomain_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('maildomain_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('mailmailbox_new_with_domain', { 'maildomain_id': entity.id }) }}">new mailbox</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('mailalias_new_with_domain', { 'maildomain_id': entity.id }) }}">new alias</a>
+                    </li>
+                </ul>
+            </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('maildomain_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(entities) }}
+</div>
+{% endblock %}

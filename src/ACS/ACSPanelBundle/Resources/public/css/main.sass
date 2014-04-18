@@ -1,0 +1,159 @@
+/* 
+ *Document   : main
+ *Created on : 13/11/2012, 14:42:46
+ *Author     : genar
+ *Description:
+ *Purpose of the stylesheet follows.
+
+
+/*@import "fonts"
+ * @import "login"
+ * @import "layout"
+ * @import "menu"
+ * @import "table"
+
+@import "colors"
+
+body
+  background-color: $heading-bg-color
+
+
+#content
+  background-color: $content-bg
+  box-shadow: -5px 0 14px rgba(0, 0, 0, 0.13)
+
+.main
+  background: url('images/menu_bg.png') $menu-bg
+  margin-left: 20px
+  margin-right: 20px
+  width: auto
+
+.main-container
+  overflow: hidden !important
+
+#top-border
+  background: $headers-bg
+  height: 5px
+  position: relative
+  top: 0
+  z-index: 9999
+  width: auto
+
+#section-info
+  /*background: lighten($heading-bg-color, 45%)
+  background: $headers-bg
+  border-radius: 5px 5px 0px 0px
+  padding: 8px
+  color: white
+  text-shadow: 1px 1px 0px #333
+  font-size: 20px
+  ul
+    list-style: none
+    margin: 0
+    margin-top: 4px
+    padding-left: 6px
+    li
+      float: left
+      margin-right: 10px
+    a
+      color: white
+
+#footer-info
+  background: $headers-bg
+  border-radius: 0px 0px 5px 5px
+  padding: 10px 25px 0
+  a
+    color: #fff
+
+
+#top-border.admin,
+#section-info.admin,
+#footer-info.admin
+  background: $headers-admin-bg
+
+  //background: url('images/menu_bg.png')
+
+#heading
+  background-color: $heading-bg-color
+  color: $heading-color
+  a.sys-title
+    color: lighten($link-color, 20%)
+
+#sidebar
+  .menu
+    top: 10px
+
+#right-sidebar
+  background-color: $menu-bg
+  h2
+    background-color: $sidebar-title-bg-color
+    color: lighten($link-color, 35%)
+
+
+#user-tools
+  a
+    color: lighten($link-color, 40%)
+
+#footer
+  background-color: $footer-bg-color
+  color: $footer-color
+
+ul.plan_attributes
+  display: none
+
+/* TITLES
+
+#content h1
+  float: left
+  color: $title-color
+
+ul.tab-nav
+  background: #f1f1f1
+  float: left
+  list-style: none
+  margin: 0 0 0 1px
+  /*height: 40px;
+  width: 100%
+  li
+    float: left
+    background: url('images/sep_tabs.png') no-repeat right center
+    a
+      float: left
+      text-decoration: none
+      color: #000
+      height: 24px
+      padding: 12px 14px
+      &.active
+        background: white url('images/sep_tabs.png') no-repeat 101% 1px
+      &:hover
+        text-decoration: underline
+
+/* Actions list
+
+.record_actions
+  float: left
+  clear: both
+
+/*Search results highlight
+
+.highlight
+  background-color: #D3E18A
+
+/* Dynamic adder
+
+.dinamic-adder
+  float: left
+  clear: both
+
+ul.dinamic-adder
+  list-style: none
+  padding: 0
+  li
+    float: left
+    clear: both
+
+.add_tag_link
+  float: left
+  clear: both
+
+

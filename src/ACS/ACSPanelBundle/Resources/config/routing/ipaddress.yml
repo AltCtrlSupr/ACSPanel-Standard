@@ -1,0 +1,34 @@
+ipaddress:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:index" }
+
+ipaddress_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:show" }
+
+ipaddress_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:new" }
+
+ipaddress_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:create" }
+    requirements: { _method: post }
+
+ipaddress_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:edit" }
+
+ipaddress_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:update" }
+    requirements: { _method: post }
+
+ipaddress_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:delete" }
+    requirements: { _method: post }
+
+ipaddress_setenabled:
+    pattern: /{id}/setenabled
+    defaults: { _controller: "ACSACSPanelBundle:IpAddress:setenabled" }

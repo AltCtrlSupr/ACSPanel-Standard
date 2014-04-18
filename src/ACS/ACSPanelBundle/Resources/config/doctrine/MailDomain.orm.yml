@@ -1,0 +1,97 @@
+ACS\ACSPanelBundle\Entity\MailDomain:
+    type: entity
+    table: mail_domain
+    repositoryClass: ACS\ACSPanelBundle\Model\MailDomainRepository
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        description:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        maxAliases:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: max_aliases
+            gedmo:
+                - versioned
+        maxMailboxes:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: max_mailboxes
+            gedmo:
+                - versioned
+        maxQuota:
+            type: bigint
+            nullable: false
+            column: max_quota
+            gedmo:
+                - versioned
+        backupmx:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true 
+            gedmo:
+                - versioned
+        createdAt:
+          type: datetime
+          column: created_at
+          gedmo:
+            timestampable:
+              on: create
+        updatedAt:
+          type: datetime
+          column: updated_at
+          nullable: true
+          gedmo:
+            timestampable:
+              on: update
+    oneToOne:
+        domain:
+            targetEntity: Domain
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+    manyToOne:
+        user:
+            targetEntity: FosUser
+            cascade: {  }
+            inversedBy: maildomains
+            joinTable: null
+            orderBy: null
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+        service:
+            targetEntity: Service
+            inversedBy: mail_domains
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue, setTransportValue ]
+      preUpdate: [ setUpdatedAtValue ]
+

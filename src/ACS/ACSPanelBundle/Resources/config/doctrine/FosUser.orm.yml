@@ -1,0 +1,96 @@
+ACS\ACSPanelBundle\Entity\FosUser:
+    type: entity
+    table: fos_user
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+            idetityGenerator:
+                initialValue: 3000
+        firstname:
+            type: string
+            length: 150
+            fixed: false
+            nullable: true
+        lastname:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+
+        uid:
+            type: integer
+            unsigned: false
+            nullable: true
+            generator:
+                strategy: IDENTITY
+            idetityGenerator:
+                initialValue: 3000
+
+        gid:
+            type: integer
+            unsigned: false
+            nullable: true
+            generator:
+                strategy: IDENTITY
+            idetityGenerator:
+                initialValue: 3000
+        password_changed_at:
+            type: datetime
+            nullable: true
+    manyToMany:
+        groups:
+            targetEntity: FosGroup
+            inversedBy: users
+            joinTable:
+                name: fos_user_user_group
+                joinColumns:
+                    goup_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
+        # services:
+        #    targetEntity: Service
+        #    inversedBy: users
+
+    manyToOne:
+        parent_user:
+            targetEntity: FosUser
+            inversedBy: child_users
+            joinColumn:
+                name: parent_user_id
+                referencedColumnName: id
+
+    oneToMany:
+        child_users:
+            targetEntity: FosUser
+            mappedBy: parent_user
+
+        puser:
+            targetEntity: UserPlan
+            mappedBy: puser
+            cascade: [ persist ]
+        domains:
+            targetEntity: Domain
+            mappedBy: user
+        maildomains:
+            targetEntity: MailDomain
+            mappedBy: user
+        databases:
+            targetEntity: DB
+            mappedBy: user
+        settings:
+            targetEntity: PanelSetting
+            mappedBy: user
+            cascade: [ persist ]
+
+    lifecycleCallbacks:
+      prePersist: [ setGidAndUidValues ]
+      postPersist: [ incrementUidSetting, incrementGidSetting ]
+      preUpdate: []
+

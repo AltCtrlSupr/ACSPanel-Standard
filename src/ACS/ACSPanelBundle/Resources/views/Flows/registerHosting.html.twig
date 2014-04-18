@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="@CraueFormFlowBundle/Resources/assets/css/buttons.css" />
+{% endblock %}
+
+{% block header_title %} - {% trans %}Add hosting{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('acs_acspanel_register_host') }}"> {% trans %}registerhosting{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}registerhostin.title.new{% endtrans %}</li>
+{% endblock %}
+
+{% block body %}
+<div class="form_box">
+    <div class="steps_box">
+        {% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
+    </div>
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+
+        {% if flow.getCurrentStepNumber() == 1 %}
+            {{ form_row(form) }}
+        {% endif %}
+        {% if flow.getCurrentStepNumber() == 2 %}
+            {{ form_row(form) }}
+        {% endif %}
+        {% if flow.getCurrentStepNumber() == 3 %}
+            {{ form_row(form) }}
+        {% endif %}
+
+        {{ form_rest(form) }}
+
+        {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+    </form>
+</div>
+{% endblock %}

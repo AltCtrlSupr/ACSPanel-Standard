@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}User Group list{% endtrans %}{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+        <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+<table class="records_list table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>{% trans %}Name{% endtrans %}</th>
+            <th>{% trans %}Roles{% endtrans %}</th>
+            <th>{% trans %}Actions{% endtrans %}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td data-title="{% trans %}Name{% endtrans %}" ><a href="{{ path('groups_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td data-title="{% trans %}Roles{% endtrans %}">{% for role in entity.roles %}
+                {{ role }}
+                {% endfor %}</td>
+            <td data-title="{% trans %}Actions{% endtrans %}">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="{{ path('groups_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('groups_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                    </li>
+                </ul>
+            </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('groups_new') }}">
+            {% trans %}Create a new entry{% endtrans %}
+        </a>
+    </li>
+</ul>
+
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(entities) }}
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+ACS\ACSPanelBundle\Entity\MailLogrcvd:
+    type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\MailLogrcvdRepository
+    table: mail_logrcvd
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        sender:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        rcpt:
+            type: string
+            length: 64
+            fixed: false
+            nullable: false
+        enabled:
+            type: boolean
+            nullable: true 
+        createdAt:
+            type: datetime
+            column: created_at
+    manyToOne:
+        mail_domain:
+            targetEntity: MailDomain
+            cascade: {  }
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE

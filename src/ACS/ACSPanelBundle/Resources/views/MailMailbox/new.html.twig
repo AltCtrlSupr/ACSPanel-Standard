@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}MailMailbox creation{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('mailmailbox_create') }}" method="post" {{ form_enctype(form) }}>
+        <span class="label label-important">{{ form_errors(form) }}</span>
+        {#{{ form_widget(form) }}#}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_label(form.username) }}
+        {{ form_widget(form.username) }} @ {{ form_widget(form.mail_domain) }}
+        <br/>
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+        {{ form_rest(form) }}
+        <p>
+            <button class="btn" type="submit">Create</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('mailmailbox') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

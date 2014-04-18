@@ -1,0 +1,99 @@
+ACS\ACSPanelBundle\Entity\MailMailbox:
+    type: entity
+    repositoryClass: ACS\ACSPanelBundle\Model\MailMailboxRepository
+    table: mail_mailbox
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        username:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        name:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        maildir:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        quotaLimit:
+            type: bigint
+            nullable: false
+            column: quota_limit
+            gedmo:
+                - versioned
+        usedQuota:
+            type: bigint
+            nullable: false
+            column: used_quota
+            gedmo:
+                - versioned
+        bytes:
+            type: bigint
+            length: 20
+            gedmo:
+                - versioned
+        messages:
+            type: integer
+            lenght: 11
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        createdAt:
+          type: datetime
+          column: created_at
+          gedmo:
+            timestampable:
+              on: create
+        updatedAt:
+          type: datetime
+          column: updated_at
+          nullable: true
+          gedmo:
+            timestampable:
+              on: update
+    manyToOne:
+        mail_domain:
+            targetEntity: MailDomain
+            cascade: {  }
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+
+
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue ]
+      preUpdate: [ setUpdatedAtValue ]
+

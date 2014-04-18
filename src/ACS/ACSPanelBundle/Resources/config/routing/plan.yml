@@ -1,0 +1,30 @@
+plans:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:Plan:index" }
+
+plans_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:Plan:show" }
+
+plans_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelBundle:Plan:new" }
+
+plans_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelBundle:Plan:create" }
+    requirements: { _method: post }
+
+plans_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelBundle:Plan:edit" }
+
+plans_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelBundle:Plan:update" }
+    requirements: { _method: post }
+
+plans_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelBundle:Plan:delete" }
+    requirements: { _method: post }

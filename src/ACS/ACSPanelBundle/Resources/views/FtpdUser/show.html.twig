@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}FtpdUser{% endtrans %}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>Username</th>
+            <td>{{ entity.userName }}</td>
+        </tr>
+        <tr>
+            <th>Uid</th>
+            <td>{{ entity.uid }}</td>
+        </tr>
+        <tr>
+            <th>Gid</th>
+            <td>{{ entity.gid }}</td>
+        </tr>
+        <tr>
+            <th>Dir</th>
+            <td>{{ entity.dir }}</td>
+        </tr>
+        <tr>
+            <th>Enabled</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>Created at</th>
+            <td>{{ entity.createdAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>Updated at</th>
+            <td>{{ entity.updatedAt|date(date_format) }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('ftpduser') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('ftpduser_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('ftpduser_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

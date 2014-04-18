@@ -1,0 +1,96 @@
+acs_acspanel_homepage:
+    pattern:  /
+    defaults: { _controller: ACSACSPanelBundle:Default:index }
+
+acs_acspanel_register_host:
+    pattern:  /register_hosting
+    defaults: { _controller: ACSACSPanelBundle:Hosting:registerHosting }
+
+acs_acspanel_httpdhost:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/httpdhost.yml"
+    prefix:   /httpdhost
+
+ACSACSPanelBundle_httpduser:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/httpduser.yml"
+    prefix:   /httpduser
+
+ACSACSPanelBundle_httpduser:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/httpduser.yml"
+    prefix:   /httpduser
+
+ACSACSPanelBundle_logitem:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/logitem.yml"
+    prefix:   /logs
+
+ACSACSPanelBundle_server:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/server.yml"
+    prefix:   /server
+
+ACSACSPanelBundle_service:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/service.yml"
+    prefix:   /service
+
+ACSACSPanelBundle_servicetype:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/servicetype.yml"
+    prefix:   /servicetype
+
+ACSACSPanelBundle_ipaddress:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/ipaddress.yml"
+    prefix:   /ipaddress
+
+ACSACSPanelBundle_users:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/fosuser.yml"
+    prefix:   /users
+
+ACSACSPanelBundle_groups:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/fosgroup.yml"
+    prefix:   /groups
+
+ACSACSPanelBundle_plans:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/plan.yml"
+    prefix:   /plans
+
+ACSACSPanelBundle_dnsdomain:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/dnsdomain.yml"
+    prefix:   /dnsdomain
+
+ACSACSPanelBundle_dnsrecord:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/dnsrecord.yml"
+    prefix:   /dnsrecord
+
+ACSACSPanelBundle_mailalias:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/mailalias.yml"
+    prefix:   /mailalias
+
+hostZaspanelBundle_maildomain:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/maildomain.yml"
+    prefix:   /maildomain
+
+ACSACSPanelBundle_mailmailbox:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/mailmailbox.yml"
+    prefix:   /mailmailbox
+
+ACSACSPanelBundle_ftpduser:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/ftpduser.yml"
+    prefix:   /ftpduser
+
+ACSACSPanelBundle_db:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/db.yml"
+    prefix:   /db
+
+ACSACSPanelBundle_databaseuser:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/databaseuser.yml"
+    prefix:   /databaseuser
+
+ACSACSPanelBundle_domain:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/domain.yml"
+    prefix:   /domain
+
+ACSACSPanelBundle_maillogrcvd:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/maillogrcvd.yml"
+    prefix:   /maillogrcvd
+
+ACSACSPanelBundle_mailwblist:
+    resource: "@ACSACSPanelBundle/Resources/config/routing/mailwblist.yml"
+    prefix:   /mailwblist
+

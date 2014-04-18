@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} {{ title_separator }} {% trans %}db.title.show{% endtrans %} {{ entity.name }}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{% trans %}db.field.id{% endtrans %}</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}db.field.name{% endtrans %}</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}db.field.created_at{% endtrans %}</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}db.field.updated_at{% endtrans %}</th>
+            <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}db.field.users{% endtrans %}</th>
+            <td><ul>{% for dbuser in entity.databaseUsers %}<li><a href="{{ path('databaseuser_edit', { 'id': dbuser.id }) }}">{{ dbuser }}</a></li>{% endfor %}</ul></td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('db') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('db_edit', { 'id': entity.id }) }}">
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('db_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

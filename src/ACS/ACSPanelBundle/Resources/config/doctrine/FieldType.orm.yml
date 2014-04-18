@@ -1,0 +1,39 @@
+ACS\ACSPanelBundle\Entity\FieldType:
+    type: entity
+    table: field_type 
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        setting_key:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        label:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        type:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        context:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+        default_value:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+
+    lifecycleCallbacks: {}
+

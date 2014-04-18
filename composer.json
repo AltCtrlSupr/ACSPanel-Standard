@@ -4,7 +4,7 @@
     "keywords": ["symfony","symfony2","acspanel","distribution","server","administration","sysadmin"],
     "type": "project",
     "licence": "GPLv3",
-    "homepage": "acspanel.acs.li",
+    "homepage": "http://acspanel.acs.li/",
     "autoload": {
         "psr-0": { "": "src/" }
     },

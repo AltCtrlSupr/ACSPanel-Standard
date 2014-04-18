@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+{% block header_title %} - {% trans %}DatabaseUser list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+        <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+<table class="records_list table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Createdat</th>
+            <th>Updatedat</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td data-title="id"><a href="{{ path('databaseuser_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td data-title="Username">{{ entity.username }}</td>
+            <td data-title="Password">{{ entity.password }}</td>
+            <td data-title="Created at">{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td data-title="Updated at">{% if entity.updatedAt %}{{ entity.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td data-title="Actions">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="{{ path('databaseuser_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('databaseuser_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('databaseuser_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(entities) }}
+</div>
+{% endblock %}

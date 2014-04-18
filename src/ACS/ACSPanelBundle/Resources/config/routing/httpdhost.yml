@@ -1,0 +1,43 @@
+httpdhost:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:index" }
+
+httpdhost_grid:
+    pattern:  /grid
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:grid" }
+
+httpdhost_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:show" }
+
+httpdhost_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:new" }
+
+httpdhost_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:create" }
+    requirements: { _method: post }
+
+httpdhost_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:edit" }
+
+httpdhost_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:update" }
+    requirements: { _method: post }
+
+httpdhost_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:delete" }
+    requirements: { _method: post }
+
+httpdhost_search:
+    pattern:  /search/
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:search" }
+    requirements: { _method: post }
+
+httpdhost_setenabled:
+    pattern: /{id}/setenabled
+    defaults: { _controller: "ACSACSPanelBundle:HttpdHost:setenabled" }
