@@ -46,7 +46,11 @@ the next command and execute the following commands
 
     cd /server_root_directory/
 
-    git clone git@github.com:AltCtrlSupr/ACSPanel-Standard.git
+    git clone git@github.com:AltCtrlSupr/ACSPanel-Standard.git acspanel
+
+    curl -sS https://getcomposer.org/installer | php
+
+    php composer.phar install
 
 
 2) Checking your System Configuration
