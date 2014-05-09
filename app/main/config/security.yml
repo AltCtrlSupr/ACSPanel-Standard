@@ -7,6 +7,8 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
         FOS\UserBundle\Model\UserInterface: sha512
 
+    session_fixation_strategy:  none
+
     role_hierarchy:
         ROLE_RESELLER:    ROLE_USER
         ROLE_ADMIN:       [ROLE_USER, ROLE_RESELLER]
@@ -14,7 +16,11 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
+        in_memory:
+            memory:
+                users:
+                    superadmin: { password: 1234, roles: 'ROLE_SUPER_ADMIN' }
 
     firewalls:
         dev:

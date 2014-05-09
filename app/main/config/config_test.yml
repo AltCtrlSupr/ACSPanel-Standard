@@ -1,5 +1,6 @@
 imports:
     - { resource: config_dev.yml }
+    - { resource: security_test.yml }
 
 framework:
     test: ~
@@ -18,5 +19,7 @@ swiftmailer:
 doctrine:
     dbal:
         driver:   pdo_sqlite
-        path:     :memory:
-        memory: true
+        dbname:   acs_test_db
+        path:     %kernel.root_dir%/data/data.db3
+        user:     test_user
+        password: test_password
