@@ -12,7 +12,7 @@ $loader = new ApcClassLoader('sf2', $loader);
 $loader->register(true);
 */
 
-require_once __DIR__.'/../app/main/MainKernel.php';
+require_once __DIR__.'/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
 
 $kernel = new AppKernel('prod', false);
