@@ -25,7 +25,6 @@ bin/*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
-app/config/config_dev.yml
 
 #composer.phar
 composer.phar
