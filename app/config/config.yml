@@ -34,8 +34,8 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    read_from:            "%kernel.root_dir%/../../web"
-    write_to:             "%kernel.root_dir%/../../web"
+    read_from:            "%kernel.root_dir%/../web"
+    write_to:             "%kernel.root_dir%/../web"
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
