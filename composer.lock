@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "054e4d43560def4aac68f6b0c48b108471d2da1b"
+                "reference": "d0e788e256e46ab1ef0d9cdb9fdeb785beba30f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/054e4d43560def4aac68f6b0c48b108471d2da1b",
-                "reference": "054e4d43560def4aac68f6b0c48b108471d2da1b",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/d0e788e256e46ab1ef0d9cdb9fdeb785beba30f9",
+                "reference": "d0e788e256e46ab1ef0d9cdb9fdeb785beba30f9",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2014-10-08 09:04:31"
+            "time": "2014-10-11 22:00:14"
         },
         {
             "name": "acs/acspanel-settings",
@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "f5229dad4966bcf38cee3173d9c28f6222f40c23"
+                "reference": "2e417d5b3a49af6ac067f8480d398468bbc3e1c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/f5229dad4966bcf38cee3173d9c28f6222f40c23",
-                "reference": "f5229dad4966bcf38cee3173d9c28f6222f40c23",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/2e417d5b3a49af6ac067f8480d398468bbc3e1c7",
+                "reference": "2e417d5b3a49af6ac067f8480d398468bbc3e1c7",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2014-05-09 13:26:45"
+            "time": "2014-10-11 19:26:28"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Wordpress.git",
-                "reference": "8a9c712965860a683d7e01957d0620055f7ad849"
+                "reference": "82f28f74655365c69d2d3b57942b7bc260b3400a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/8a9c712965860a683d7e01957d0620055f7ad849",
-                "reference": "8a9c712965860a683d7e01957d0620055f7ad849",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/82f28f74655365c69d2d3b57942b7bc260b3400a",
+                "reference": "82f28f74655365c69d2d3b57942b7bc260b3400a",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
                 }
             ],
             "description": "Wordpress Farm bundle for ACSPanel",
-            "time": "2014-04-18 17:55:18"
+            "time": "2014-10-11 19:26:48"
         },
         {
             "name": "behat/transliterator",
@@ -204,12 +204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/craue/CraueFormFlowBundle.git",
-                "reference": "df39bc6b48e014d3e4ff76ff7fdbbdbb0ec10013"
+                "reference": "a88ecba527e289293e7058d4d7a255ee3cdb2899"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/df39bc6b48e014d3e4ff76ff7fdbbdbb0ec10013",
-                "reference": "df39bc6b48e014d3e4ff76ff7fdbbdbb0ec10013",
+                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/a88ecba527e289293e7058d4d7a255ee3cdb2899",
+                "reference": "a88ecba527e289293e7058d4d7a255ee3cdb2899",
                 "shasum": ""
             },
             "require": {
@@ -256,7 +256,7 @@
                 "Symfony2",
                 "form"
             ],
-            "time": "2014-10-06 12:38:03"
+            "time": "2014-10-09 10:17:40"
         },
         {
             "name": "doctrine/annotations",
@@ -1134,12 +1134,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "3be6e7b86a397be785efee5490a7fc19aeae0381"
+                "reference": "cac56e025c1d2d1fe5acb644e4cafe0830f17150"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/3be6e7b86a397be785efee5490a7fc19aeae0381",
-                "reference": "3be6e7b86a397be785efee5490a7fc19aeae0381",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/cac56e025c1d2d1fe5acb644e4cafe0830f17150",
+                "reference": "cac56e025c1d2d1fe5acb644e4cafe0830f17150",
                 "shasum": ""
             },
             "require": {
@@ -1193,7 +1193,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-10-04 17:10:16"
+            "time": "2014-10-10 08:00:05"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2553,12 +2553,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "e33d138463384e39d7e159aa3da863b6a40e9a72"
+                "reference": "cff4dc5326530b1abdde7a2369645d8599c24dd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/e33d138463384e39d7e159aa3da863b6a40e9a72",
-                "reference": "e33d138463384e39d7e159aa3da863b6a40e9a72",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/cff4dc5326530b1abdde7a2369645d8599c24dd3",
+                "reference": "cff4dc5326530b1abdde7a2369645d8599c24dd3",
                 "shasum": ""
             },
             "require": {
@@ -2604,7 +2604,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-10-04 02:21:50"
+            "time": "2014-10-10 11:20:49"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2669,12 +2669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d2c6c340676181a6701cad52788eee9c4cabc72a"
+                "reference": "b4ed800529c9e665454af0fbd53fc24434918385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d2c6c340676181a6701cad52788eee9c4cabc72a",
-                "reference": "d2c6c340676181a6701cad52788eee9c4cabc72a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b4ed800529c9e665454af0fbd53fc24434918385",
+                "reference": "b4ed800529c9e665454af0fbd53fc24434918385",
                 "shasum": ""
             },
             "require": {
@@ -2774,7 +2774,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-10-07 12:35:25"
+            "time": "2014-10-09 16:00:03"
         },
         {
             "name": "twig/extensions",
@@ -2834,12 +2834,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "9fb15e343e881c9a89b97ee2262d7b8fbf512c6e"
+                "reference": "b5f074207dbf5e32e5c2a6df888aac2f5d4d77dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/9fb15e343e881c9a89b97ee2262d7b8fbf512c6e",
-                "reference": "9fb15e343e881c9a89b97ee2262d7b8fbf512c6e",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/b5f074207dbf5e32e5c2a6df888aac2f5d4d77dc",
+                "reference": "b5f074207dbf5e32e5c2a6df888aac2f5d4d77dc",
                 "shasum": ""
             },
             "require": {
@@ -2883,7 +2883,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-10-01 17:51:59"
+            "time": "2014-10-11 20:38:36"
         }
     ],
     "packages-dev": [
@@ -3378,17 +3378,17 @@
         },
         {
             "name": "raulfraile/ladybug-bundle",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "target-dir": "RaulFraile/Bundle/LadybugBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/LadybugBundle.git",
-                "reference": "e2ef2c979444300e8fe85eee292bb43d87ea908c"
+                "reference": "0a3171f1d15194aadaba12fd9c81c11707c6b1c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/LadybugBundle/zipball/e2ef2c979444300e8fe85eee292bb43d87ea908c",
-                "reference": "e2ef2c979444300e8fe85eee292bb43d87ea908c",
+                "url": "https://api.github.com/repos/raulfraile/LadybugBundle/zipball/0a3171f1d15194aadaba12fd9c81c11707c6b1c3",
+                "reference": "0a3171f1d15194aadaba12fd9c81c11707c6b1c3",
                 "shasum": ""
             },
             "require": {
@@ -3429,7 +3429,7 @@
                 "tree",
                 "twig"
             ],
-            "time": "2014-08-29 20:43:09"
+            "time": "2014-10-10 06:09:15"
         },
         {
             "name": "raulfraile/ladybug-installer",

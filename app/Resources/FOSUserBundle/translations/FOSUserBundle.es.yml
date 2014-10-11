@@ -16,8 +16,8 @@ group:
 
 security:
     login:
-        username: "Nombre de usuario:"
-        password: "Contraseña:"
+        username: "Nombre de usuario"
+        password: "Contraseña"
         remember_me: Recordar
         submit: Entrar
 
