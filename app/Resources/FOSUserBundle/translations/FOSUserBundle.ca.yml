@@ -14,8 +14,8 @@ group:
 # Security
 security:
     login:
-        username: "Nom d'usuari:"
-        password: "Contrasenya:"
+        username: "Nom d'usuari"
+        password: "Contrasenya"
         remember_me: Recorda'm
         submit: Entra
 
