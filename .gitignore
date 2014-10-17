@@ -20,6 +20,7 @@ vendor/*
 */main/cache/*
 web/uploads/*
 web/bundles/*
+web/css/*
 bin/*
 
 # Configuration files
@@ -28,6 +29,8 @@ app/config/parameters.yml
 
 # Test data
 app/data/*
+app/logs*
+app/logs/*
 
 #composer.phar
 composer.phar
