@@ -75,10 +75,6 @@ To avoid permissions issues after executing console commands you should do the n
 4) Setting up ACSPanel
 --------------------
 
-Now you set parameters.yml with your database create, you can take parameters.yml.sample as example. (Not necessary when it's installed via deb package).
-
-    cp app/config/parameters.yml.sample app/config/parameters.yml
-
 You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.
 
     cp app/config/config_dev.yml.sample app/config/config_dev.yml
