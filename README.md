@@ -35,10 +35,6 @@ Services supported (At the moment):
 When it comes to installing the ACSPanel, you have the
 following options.
 
-### Use Debian Package(*recommended*)
-
-Coming soon
-
 ### Download from GIT repository
 
 To install ACSPanel from git repository, you have to clone the project with 
@@ -72,20 +68,20 @@ The panel needs the next requeriments To work right:
 
 To avoid permissions issues after executing console commands you should do the next
 
-    mkdir app/main/cache && mkdir app/main/logs (TODO: check this to be created with the initial files...)
-    sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/main/cache app/main/logs
-    sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/main/cache app/main/logs
+    mkdir app/cache && mkdir app/logs (TODO: check this to be created with the initial files...)
+    sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs
+    sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
 
 4) Setting up ACSPanel
 --------------------
 
 Now you set parameters.yml with your database create, you can take parameters.yml.sample as example. (Not necessary when it's installed via deb package).
 
-    cp app/main/config/parameters.yml.sample app/main/config/parameters.yml
+    cp app/config/parameters.yml.sample app/config/parameters.yml
 
 You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.
 
-    cp app/main/config/config_dev.yml.sample app/main/config/config_dev.yml
+    cp app/config/config_dev.yml.sample app/config/config_dev.yml
 
 
 To install all the dependencies you have to execute composer.phar command.
@@ -98,7 +94,7 @@ Then you are ready to create the acspanel basic schema executing the next comman
 
 You can load some basic fixtures doing next, like basic groups and admin to start using the panel:
 
-    php app/main/console doctrine:fixtures:load
+    php app/console doctrine:fixtures:load
 
 The basic fixtures, adds the superadmin user to let you start to work with the panel. Its default password is 1234. The acspanel will redirect you to password change screen where you should change the password.
 
@@ -132,7 +128,7 @@ Ensure you have rewrite mode enabled
 
 Changing the panel view parameters:
 
-    edit app/main/config/config.yml // Set variables from twig globals, you can change the default date format, the panel name and breadcumb separation character
+    edit app/config/config.yml // Set variables from twig globals, you can change the default date format, the panel name and breadcumb separation character
 
 7) Setting up third party programs
 -------------------------------
@@ -155,11 +151,11 @@ Install the latest version of the dependencies
 
 Update the database
 
-    php app/main/console doctrine:schema:update --force
+    php app/console doctrine:schema:update --force
 
 And install the assets
 
-    php app/main/console assets:install --symlink
+    php app/console assets:install --symlink
 
 
 9) Setting up services to automatic apply panel settings
