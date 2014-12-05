@@ -31,7 +31,6 @@
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
         "stof/doctrine-extensions-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
         "liip/theme-bundle": "dev-master",
@@ -41,6 +40,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
         "acs/acspanel-core": "dev-master",
+        "acs/acspanel-users": "dev-master",
         "acs/acspanel-settings": "dev-master",
         "acs/acspanel-wordpress": "dev-master"
     },

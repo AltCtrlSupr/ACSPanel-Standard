@@ -25,4 +25,4 @@ assetic:
 swiftmailer:
     transport: gmail
     username:  your_gmail_username
-    password:  your_gmail_password#
+    password:  your_gmail_password

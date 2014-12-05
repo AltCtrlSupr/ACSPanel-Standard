@@ -678,7 +678,16 @@ return self::$httpMethodParameterOverride;
 }
 public function get($key, $default = null, $deep = false)
 {
-return $this->query->get($key, $this->attributes->get($key, $this->request->get($key, $default, $deep), $deep), $deep);
+if ($this !== $result = $this->query->get($key, $this, $deep)) {
+return $result;
+}
+if ($this !== $result = $this->attributes->get($key, $this, $deep)) {
+return $result;
+}
+if ($this !== $result = $this->request->get($key, $this, $deep)) {
+return $result;
+}
+return $default;
 }
 public function getSession()
 {
@@ -1387,7 +1396,6 @@ if (function_exists('fastcgi_finish_request')) {
 fastcgi_finish_request();
 } elseif ('cli'!== PHP_SAPI) {
 static::closeOutputBuffers(0, true);
-flush();
 }
 return $this;
 }
@@ -2080,6 +2088,9 @@ $id = strtolower($id);
 if ('service_container'=== $id) {
 return true;
 }
+if (isset($this->aliases[$id])) {
+$id = $this->aliases[$id];
+}
 return isset($this->services[$id]) || array_key_exists($id, $this->services);
 }
 public function getServiceIds()
@@ -2264,11 +2275,11 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.5.7-DEV';
-const VERSION_ID ='20507';
+const VERSION ='2.5.9-DEV';
+const VERSION_ID ='20509';
 const MAJOR_VERSION ='2';
 const MINOR_VERSION ='5';
-const RELEASE_VERSION ='7';
+const RELEASE_VERSION ='9';
 const EXTRA_VERSION ='DEV';
 public function __construct($environment, $debug)
 {
@@ -2606,7 +2617,7 @@ $dumper = new PhpDumper($container);
 if (class_exists('ProxyManager\Configuration')) {
 $dumper->setProxyDumper(new ProxyDumper());
 }
-$content = $dumper->dump(array('class'=> $class,'base_class'=> $baseClass));
+$content = $dumper->dump(array('class'=> $class,'base_class'=> $baseClass,'file'=> (string) $cache));
 if (!$this->debug) {
 $content = static::stripComments($content);
 }

@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Gregwar\FormBundle\GregwarFormBundle(),
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
             //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
