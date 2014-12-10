@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "1a13c75c49aee247900f5970173885b3a5bb3e25"
+                "reference": "6515c512fadd5aa67491c6fb37725a61e4419cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/1a13c75c49aee247900f5970173885b3a5bb3e25",
-                "reference": "1a13c75c49aee247900f5970173885b3a5bb3e25",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/6515c512fadd5aa67491c6fb37725a61e4419cef",
+                "reference": "6515c512fadd5aa67491c6fb37725a61e4419cef",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2014-11-06 18:50:48"
+            "time": "2014-12-05 18:50:48"
         },
         {
             "name": "acs/acspanel-settings",
@@ -370,12 +370,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "9354b720cc97db4a914ab5aa28dbaa822cb3d300"
+                "reference": "803a41469d948bc120a6c913399e8bfc8b5d9650"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/9354b720cc97db4a914ab5aa28dbaa822cb3d300",
-                "reference": "9354b720cc97db4a914ab5aa28dbaa822cb3d300",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/803a41469d948bc120a6c913399e8bfc8b5d9650",
+                "reference": "803a41469d948bc120a6c913399e8bfc8b5d9650",
                 "shasum": ""
             },
             "require": {
@@ -432,7 +432,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-12-03 01:17:20"
+            "time": "2014-12-08 23:13:26"
         },
         {
             "name": "doctrine/collections",
@@ -1100,12 +1100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "0059e019367a73d3a422af97672de029beb5f2d9"
+                "reference": "1cc42d6a630b81768864a7bb219b6a78f9c35fb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/0059e019367a73d3a422af97672de029beb5f2d9",
-                "reference": "0059e019367a73d3a422af97672de029beb5f2d9",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/1cc42d6a630b81768864a7bb219b6a78f9c35fb4",
+                "reference": "1cc42d6a630b81768864a7bb219b6a78f9c35fb4",
                 "shasum": ""
             },
             "require": {
@@ -1167,7 +1167,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-12-05 17:22:23"
+            "time": "2014-12-08 00:35:11"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2054,12 +2054,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "4119844a435f33a6e5cf94af5471732eb4d52883"
+                "reference": "3d2567a2f19566a93b6b4add76840266d5f6742d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4119844a435f33a6e5cf94af5471732eb4d52883",
-                "reference": "4119844a435f33a6e5cf94af5471732eb4d52883",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3d2567a2f19566a93b6b4add76840266d5f6742d",
+                "reference": "3d2567a2f19566a93b6b4add76840266d5f6742d",
                 "shasum": ""
             },
             "require": {
@@ -2118,7 +2118,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-12-05 12:46:13"
+            "time": "2014-12-06 18:16:08"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2714,12 +2714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "002595a66b4171f64a7002bbe1524aa34954b31f"
+                "reference": "7bb6f4445c7066002d08b39b9384233b6c836dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/002595a66b4171f64a7002bbe1524aa34954b31f",
-                "reference": "002595a66b4171f64a7002bbe1524aa34954b31f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/7bb6f4445c7066002d08b39b9384233b6c836dca",
+                "reference": "7bb6f4445c7066002d08b39b9384233b6c836dca",
                 "shasum": ""
             },
             "require": {
@@ -2819,7 +2819,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-05 11:58:26"
+            "time": "2014-12-08 08:43:12"
         },
         {
             "name": "twig/extensions",
@@ -3651,16 +3651,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "2e2d8096a65cfec2658bd3f21e506fa1058b962e"
+                "reference": "0225fcd08e94de2165ffa85de50c3c9d9592e96b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/2e2d8096a65cfec2658bd3f21e506fa1058b962e",
-                "reference": "2e2d8096a65cfec2658bd3f21e506fa1058b962e",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/0225fcd08e94de2165ffa85de50c3c9d9592e96b",
+                "reference": "0225fcd08e94de2165ffa85de50c3c9d9592e96b",
                 "shasum": ""
             },
             "require": {
-                "symfony/console": "~2.0",
+                "symfony/console": "~2.5",
                 "symfony/framework-bundle": "~2.2"
             },
             "require-dev": {
@@ -3671,7 +3671,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
@@ -3690,7 +3690,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2014-12-04 05:46:34"
+            "time": "2014-12-07 18:30:52"
         }
     ],
     "aliases": [],
