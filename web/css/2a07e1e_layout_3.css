@@ -4,25 +4,25 @@
  *Description:
  *Layout styles. */
 /* LAYOUT */
-/* line 10, assetic_compasspFhXnN.sass */
+/* line 10, assetic_compassUjnrpT.sass */
 root {
   display: block;
 }
 
-/* line 14, assetic_compasspFhXnN.sass */
+/* line 14, assetic_compassUjnrpT.sass */
 #heading h1 {
   padding-left: 20px;
 }
 
-/* line 21, assetic_compasspFhXnN.sass */
+/* line 21, assetic_compassUjnrpT.sass */
 #right-sidebar h2 {
   padding-left: 15px;
 }
-/* line 24, assetic_compasspFhXnN.sass */
+/* line 24, assetic_compassUjnrpT.sass */
 #right-sidebar p {
   padding: 40px;
 }
-/* line 28, assetic_compasspFhXnN.sass */
+/* line 28, assetic_compassUjnrpT.sass */
 #right-sidebar table tr td {
   padding-left: 10px;
   padding-right: 10px;
@@ -30,7 +30,7 @@ root {
   padding-bottom: 10px;
 }
 
-/* line 35, assetic_compasspFhXnN.sass */
+/* line 35, assetic_compassUjnrpT.sass */
 #content {
   clear: right;
   overflow: hidden;
@@ -43,44 +43,44 @@ root {
   padding-bottom: 60px;
 }
 
-/* line 48, assetic_compasspFhXnN.sass */
+/* line 48, assetic_compassUjnrpT.sass */
 #heading #user-tools {
   padding-top: 20px;
   padding-right: 20px;
 }
-/* line 52, assetic_compasspFhXnN.sass */
+/* line 52, assetic_compassUjnrpT.sass */
 #heading #user-tools p {
   text-align: right;
 }
 
-/* line 55, assetic_compasspFhXnN.sass */
+/* line 55, assetic_compassUjnrpT.sass */
 #footer {
   bottom: 0;
   bottom: 0;
 }
-/* line 58, assetic_compasspFhXnN.sass */
+/* line 58, assetic_compassUjnrpT.sass */
 #footer div {
   padding: 25px;
 }
 
-/* line 61, assetic_compasspFhXnN.sass */
+/* line 61, assetic_compassUjnrpT.sass */
 #search-box {
   float: right;
 }
-/* line 63, assetic_compasspFhXnN.sass */
+/* line 63, assetic_compassUjnrpT.sass */
 #search-box form {
   margin: 0;
 }
-/* line 65, assetic_compasspFhXnN.sass */
+/* line 65, assetic_compassUjnrpT.sass */
 #search-box form input {
   height: auto;
 }
-/* line 67, assetic_compasspFhXnN.sass */
+/* line 67, assetic_compassUjnrpT.sass */
 #search-box .input-append {
   margin: 0;
 }
 
-/* line 70, assetic_compasspFhXnN.sass */
+/* line 70, assetic_compassUjnrpT.sass */
 .tabs-content {
   float: left;
   clear: both;
@@ -90,7 +90,7 @@ root {
   width: 100%;
 }
 
-/* line 83, assetic_compasspFhXnN.sass */
+/* line 83, assetic_compassUjnrpT.sass */
 table table {
   width: 100%;
 }

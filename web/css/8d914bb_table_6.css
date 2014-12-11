@@ -6,31 +6,31 @@
 /* Responsive table */
 @media only screen and (max-width: 800px) {
   /* Force table to not be like tables anymore */
-  /* line 12, assetic_compass0b0fLV.sass */
+  /* line 12, assetic_compassuKINS7.sass */
   #content table, #content thead, #content tbody, #content th, #content td, #content tr {
     display: block;
   }
-  /* line 14, assetic_compass0b0fLV.sass */
+  /* line 14, assetic_compassuKINS7.sass */
   #content thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-  /* line 18, assetic_compass0b0fLV.sass */
+  /* line 18, assetic_compassuKINS7.sass */
   #content tr {
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
   }
-  /* line 20, assetic_compass0b0fLV.sass */
+  /* line 20, assetic_compassuKINS7.sass */
   #content td {
     /* Behave like a "row" */
     border: none;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 50%;
     white-space: normal;
     text-align: left;
   }
-  /* line 28, assetic_compass0b0fLV.sass */
+  /* line 28, assetic_compassuKINS7.sass */
   #content td:before {
     /* Now like a table header */
     position: absolute;

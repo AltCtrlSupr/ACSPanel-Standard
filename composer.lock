@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e7dc90efad22131159b8ba445910d1e2",
+    "hash": "c685c17bf479b610a16f7ab02162ede3",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "6515c512fadd5aa67491c6fb37725a61e4419cef"
+                "reference": "06028062d3192f6189e341d962132f9488cd3cab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/6515c512fadd5aa67491c6fb37725a61e4419cef",
-                "reference": "6515c512fadd5aa67491c6fb37725a61e4419cef",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/06028062d3192f6189e341d962132f9488cd3cab",
+                "reference": "06028062d3192f6189e341d962132f9488cd3cab",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2014-12-05 18:50:48"
+            "time": "2014-12-11 13:32:11"
         },
         {
             "name": "acs/acspanel-settings",
@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "e2a0c0698414ba752688b0d1cde4ea9a7cf69fb9"
+                "reference": "1882912dbb1de07d6f4b161efe9ae85239406c1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/e2a0c0698414ba752688b0d1cde4ea9a7cf69fb9",
-                "reference": "e2a0c0698414ba752688b0d1cde4ea9a7cf69fb9",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/1882912dbb1de07d6f4b161efe9ae85239406c1b",
+                "reference": "1882912dbb1de07d6f4b161efe9ae85239406c1b",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2014-10-12 00:15:45"
+            "time": "2014-12-11 15:44:52"
         },
         {
             "name": "acs/acspanel-users",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "686d3f0bfb6de34bda13dab417b295d5f0017bb3"
+                "reference": "4abfc925e526ae0fd9317200b98985f42dbe953f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/686d3f0bfb6de34bda13dab417b295d5f0017bb3",
-                "reference": "686d3f0bfb6de34bda13dab417b295d5f0017bb3",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/4abfc925e526ae0fd9317200b98985f42dbe953f",
+                "reference": "4abfc925e526ae0fd9317200b98985f42dbe953f",
                 "shasum": ""
             },
             "require": {
@@ -156,7 +156,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2014-11-18 16:07:06"
+            "time": "2014-12-11 13:42:14"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -194,6 +194,53 @@
             ],
             "description": "Wordpress Farm bundle for ACSPanel",
             "time": "2014-10-12 00:16:11"
+        },
+        {
+            "name": "avanzu/admin-theme-bundle",
+            "version": "dev-vendor-fix",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gtrias/AdminThemeBundle.git",
+                "reference": "dcbc5d453fcedbae63ee501189ccc46f5a395fb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gtrias/AdminThemeBundle/zipball/dcbc5d453fcedbae63ee501189ccc46f5a395fb9",
+                "reference": "dcbc5d453fcedbae63ee501189ccc46f5a395fb9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/assetic-bundle": ">=2.3",
+                "symfony/event-dispatcher": ">=2.3",
+                "symfony/http-foundation": ">=2.3",
+                "symfony/http-kernel": ">=2.3",
+                "symfony/twig-bundle": ">=2.3"
+            },
+            "require-dev": {
+                "hamcrest/hamcrest-php": "dev-master",
+                "mockery/mockery": "0.9.*@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Avanzu\\AdminThemeBundle\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Bach",
+                    "email": "mail@avanzu.de"
+                }
+            ],
+            "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
+            "support": {
+                "source": "https://github.com/gtrias/AdminThemeBundle/tree/vendor-fix"
+            },
+            "time": "2014-10-03 15:56:47"
         },
         {
             "name": "behat/transliterator",
@@ -1100,12 +1147,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "1cc42d6a630b81768864a7bb219b6a78f9c35fb4"
+                "reference": "5a6bbbd6241d803b686a13a0c373e0febe656987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/1cc42d6a630b81768864a7bb219b6a78f9c35fb4",
-                "reference": "1cc42d6a630b81768864a7bb219b6a78f9c35fb4",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/5a6bbbd6241d803b686a13a0c373e0febe656987",
+                "reference": "5a6bbbd6241d803b686a13a0c373e0febe656987",
                 "shasum": ""
             },
             "require": {
@@ -1167,7 +1214,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-12-08 00:35:11"
+            "time": "2014-12-10 00:33:23"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1926,12 +1973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "0db20de988b7adc79375d33b2a566183af83c930"
+                "reference": "6ff16eba34f62a13b6b0116e866cadf43428ab09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/0db20de988b7adc79375d33b2a566183af83c930",
-                "reference": "0db20de988b7adc79375d33b2a566183af83c930",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/6ff16eba34f62a13b6b0116e866cadf43428ab09",
+                "reference": "6ff16eba34f62a13b6b0116e866cadf43428ab09",
                 "shasum": ""
             },
             "require": {
@@ -1992,7 +2039,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2014-11-25 17:50:26"
+            "time": "2014-12-10 22:59:46"
         },
         {
             "name": "liip/theme-bundle",
@@ -2714,12 +2761,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "7bb6f4445c7066002d08b39b9384233b6c836dca"
+                "reference": "b72875d0d1dd50c7f7af39dd3ae323f63fb95eb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/7bb6f4445c7066002d08b39b9384233b6c836dca",
-                "reference": "7bb6f4445c7066002d08b39b9384233b6c836dca",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b72875d0d1dd50c7f7af39dd3ae323f63fb95eb8",
+                "reference": "b72875d0d1dd50c7f7af39dd3ae323f63fb95eb8",
                 "shasum": ""
             },
             "require": {
@@ -2819,7 +2866,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-08 08:43:12"
+            "time": "2014-12-11 14:59:22"
         },
         {
             "name": "twig/extensions",
@@ -3704,6 +3751,7 @@
         "knplabs/knp-paginator-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "jms/serializer-bundle": 20,
+        "avanzu/admin-theme-bundle": 20,
         "acs/acspanel-core": 20,
         "acs/acspanel-users": 20,
         "acs/acspanel-settings": 20,
