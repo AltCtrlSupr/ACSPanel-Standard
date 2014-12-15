@@ -7,3 +7,12 @@
                 {% endblock fos_user_content %}
                 {% block body %}{% endblock %}
 {% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+		jQuery(document).ready(function(){
+			$('.datatable').DataTable();
+		});
+	</script>
+{% endblock %}

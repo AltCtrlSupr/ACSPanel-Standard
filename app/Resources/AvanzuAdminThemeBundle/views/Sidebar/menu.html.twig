@@ -1,0 +1,8 @@
+<!-- sidebar menu: : style can be found in sidebar.less -->
+{% if is_granted('ROLE_ADMIN') %}
+	{{ knp_menu_render('ACSACSPanelBundle:Builder:superadminMenu') }}
+{% elseif is_granted('ROLE_RESELLER') %}
+	{{ knp_menu_render('ACSACSPanelBundle:Builder:resellerMenu') }}
+{% elseif is_granted('ROLE_USER') %}
+	{{ knp_menu_render('ACSACSPanelBundle:Builder:userMenu') }}
+{% endif %}
