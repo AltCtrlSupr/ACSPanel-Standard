@@ -54,8 +54,7 @@
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
         "phpunit/phpunit": "3.7.*",
-        "raulfraile/ladybug-bundle": "~1.0.0",
-        "raulfraile/ladybug": "~1.0"
+        "raulfraile/ladybug-bundle": "~1.0"
     },
     "scripts": {
         "post-root-package-install": [

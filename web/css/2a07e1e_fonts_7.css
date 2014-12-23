@@ -11,45 +11,45 @@
  *Fonts styles. */
 /* COLORS */
 /* $headers-bg: #b5441b */
-/* line 11, assetic_compassOKvpk8.sass */
+/* line 11, assetic_compassUnFP5u.sass */
 body {
   font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
-/* line 15, assetic_compassOKvpk8.sass */
+/* line 15, assetic_compassUnFP5u.sass */
 a:link, a:visited, a:active {
   text-decoration: none;
   color: #0977B6;
 }
-/* line 18, assetic_compassOKvpk8.sass */
+/* line 18, assetic_compassUnFP5u.sass */
 a:hover {
   text-decoration: none;
   color: #0977B6;
   text-decoration: underline;
 }
 
-/* line 23, assetic_compassOKvpk8.sass */
+/* line 23, assetic_compassUnFP5u.sass */
 #sidebar ul {
   font-weight: bold;
 }
 
-/* line 29, assetic_compassOKvpk8.sass */
+/* line 29, assetic_compassUnFP5u.sass */
 h1 {
   font-size: 30px;
 }
 
-/* line 32, assetic_compassOKvpk8.sass */
+/* line 32, assetic_compassUnFP5u.sass */
 h1, h2, h3, h4 {
   font-weight: normal;
 }
 
-/* line 36, assetic_compassOKvpk8.sass */
+/* line 36, assetic_compassUnFP5u.sass */
 td.center, th.center {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 40, assetic_compassOKvpk8.sass */
+/* line 40, assetic_compassUnFP5u.sass */
 .center {
   text-align: center;
 }
