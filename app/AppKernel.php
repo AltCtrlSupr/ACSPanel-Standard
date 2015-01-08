@@ -30,9 +30,10 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
+	    new Problematic\AclManagerBundle\ProblematicAclManagerBundle(),
+	    new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
-            //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
             //new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),
             //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
         );

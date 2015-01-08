@@ -45,7 +45,7 @@
         "knplabs/knp-paginator-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
-	"avanzu/admin-theme-bundle": "dev-vendor-fix",
+		"avanzu/admin-theme-bundle": "dev-vendor-fix",
         "acs/acspanel-core": "dev-master",
         "acs/acspanel-users": "dev-master",
         "acs/acspanel-settings": "dev-master",

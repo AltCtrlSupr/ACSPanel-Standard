@@ -4,6 +4,7 @@ imports:
     - { resource: doctrine_extensions.yml }
     - { resource: panel_settings.yml }
     - { resource: @ACSACSPanelBundle/Resources/config/services.yml }
+
 framework:
     translator:      { fallback: es }	
     secret:          %secret%
