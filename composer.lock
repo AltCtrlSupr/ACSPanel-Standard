@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4c9dd54154931bf09f8790c258b24087",
+    "hash": "14c8daac21ebdd46b952bb7a9346b00d",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "37af02e61c66e4881422094f7105d788e3b2da27"
+                "reference": "3d8c6efd94cfd248d00f53b819c233eae1e5b2dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/37af02e61c66e4881422094f7105d788e3b2da27",
-                "reference": "37af02e61c66e4881422094f7105d788e3b2da27",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/3d8c6efd94cfd248d00f53b819c233eae1e5b2dc",
+                "reference": "3d8c6efd94cfd248d00f53b819c233eae1e5b2dc",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-01-05 17:41:15"
+            "time": "2015-01-09 17:24:48"
         },
         {
             "name": "acs/acspanel-settings",
@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "3ab6c61421056e0fc7366e9938aa74becbadf3e2"
+                "reference": "24955d43a2c39f1a8c289a5556c81066946be6e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/3ab6c61421056e0fc7366e9938aa74becbadf3e2",
-                "reference": "3ab6c61421056e0fc7366e9938aa74becbadf3e2",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/24955d43a2c39f1a8c289a5556c81066946be6e7",
+                "reference": "24955d43a2c39f1a8c289a5556c81066946be6e7",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2015-01-05 17:41:36"
+            "time": "2015-01-09 16:28:54"
         },
         {
             "name": "acs/acspanel-users",
@@ -167,12 +167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Wordpress.git",
-                "reference": "d43e316e20087dd52942a0bce7fe695092f25eb5"
+                "reference": "a07638ecc146e420570c6a98c559f4aa7564702f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/d43e316e20087dd52942a0bce7fe695092f25eb5",
-                "reference": "d43e316e20087dd52942a0bce7fe695092f25eb5",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/a07638ecc146e420570c6a98c559f4aa7564702f",
+                "reference": "a07638ecc146e420570c6a98c559f4aa7564702f",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
                 }
             ],
             "description": "Wordpress Farm bundle for ACSPanel",
-            "time": "2015-01-05 17:42:09"
+            "time": "2015-01-09 12:06:08"
         },
         {
             "name": "avanzu/admin-theme-bundle",
@@ -754,12 +754,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "48a3f32bbd798dd175f6fca74d595a85fded281e"
+                "reference": "751709de4a5001aa21521308d25430e23e173b54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/48a3f32bbd798dd175f6fca74d595a85fded281e",
-                "reference": "48a3f32bbd798dd175f6fca74d595a85fded281e",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/751709de4a5001aa21521308d25430e23e173b54",
+                "reference": "751709de4a5001aa21521308d25430e23e173b54",
                 "shasum": ""
             },
             "require": {
@@ -825,7 +825,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2014-12-31 18:08:35"
+            "time": "2015-01-09 14:13:39"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -1266,12 +1266,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "0cbab230bf297e051b8f4372c23482178f5dd72d"
+                "reference": "664b6bf4c52c893011ec4b7b3c99e94399ed0316"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/0cbab230bf297e051b8f4372c23482178f5dd72d",
-                "reference": "0cbab230bf297e051b8f4372c23482178f5dd72d",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/664b6bf4c52c893011ec4b7b3c99e94399ed0316",
+                "reference": "664b6bf4c52c893011ec4b7b3c99e94399ed0316",
                 "shasum": ""
             },
             "require": {
@@ -1333,7 +1333,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-01-08 12:33:52"
+            "time": "2015-01-09 15:58:38"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2029,21 +2029,23 @@
         {
             "name": "knplabs/knp-menu-bundle",
             "version": "dev-master",
-            "target-dir": "Knp/Bundle/MenuBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "4c46964dffbf16bd9ddd3a61a9a73970eb3aa1ac"
+                "reference": "9f56a1a5e4596af636f1c278afe2b75e5a668e4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/4c46964dffbf16bd9ddd3a61a9a73970eb3aa1ac",
-                "reference": "4c46964dffbf16bd9ddd3a61a9a73970eb3aa1ac",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/9f56a1a5e4596af636f1c278afe2b75e5a668e4c",
+                "reference": "9f56a1a5e4596af636f1c278afe2b75e5a668e4c",
                 "shasum": ""
             },
             "require": {
                 "knplabs/knp-menu": "~2.0",
                 "symfony/framework-bundle": "~2.0"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2052,8 +2054,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Knp\\Bundle\\MenuBundle": ""
+                "psr-4": {
+                    "Knp\\Bundle\\MenuBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2078,7 +2080,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2014-12-04 20:44:18"
+            "time": "2015-01-09 11:13:44"
         },
         {
             "name": "knplabs/knp-paginator-bundle",

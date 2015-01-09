@@ -80,9 +80,9 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: ACS\ACSPanelBundle\Entity\FosUser
+    user_class: ACS\ACSPanelUsersBundle\Entity\FosUser
     group:
-        group_class: ACS\ACSPanelBundle\Entity\FosGroup
+        group_class: ACS\ACSPanelUsersBundle\Entity\FosGroup
     registration:
         form:
             type: acs_user_registration

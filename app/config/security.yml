@@ -12,7 +12,7 @@ security:
     role_hierarchy:
         ROLE_RESELLER:    ROLE_USER
         ROLE_ADMIN:       [ROLE_USER, ROLE_RESELLER]
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN]
 
     providers:
         fos_userbundle:
