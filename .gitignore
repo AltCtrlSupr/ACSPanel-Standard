@@ -5,6 +5,7 @@ nbproject/
 tags
 ctags
 *.swp
+*.swo
 .DS_Store
 
 # Symfony2 gitignore from https://github.com/github/gitignore
