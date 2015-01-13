@@ -61,6 +61,7 @@ db:
     created_at: Creat el 
     updated_at: Actualizat el
     users: Usuaris
+    server_ip: IP del servidor
   button:
     show: Veure
     edit: Editar

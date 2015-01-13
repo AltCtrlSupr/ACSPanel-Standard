@@ -61,6 +61,7 @@ db:
     created_at: Creado el 
     updated_at: Actualizado el
     users: Usuarios
+    server_ip: IP del servidor
   button:
     show: Ver
     edit: Editar

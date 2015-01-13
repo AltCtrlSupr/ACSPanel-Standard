@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "3d8c6efd94cfd248d00f53b819c233eae1e5b2dc"
+                "reference": "23d5486feb16b3ff677818fb5c8544e69adc3c26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/3d8c6efd94cfd248d00f53b819c233eae1e5b2dc",
-                "reference": "3d8c6efd94cfd248d00f53b819c233eae1e5b2dc",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/23d5486feb16b3ff677818fb5c8544e69adc3c26",
+                "reference": "23d5486feb16b3ff677818fb5c8544e69adc3c26",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-01-09 17:24:48"
+            "time": "2015-01-12 17:58:24"
         },
         {
             "name": "acs/acspanel-settings",
@@ -420,12 +420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "803a41469d948bc120a6c913399e8bfc8b5d9650"
+                "reference": "23210e0381057c5976b15dae52ef389fa180e09f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/803a41469d948bc120a6c913399e8bfc8b5d9650",
-                "reference": "803a41469d948bc120a6c913399e8bfc8b5d9650",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/23210e0381057c5976b15dae52ef389fa180e09f",
+                "reference": "23210e0381057c5976b15dae52ef389fa180e09f",
                 "shasum": ""
             },
             "require": {
@@ -482,7 +482,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-12-08 23:13:26"
+            "time": "2015-01-11 19:26:38"
         },
         {
             "name": "doctrine/collections",
@@ -683,12 +683,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "f7acb8589ed8f6cec50aeea6017699b078a4ade1"
+                "reference": "f6ca269380341faa5d96f77d1df444d621a81809"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f7acb8589ed8f6cec50aeea6017699b078a4ade1",
-                "reference": "f7acb8589ed8f6cec50aeea6017699b078a4ade1",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f6ca269380341faa5d96f77d1df444d621a81809",
+                "reference": "f6ca269380341faa5d96f77d1df444d621a81809",
                 "shasum": ""
             },
             "require": {
@@ -746,7 +746,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-01-03 23:26:29"
+            "time": "2015-01-12 15:58:01"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1266,12 +1266,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "664b6bf4c52c893011ec4b7b3c99e94399ed0316"
+                "reference": "573153669c11a6f69201513831d3b8ce5e111d25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/664b6bf4c52c893011ec4b7b3c99e94399ed0316",
-                "reference": "664b6bf4c52c893011ec4b7b3c99e94399ed0316",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/573153669c11a6f69201513831d3b8ce5e111d25",
+                "reference": "573153669c11a6f69201513831d3b8ce5e111d25",
                 "shasum": ""
             },
             "require": {
@@ -1333,7 +1333,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-01-09 15:58:38"
+            "time": "2015-01-11 17:02:45"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1833,12 +1833,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "05965e02bad0922846f010e6ea4c7508549cf20b"
+                "reference": "8bce2e83779ebdf70116018e68d8d9f930bbe124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/05965e02bad0922846f010e6ea4c7508549cf20b",
-                "reference": "05965e02bad0922846f010e6ea4c7508549cf20b",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/8bce2e83779ebdf70116018e68d8d9f930bbe124",
+                "reference": "8bce2e83779ebdf70116018e68d8d9f930bbe124",
                 "shasum": ""
             },
             "require": {
@@ -1892,7 +1892,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2014-09-25 09:44:03"
+            "time": "2015-01-12 17:22:05"
         },
         {
             "name": "knplabs/knp-components",
@@ -2935,12 +2935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b52e0d19c1023a42d9b26b7a5bb5b5ebe16aa66d"
+                "reference": "80b097094cdc0fdb4f1d951487e2c5607ba4620f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b52e0d19c1023a42d9b26b7a5bb5b5ebe16aa66d",
-                "reference": "b52e0d19c1023a42d9b26b7a5bb5b5ebe16aa66d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/80b097094cdc0fdb4f1d951487e2c5607ba4620f",
+                "reference": "80b097094cdc0fdb4f1d951487e2c5607ba4620f",
                 "shasum": ""
             },
             "require": {
@@ -3040,7 +3040,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-01-08 10:45:59"
+            "time": "2015-01-10 17:09:02"
         },
         {
             "name": "twig/extensions",
