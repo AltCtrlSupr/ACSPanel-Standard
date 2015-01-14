@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "23d5486feb16b3ff677818fb5c8544e69adc3c26"
+                "reference": "499925e421dfc89c790a4914caf13eea94d894e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/23d5486feb16b3ff677818fb5c8544e69adc3c26",
-                "reference": "23d5486feb16b3ff677818fb5c8544e69adc3c26",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/499925e421dfc89c790a4914caf13eea94d894e6",
+                "reference": "499925e421dfc89c790a4914caf13eea94d894e6",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-01-12 17:58:24"
+            "time": "2015-01-13 13:11:21"
         },
         {
             "name": "acs/acspanel-settings",
@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "24955d43a2c39f1a8c289a5556c81066946be6e7"
+                "reference": "d740324c375aee94ea274a108498bdf66fb437e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/24955d43a2c39f1a8c289a5556c81066946be6e7",
-                "reference": "24955d43a2c39f1a8c289a5556c81066946be6e7",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/d740324c375aee94ea274a108498bdf66fb437e6",
+                "reference": "d740324c375aee94ea274a108498bdf66fb437e6",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2015-01-09 16:28:54"
+            "time": "2015-01-13 12:28:49"
         },
         {
             "name": "acs/acspanel-users",
@@ -1266,12 +1266,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "573153669c11a6f69201513831d3b8ce5e111d25"
+                "reference": "9c3cb579313ae01cdd3467b9f89fc15e9677b46c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/573153669c11a6f69201513831d3b8ce5e111d25",
-                "reference": "573153669c11a6f69201513831d3b8ce5e111d25",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/9c3cb579313ae01cdd3467b9f89fc15e9677b46c",
+                "reference": "9c3cb579313ae01cdd3467b9f89fc15e9677b46c",
                 "shasum": ""
             },
             "require": {
@@ -1333,7 +1333,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-01-11 17:02:45"
+            "time": "2015-01-13 14:05:45"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2935,12 +2935,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "80b097094cdc0fdb4f1d951487e2c5607ba4620f"
+                "reference": "1d8fc92dbe79e108db148ded7e431f0ddb1ca283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/80b097094cdc0fdb4f1d951487e2c5607ba4620f",
-                "reference": "80b097094cdc0fdb4f1d951487e2c5607ba4620f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/1d8fc92dbe79e108db148ded7e431f0ddb1ca283",
+                "reference": "1d8fc92dbe79e108db148ded7e431f0ddb1ca283",
                 "shasum": ""
             },
             "require": {
@@ -3040,7 +3040,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-01-10 17:09:02"
+            "time": "2015-01-13 15:05:34"
         },
         {
             "name": "twig/extensions",
@@ -3872,12 +3872,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "5ea70bcf25200736b9973a22dbfb028f99338a2a"
+                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/5ea70bcf25200736b9973a22dbfb028f99338a2a",
-                "reference": "5ea70bcf25200736b9973a22dbfb028f99338a2a",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/9e23fc3de265ae013690d84aab98e7a84f46edcd",
+                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd",
                 "shasum": ""
             },
             "require": {
@@ -3911,7 +3911,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2015-01-07 07:48:12"
+            "time": "2015-01-13 07:33:46"
         }
     ],
     "aliases": [],

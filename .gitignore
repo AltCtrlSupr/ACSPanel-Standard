@@ -7,6 +7,7 @@ ctags
 *.swp
 *.swo
 .DS_Store
+.phpcomplete_extended/
 
 # Symfony2 gitignore from https://github.com/github/gitignore
 # Bootstrap
