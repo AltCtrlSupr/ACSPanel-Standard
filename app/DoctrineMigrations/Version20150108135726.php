@@ -11,6 +11,26 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Acl\Permission\MaskBuilder;
 
 use ACS\ACSPanelBundle\Entity\HttpdHost;
+use ACS\ACSPanelBundle\Entity\DatabaseUser;
+use ACS\ACSPanelBundle\Entity\DB;
+use ACS\ACSPanelBundle\Entity\DnsDomain;
+use ACS\ACSPanelBundle\Entity\DnsRecord;
+use ACS\ACSPanelBundle\Entity\Domain;
+use ACS\ACSPanelBundle\Entity\FieldType;
+use ACS\ACSPanelBundle\Entity\FtpdUser;
+use ACS\ACSPanelBundle\Entity\HttpdUser;
+use ACS\ACSPanelBundle\Entity\IpAddress;
+use ACS\ACSPanelBundle\Entity\MailAlias;
+use ACS\ACSPanelBundle\Entity\MailDomain;
+use ACS\ACSPanelBundle\Entity\MailLogrcvd;
+use ACS\ACSPanelBundle\Entity\MailMailbox;
+use ACS\ACSPanelBundle\Entity\MailWBList;
+use ACS\ACSPanelBundle\Entity\PanelSetting;
+use ACS\ACSPanelBundle\Entity\Plan;
+use ACS\ACSPanelBundle\Entity\Server;
+use ACS\ACSPanelBundle\Entity\Service;
+use ACS\ACSPanelBundle\Entity\ServiceType;
+use ACS\ACSPanelBundle\Entity\UserPlan;
 
 /**
  */
@@ -43,7 +63,8 @@ class Version20150108135726 extends AbstractMigration implements ContainerAwareI
 				foreach($domain_related_user_classes as $class){
 					if($entity instanceof $class){
 						$user = $entity->getDomain()->getUser();
-						$this->addUserOwnerPermission($user, $entity);
+						if($user)
+							$this->addUserOwnerPermission($user, $entity);
 					}
 				}
 
@@ -51,33 +72,39 @@ class Version20150108135726 extends AbstractMigration implements ContainerAwareI
 				foreach($first_level_user_classes as $class){
 					if($entity instanceof $class){
 						$user = $entity->getUser();
-						$this->addUserOwnerPermission($user, $entity);
+						if($user)
+							$this->addUserOwnerPermission($user, $entity);
 					}
 				}
 
 				if($entity instanceof DnsRecord){
 					$user = $entity->getDnsDomain()->getDomain()->getUser();
-					$this->addUserOwnerPermission($user, $entity);
+					if($user)
+						$this->addUserOwnerPermission($user, $entity);
 				}
 
 				if($entity instanceof HttpdUser){
 					$user = $entity->getHttpdHost()->getDomain()->getUser();
-					$this->addUserOwnerPermission($user, $entity);
+					if($user)
+						$this->addUserOwnerPermission($user, $entity);
 				}
 
 				if($entity instanceof MailLogrcvd){
 					$user = $entity->getMailDomain()->getUser();
-					$this->addUserOwnerPermission($user, $entity);
+					if($user)
+						$this->addUserOwnerPermission($user, $entity);
 				}
 
 				if($entity instanceof MailMailBox){
 					$user = $entity->getMailDomain()->getUser();
-					$this->addUserOwnerPermission($user, $entity);
+					if($user)
+						$this->addUserOwnerPermission($user, $entity);
 				}
 
 				if($entity instanceof UserPlan){
 					$user = $entity->getPuser();
-					$this->addUserOwnerPermission($user, $entity);
+					if($user)
+						$this->addUserOwnerPermission($user, $entity);
 				}
 
 
@@ -170,7 +197,7 @@ class Version20150108135726 extends AbstractMigration implements ContainerAwareI
 
 
                 foreach($superadmins as $superadmin){
-                    $aclManager->removeObjectPermission($entity, MaskBuilder::MASK_MASTER, $superadmin);
+                    $aclManager->revokePermission($entity, MaskBuilder::MASK_MASTER, $superadmin);
                 }
 
             }
