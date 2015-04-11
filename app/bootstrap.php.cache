@@ -1,6 +1,9 @@
 <?php
 
-namespace { $loader = require_once __DIR__.'/./autoload.php'; }
+namespace {
+    error_reporting(error_reporting() & ~E_USER_DEPRECATED);
+    $loader = require_once __DIR__.'/./autoload.php';
+}
 
  
 namespace Symfony\Component\HttpFoundation
@@ -580,7 +583,7 @@ if (!$dup->get('_format') && $this->get('_format')) {
 $dup->attributes->set('_format', $this->get('_format'));
 }
 if (!$dup->getRequestFormat(null)) {
-$dup->setRequestFormat($format = $this->getRequestFormat(null));
+$dup->setRequestFormat($this->getRequestFormat(null));
 }
 return $dup;
 }
@@ -717,7 +720,7 @@ $this->session = $session;
 public function getClientIps()
 {
 $ip = $this->server->get('REMOTE_ADDR');
-if (!self::$trustedProxies) {
+if (!$this->isFromTrustedProxy()) {
 return array($ip);
 }
 if (!self::$trustedHeaders[self::HEADER_CLIENT_IP] || !$this->headers->has(self::$trustedHeaders[self::HEADER_CLIENT_IP])) {
@@ -772,7 +775,7 @@ return $this->isSecure() ?'https':'http';
 }
 public function getPort()
 {
-if (self::$trustedProxies) {
+if ($this->isFromTrustedProxy()) {
 if (self::$trustedHeaders[self::HEADER_CLIENT_PORT] && $port = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PORT])) {
 return $port;
 }
@@ -848,7 +851,7 @@ return''=== $qs ? null : $qs;
 }
 public function isSecure()
 {
-if (self::$trustedProxies && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
+if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_PROTO] && $proto = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_PROTO])) {
 return in_array(strtolower(current(explode(',', $proto))), array('https','on','ssl','1'));
 }
 $https = $this->server->get('HTTPS');
@@ -856,7 +859,7 @@ return !empty($https) &&'off'!== strtolower($https);
 }
 public function getHost()
 {
-if (self::$trustedProxies && self::$trustedHeaders[self::HEADER_CLIENT_HOST] && $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
+if ($this->isFromTrustedProxy() && self::$trustedHeaders[self::HEADER_CLIENT_HOST] && $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
 $elements = explode(',', $host);
 $host = $elements[count($elements) - 1];
 } elseif (!$host = $this->headers->get('HOST')) {
@@ -1130,7 +1133,7 @@ $requestUri = $this->getRequestUri();
 if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, $baseUrl)) {
 return $prefix;
 }
-if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, dirname($baseUrl))) {
+if ($baseUrl && false !== $prefix = $this->getUrlencodedPrefix($requestUri, dirname($baseUrl).'/')) {
 return rtrim($prefix,'/');
 }
 $truncatedRequestUri = $requestUri;
@@ -1215,6 +1218,10 @@ throw new \LogicException('The Request factory must return an instance of Symfon
 return $request;
 }
 return new static($query, $request, $attributes, $cookies, $files, $server, $content);
+}
+private function isFromTrustedProxy()
+{
+return self::$trustedProxies && IpUtils::checkIp($this->server->get('REMOTE_ADDR'), self::$trustedProxies);
 }
 }
 }
@@ -2268,6 +2275,7 @@ use Symfony\Component\DependencyInjection\Loader\ClosureLoader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
+use Symfony\Component\HttpKernel\Config\EnvParametersResource;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
 use Symfony\Component\HttpKernel\DependencyInjection\AddClassesToCachePass;
@@ -2287,12 +2295,12 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.5.10-DEV';
-const VERSION_ID ='20510';
+const VERSION ='2.5.11';
+const VERSION_ID ='20511';
 const MAJOR_VERSION ='2';
 const MINOR_VERSION ='5';
-const RELEASE_VERSION ='10';
-const EXTRA_VERSION ='DEV';
+const RELEASE_VERSION ='11';
+const EXTRA_VERSION ='';
 public function __construct($environment, $debug)
 {
 $this->environment = $environment;
@@ -2596,6 +2604,7 @@ if (null !== $cont = $this->registerContainerConfiguration($this->getContainerLo
 $container->merge($cont);
 }
 $container->addCompilerPass(new AddClassesToCachePass($this));
+$container->addResource(new EnvParametersResource('SYMFONY__'));
 return $container;
 }
 protected function prepareContainer(ContainerBuilder $container)
