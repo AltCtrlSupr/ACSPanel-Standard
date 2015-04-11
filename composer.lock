@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9e187272743ca49c48f8ff7dd846595",
+    "hash": "8b6b3588c4fc29b461c82770143d8240",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -200,16 +200,16 @@
         },
         {
             "name": "avanzu/admin-theme-bundle",
-            "version": "dev-vendor-fix",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/gtrias/AdminThemeBundle.git",
-                "reference": "dcbc5d453fcedbae63ee501189ccc46f5a395fb9"
+                "url": "https://github.com/avanzu/AdminThemeBundle.git",
+                "reference": "41fc37c4f7a5616f475b5db39e48b1f085a0aa72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gtrias/AdminThemeBundle/zipball/dcbc5d453fcedbae63ee501189ccc46f5a395fb9",
-                "reference": "dcbc5d453fcedbae63ee501189ccc46f5a395fb9",
+                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/41fc37c4f7a5616f475b5db39e48b1f085a0aa72",
+                "reference": "41fc37c4f7a5616f475b5db39e48b1f085a0aa72",
                 "shasum": ""
             },
             "require": {
@@ -230,6 +230,7 @@
                     "Avanzu\\AdminThemeBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -240,10 +241,7 @@
                 }
             ],
             "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
-            "support": {
-                "source": "https://github.com/gtrias/AdminThemeBundle/tree/vendor-fix"
-            },
-            "time": "2014-10-03 15:56:47"
+            "time": "2015-03-21 14:47:51"
         },
         {
             "name": "behat/transliterator",
@@ -3956,7 +3954,6 @@
         "knplabs/knp-paginator-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "jms/serializer-bundle": 20,
-        "avanzu/admin-theme-bundle": 20,
         "acs/acspanel-core": 20,
         "acs/acspanel-users": 20,
         "acs/acspanel-settings": 20,
