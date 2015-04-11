@@ -6,23 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <title>{% block title %}ACSPanel{% endblock %}</title>
         {% block stylesheets %}
-            {#[><link href="{{ asset('bundles/acsacspanel/css/main.css') }}" rel="stylesheet" type="text/css" /><]#}
-            <link href="{{ asset('bundles/acsacspanel/css/jquery-ui/themes/base/jquery-ui-1.10.0.custom.min.css')}}" rel="stylesheet" type="text/css" />
-            <link href="{{ asset('bundles/alidatatable/css/smoothness/jquery-ui-1.8.4.custom.css') }}" type="text/css" rel="stylesheet" />
-            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
-            {% stylesheets '@CraueFormFlowBundle/Resources/assets/css/buttons.css' %}
                 <link type="text/css" rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
         {% endblock %}
         {% block javascripts %}
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery/jquery.min.js')}}"></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/plugins/localisation/jquery.localisation-min.js') }}" ></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/plugins/tmpl/jquery.tmpl.1.1.1.js') }}" ></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.qtip.min.js') }}" ></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/main.js') }}" ></script>
-            <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/settings_tabs.js') }}" ></script>
-            <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
-            <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
             {% if term is defined %}
             <script type="text/javascript">
                 var hls_query  = "{{ term }}";

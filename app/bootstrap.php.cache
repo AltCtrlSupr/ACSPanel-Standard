@@ -98,6 +98,10 @@ public function getInt($key, $default = 0, $deep = false)
 {
 return (int) $this->get($key, $default, $deep);
 }
+public function getBoolean($key, $default = false, $deep = false)
+{
+return $this->filter($key, $default, $deep, FILTER_VALIDATE_BOOLEAN);
+}
 public function filter($key, $default = null, $deep = false, $filter = FILTER_DEFAULT, $options = array())
 {
 $value = $this->get($key, $default, $deep);
@@ -335,8 +339,8 @@ $files = $data;
 foreach (self::$fileKeys as $k) {
 unset($files[$k]);
 }
-foreach (array_keys($data['name']) as $key) {
-$files[$key] = $this->fixPhpFilesArray(array('error'=> $data['error'][$key],'name'=> $data['name'][$key],'type'=> $data['type'][$key],'tmp_name'=> $data['tmp_name'][$key],'size'=> $data['size'][$key],
+foreach ($data['name'] as $key => $name) {
+$files[$key] = $this->fixPhpFilesArray(array('error'=> $data['error'][$key],'name'=> $name,'type'=> $data['type'][$key],'tmp_name'=> $data['tmp_name'][$key],'size'=> $data['size'][$key],
 ));
 }
 return $files;
@@ -399,6 +403,16 @@ const HEADER_CLIENT_IP ='client_ip';
 const HEADER_CLIENT_HOST ='client_host';
 const HEADER_CLIENT_PROTO ='client_proto';
 const HEADER_CLIENT_PORT ='client_port';
+const METHOD_HEAD ='HEAD';
+const METHOD_GET ='GET';
+const METHOD_POST ='POST';
+const METHOD_PUT ='PUT';
+const METHOD_PATCH ='PATCH';
+const METHOD_DELETE ='DELETE';
+const METHOD_PURGE ='PURGE';
+const METHOD_OPTIONS ='OPTIONS';
+const METHOD_TRACE ='TRACE';
+const METHOD_CONNECT ='CONNECT';
 protected static $trustedProxies = array();
 protected static $trustedHostPatterns = array();
 protected static $trustedHosts = array();
@@ -790,7 +804,7 @@ $pos = strpos($host,':', strrpos($host,']'));
 $pos = strrpos($host,':');
 }
 if (false !== $pos) {
-return intval(substr($host, $pos + 1));
+return (int) substr($host, $pos + 1);
 }
 return'https'=== $this->getScheme() ? 443 : 80;
 }
@@ -1032,13 +1046,13 @@ $this->languages = array();
 foreach (array_keys($languages) as $lang) {
 if (strstr($lang,'-')) {
 $codes = explode('-', $lang);
-if ($codes[0] =='i') {
+if ('i'=== $codes[0]) {
 if (count($codes) > 1) {
 $lang = $codes[1];
 }
 } else {
 for ($i = 0, $max = count($codes); $i < $max; $i++) {
-if ($i == 0) {
+if ($i === 0) {
 $lang = strtolower($codes[0]);
 } else {
 $lang .='_'.strtoupper($codes[$i]);
@@ -1185,7 +1199,7 @@ return (string) $pathInfo;
 }
 protected static function initializeFormats()
 {
-static::$formats = array('html'=> array('text/html','application/xhtml+xml'),'txt'=> array('text/plain'),'js'=> array('application/javascript','application/x-javascript','text/javascript'),'css'=> array('text/css'),'json'=> array('application/json','application/x-json'),'xml'=> array('text/xml','application/xml','application/x-xml'),'rdf'=> array('application/rdf+xml'),'atom'=> array('application/atom+xml'),'rss'=> array('application/rss+xml'),
+static::$formats = array('html'=> array('text/html','application/xhtml+xml'),'txt'=> array('text/plain'),'js'=> array('application/javascript','application/x-javascript','text/javascript'),'css'=> array('text/css'),'json'=> array('application/json','application/x-json'),'xml'=> array('text/xml','application/xml','application/x-xml'),'rdf'=> array('application/rdf+xml'),'atom'=> array('application/atom+xml'),'rss'=> array('application/rss+xml'),'form'=> array('application/x-www-form-urlencoded'),
 );
 }
 private function setPhpDefaultLocale($locale)
@@ -1203,7 +1217,7 @@ if (0 !== strpos(rawurldecode($string), $prefix)) {
 return false;
 }
 $len = strlen($prefix);
-if (preg_match("#^(%[[:xdigit:]]{2}|.){{$len}}#", $string, $match)) {
+if (preg_match(sprintf('#^(%%[[:xdigit:]]{2}|.){%d}#', $len), $string, $match)) {
 return $match[0];
 }
 return false;
@@ -1763,7 +1777,7 @@ ob_end_clean();
 protected function ensureIEOverSSLCompatibility(Request $request)
 {
 if (false !== stripos($this->headers->get('Content-Disposition'),'attachment') && preg_match('/MSIE (.*?);/i', $request->server->get('HTTP_USER_AGENT'), $match) == 1 && true === $request->isSecure()) {
-if (intval(preg_replace("/(MSIE )(.*?);/","$2", $match[0])) < 9) {
+if ((int) preg_replace('/(MSIE )(.*?);/','$2', $match[0]) < 9) {
 $this->headers->remove('Cache-Control');
 }
 }
@@ -1873,9 +1887,9 @@ $flattenedCookies[] = $cookie;
 }
 return $flattenedCookies;
 }
-public function clearCookie($name, $path ='/', $domain = null)
+public function clearCookie($name, $path ='/', $domain = null, $secure = false, $httpOnly = true)
 {
-$this->setCookie(new Cookie($name, null, 1, $path, $domain));
+$this->setCookie(new Cookie($name, null, 1, $path, $domain, $secure, $httpOnly));
 }
 public function makeDisposition($disposition, $filename, $filenameFallback ='')
 {
@@ -2028,10 +2042,10 @@ $this->services[$id] = $service;
 if (method_exists($this, $method ='synchronize'.strtr($id, array('_'=>'','.'=>'_','\\'=>'_')).'Service')) {
 $this->$method();
 }
-if (self::SCOPE_CONTAINER !== $scope && null === $service) {
+if (null === $service) {
+if (self::SCOPE_CONTAINER !== $scope) {
 unset($this->scopedServices[$scope][$id]);
 }
-if (null === $service) {
 unset($this->services[$id]);
 }
 }
@@ -2158,16 +2172,18 @@ throw new InvalidArgumentException(sprintf('The scope "%s" is not active.', $nam
 $services = array($this->services, $this->scopedServices[$name]);
 unset($this->scopedServices[$name]);
 foreach ($this->scopeChildren[$name] as $child) {
-if (!isset($this->scopedServices[$child])) {
-continue;
-}
+if (isset($this->scopedServices[$child])) {
 $services[] = $this->scopedServices[$child];
 unset($this->scopedServices[$child]);
+}
 }
 $this->services = call_user_func_array('array_diff_key', $services);
 if (isset($this->scopeStacks[$name]) && count($this->scopeStacks[$name]) > 0) {
 $services = $this->scopeStacks[$name]->pop();
 $this->scopedServices += $services;
+if ($this->scopeStacks[$name]->isEmpty()) {
+unset($this->scopeStacks[$name]);
+}
 foreach ($services as $array) {
 foreach ($array as $id => $service) {
 $this->set($id, $service, $name);
@@ -2295,12 +2311,12 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.5.11';
-const VERSION_ID ='20511';
+const VERSION ='2.6.7-DEV';
+const VERSION_ID ='20607';
 const MAJOR_VERSION ='2';
-const MINOR_VERSION ='5';
-const RELEASE_VERSION ='11';
-const EXTRA_VERSION ='';
+const MINOR_VERSION ='6';
+const RELEASE_VERSION ='7';
+const EXTRA_VERSION ='DEV';
 public function __construct($environment, $debug)
 {
 $this->environment = $environment;
@@ -2590,7 +2606,7 @@ protected function buildContainer()
 {
 foreach (array('cache'=> $this->getCacheDir(),'logs'=> $this->getLogDir()) as $name => $dir) {
 if (!is_dir($dir)) {
-if (false === @mkdir($dir, 0777, true)) {
+if (false === @mkdir($dir, 0777, true) && !is_dir($dir)) {
 throw new \RuntimeException(sprintf("Unable to create the %s directory (%s)\n", $name, $dir));
 }
 } elseif (!is_writable($dir)) {
@@ -2802,13 +2818,13 @@ public function build(ContainerBuilder $container)
 public function getContainerExtension()
 {
 if (null === $this->extension) {
-$basename = preg_replace('/Bundle$/','', $this->getName());
-$class = $this->getNamespace().'\\DependencyInjection\\'.$basename.'Extension';
+$class = $this->getContainerExtensionClass();
 if (class_exists($class)) {
 $extension = new $class();
+$basename = preg_replace('/Bundle$/','', $this->getName());
 $expectedAlias = Container::underscore($basename);
 if ($expectedAlias != $extension->getAlias()) {
-throw new \LogicException(sprintf('The extension alias for the default extension of a '.'bundle must be the underscored version of the '.'bundle name ("%s" instead of "%s")',
+throw new \LogicException(sprintf('Users will expect the alias of the default extension of a bundle to be the underscored version of the bundle name ("%s"). You can override "Bundle::getContainerExtension()" if you want to use "%s" or another alias.',
 $expectedAlias, $extension->getAlias()
 ));
 }
@@ -2871,6 +2887,11 @@ if ($r->isSubclassOf('Symfony\\Component\\Console\\Command\\Command') && !$r->is
 $application->add($r->newInstance());
 }
 }
+}
+protected function getContainerExtensionClass()
+{
+$basename = preg_replace('/Bundle$/','', $this->getName());
+return $this->getNamespace().'\\DependencyInjection\\'.$basename.'Extension';
 }
 }
 }
@@ -2999,7 +3020,7 @@ if ($event->hasResponse()) {
 return $this->filterResponse($event->getResponse(), $request, $type);
 }
 if (false === $controller = $this->resolver->getController($request)) {
-throw new NotFoundHttpException(sprintf('Unable to find the controller for path "%s". Maybe you forgot to add the matching route in your routing configuration?', $request->getPathInfo()));
+throw new NotFoundHttpException(sprintf('Unable to find the controller for path "%s". The route is wrongly configured.', $request->getPathInfo()));
 }
 $event = new FilterControllerEvent($this, $controller, $request, $type);
 $this->dispatcher->dispatch(KernelEvents::CONTROLLER, $event);
@@ -3071,7 +3092,7 @@ $a = array();
 foreach ($var as $k => $v) {
 $a[] = sprintf('%s => %s', $k, $this->varToString($v));
 }
-return sprintf("Array(%s)", implode(', ', $a));
+return sprintf('Array(%s)', implode(', ', $a));
 }
 if (is_resource($var)) {
 return sprintf('Resource(%s)', get_resource_type($var));
