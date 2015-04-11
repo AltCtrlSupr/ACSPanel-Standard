@@ -113,7 +113,7 @@ stof_doctrine_extensions:
 
 # liip theme
 liip_theme:
-    themes: ['default', 'terminal', 'phone']
+    themes: ['default']
     active_theme: 'default'
     cookie:
         name: NameOfTheCookie
@@ -122,7 +122,7 @@ liip_theme:
         domain: ~
         secure: false
         http_only: false
-    autodetect_theme: true
+    autodetect_theme: false
 
 
 knp_paginator:
