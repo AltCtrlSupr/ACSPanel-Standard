@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "60c47a40aa6a1b15e526b848ac124d3879ff5866"
+                "reference": "97a8ffcb5e1d0421ad729e959015dde48ae5ff4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/60c47a40aa6a1b15e526b848ac124d3879ff5866",
-                "reference": "60c47a40aa6a1b15e526b848ac124d3879ff5866",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/97a8ffcb5e1d0421ad729e959015dde48ae5ff4f",
+                "reference": "97a8ffcb5e1d0421ad729e959015dde48ae5ff4f",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-04-13 20:14:14"
+            "time": "2015-04-14 14:53:57"
         },
         {
             "name": "acs/acspanel-settings",
