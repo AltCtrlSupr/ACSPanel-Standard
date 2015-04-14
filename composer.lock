@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "429b30958774ab6abbc322b01f0b2b114179f0b1"
+                "reference": "60c47a40aa6a1b15e526b848ac124d3879ff5866"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/429b30958774ab6abbc322b01f0b2b114179f0b1",
-                "reference": "429b30958774ab6abbc322b01f0b2b114179f0b1",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/60c47a40aa6a1b15e526b848ac124d3879ff5866",
+                "reference": "60c47a40aa6a1b15e526b848ac124d3879ff5866",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-04-11 16:41:54"
+            "time": "2015-04-13 20:14:14"
         },
         {
             "name": "acs/acspanel-settings",
@@ -1099,12 +1099,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "3d9669e597439e8d205baf315efb757038fb4dea"
+                "reference": "fc999e2f0508e434645ec2bfadeb89d39fa6453c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/3d9669e597439e8d205baf315efb757038fb4dea",
-                "reference": "3d9669e597439e8d205baf315efb757038fb4dea",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/fc999e2f0508e434645ec2bfadeb89d39fa6453c",
+                "reference": "fc999e2f0508e434645ec2bfadeb89d39fa6453c",
                 "shasum": ""
             },
             "require": {
@@ -1145,7 +1145,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-01-16 19:29:51"
+            "time": "2015-04-12 20:59:10"
         },
         {
             "name": "doctrine/lexer",
@@ -2017,7 +2017,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2075,7 +2075,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2231,12 +2231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipThemeBundle.git",
-                "reference": "6213794345602db9813192a9e22b35fd97b9ea0b"
+                "reference": "4bb3d2830b2c6cdac0c9ded56fac338ab7dba379"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipThemeBundle/zipball/6213794345602db9813192a9e22b35fd97b9ea0b",
-                "reference": "6213794345602db9813192a9e22b35fd97b9ea0b",
+                "url": "https://api.github.com/repos/liip/LiipThemeBundle/zipball/4bb3d2830b2c6cdac0c9ded56fac338ab7dba379",
+                "reference": "4bb3d2830b2c6cdac0c9ded56fac338ab7dba379",
                 "shasum": ""
             },
             "require": {
@@ -2254,7 +2254,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2281,7 +2281,7 @@
                 "themes",
                 "theming"
             ],
-            "time": "2015-04-01 15:06:40"
+            "time": "2015-04-13 06:13:46"
         },
         {
             "name": "monolog/monolog",
@@ -2958,12 +2958,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "234cebd0872922f5be00cb798e8241b0e2390e3a"
+                "reference": "85a494c12d0a5d6f0f88cdd97dacb25210dcd386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/234cebd0872922f5be00cb798e8241b0e2390e3a",
-                "reference": "234cebd0872922f5be00cb798e8241b0e2390e3a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/85a494c12d0a5d6f0f88cdd97dacb25210dcd386",
+                "reference": "85a494c12d0a5d6f0f88cdd97dacb25210dcd386",
                 "shasum": ""
             },
             "require": {
@@ -3067,7 +3067,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-04-11 07:16:15"
+            "time": "2015-04-13 15:33:55"
         },
         {
             "name": "twig/extensions",
@@ -3896,22 +3896,22 @@
         },
         {
             "name": "sensio/generator-bundle",
-            "version": "2.5.x-dev",
+            "version": "dev-master",
             "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "e50108c2133ee5c9c484555faed50c17a61221d3"
+                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/e50108c2133ee5c9c484555faed50c17a61221d3",
-                "reference": "e50108c2133ee5c9c484555faed50c17a61221d3",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/9e23fc3de265ae013690d84aab98e7a84f46edcd",
+                "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd",
                 "shasum": ""
             },
             "require": {
-                "symfony/console": "~2.5",
-                "symfony/framework-bundle": "~2.2"
+                "symfony/console": "~2.6",
+                "symfony/framework-bundle": "~2.6"
             },
             "require-dev": {
                 "doctrine/orm": "~2.2,>=2.2.3",
@@ -3940,7 +3940,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2015-03-17 06:36:52"
+            "time": "2015-01-13 07:33:46"
         }
     ],
     "aliases": [],
