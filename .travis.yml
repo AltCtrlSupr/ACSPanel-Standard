@@ -4,7 +4,9 @@ php:
   - 5.4
 
 before_script:
-  - pwd
+  - sudo add-apt-repository -y ppa:chris-lea/node.js
+  - sudo apt-get -y update
+  - sudo apt-get -y install nodejs
   - sudo npm install -g bower
   - composer self-update
   - cp app/config/parameters.yml.dist app/config/parameters.yml
