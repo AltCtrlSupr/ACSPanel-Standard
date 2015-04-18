@@ -8,7 +8,7 @@ before_script:
   - sudo apt-get -y update
   - sudo apt-get -y install nodejs
   - sudo npm install -g bower
-  - whereis bower
+  - ln -s /usr/bin/bower /usr/local/bin/bower
   - composer self-update
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - touch app/data/data.db3
