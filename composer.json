@@ -39,22 +39,23 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "stof/doctrine-extensions-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
-        "liip/theme-bundle": "dev-master",
         "craue/formflow-bundle": "dev-master",
         "gregwar/form-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master",
-	"avanzu/admin-theme-bundle": "~1.3",
+        "avanzu/admin-theme-bundle": "~1.3",
         "acs/acspanel-core": "dev-master",
         "acs/acspanel-users": "dev-master",
         "acs/acspanel-settings": "dev-master",
-        "acs/acspanel-wordpress": "dev-master"
+        "acs/acspanel-wordpress": "dev-master",
+        "nelmio/alice": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
         "phpunit/phpunit": "3.7.*",
-        "raulfraile/ladybug-bundle": "~1.0"
+        "raulfraile/ladybug-bundle": "~1.0",
+        "liip/functional-test-bundle": "~1.2@dev"
     },
     "scripts": {
         "post-root-package-install": [

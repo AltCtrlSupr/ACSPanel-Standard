@@ -5,7 +5,7 @@ imports:
 framework:
     test: ~
     session:
-        storage_id: session.storage.mock_file
+        storage_id: session.storage.filesystem
     profiler:
         enabled: false
 
@@ -18,8 +18,12 @@ swiftmailer:
 
 doctrine:
     dbal:
+        default_connection: default
         driver:   pdo_sqlite
         dbname:   acs_test_db
         path:     %kernel.root_dir%/data/data.db3
         user:     test_user
         password: test_password
+
+liip_functional_test:
+    cache_sqlite_db: true

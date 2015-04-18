@@ -24,6 +24,7 @@ web/uploads/*
 web/bundles/*
 web/css/*
 bin/*
+src/*
 
 # Configuration files
 app/config/parameters.ini
