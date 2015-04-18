@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "97a8ffcb5e1d0421ad729e959015dde48ae5ff4f"
+                "reference": "48d0940831c1e8670cab4028e7256ba81668bda3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/97a8ffcb5e1d0421ad729e959015dde48ae5ff4f",
-                "reference": "97a8ffcb5e1d0421ad729e959015dde48ae5ff4f",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/48d0940831c1e8670cab4028e7256ba81668bda3",
+                "reference": "48d0940831c1e8670cab4028e7256ba81668bda3",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 "symfony-app-dir": "app",
                 "symfony-web-dir": "web",
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-04-14 14:53:57"
+            "time": "2015-04-18 11:30:15"
         },
         {
             "name": "acs/acspanel-settings",
@@ -2128,7 +2128,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
