@@ -1,7 +1,7 @@
 ACSPanel (ACS Control Server Panel)
 ===================================
 
-![Travis-ci](https://travis-ci.org/AltCtrlSupr/ACSPanel-Standard.svg?branch=master)
+![Travis-ci](https://travis-ci.org/AltCtrlSupr/ACSPanel-Standard.svg)
 
 Welcome to ACSPanel - The server administration tool written in Symfony2
 
