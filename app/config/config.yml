@@ -141,5 +141,4 @@ knp_paginator:
 gregwar_form: ~
 
 avanzu_admin_theme:
-    bower_bin: /usr/bin/bower
-
+    bower_bin: /usr/local/bin/bower
