@@ -1,6 +1,8 @@
 ACSPanel (ACS Control Server Panel)
 ===================================
 
+![Travis-ci](https://travis-ci.org/AltCtrlSupr/ACSPanel-Standard.svg?branch=master)
+
 Welcome to ACSPanel - The server administration tool written in Symfony2
 
 This document contains information on how to download, install, and start
@@ -14,7 +16,7 @@ Features:
   - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
   - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
   - Themeable. Thanks to [LiipThemeBundle][18], (GUI Designers needed)
-  - Mobile front-end (Comming soon...): 
+  - Mobile front-end (Comming soon...):
   - Wordpress farm: See [PanelWordpressBundle][19]
   - Multilanguage: Each user can select the prefered language. (Translators needed)
 
@@ -37,8 +39,8 @@ following options.
 
 ### Download from GIT repository
 
-To install ACSPanel from git repository, you have to clone the project with 
-the next command and execute the following commands 
+To install ACSPanel from git repository, you have to clone the project with
+the next command and execute the following commands
 
     cd /server_root_directory/
 
@@ -244,8 +246,8 @@ Enjoy!
 [13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
 [14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
-[16]: https://github.com/stof/StofDoctrineExtensionsBundle 
-[17]: https://github.com/l3pp4rd/DoctrineExtensions 
+[16]: https://github.com/stof/StofDoctrineExtensionsBundle
+[17]: https://github.com/l3pp4rd/DoctrineExtensions
 [18]: https://github.com/liip/LiipThemeBundle
 [19]: https://github.com/AltCtrlSupr/PanelWordpressBundle
 [20]: https://github.com/AltCtrlSupr/acspanel-deb/
