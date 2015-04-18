@@ -1,9 +1,19 @@
 language: php
+sudo: required
 php:
   - 5.4
 
 before_script:
+  - sudo add-apt-repository -y ppa:chris-lea/node.js
+  - sudo apt-get -y update
+  - sudo apt-get -y install nodejs
+  - sudo npm install -g bower
+  - whereis bower
   - composer self-update
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - touch app/data/data.db3
   - composer install
+  - php app/console doctrine:schema:create --env=test
+  - php app/console avanzu:admin:fetch-vendor
 
-script: phpunit -c app/
+script: bin/phpunit -c app/
