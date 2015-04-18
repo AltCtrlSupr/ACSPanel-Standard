@@ -5,10 +5,7 @@ php:
 
 before_script:
   - pwd
-  - npm install -g bower
-  - whereis bower
-  - ls
-  - sudo ln -s bower /usr/local/bin/bower
+  - sudo npm install -g bower
   - composer self-update
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - touch app/data/data.db3
