@@ -8,7 +8,9 @@ before_script:
   - sudo ln -s /usr/bin/bower /usr/local/bin/bower
   - composer self-update
   - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - touch app/data/data.db3
   - composer install
+  - php app/console doctrine:schema:create --env=test
   - php app/console avanzu:admin:fetch-vendor
 
 script: bin/phpunit -c app/
