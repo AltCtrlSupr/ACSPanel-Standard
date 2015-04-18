@@ -139,3 +139,7 @@ knp_paginator:
 
 # entity id bundle
 gregwar_form: ~
+
+avanzu_admin_theme:
+    bower_bin: /usr/bin/bower
+
