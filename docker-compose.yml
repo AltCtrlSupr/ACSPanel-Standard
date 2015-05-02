@@ -1,5 +1,9 @@
 db:
     image: mysql
+    environment:
+        - MYSQL_DATABASE=acspanel
+        - MYSQL_USER=acspanel
+        - MYSQL_PASSWORD=acs1234
 
 web:
     build: .
