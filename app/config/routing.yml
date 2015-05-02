@@ -20,3 +20,8 @@ global_search:
     pattern:  /search
     defaults: { _controller: "ACSACSPanelBundle:Default:search" }
 
+# Avanzu specific tweaks
+avanzu_admin_profile:
+    path: /profile/{userid}/
+avanzu_admin_logout:
+    path: /logout
