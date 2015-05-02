@@ -1,0 +1,12 @@
+db:
+    image: mysql
+
+web:
+    build: .
+    command: php app/console server:run
+    volumes:
+        - .:/acspanel
+    ports:
+        - "8000:8000"
+    links:
+        - db

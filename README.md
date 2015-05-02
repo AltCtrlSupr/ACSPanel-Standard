@@ -156,7 +156,19 @@ And install the assets
     php app/console assets:install --symlink
 
 
-9) Setting up services to automatic apply panel settings
+9) Setting up the Docker container
+----------------------------------
+
+You will need docker-compose install to build the container. So if you haven't yet follow those [instructions](https://docs.docker.com/compose/install/)
+
+Then you can build the container running next command
+
+```
+docker-compose up
+```
+
+
+10) Setting up services to automatic apply panel settings
 --------------------------------------------------------
 
 Apache: Copy the script tools/acspanel-srv-apache2-reboot to each Apache2 server and give execution permission to the script. Change the panel database access details and add to crontab.
