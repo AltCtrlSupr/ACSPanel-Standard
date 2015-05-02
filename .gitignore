@@ -20,9 +20,7 @@ vendor/*
 */main/logs/*
 */cache/*
 */main/cache/*
-web/uploads/*
-web/bundles/*
-web/css/*
+web/*
 bin/*
 src/*
 

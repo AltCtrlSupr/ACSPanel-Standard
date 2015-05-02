@@ -1,0 +1,16 @@
+db:
+    image: mysql
+    environment:
+        - MYSQL_DATABASE=acspanel
+        - MYSQL_USER=acspanel
+        - MYSQL_PASSWORD=acs1234
+
+web:
+    build: .
+    command: php app/console server:run
+    volumes:
+        - .:/acspanel
+    ports:
+        - "8000:8000"
+    links:
+        - db
