@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "421f3678558d1df26268f85e74b78e6e76750542"
+                "reference": "3fbbc4b86c25d0a8f9bd6eb2c143fb66909106ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/421f3678558d1df26268f85e74b78e6e76750542",
-                "reference": "421f3678558d1df26268f85e74b78e6e76750542",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/3fbbc4b86c25d0a8f9bd6eb2c143fb66909106ea",
+                "reference": "3fbbc4b86c25d0a8f9bd6eb2c143fb66909106ea",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-05-02 14:33:18"
+            "time": "2015-05-02 14:49:31"
         },
         {
             "name": "acs/acspanel-wordpress",
