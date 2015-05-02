@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "1c83c91d00f9b61a8b0ef4dfd9d3a23343c68460"
+                "reference": "421f3678558d1df26268f85e74b78e6e76750542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/1c83c91d00f9b61a8b0ef4dfd9d3a23343c68460",
-                "reference": "1c83c91d00f9b61a8b0ef4dfd9d3a23343c68460",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/421f3678558d1df26268f85e74b78e6e76750542",
+                "reference": "421f3678558d1df26268f85e74b78e6e76750542",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-02-02 18:19:44"
+            "time": "2015-05-02 14:33:18"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -2344,12 +2344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1065abe1f7fcc0546c25f0730ce2ce290360898d"
+                "reference": "97af2c72727fc1cf15bc3bdfe8cf87b09ea5b9ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1065abe1f7fcc0546c25f0730ce2ce290360898d",
-                "reference": "1065abe1f7fcc0546c25f0730ce2ce290360898d",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/97af2c72727fc1cf15bc3bdfe8cf87b09ea5b9ba",
+                "reference": "97af2c72727fc1cf15bc3bdfe8cf87b09ea5b9ba",
                 "shasum": ""
             },
             "require": {
@@ -2411,7 +2411,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-04-30 17:29:05"
+            "time": "2015-05-02 13:35:36"
         },
         {
             "name": "nelmio/alice",
