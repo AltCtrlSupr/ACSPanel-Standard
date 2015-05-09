@@ -179,6 +179,17 @@ Create a file in /etc/cron.d/ folder with the next contents:
 Change the route to your script location
 
 
+Contribute
+----------
+
+If you want to contribute you can open Issues on this github repository.
+Also you can donate to the next bitcoin address:
+
+```
+1yRnWxg7HxbQG9Vqzyja99phcQYnJ3prL
+```
+
+
 
 What's inside?
 ---------------
