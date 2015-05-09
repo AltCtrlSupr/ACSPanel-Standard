@@ -6,14 +6,9 @@
     "licence": "GPLv3",
     "homepage": "http://acspanel.acs.li/",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+        "psr-0": { "": "src/", "SymfonyStandard": "app/" },
+        "psr-4": {"": "vendor/acs"}
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/gtrias/AdminThemeBundle.git"
-        }
-    ],
     "authors": [
         {
             "name": "Martí Cardús",
@@ -48,14 +43,14 @@
         "acs/acspanel-core": "dev-master",
         "acs/acspanel-users": "dev-master",
         "acs/acspanel-settings": "dev-master",
-        "acs/acspanel-wordpress": "dev-master",
-        "nelmio/alice": "~2.0@dev"
+        "acs/acspanel-wordpress": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
         "phpunit/phpunit": "3.7.*",
         "raulfraile/ladybug-bundle": "~1.0",
-        "liip/functional-test-bundle": "~1.2@dev"
+        "liip/functional-test-bundle": "~1.2@dev",
+        "nelmio/alice": "~2.0@dev"
     },
     "scripts": {
         "post-root-package-install": [
