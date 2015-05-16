@@ -8,7 +8,7 @@
 
             <ul class="loginfields">
                 {% if error %}
-                    <li><div class="notice">{{ error|trans({}, 'FOSUserBundle') }}</div></li>
+                    <li><div class="notice">{{ error.messageKey|trans(error.messageData, 'security') }}</div></li>
                 {% endif %}
                 <li>
                     <input type="text" class="input-block-level" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username" name="_username" value="{{ last_username }}" required="required" />
