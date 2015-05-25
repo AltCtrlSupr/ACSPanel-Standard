@@ -16,9 +16,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            // new JMS\AopBundle\JMSAopBundle(),
-            // new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-            // new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -28,14 +25,13 @@ class AppKernel extends Kernel
             new Gregwar\FormBundle\GregwarFormBundle(),
             new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            new ACS\ACSPanelBundle\ACSACSPanelBundle(),
-            new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new Problematic\AclManagerBundle\ProblematicAclManagerBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new ACS\ACSPanelBundle\ACSACSPanelBundle(),
+            new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
-            //new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),
-            //new ACS\ACSPanelDynHostBundle\ACSACSPanelDynHostBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

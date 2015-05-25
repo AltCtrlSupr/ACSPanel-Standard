@@ -46,6 +46,9 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
         sass:    ~
         compass: ~
+        less:
+            node: /usr/bin/node
+            node_paths: [/usr/local/lib/node_modules]
 
 
 # Doctrine Configuration
@@ -142,3 +145,6 @@ gregwar_form: ~
 
 avanzu_admin_theme:
     bower_bin: /usr/local/bin/bower
+
+braincrafted_bootstrap:
+    jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'

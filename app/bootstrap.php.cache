@@ -42,7 +42,7 @@ return $default;
 }
 $value = $this->parameters[$root];
 $currentKey = null;
-for ($i = $pos, $c = strlen($path); $i < $c; $i++) {
+for ($i = $pos, $c = strlen($path); $i < $c; ++$i) {
 $char = $path[$i];
 if ('['=== $char) {
 if (null !== $currentKey) {
@@ -1051,7 +1051,7 @@ if (count($codes) > 1) {
 $lang = $codes[1];
 }
 } else {
-for ($i = 0, $max = count($codes); $i < $max; $i++) {
+for ($i = 0, $max = count($codes); $i < $max; ++$i) {
 if ($i === 0) {
 $lang = strtolower($codes[0]);
 } else {
@@ -2310,11 +2310,11 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.6.7-DEV';
-const VERSION_ID ='20607';
+const VERSION ='2.6.8-DEV';
+const VERSION_ID ='20608';
 const MAJOR_VERSION ='2';
 const MINOR_VERSION ='6';
-const RELEASE_VERSION ='7';
+const RELEASE_VERSION ='8';
 const EXTRA_VERSION ='DEV';
 public function __construct($environment, $debug)
 {
