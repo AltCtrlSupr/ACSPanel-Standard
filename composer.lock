@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9dfa8fba7ebad39c5cd7d3478112c236",
+    "hash": "9852da276f99e7bcd6d7e946871330a6",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -4505,6 +4505,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "sensio/framework-extra-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "craue/formflow-bundle": 20,

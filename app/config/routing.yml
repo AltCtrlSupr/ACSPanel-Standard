@@ -19,4 +19,3 @@ acs_settings:
 global_search:
     pattern:  /search
     defaults: { _controller: "ACSACSPanelBundle:Default:search" }
-
