@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "fb225b015644b515afb64b02fcfa4959",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "0a8fe6434894627b4ab71b98fe52f49d316110a5"
+                "reference": "f97a0ec45f1edbf480a5211b8f8dde929539e8f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/0a8fe6434894627b4ab71b98fe52f49d316110a5",
-                "reference": "0a8fe6434894627b4ab71b98fe52f49d316110a5",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/f97a0ec45f1edbf480a5211b8f8dde929539e8f0",
+                "reference": "f97a0ec45f1edbf480a5211b8f8dde929539e8f0",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-05-16 08:24:45"
+            "time": "2015-06-01 17:54:33"
         },
         {
             "name": "acs/acspanel-settings",
@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "f8650dca3978e0a4a6e96dc7dbabf3dce21ae3b4"
+                "reference": "43365577b28635ada8ecff434266787f16334bc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/f8650dca3978e0a4a6e96dc7dbabf3dce21ae3b4",
-                "reference": "f8650dca3978e0a4a6e96dc7dbabf3dce21ae3b4",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/43365577b28635ada8ecff434266787f16334bc2",
+                "reference": "43365577b28635ada8ecff434266787f16334bc2",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2015-05-09 11:40:10"
+            "time": "2015-06-01 17:54:59"
         },
         {
             "name": "acs/acspanel-users",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "0487a74ab88d1677cef39f6d2eaddc35f5f9e9f2"
+                "reference": "d34aed8cee5327e9974f6600efe9d9d89968046e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/0487a74ab88d1677cef39f6d2eaddc35f5f9e9f2",
-                "reference": "0487a74ab88d1677cef39f6d2eaddc35f5f9e9f2",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/d34aed8cee5327e9974f6600efe9d9d89968046e",
+                "reference": "d34aed8cee5327e9974f6600efe9d9d89968046e",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-05-16 08:23:05"
+            "time": "2015-06-01 17:20:34"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -2780,12 +2780,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "e971317e2e4f9f94d1f972948e612e45e64d708f"
+                "reference": "8175618b07793b9d43c3be931f3d8d4c14c9e866"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e971317e2e4f9f94d1f972948e612e45e64d708f",
-                "reference": "e971317e2e4f9f94d1f972948e612e45e64d708f",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/8175618b07793b9d43c3be931f3d8d4c14c9e866",
+                "reference": "8175618b07793b9d43c3be931f3d8d4c14c9e866",
                 "shasum": ""
             },
             "require": {
@@ -2831,7 +2831,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-06-01 01:47:05"
+            "time": "2015-06-01 15:04:20"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2839,12 +2839,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "a30fc18bf147bc25faf6b1d54bf55cfad4b63cba"
+                "reference": "c7e5eb6d7d55b1b2b8fe7318dc925bd54933ec6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a30fc18bf147bc25faf6b1d54bf55cfad4b63cba",
-                "reference": "a30fc18bf147bc25faf6b1d54bf55cfad4b63cba",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/c7e5eb6d7d55b1b2b8fe7318dc925bd54933ec6c",
+                "reference": "c7e5eb6d7d55b1b2b8fe7318dc925bd54933ec6c",
                 "shasum": ""
             },
             "require": {
@@ -2886,7 +2886,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-05-29 18:27:23"
+            "time": "2015-06-01 16:44:03"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -3120,12 +3120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "0d7387b2a41375fefe46c7bd122d403333eaee90"
+                "reference": "ae14e153346409cd2bb1a20bffc039feb63340e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/0d7387b2a41375fefe46c7bd122d403333eaee90",
-                "reference": "0d7387b2a41375fefe46c7bd122d403333eaee90",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/ae14e153346409cd2bb1a20bffc039feb63340e1",
+                "reference": "ae14e153346409cd2bb1a20bffc039feb63340e1",
                 "shasum": ""
             },
             "require": {
@@ -3171,7 +3171,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2015-05-26 17:31:12"
+            "time": "2015-06-01 14:18:27"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3236,12 +3236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "390e9b4dc6434bd9a14b669d663e68e7ba063ea3"
+                "reference": "418b28b4643c4ad60d2cb4b5434be34c3a44f799"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/390e9b4dc6434bd9a14b669d663e68e7ba063ea3",
-                "reference": "390e9b4dc6434bd9a14b669d663e68e7ba063ea3",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/418b28b4643c4ad60d2cb4b5434be34c3a44f799",
+                "reference": "418b28b4643c4ad60d2cb4b5434be34c3a44f799",
                 "shasum": ""
             },
             "require": {
@@ -3345,7 +3345,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-05-29 23:26:13"
+            "time": "2015-06-01 15:00:21"
         },
         {
             "name": "twbs/bootstrap",

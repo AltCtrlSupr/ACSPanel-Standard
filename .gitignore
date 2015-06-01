@@ -20,6 +20,7 @@ vendor/*
 */main/logs/*
 */cache/*
 */main/cache/*
+components/*
 web/*
 bin/*
 src/*
