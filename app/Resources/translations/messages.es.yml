@@ -1,6 +1,8 @@
 ## templates.es.yml
 common:
   home: Inicio
+  back: Volver al listado
+  edit: Editar
 menu:
   admin:
     main: Administrador
@@ -83,6 +85,7 @@ user:
     roles: Roles
     childs: Hijos
     actions: Acciones
+    home_dir: Directorio Home
   form:
     username: Nombre de usuario
     email: Correo electrónico

@@ -3,7 +3,7 @@
 
 {% block body %}
     <div class="callout callout-danger">
-        <h4>{% trans %}error.titles.general{% endtrans %}</h4>
+        <h4><i class="fa fa-warning text-yellow"></i>{% trans %}error.titles.general{% endtrans %}</h4>
 
         {# example security usage, see below #}
         {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
