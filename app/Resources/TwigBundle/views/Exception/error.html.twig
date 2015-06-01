@@ -1,0 +1,17 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="callout callout-danger">
+        <h4>{% trans %}error.titles.general{% endtrans %}</h4>
+
+        {# example security usage, see below #}
+        {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
+            {# ... #}
+        {% endif %}
+
+        <p>
+        {% trans %}error.messages.send_issue{% endtrans %}: <a target="_blank" href="https://github.com/AltCtrlSupr/ACSPanel-Standard/issues/new">{% trans %}error.messages.send_link{% endtrans %}</a>
+        </p>
+    </div>
+{% endblock %}

@@ -253,6 +253,11 @@ plans:
     maxdbuser: Usuarios de base de datos máximos
 
 error:
+  titles:
+    general: Upss, algo ha ido mal
+  messages:
+    send_issue: Ayuda a mejorar el panel abriendo un Issue en github
+    send_link: Abre un Issue!
   resources:
     not_enough: No tienes suficientes recursos para crear
   maildomain:
