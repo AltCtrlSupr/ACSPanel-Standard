@@ -43,7 +43,7 @@
         "gregwar/form-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "jms/serializer-bundle": "dev-master",
+        "jms/serializer-bundle": "0.13.*@dev",
         "avanzu/admin-theme-bundle": "dev-master",
         "acs/acspanel-core": "dev-master",
         "acs/acspanel-users": "dev-master",
@@ -52,7 +52,8 @@
         "nelmio/alice": "~2.0@dev",
         "braincrafted/bootstrap-bundle": "dev-master",
         "twbs/bootstrap": "^3.3@dev",
-        "components/jquery": "1.11"
+        "components/jquery": "1.11",
+        "friendsofsymfony/rest-bundle": "~1.6@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
