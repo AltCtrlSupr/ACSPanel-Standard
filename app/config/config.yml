@@ -154,13 +154,12 @@ sensio_framework_extra:
     router:  { annotations: true }
 
 fos_rest:
+    body_listener: true
     routing_loader:
         default_format: json
     view:
-        view_response_listener: true
+        view_response_listener: 'force'
+        formats:
+            json: true
     format_listener:
         enabled: true
-        rules:
-            # setting fallback_format to json means that instead of considering the next rule in case of a priority mismatch, json will be used
-            - { path: '^/', priorities: ['html', 'json'], fallback_format: html, prefer_extension: false }
-            - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: false }
