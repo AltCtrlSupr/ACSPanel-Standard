@@ -1,6 +1,2 @@
 security:
     session_fixation_strategy:  none
-    firewalls:
-        main:
-            http_basic:
-                provider: fos_userbundle
