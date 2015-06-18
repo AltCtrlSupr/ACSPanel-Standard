@@ -154,12 +154,20 @@ sensio_framework_extra:
     router:  { annotations: true }
 
 fos_rest:
-    body_listener: true
     routing_loader:
         default_format: json
     view:
-        view_response_listener: 'force'
+        view_response_listener: "force"
         formats:
             json: true
     format_listener:
         enabled: true
+
+jms_serializer:
+    metadata:
+        auto_detection: true
+        directories:
+            FosUser:
+                namespace_prefix: "FOS\\UserBundle"
+                path: "%kernel.root_dir%/config/serializer/"
+
