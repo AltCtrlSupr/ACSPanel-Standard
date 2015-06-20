@@ -1,8 +1,0 @@
-FOS\UserBundle\Model\User:
-    asdfsadfasdf
-    exclusion_policy: ALL
-    properties:
-        id:
-            expose: true
-        password:
-            exclude: true
