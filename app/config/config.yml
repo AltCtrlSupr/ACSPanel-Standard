@@ -154,6 +154,8 @@ sensio_framework_extra:
     router:  { annotations: true }
 
 fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
     disable_csrf_role: ROLE_ADMIN
     routing_loader:
         default_format: json
