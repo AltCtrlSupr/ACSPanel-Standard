@@ -53,7 +53,8 @@
         "braincrafted/bootstrap-bundle": "dev-master",
         "twbs/bootstrap": "^3.3@dev",
         "components/jquery": "1.11",
-        "friendsofsymfony/rest-bundle": "~1.6@dev"
+        "friendsofsymfony/rest-bundle": "~1.6@dev",
+        "nelmio/api-doc-bundle": "^2.9@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

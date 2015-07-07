@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9852da276f99e7bcd6d7e946871330a6",
+    "hash": "edc2eeb24ecc986d63e652b6e6f4ad0f",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -130,7 +130,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/2fce79634ddb5ad97e2134bba4b0999dcd8867d8",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/f5d09b73ae28833850218644933893712dffb0e8",
                 "reference": "2fce79634ddb5ad97e2134bba4b0999dcd8867d8",
                 "shasum": ""
             },
@@ -401,7 +401,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/e19d2c64ede3454c2f743a33e20f9716e05d408d",
+                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/2fe269695aaeb11602ddaea0d25679c7c40e6673",
                 "reference": "e19d2c64ede3454c2f743a33e20f9716e05d408d",
                 "shasum": ""
             },
@@ -529,7 +529,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/9930e3367777a8727e229f5126c5299890d700bb",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/e7b77e5abe230a2cc1db5005fb86435da213ae3b",
                 "reference": "9930e3367777a8727e229f5126c5299890d700bb",
                 "shasum": ""
             },
@@ -944,7 +944,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/9c5a4ebedb583b882062fb8b276b8af5ca9063ac",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/30f0ed4b5681842a2a78b861f54136782fbea963",
                 "reference": "9c5a4ebedb583b882062fb8b276b8af5ca9063ac",
                 "shasum": ""
             },
@@ -1086,7 +1086,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/e33e07137c43a492589e89d79d36807cbfcf28e0",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/861d3564c03b3867845ffd87d9b19f49dc673c69",
                 "reference": "e33e07137c43a492589e89d79d36807cbfcf28e0",
                 "shasum": ""
             },
@@ -1319,7 +1319,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/67f02686c6c779ae50489728b91026bc8199720c",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/70c580174e4e16a79296a02256fb40a34192731c",
                 "reference": "67f02686c6c779ae50489728b91026bc8199720c",
                 "shasum": ""
             },
@@ -1384,7 +1384,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/6b3056ff8c09509071539c6d894ef8a681465b5c",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/96b065b2827ac556a575e3658434f20ffc207058",
                 "reference": "6b3056ff8c09509071539c6d894ef8a681465b5c",
                 "shasum": ""
             },
@@ -1462,7 +1462,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/9fe38af32a22cb033d0499bc2ab613a22fce8156",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/04393c06818202190e32e2ebf8c74051de8401c5",
                 "reference": "9fe38af32a22cb033d0499bc2ab613a22fce8156",
                 "shasum": ""
             },
@@ -1612,7 +1612,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/9eed6c2a6fc9944903df92f9850b9dcc5a373410",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6615c01b7b2a9c46f4cc426f860866a122eae0af",
                 "reference": "9eed6c2a6fc9944903df92f9850b9dcc5a373410",
                 "shasum": ""
             },
@@ -2034,7 +2034,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/a29d9a204efc3ca3f39a9d182a83fd34462fef3f",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/358c80f75b95d64c59b7f226d4cb54fc311eca6f",
                 "reference": "a29d9a204efc3ca3f39a9d182a83fd34462fef3f",
                 "shasum": ""
             },
@@ -2105,7 +2105,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/c49628cfc8b8ce7404665b4e6528487d780e7d68",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/d0215e9ba257cc43aa54b6525423fb816d779c91",
                 "reference": "c49628cfc8b8ce7404665b4e6528487d780e7d68",
                 "shasum": ""
             },
@@ -2241,7 +2241,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/8592169d3d05085c69501a86bf51569588fef230",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/03badd49d673de25e5119a797030777642172a9f",
                 "reference": "8592169d3d05085c69501a86bf51569588fef230",
                 "shasum": ""
             },
@@ -2361,7 +2361,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/800eb12f225573869b6f04d77a6e329a6da9110f",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/84accca9c921dcbdc9c4be3ba0366a25f8d779b3",
                 "reference": "800eb12f225573869b6f04d77a6e329a6da9110f",
                 "shasum": ""
             },
@@ -2547,6 +2547,57 @@
             "time": "2015-06-07 18:06:44"
         },
         {
+            "name": "michelf/php-markdown",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/michelf/php-markdown.git",
+                "reference": "e1aabe18173231ebcefc90e615565742fc1c7fd9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/e1aabe18173231ebcefc90e615565742fc1c7fd9",
+                "reference": "e1aabe18173231ebcefc90e615565742fc1c7fd9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-lib": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Michelf": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "John Gruber",
+                    "homepage": "http://daringfireball.net/"
+                },
+                {
+                    "name": "Michel Fortin",
+                    "email": "michel.fortin@michelf.ca",
+                    "homepage": "https://michelf.ca/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Markdown",
+            "homepage": "https://michelf.ca/projects/php-markdown/",
+            "keywords": [
+                "markdown"
+            ],
+            "time": "2015-03-01 12:03:08"
+        },
+        {
             "name": "monolog/monolog",
             "version": "dev-master",
             "source": {
@@ -2556,7 +2607,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/9232d07b10eb88f90aeafe55f06f2c3e5c1ea20d",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6dd76b944d42d7b27bb3d09cd0f6fa88a80817f5",
                 "reference": "9232d07b10eb88f90aeafe55f06f2c3e5c1ea20d",
                 "shasum": ""
             },
@@ -2632,7 +2683,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/9de36fcf12fe34790e1fcb70b978d155c7ba26ce",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/4a13b41bafc80f63a743c3ef5fa244f2f62fb67f",
                 "reference": "9de36fcf12fe34790e1fcb70b978d155c7ba26ce",
                 "shasum": ""
             },
@@ -2679,6 +2730,86 @@
                 "test"
             ],
             "time": "2015-06-19 13:03:14"
+        },
+        {
+            "name": "nelmio/api-doc-bundle",
+            "version": "dev-master",
+            "target-dir": "Nelmio/ApiDocBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
+                "reference": "787f69561b4803e2eb3824224524505c0c849da4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/787f69561b4803e2eb3824224524505c0c849da4",
+                "reference": "787f69561b4803e2eb3824224524505c0c849da4",
+                "shasum": ""
+            },
+            "require": {
+                "michelf/php-markdown": "~1.4",
+                "symfony/console": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "conflict": {
+                "jms/serializer": "<0.12",
+                "jms/serializer-bundle": "<0.11"
+            },
+            "require-dev": {
+                "dunglas/api-bundle": "dev-master",
+                "friendsofsymfony/rest-bundle": "~1.0",
+                "jms/serializer-bundle": ">=0.11",
+                "sensio/framework-extra-bundle": "~3.0",
+                "symfony/browser-kit": "~2.3",
+                "symfony/css-selector": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/serializer": "~2.7@dev",
+                "symfony/validator": "~2.3",
+                "symfony/yaml": "~2.3"
+            },
+            "suggest": {
+                "dunglas/api-bundle": "For making use of resources definitions of DunglasApiBundle.",
+                "friendsofsymfony/rest-bundle": "For making use of REST information in the doc.",
+                "jms/serializer": "For making use of serializer information in the doc.",
+                "symfony/form": "For using form definitions as input.",
+                "symfony/validator": "For making use of validator information in the doc."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Nelmio\\ApiDocBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nelmio",
+                    "homepage": "http://nelm.io"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/nelmio/NelmioApiDocBundle/contributors"
+                }
+            ],
+            "description": "Generates documentation for your REST API from annotations",
+            "keywords": [
+                "api",
+                "doc",
+                "documentation",
+                "rest"
+            ],
+            "time": "2015-07-04 11:52:22"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3102,7 +3233,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/21b7eb31c51d98e9da0543527a0242875f3d92b9",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0a6e9031371dcb384d395b1fa7bd5139a7847a60",
                 "reference": "21b7eb31c51d98e9da0543527a0242875f3d92b9",
                 "shasum": ""
             },
@@ -3223,7 +3354,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/eb7044bf48c4dbfe866ffcc69dfc1bdc17994a43",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/5cf613f52558d47648485f0828612533165603af",
                 "reference": "eb7044bf48c4dbfe866ffcc69dfc1bdc17994a43",
                 "shasum": ""
             },
@@ -3339,7 +3470,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/85cb59f4a7448a279020b2f4f00c371d8d6dd17b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/fa498a1339b3a74d0a69143536840f70a442c411",
                 "reference": "85cb59f4a7448a279020b2f4f00c371d8d6dd17b",
                 "shasum": ""
             },
@@ -3456,7 +3587,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5a8d0143b3fa9de883a5672d4a1f44d472657a8a",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/f300f03f809eaf8bf64785edcc869c6412dfb9ca",
                 "reference": "5a8d0143b3fa9de883a5672d4a1f44d472657a8a",
                 "shasum": ""
             },
@@ -3559,7 +3690,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e22fb8728b395b306a06785a3ae9b12f3fbc0294",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1ded65daeb8da1fb0d22016e53c2e7026557f040",
                 "reference": "e22fb8728b395b306a06785a3ae9b12f3fbc0294",
                 "shasum": ""
             },
@@ -3656,7 +3787,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/ed08ab3874cb91bb2f1497672bb03a08ece2eb07",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/540434b453473e48d0c12de9db4607cbca8e112b",
                 "reference": "ed08ab3874cb91bb2f1497672bb03a08ece2eb07",
                 "shasum": ""
             },
@@ -3707,7 +3838,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/c40ec57a065a29bb5da047a2397a46e342c0240d",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/6142762ff5f3d8b8c0918c3866bf6b9111d5fce6",
                 "reference": "c40ec57a065a29bb5da047a2397a46e342c0240d",
                 "shasum": ""
             },
@@ -3825,7 +3956,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/a923bb15680d0089e2316f7a4af8f437046e96bb",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/6150bf2c35d3fc379e50c7602b75caceaa39dbf0",
                 "reference": "a923bb15680d0089e2316f7a4af8f437046e96bb",
                 "shasum": ""
             },
@@ -4534,6 +4665,7 @@
         "braincrafted/bootstrap-bundle": 20,
         "twbs/bootstrap": 20,
         "friendsofsymfony/rest-bundle": 20,
+        "nelmio/api-doc-bundle": 20,
         "liip/functional-test-bundle": 20
     },
     "prefer-stable": false,
