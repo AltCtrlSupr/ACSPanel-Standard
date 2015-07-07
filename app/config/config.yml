@@ -174,3 +174,4 @@ jms_serializer:
                 namespace_prefix: "FOS\\UserBundle"
                 path: "%kernel.root_dir%/../vendor/acs/acspanel-core/Resources/config/serializer/"
 
+nelmio_api_doc: ~
