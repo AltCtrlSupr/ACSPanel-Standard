@@ -7,7 +7,7 @@ menu:
     users: Usuaris del panell
     groups: Grups
     plans: Plans
-    servers: 
+    servers:
       main: Servidors
       servers: Servidors
       services: Serveis
@@ -41,6 +41,8 @@ menu:
     main: FTP
   settings:
     main: Preferencies
+  apidocumentation:
+    main: Documentació API
   wordpress:
     main: Granja Wordpress
   logout:
@@ -58,7 +60,7 @@ db:
   field:
     id: ID
     name: Nom
-    created_at: Creat el 
+    created_at: Creat el
     updated_at: Actualizat el
     users: Usuaris
     server_ip: IP del servidor
@@ -68,7 +70,7 @@ db:
     addnew: Afegir nova
     remove: Borrar
     adduser: Afegir usuari
-    create: Crear 
+    create: Crear
     delete: Borrar base de dades
     back: Tornar a la lista
 

@@ -43,6 +43,8 @@ menu:
     main: FTP
   settings:
     main: Ajustes
+  apidocumentation:
+    main: Documentación API
   wordpress:
     main: Granja Wordpress
   logout:
