@@ -1316,12 +1316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "70c580174e4e16a79296a02256fb40a34192731c"
+                "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/70c580174e4e16a79296a02256fb40a34192731c",
-                "reference": "70c580174e4e16a79296a02256fb40a34192731c",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/78954cce4962a4655ff47c0751eb78021fbaf2cc",
+                "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc",
                 "shasum": ""
             },
             "require": {
@@ -1329,9 +1329,6 @@
                 "php": ">=5.4.0",
                 "symfony/console": "~2.3",
                 "symfony/yaml": "~2.3"
-            },
-            "conflict": {
-                "doctrine/orm": "<2.4"
             },
             "require-dev": {
                 "doctrine/coding-standard": "dev-master",
@@ -1375,7 +1372,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-06-29 10:57:05"
+            "time": "2015-07-05 21:24:36"
         },
         {
             "name": "doctrine/orm",
@@ -1461,12 +1458,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "04393c06818202190e32e2ebf8c74051de8401c5"
+                "reference": "2d4241622bd76bd95c5fd76537730e6427fb307b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/04393c06818202190e32e2ebf8c74051de8401c5",
-                "reference": "04393c06818202190e32e2ebf8c74051de8401c5",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/2d4241622bd76bd95c5fd76537730e6427fb307b",
+                "reference": "2d4241622bd76bd95c5fd76537730e6427fb307b",
                 "shasum": ""
             },
             "require": {
@@ -1536,7 +1533,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2015-06-29 13:24:06"
+            "time": "2015-07-08 07:03:59"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2422,12 +2419,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "b17bd13759a7c63b16a6bb88b9e84e4ff767dfaf"
+                "reference": "0023c5e18f4a03c6ba72706dea6514d45c7136d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/b17bd13759a7c63b16a6bb88b9e84e4ff767dfaf",
-                "reference": "b17bd13759a7c63b16a6bb88b9e84e4ff767dfaf",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/0023c5e18f4a03c6ba72706dea6514d45c7136d7",
+                "reference": "0023c5e18f4a03c6ba72706dea6514d45c7136d7",
                 "shasum": ""
             },
             "require": {
@@ -2488,7 +2485,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2015-06-16 13:36:43"
+            "time": "2015-07-08 20:36:44"
         },
         {
             "name": "liip/theme-bundle",
@@ -2742,12 +2739,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "787f69561b4803e2eb3824224524505c0c849da4"
+                "reference": "0699c45dcc02f98626431996e288deb93f34a6ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/787f69561b4803e2eb3824224524505c0c849da4",
-                "reference": "787f69561b4803e2eb3824224524505c0c849da4",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/0699c45dcc02f98626431996e288deb93f34a6ab",
+                "reference": "0699c45dcc02f98626431996e288deb93f34a6ab",
                 "shasum": ""
             },
             "require": {
@@ -2813,7 +2810,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2015-07-04 11:52:22"
+            "time": "2015-07-10 09:15:36"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3470,12 +3467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "fa498a1339b3a74d0a69143536840f70a442c411"
+                "reference": "e6cc4918bf2844ee7f6475d295bb95817cdc1117"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/fa498a1339b3a74d0a69143536840f70a442c411",
-                "reference": "fa498a1339b3a74d0a69143536840f70a442c411",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e6cc4918bf2844ee7f6475d295bb95817cdc1117",
+                "reference": "e6cc4918bf2844ee7f6475d295bb95817cdc1117",
                 "shasum": ""
             },
             "require": {
@@ -3579,7 +3576,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-07-04 09:13:36"
+            "time": "2015-07-09 16:02:48"
         },
         {
             "name": "twbs/bootstrap",
@@ -3587,12 +3584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "f300f03f809eaf8bf64785edcc869c6412dfb9ca"
+                "reference": "cb7f569262acaf5d0d6c001146855eb595ffdd20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/f300f03f809eaf8bf64785edcc869c6412dfb9ca",
-                "reference": "f300f03f809eaf8bf64785edcc869c6412dfb9ca",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/cb7f569262acaf5d0d6c001146855eb595ffdd20",
+                "reference": "cb7f569262acaf5d0d6c001146855eb595ffdd20",
                 "shasum": ""
             },
             "replace": {
@@ -3630,7 +3627,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-06-27 13:21:55"
+            "time": "2015-07-07 04:43:37"
         },
         {
             "name": "twig/extensions",

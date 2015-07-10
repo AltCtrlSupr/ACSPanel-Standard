@@ -148,6 +148,8 @@ avanzu_admin_theme:
 
 braincrafted_bootstrap:
     jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'
+    auto_configure:
+        assetic: true
 
 sensio_framework_extra:
     view: { annotations: false }
