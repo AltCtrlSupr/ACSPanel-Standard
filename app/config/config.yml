@@ -81,7 +81,7 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: ACS\ACSPanelUsersBundle\Entity\FosUser
+    user_class: ACS\ACSPanelUsersBundle\Entity\User
     group:
         group_class: ACS\ACSPanelUsersBundle\Entity\FosGroup
     registration:
@@ -169,7 +169,7 @@ jms_serializer:
     metadata:
         auto_detection: true
         directories:
-            FosUser:
+            User:
                 namespace_prefix: "FOS\\UserBundle"
                 path: "%kernel.root_dir%/../vendor/acs/acspanel-core/Resources/config/serializer/"
 
