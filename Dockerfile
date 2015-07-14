@@ -11,3 +11,4 @@ RUN rm -rf app/cache/* && rm -rf app/logs/* && HTTPDUSER=`ps aux | grep -E '[a]p
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 RUN composer install && php app/console avanzu:admin:fetch-vendor
 RUN php app/console fixtures:load
+CMD ["php", "app/console", "server:run", "0.0.0.0:8000"]

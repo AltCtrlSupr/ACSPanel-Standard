@@ -4,10 +4,11 @@ db:
         - MYSQL_DATABASE=acspanel
         - MYSQL_USER=acspanel
         - MYSQL_PASSWORD=acs1234
+    volumes:
+        - /tmp/containers/acspanel/var/lib/mysql:/var/lib/mysql
 
 web:
     build: .
-    command: php app/console server:run 0.0.0.0:8000
     volumes:
         - .:/acspanel
     ports:
