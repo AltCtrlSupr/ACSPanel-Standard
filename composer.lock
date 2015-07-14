@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "a8d82cc8eed46ba6c00d65f33361e8968786d96c"
+                "reference": "20554ea6c2b6954109c56c935fe7065da743bdab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/a8d82cc8eed46ba6c00d65f33361e8968786d96c",
-                "reference": "a8d82cc8eed46ba6c00d65f33361e8968786d96c",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/20554ea6c2b6954109c56c935fe7065da743bdab",
+                "reference": "20554ea6c2b6954109c56c935fe7065da743bdab",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-06-01 18:16:55"
+            "time": "2015-07-14 07:15:07"
         },
         {
             "name": "acs/acspanel-settings",
@@ -88,12 +88,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "43365577b28635ada8ecff434266787f16334bc2"
+                "reference": "8628002ff77cd6e5e82f885b30f72a6d02c2abc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/43365577b28635ada8ecff434266787f16334bc2",
-                "reference": "43365577b28635ada8ecff434266787f16334bc2",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/8628002ff77cd6e5e82f885b30f72a6d02c2abc4",
+                "reference": "8628002ff77cd6e5e82f885b30f72a6d02c2abc4",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2015-06-01 17:54:59"
+            "time": "2015-07-14 07:10:32"
         },
         {
             "name": "acs/acspanel-users",
@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "f5d09b73ae28833850218644933893712dffb0e8"
+                "reference": "ae5e0c963fdeadce3b063c32ae3022b5433746f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/f5d09b73ae28833850218644933893712dffb0e8",
-                "reference": "f5d09b73ae28833850218644933893712dffb0e8",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/ae5e0c963fdeadce3b063c32ae3022b5433746f6",
+                "reference": "ae5e0c963fdeadce3b063c32ae3022b5433746f6",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-06-29 07:38:55"
+            "time": "2015-07-13 19:21:46"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -167,12 +167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Wordpress.git",
-                "reference": "5b5881ac294442cbe92ba1c353623311eaa54d4d"
+                "reference": "42321509c64a9ae23c518cafbed5b9b8a1613e73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/5b5881ac294442cbe92ba1c353623311eaa54d4d",
-                "reference": "5b5881ac294442cbe92ba1c353623311eaa54d4d",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/42321509c64a9ae23c518cafbed5b9b8a1613e73",
+                "reference": "42321509c64a9ae23c518cafbed5b9b8a1613e73",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
                 }
             ],
             "description": "Wordpress Farm bundle for ACSPanel",
-            "time": "2015-07-07 18:44:42"
+            "time": "2015-07-14 07:10:48"
         },
         {
             "name": "avanzu/admin-theme-bundle",
@@ -1608,12 +1608,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "6615c01b7b2a9c46f4cc426f860866a122eae0af"
+                "reference": "587a38f912801eb778125d67ed5feae0d6717cb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6615c01b7b2a9c46f4cc426f860866a122eae0af",
-                "reference": "6615c01b7b2a9c46f4cc426f860866a122eae0af",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/587a38f912801eb778125d67ed5feae0d6717cb8",
+                "reference": "587a38f912801eb778125d67ed5feae0d6717cb8",
                 "shasum": ""
             },
             "require": {
@@ -1652,7 +1652,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-06-23 08:30:36"
+            "time": "2015-07-13 13:55:48"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2604,12 +2604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "6dd76b944d42d7b27bb3d09cd0f6fa88a80817f5"
+                "reference": "328d66f13fc62018192a7d38281e6bbc09f5b798"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6dd76b944d42d7b27bb3d09cd0f6fa88a80817f5",
-                "reference": "6dd76b944d42d7b27bb3d09cd0f6fa88a80817f5",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/328d66f13fc62018192a7d38281e6bbc09f5b798",
+                "reference": "328d66f13fc62018192a7d38281e6bbc09f5b798",
                 "shasum": ""
             },
             "require": {
@@ -2646,7 +2646,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14.x-dev"
+                    "dev-master": "1.15.x-dev"
                 }
             },
             "autoload": {
@@ -2672,7 +2672,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-07-05 21:09:41"
+            "time": "2015-07-13 10:06:01"
         },
         {
             "name": "nelmio/alice",
@@ -2680,12 +2680,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "4a13b41bafc80f63a743c3ef5fa244f2f62fb67f"
+                "reference": "1256496ceda7a0f2ad0d0febb8c9c507c7addca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/4a13b41bafc80f63a743c3ef5fa244f2f62fb67f",
-                "reference": "4a13b41bafc80f63a743c3ef5fa244f2f62fb67f",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/1256496ceda7a0f2ad0d0febb8c9c507c7addca8",
+                "reference": "1256496ceda7a0f2ad0d0febb8c9c507c7addca8",
                 "shasum": ""
             },
             "require": {
@@ -2730,7 +2730,7 @@
                 "orm",
                 "test"
             ],
-            "time": "2015-06-26 17:00:37"
+            "time": "2015-07-12 15:17:37"
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -3467,12 +3467,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "e6cc4918bf2844ee7f6475d295bb95817cdc1117"
+                "reference": "7783573d16994ab6544d0da583b6a76b2024f191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/e6cc4918bf2844ee7f6475d295bb95817cdc1117",
-                "reference": "e6cc4918bf2844ee7f6475d295bb95817cdc1117",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/7783573d16994ab6544d0da583b6a76b2024f191",
+                "reference": "7783573d16994ab6544d0da583b6a76b2024f191",
                 "shasum": ""
             },
             "require": {
@@ -3576,7 +3576,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-07-09 16:02:48"
+            "time": "2015-07-14 06:51:41"
         },
         {
             "name": "twbs/bootstrap",
@@ -3835,12 +3835,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipFunctionalTestBundle.git",
-                "reference": "6142762ff5f3d8b8c0918c3866bf6b9111d5fce6"
+                "reference": "e077720f49c50d38a8ff8a4ad04c3108c53e45a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/6142762ff5f3d8b8c0918c3866bf6b9111d5fce6",
-                "reference": "6142762ff5f3d8b8c0918c3866bf6b9111d5fce6",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/e077720f49c50d38a8ff8a4ad04c3108c53e45a8",
+                "reference": "e077720f49c50d38a8ff8a4ad04c3108c53e45a8",
                 "shasum": ""
             },
             "require": {
@@ -3858,7 +3858,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -3884,7 +3884,7 @@
             "keywords": [
                 "Symfony2"
             ],
-            "time": "2015-06-28 17:36:10"
+            "time": "2015-07-13 07:55:56"
         },
         {
             "name": "phpunit/php-code-coverage",
