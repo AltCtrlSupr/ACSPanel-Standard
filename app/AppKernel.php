@@ -35,6 +35,7 @@ class AppKernel extends Kernel
             new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
+            new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
