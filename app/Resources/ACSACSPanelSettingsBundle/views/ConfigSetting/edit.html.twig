@@ -3,38 +3,40 @@
 {% block body %}
 {% include "::acspanel.forms.html.twig" %}
 
-<div class="nav-tabs-custom">
-    <form action="{{ path('settings_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+<div class="box box-body">
+    <div class="nav-tabs-custom">
+        <form action="{{ path('settings_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
 
-        {{ form_errors(form) }}
+            {{ form_errors(form) }}
 
-        <ul class="nav nav-tabs">
-        {% for context in contexts %}
-            <li><a data-toggle="tab" class="{% if loop.first %}active {% endif %}tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
-        {% endfor %}
-        </ul>
-
-        <div class="tab-content">
+            <ul class="nav nav-tabs">
             {% for context in contexts %}
-                <div class="tab-pane" id="{{ context.context | replace({' ':'_'}) | lower }}">
-                {% for setts in form %}
-                    {% for setting in setts %}
-                        {% if setting.context.vars.value == context.context %}
-                            {{ form_widget(setting) }}
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-                </div>
+                <li><a data-toggle="tab" class="{% if loop.first %}active {% endif %}tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
             {% endfor %}
-        </div>
+            </ul>
+
+            <div class="tab-content">
+                {% for context in contexts %}
+                    <div class="tab-pane" id="{{ context.context | replace({' ':'_'}) | lower }}">
+                    {% for setts in form %}
+                        {% for setting in setts %}
+                            {% if setting.context.vars.value == context.context %}
+                                {{ form_widget(setting) }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
 
 
-        <div style="display:none;">
-        {{ form_rest(form) }}
-        </div>
+            <div style="display:none;">
+            {{ form_rest(form) }}
+            </div>
 
-        <button class="btn" type="submit">{%trans%}Save{%endtrans%}</button>
-    </form>
+            <button class="btn" type="submit">{%trans%}Save{%endtrans%}</button>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

@@ -169,8 +169,11 @@ jms_serializer:
     metadata:
         auto_detection: true
         directories:
-            User:
-                namespace_prefix: "FOS\\UserBundle"
-                path: "%kernel.root_dir%/../vendor/acs/acspanel-core/Resources/config/serializer/"
+            FosUserBundle:
+                namespace_prefix: FOS\UserBundle
+                path: "@ACSACSPanelBundle/Resources/config/serializer/fosuser"
+            # ACSPanelUsersBundle:
+            # namespace_prefix: ACS\ACSPanelUsersBundle
+            # path: "@ACSACSPanelUsersBundle/Resources/config/serializer"
 
 nelmio_api_doc: ~
