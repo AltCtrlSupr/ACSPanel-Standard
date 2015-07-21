@@ -36,6 +36,8 @@ class AppKernel extends Kernel
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
             new ACS\ACSPanelWordpressBundle\ACSACSPanelWordpressBundle(),
             new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),
+            new Gtrias\NotificationBundle\GtriasNotificationBundle(),
+            new Gtrias\WatchBundle\GtriasWatchBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
