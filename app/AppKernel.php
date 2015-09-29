@@ -38,6 +38,7 @@ class AppKernel extends Kernel
             new ACS\ACSPanelBillingBundle\ACSACSPanelBillingBundle(),
             new Gtrias\NotificationBundle\GtriasNotificationBundle(),
             new Gtrias\WatchBundle\GtriasWatchBundle(),
+            new ACS\ACSPanelBulkBundle\ACSACSPanelBulkBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

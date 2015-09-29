@@ -1,5 +1,9 @@
 {% extends '::base.html.twig' %}
+
 {% block header_title %} - {% trans %}Settings{% endtrans %}{% endblock %}
+
+{% block page_title %}{% trans %}settings.title{% endtrans %}{% endblock %}
+
 {% block body %}
 {% include "::acspanel.forms.html.twig" %}
 
@@ -11,13 +15,13 @@
 
             <ul class="nav nav-tabs">
             {% for context in contexts %}
-                <li><a data-toggle="tab" class="{% if loop.first %}active {% endif %}tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
+                <li class="{% if loop.first %}active {% endif %}"><a data-toggle="tab" class="tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
             {% endfor %}
             </ul>
 
             <div class="tab-content">
                 {% for context in contexts %}
-                    <div class="tab-pane" id="{{ context.context | replace({' ':'_'}) | lower }}">
+                    <div class="tab-pane {% if loop.first %}active {% endif %}" id="{{ context.context | replace({' ':'_'}) | lower }}">
                     {% for setts in form %}
                         {% for setting in setts %}
                             {% if setting.context.vars.value == context.context %}
