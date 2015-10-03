@@ -3,30 +3,28 @@
 {% block fos_user_content %}
 
         <form action="{{ path("fos_user_security_check") }}" method="post">
-            <h1>{{ panel_name }}</h1>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-            <ul class="loginfields">
-                {% if error %}
-                    <li><div class="notice">{{ error.messageKey|trans(error.messageData, 'security') }}</div></li>
-                {% endif %}
-                <li>
-                    <input type="text" class="input-block-level" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username" name="_username" value="{{ last_username }}" required="required" />
-                </li>
-                <li>
-                    <input type="password"  class="input-block-level" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password" name="_password" required="required" />
-                </li>
-                </li>
-                <li style="text-align: right;">
-                    <a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a>
-                </li>
-                <li style="text-align: right;">
-                    <a href="{{ path('fos_user_resetting_request') }}">{% trans %}Forgot your password?{% endtrans %}</a>
-                </li>
-                <li>
-                    <input type="submit" id="_submit" class="btn btn-large btn-success" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-                </li>
-            </ul>
+            {% if error %}
+                <div class="notice">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <div class="form-group">
+                <input type="text" class="form-control input-block-level" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" id="username" name="_username" value="{{ last_username }}" required="required" />
+            </div>
+            <div class="form-group">
+                <input type="password"  class="form-control input-block-level" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" id="password" name="_password" required="required" />
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <input type="submit" id="_submit" class="btn btn-block btn-large btn-primary" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                </div>
+            </div>
+            <div class="social-auth-links text-center">
+                <a href="{{ path('fos_user_registration_register') }}">{% trans %}Register{% endtrans %}</a>
+                <br>
+                <a href="{{ path('fos_user_resetting_request') }}">{% trans %}Forgot your password?{% endtrans %}</a>
+            </div>
         </form>
 
 {% endblock fos_user_content %}
