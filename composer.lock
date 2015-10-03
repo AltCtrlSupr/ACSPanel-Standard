@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3ee597b910e21af88bd98a8548acd006",
+    "hash": "0891ee9fb34f248437b058994950e74c",
+    "content-hash": "cf2d8e7a7020dd7bc49c421f0622da1a",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -12,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "830ec5002f655bc51a0423a886535930d9e6cdff"
+                "reference": "0a6783f93269e436f7d2aebe3de0153aa890de14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/830ec5002f655bc51a0423a886535930d9e6cdff",
-                "reference": "830ec5002f655bc51a0423a886535930d9e6cdff",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/0a6783f93269e436f7d2aebe3de0153aa890de14",
+                "reference": "0a6783f93269e436f7d2aebe3de0153aa890de14",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +81,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-10-01 08:08:39"
+            "time": "2015-10-02 17:28:15"
         },
         {
             "name": "acs/acspanel-settings",
@@ -126,12 +127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "b0aede7f24dfb9a72e4c8a8166df67adf1d07e2e"
+                "reference": "050e58a5652c532b1bc7da6c427802af7c6e9ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/b0aede7f24dfb9a72e4c8a8166df67adf1d07e2e",
-                "reference": "b0aede7f24dfb9a72e4c8a8166df67adf1d07e2e",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/050e58a5652c532b1bc7da6c427802af7c6e9ea9",
+                "reference": "050e58a5652c532b1bc7da6c427802af7c6e9ea9",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +160,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-09-30 18:20:32"
+            "time": "2015-10-02 17:28:53"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -203,13 +204,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bigben3333/AdminThemeBundle.git",
-                "reference": "3392c793e1dfe879c64b4afa02a14716428b590d"
+                "url": "https://github.com/avanzu/AdminThemeBundle.git",
+                "reference": "07f1851bc7fb80062cc8b34f178213ecd5dcd2e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigben3333/AdminThemeBundle/zipball/3392c793e1dfe879c64b4afa02a14716428b590d",
-                "reference": "3392c793e1dfe879c64b4afa02a14716428b590d",
+                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/07f1851bc7fb80062cc8b34f178213ecd5dcd2e0",
+                "reference": "07f1851bc7fb80062cc8b34f178213ecd5dcd2e0",
                 "shasum": ""
             },
             "require": {
@@ -230,6 +231,7 @@
                     "Avanzu\\AdminThemeBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -240,10 +242,7 @@
                 }
             ],
             "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
-            "support": {
-                "source": "https://github.com/bigben3333/AdminThemeBundle/tree/master"
-            },
-            "time": "2015-05-16 15:52:37"
+            "time": "2015-09-19 21:22:06"
         },
         {
             "name": "behat/transliterator",
@@ -1382,12 +1381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "61ad1bd137bea574dbcfe1ab5ae9e09c02daddd6"
+                "reference": "5c6f0edb233dd846843de44b5fe266e377220c77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/61ad1bd137bea574dbcfe1ab5ae9e09c02daddd6",
-                "reference": "61ad1bd137bea574dbcfe1ab5ae9e09c02daddd6",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/5c6f0edb233dd846843de44b5fe266e377220c77",
+                "reference": "5c6f0edb233dd846843de44b5fe266e377220c77",
                 "shasum": ""
             },
             "require": {
@@ -1451,7 +1450,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-09-30 10:12:43"
+            "time": "2015-10-02 08:30:09"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1660,12 +1659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "e04bd1752c0d004d0db099ff6ec1d8e6772b7fb5"
+                "reference": "33778a4dd886734077c491056862653f81b2dbdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/e04bd1752c0d004d0db099ff6ec1d8e6772b7fb5",
-                "reference": "e04bd1752c0d004d0db099ff6ec1d8e6772b7fb5",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/33778a4dd886734077c491056862653f81b2dbdd",
+                "reference": "33778a4dd886734077c491056862653f81b2dbdd",
                 "shasum": ""
             },
             "require": {
@@ -1731,7 +1730,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-09-30 19:24:44"
+            "time": "2015-10-02 13:27:34"
         },
         {
             "name": "gregwar/form-bundle",
@@ -2303,12 +2302,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "2246a70109bdd313a105d2a7ef464a763aacf0cd"
+                "reference": "f8c6b24a846e3713899f02e72604a78d80bb1b37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/2246a70109bdd313a105d2a7ef464a763aacf0cd",
-                "reference": "2246a70109bdd313a105d2a7ef464a763aacf0cd",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/f8c6b24a846e3713899f02e72604a78d80bb1b37",
+                "reference": "f8c6b24a846e3713899f02e72604a78d80bb1b37",
                 "shasum": ""
             },
             "require": {
@@ -2352,7 +2351,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2015-09-28 15:23:54"
+            "time": "2015-10-01 08:23:01"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -2421,12 +2420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "56cb5d6dec9e7a68a4da2fa89844f39d41092f31"
+                "reference": "37bcae173f2ca774ee125ea378690d192596aa29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/56cb5d6dec9e7a68a4da2fa89844f39d41092f31",
-                "reference": "56cb5d6dec9e7a68a4da2fa89844f39d41092f31",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/37bcae173f2ca774ee125ea378690d192596aa29",
+                "reference": "37bcae173f2ca774ee125ea378690d192596aa29",
                 "shasum": ""
             },
             "require": {
@@ -2462,7 +2461,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -2491,7 +2490,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2015-08-31 19:07:16"
+            "time": "2015-10-01 14:26:07"
         },
         {
             "name": "liip/theme-bundle",
@@ -3358,16 +3357,16 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.8.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bundle.git",
-                "reference": "78883d8c1cfa523ac3a28a482b7793036b243f7d"
+                "reference": "7117b9a145722e3c5768db4585f6ad0643ed5c4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/78883d8c1cfa523ac3a28a482b7793036b243f7d",
-                "reference": "78883d8c1cfa523ac3a28a482b7793036b243f7d",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/7117b9a145722e3c5768db4585f6ad0643ed5c4a",
+                "reference": "7117b9a145722e3c5768db4585f6ad0643ed5c4a",
                 "shasum": ""
             },
             "require": {
@@ -3413,7 +3412,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2015-09-29 17:13:11"
+            "time": "2015-10-02 11:51:59"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3595,12 +3594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "8f627f6546f0892ea482b7ad49f05ec312e9c2d8"
+                "reference": "a482ddb8585fe008f851d5888d117f0b5555a016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8f627f6546f0892ea482b7ad49f05ec312e9c2d8",
-                "reference": "8f627f6546f0892ea482b7ad49f05ec312e9c2d8",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a482ddb8585fe008f851d5888d117f0b5555a016",
+                "reference": "a482ddb8585fe008f851d5888d117f0b5555a016",
                 "shasum": ""
             },
             "replace": {
@@ -3638,7 +3637,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-09-30 19:51:33"
+            "time": "2015-10-01 17:40:16"
         },
         {
             "name": "twig/extensions",

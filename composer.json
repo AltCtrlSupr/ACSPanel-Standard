@@ -5,12 +5,6 @@
     "type": "project",
     "licence": "GPLv3",
     "homepage": "http://acspanel.acs.li/",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/bigben3333/AdminThemeBundle"
-        }
-    ],
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },

@@ -1,13 +1,3 @@
-gtrias_notification:
-    resource: "@GtriasNotificationBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-acsacs_panel_billing:
-    resource: "@ACSACSPanelBillingBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 # Needed bundles to work
 ascacs_acspanel:
     resource: "@ACSACSPanelBundle/Resources/config/routing.yml"

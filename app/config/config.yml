@@ -140,9 +140,6 @@ knp_paginator:
 # entity id bundle
 gregwar_form: ~
 
-avanzu_admin_theme:
-    bower_bin: /usr/local/bin/bower
-
 braincrafted_bootstrap:
     jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'
     auto_configure:
