@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "4901caee6613d39ec0b794ee43ebe6153003d865"
+                "reference": "55ef5677692af346d731e00c2522d211ae3c2687"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/4901caee6613d39ec0b794ee43ebe6153003d865",
-                "reference": "4901caee6613d39ec0b794ee43ebe6153003d865",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/55ef5677692af346d731e00c2522d211ae3c2687",
+                "reference": "55ef5677692af346d731e00c2522d211ae3c2687",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-10-03 12:29:48"
+            "time": "2015-10-03 14:02:51"
         },
         {
             "name": "acs/acspanel-settings",
@@ -127,12 +127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "050e58a5652c532b1bc7da6c427802af7c6e9ea9"
+                "reference": "a08cad1d55c145307145ab07c6e6bcfa9176201c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/050e58a5652c532b1bc7da6c427802af7c6e9ea9",
-                "reference": "050e58a5652c532b1bc7da6c427802af7c6e9ea9",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/a08cad1d55c145307145ab07c6e6bcfa9176201c",
+                "reference": "a08cad1d55c145307145ab07c6e6bcfa9176201c",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-10-02 17:28:53"
+            "time": "2015-10-03 14:03:53"
         },
         {
             "name": "acs/acspanel-wordpress",
