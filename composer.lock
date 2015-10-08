@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "ad250e34d4eb4790eb14edd5b11d99a11b2acce7"
+                "reference": "148267b3bb3db36c3c93680c3ae29ede93947ed2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/ad250e34d4eb4790eb14edd5b11d99a11b2acce7",
-                "reference": "ad250e34d4eb4790eb14edd5b11d99a11b2acce7",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/148267b3bb3db36c3c93680c3ae29ede93947ed2",
+                "reference": "148267b3bb3db36c3c93680c3ae29ede93947ed2",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-10-03 14:12:08"
+            "time": "2015-10-08 18:11:04"
         },
         {
             "name": "acs/acspanel-settings",
@@ -205,12 +205,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/avanzu/AdminThemeBundle.git",
-                "reference": "07f1851bc7fb80062cc8b34f178213ecd5dcd2e0"
+                "reference": "409b645611f56acd4d45160c1e1bbb65d837db85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/07f1851bc7fb80062cc8b34f178213ecd5dcd2e0",
-                "reference": "07f1851bc7fb80062cc8b34f178213ecd5dcd2e0",
+                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/409b645611f56acd4d45160c1e1bbb65d837db85",
+                "reference": "409b645611f56acd4d45160c1e1bbb65d837db85",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +242,7 @@
                 }
             ],
             "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
-            "time": "2015-09-19 21:22:06"
+            "time": "2015-10-05 19:01:55"
         },
         {
             "name": "behat/transliterator",
@@ -395,12 +395,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/craue/CraueFormFlowBundle.git",
-                "reference": "a3d677f687bb1ada8eb803438d9eaaf3089ed4a4"
+                "reference": "ea59eb365ca3d6d49f6440d8598686c312a9faa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/a3d677f687bb1ada8eb803438d9eaaf3089ed4a4",
-                "reference": "a3d677f687bb1ada8eb803438d9eaaf3089ed4a4",
+                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/ea59eb365ca3d6d49f6440d8598686c312a9faa5",
+                "reference": "ea59eb365ca3d6d49f6440d8598686c312a9faa5",
                 "shasum": ""
             },
             "require": {
@@ -449,7 +449,7 @@
                 "step",
                 "wizard"
             ],
-            "time": "2015-09-30 09:42:02"
+            "time": "2015-10-06 16:04:27"
         },
         {
             "name": "doctrine/annotations",
@@ -525,12 +525,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "dd47003641aa5425820c0ec8a6f4a85e7412ffcd"
+                "reference": "1c3483678ab767c3e21d3a96d6dd1006b327d425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/dd47003641aa5425820c0ec8a6f4a85e7412ffcd",
-                "reference": "dd47003641aa5425820c0ec8a6f4a85e7412ffcd",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/1c3483678ab767c3e21d3a96d6dd1006b327d425",
+                "reference": "1c3483678ab767c3e21d3a96d6dd1006b327d425",
                 "shasum": ""
             },
             "require": {
@@ -587,7 +587,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-09-16 13:31:45"
+            "time": "2015-10-08 07:32:30"
         },
         {
             "name": "doctrine/collections",
@@ -1139,12 +1139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "3a422c73f7bc556d39571f436b61fd58ccae0eb0"
+                "reference": "097e7ba84f64a427e55008117ef2bb94096731dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/3a422c73f7bc556d39571f436b61fd58ccae0eb0",
-                "reference": "3a422c73f7bc556d39571f436b61fd58ccae0eb0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/097e7ba84f64a427e55008117ef2bb94096731dc",
+                "reference": "097e7ba84f64a427e55008117ef2bb94096731dc",
                 "shasum": ""
             },
             "require": {
@@ -1198,7 +1198,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-09-17 13:29:15"
+            "time": "2015-10-07 18:00:26"
         },
         {
             "name": "doctrine/instantiator",
@@ -1381,12 +1381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "5c6f0edb233dd846843de44b5fe266e377220c77"
+                "reference": "e91bce5f2ad84b10c51d3fda6964deef151ad3c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/5c6f0edb233dd846843de44b5fe266e377220c77",
-                "reference": "5c6f0edb233dd846843de44b5fe266e377220c77",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e91bce5f2ad84b10c51d3fda6964deef151ad3c0",
+                "reference": "e91bce5f2ad84b10c51d3fda6964deef151ad3c0",
                 "shasum": ""
             },
             "require": {
@@ -1450,7 +1450,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-10-02 08:30:09"
+            "time": "2015-10-05 19:45:19"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1459,12 +1459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "7c729973fbf3f7c48873f04c3dc4673a2a4c0b92"
+                "reference": "859b799a95a820ea096edac5256219fdb5cb50f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/7c729973fbf3f7c48873f04c3dc4673a2a4c0b92",
-                "reference": "7c729973fbf3f7c48873f04c3dc4673a2a4c0b92",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/859b799a95a820ea096edac5256219fdb5cb50f4",
+                "reference": "859b799a95a820ea096edac5256219fdb5cb50f4",
                 "shasum": ""
             },
             "require": {
@@ -1534,7 +1534,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2015-09-15 20:26:34"
+            "time": "2015-10-05 09:09:30"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1609,12 +1609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "f34c8c30513eb8ba5cd73021c567a0030a6cf547"
+                "reference": "5c3fa245495903957df6737347cce04d0919a781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f34c8c30513eb8ba5cd73021c567a0030a6cf547",
-                "reference": "f34c8c30513eb8ba5cd73021c567a0030a6cf547",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/5c3fa245495903957df6737347cce04d0919a781",
+                "reference": "5c3fa245495903957df6737347cce04d0919a781",
                 "shasum": ""
             },
             "require": {
@@ -1651,7 +1651,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-09-30 14:10:59"
+            "time": "2015-10-06 08:17:03"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1782,12 +1782,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gtrias/AclManagerBundle.git",
-                "reference": "7555144b38ed73bea1ddfbfb0386c96cbe91cb65"
+                "reference": "1a683d9f06c90939e03f15568dbc8feb4b38f3c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/7555144b38ed73bea1ddfbfb0386c96cbe91cb65",
-                "reference": "7555144b38ed73bea1ddfbfb0386c96cbe91cb65",
+                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/1a683d9f06c90939e03f15568dbc8feb4b38f3c5",
+                "reference": "1a683d9f06c90939e03f15568dbc8feb4b38f3c5",
                 "shasum": ""
             },
             "require": {
@@ -1832,7 +1832,7 @@
             "keywords": [
                 "acl"
             ],
-            "time": "2015-01-14 16:19:31"
+            "time": "2015-10-08 08:30:12"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1840,12 +1840,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "84a205fe80a46101607bafbc423019527893ddd0"
+                "reference": "f7b677a5f9bfd8bf5f165a0ff96ce7426b870312"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/84a205fe80a46101607bafbc423019527893ddd0",
-                "reference": "84a205fe80a46101607bafbc423019527893ddd0",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/f7b677a5f9bfd8bf5f165a0ff96ce7426b870312",
+                "reference": "f7b677a5f9bfd8bf5f165a0ff96ce7426b870312",
                 "shasum": ""
             },
             "require": {
@@ -1883,7 +1883,7 @@
             "keywords": [
                 "parameters management"
             ],
-            "time": "2015-06-03 08:27:03"
+            "time": "2015-10-07 14:51:08"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -2681,16 +2681,16 @@
         },
         {
             "name": "nelmio/alice",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "37007622041d094317806fd27867127e1c73bdb0"
+                "reference": "e4b48d08ac935650747a2f3041c3577a4bed443d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/37007622041d094317806fd27867127e1c73bdb0",
-                "reference": "37007622041d094317806fd27867127e1c73bdb0",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/e4b48d08ac935650747a2f3041c3577a4bed443d",
+                "reference": "e4b48d08ac935650747a2f3041c3577a4bed443d",
                 "shasum": ""
             },
             "require": {
@@ -2735,7 +2735,7 @@
                 "orm",
                 "test"
             ],
-            "time": "2015-09-06 11:09:44"
+            "time": "2015-10-01 16:43:07"
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -3594,12 +3594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "a482ddb8585fe008f851d5888d117f0b5555a016"
+                "reference": "f5043002d868dda76ad0cc0e8856a0a990c03b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a482ddb8585fe008f851d5888d117f0b5555a016",
-                "reference": "a482ddb8585fe008f851d5888d117f0b5555a016",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/f5043002d868dda76ad0cc0e8856a0a990c03b1e",
+                "reference": "f5043002d868dda76ad0cc0e8856a0a990c03b1e",
                 "shasum": ""
             },
             "replace": {
@@ -3637,7 +3637,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-10-01 17:40:16"
+            "time": "2015-10-08 04:32:57"
         },
         {
             "name": "twig/extensions",
@@ -3697,12 +3697,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "d6740f36827f88a7ecda923f71ce0bb28525a9b1"
+                "reference": "aa1596785b515a96cd10275849dc0408ffcfef12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/d6740f36827f88a7ecda923f71ce0bb28525a9b1",
-                "reference": "d6740f36827f88a7ecda923f71ce0bb28525a9b1",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/aa1596785b515a96cd10275849dc0408ffcfef12",
+                "reference": "aa1596785b515a96cd10275849dc0408ffcfef12",
                 "shasum": ""
             },
             "require": {
@@ -3750,7 +3750,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-09-30 12:05:09"
+            "time": "2015-10-08 15:08:17"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
