@@ -52,6 +52,7 @@ menu:
 db:
   title:
     edit: Editar Base de dades
+    new: Afegir Base de dades
   fields:
     name: Nom
     users: Usuaris

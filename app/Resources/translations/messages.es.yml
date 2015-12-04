@@ -54,6 +54,7 @@ menu:
 db:
   title:
     edit: Editar Base de datos
+    new: Añadir Base de datos
   fields:
     name: Nombre
     users: Usuarios
