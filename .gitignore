@@ -22,6 +22,7 @@ vendor/*
 */main/cache/*
 components/*
 web/*
+web/css/*
 bin/*
 src/*
 

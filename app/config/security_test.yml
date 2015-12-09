@@ -1,9 +1,2 @@
 security:
     session_fixation_strategy:  none
-    role_hierarchy:
-    firewalls:
-        main:
-            pattern: .*
-            http_basic: true
-            stateless: false
-            provider: in_memory

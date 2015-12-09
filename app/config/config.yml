@@ -46,10 +46,7 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
         sass:    ~
         compass: ~
-        less:
-            node: /usr/bin/node
-            node_paths: [/usr/local/lib/node_modules]
-
+        less: ~
 
 # Doctrine Configuration
 doctrine:
@@ -84,7 +81,7 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: ACS\ACSPanelUsersBundle\Entity\FosUser
+    user_class: ACS\ACSPanelUsersBundle\Entity\User
     group:
         group_class: ACS\ACSPanelUsersBundle\Entity\FosGroup
     registration:
@@ -143,8 +140,37 @@ knp_paginator:
 # entity id bundle
 gregwar_form: ~
 
-avanzu_admin_theme:
-    bower_bin: /usr/local/bin/bower
-
 braincrafted_bootstrap:
     jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'
+    auto_configure:
+        assetic: true
+
+sensio_framework_extra:
+    view: { annotations: false }
+    router:  { annotations: true }
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    disable_csrf_role: ROLE_ADMIN
+    routing_loader:
+        default_format: json
+    view:
+        view_response_listener: "force"
+        formats:
+            json: true
+    format_listener:
+        enabled: true
+
+jms_serializer:
+    metadata:
+        auto_detection: true
+        directories:
+            FosUserBundle:
+                namespace_prefix: FOS\UserBundle
+                path: "@ACSACSPanelBundle/Resources/config/serializer/fosuser"
+            # ACSPanelUsersBundle:
+            # namespace_prefix: ACS\ACSPanelUsersBundle
+            # path: "@ACSACSPanelUsersBundle/Resources/config/serializer"
+
+nelmio_api_doc: ~

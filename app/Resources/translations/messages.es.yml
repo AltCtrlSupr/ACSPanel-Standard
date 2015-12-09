@@ -43,6 +43,8 @@ menu:
     main: FTP
   settings:
     main: Ajustes
+  apidocumentation:
+    main: Documentación API
   wordpress:
     main: Granja Wordpress
   logout:
@@ -265,3 +267,6 @@ error:
     not_enough: No tienes suficientes recursos para crear
   maildomain:
     empty: Todavía no tienes dominios mail configurados
+
+# Text ones
+Create a new entry: Crea uno

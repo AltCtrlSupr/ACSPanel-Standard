@@ -3,16 +3,16 @@
 {% block title %}ACSPanel{% endblock %}
 
 {% block page_content %}
-                {% block fos_user_content %}
-                {% endblock fos_user_content %}
-                {% block body %}{% endblock %}
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+    {% block body %}{% endblock %}
 {% endblock %}
 
 {% block javascripts %}
 	{{ parent() }}
 	<script>
-		jQuery(document).ready(function(){
-			$('.datatable').DataTable();
-		});
+        jQuery(document).ready(function(){
+            $('.datatable').DataTable();
+        });
 	</script>
 {% endblock %}

@@ -1,17 +1,7 @@
-{# app/Resources/views/base-nomenu.html.twig #}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}{{ panel_name }}{% endblock %}</title>
-        {% block stylesheets %}
-            {% include "::stylesheets.anon.html.twig" %}
-        {% endblock %}
-        {% block javascripts %}
-		{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+{% extends 'AvanzuAdminThemeBundle:layout:login-layout.html.twig' %}
+
+{% block title %}ACSPanel - login{% endblock %}
+
+{% block page_content %}
+    {% block body %}{% endblock %}
+{% endblock %}

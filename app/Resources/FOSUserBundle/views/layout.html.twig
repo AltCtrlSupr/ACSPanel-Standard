@@ -1,19 +1,24 @@
 {% extends '::base-login.html.twig' %}
 {% block body %}
 
-        <div id="login-form" class="container">
-            <div id="centered">
-                    {% for type, messages in app.session.flashbag.all() %}
-                      {% for message in messages %}
-                        <div class="{{ type }}">
-                            {{ message|trans({}, 'FOSUserBundle') }}
-                        </div>
-                      {% endfor %}
-                    {% endfor %}
-
-                    {% block fos_user_content %}
-                    {% endblock fos_user_content %}
+<div class="login-box">
+    <div class="login-logo">
+        <h1>{{ panel_name }}</h1>
+    </div>
+    <div id="login-form" class="login-box-body">
+        <div id="centered">
+            {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+            <div class="{{ type }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
             </div>
+            {% endfor %}
+            {% endfor %}
+
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
         </div>
+    </div>
+</div>
 
 {% endblock %}

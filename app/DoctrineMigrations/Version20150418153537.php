@@ -17,7 +17,7 @@ class Version20150418153537 extends AbstractMigration implements ContainerAwareI
 
 	public function setContainer(ContainerInterface $container = null)
 	{
-		$this->container = $container;
+        $this->container = $container;
 	}
 
     /**
@@ -25,9 +25,9 @@ class Version20150418153537 extends AbstractMigration implements ContainerAwareI
      */
     public function up(Schema $schema)
     {
-		$em = $this->container->get('doctrine.orm.entity_manager');
+        $em = $this->container->get('doctrine.orm.entity_manager');
 
-		$settings = $em->getRepository('\ACS\ACSPanelBundle\Entity\PanelSetting')->findAll();
+        $settings = $em->getRepository('\ACS\ACSPanelBundle\Entity\PanelSetting')->findAll();
         foreach($settings as $setting) {
             if($setting->getSettingKey() == "user_theme" && $setting->getValue() == "terminal"){
                 $setting->setValue("default");

@@ -20,3 +20,6 @@ global_search:
     pattern:  /search
     defaults: { _controller: "ACSACSPanelBundle:Default:search" }
 
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

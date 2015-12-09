@@ -5,6 +5,7 @@ imports:
 framework:
     test: ~
     session:
+        name: test
         storage_id: session.storage.filesystem
     profiler:
         enabled: false
@@ -27,3 +28,6 @@ doctrine:
 
 liip_functional_test:
     cache_sqlite_db: true
+    authentication:
+        username: "superadmin"
+        password: "1234"
