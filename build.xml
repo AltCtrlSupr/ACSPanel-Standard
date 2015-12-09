@@ -25,7 +25,7 @@
  <property name="phpunit" value="${basedir}/vendor/bin/phpunit"/> -->
 
  <target name="full-build"
-   depends="prepare,composer,vendors,static-analysis,phpunit,-check-failure"
+   depends="prepare,composer,vendors,database,static-analysis,phpunit,-check-failure"
    description="Performs static analysis, runs the tests, and generates project documentation"/>
 
  <target name="full-build-parallel"
@@ -236,6 +236,30 @@
  <target name="vendors" description="Install vendors">
    <exec executable="${basedir}/composer.phar" failonerror="true">
      <arg value="install" />
+   </exec>
+
+   <exec executable="php" failonerror="true">
+       <arg value="app/console" />
+       <arg value="avanzu:admin:fetch-vendor" />
+       <arg value="--update" />
+   </exec>
+
+   <exec executable="php" failonerror="true">
+       <arg value="app/console" />
+       <arg value="assets:install" />
+   </exec>
+ </target>
+
+ <target name="database" description="Generate test database">
+   <exec executable="rm" failonerror="true">
+       <arg value="-rf" />
+       <arg value="app/data/data.db3" />
+   </exec>
+
+   <exec executable="php" failonerror="true">
+       <arg value="app/console" />
+       <arg value="doctrine:schema:create" />
+       <arg value="--env=test" />
    </exec>
  </target>
 
