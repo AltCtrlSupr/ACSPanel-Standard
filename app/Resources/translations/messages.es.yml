@@ -173,6 +173,7 @@ httpdhost:
     show: Ver
     edit: Editar
     add: Añadir nuevo
+    create: Crear
 
 maildomain:
   form:
