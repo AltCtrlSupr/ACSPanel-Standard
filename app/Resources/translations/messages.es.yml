@@ -269,5 +269,8 @@ error:
   maildomain:
     empty: Todavía no tienes dominios mail configurados
 
+settings:
+    title: Preferencias
+
 # Text ones
 Create a new entry: Crea uno

@@ -253,5 +253,9 @@ plans:
     maxdb: Bases de dades màximes
     maxdbuser: Usuaris de base de dades màxims
 
+settings:
+    title: Preferències
+
 # Text ones
 Create a new entry: Crea'n un
+
