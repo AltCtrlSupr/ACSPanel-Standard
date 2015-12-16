@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "ab100c42030fece72daf393d6563351089d46863"
+                "reference": "83735834b9ed92b53f4b46c0c8958d2b515514d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/ab100c42030fece72daf393d6563351089d46863",
-                "reference": "ab100c42030fece72daf393d6563351089d46863",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/83735834b9ed92b53f4b46c0c8958d2b515514d5",
+                "reference": "83735834b9ed92b53f4b46c0c8958d2b515514d5",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2015-12-10 20:24:11"
+            "time": "2015-12-16 09:38:26"
         },
         {
             "name": "acs/acspanel-settings",
@@ -89,12 +89,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "2e02ad7856ef58fd4d8cecc45772e4ca47cfe59c"
+                "reference": "030a54f114517ec1b4bd7ac69501da7a14a4120c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/2e02ad7856ef58fd4d8cecc45772e4ca47cfe59c",
-                "reference": "2e02ad7856ef58fd4d8cecc45772e4ca47cfe59c",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/030a54f114517ec1b4bd7ac69501da7a14a4120c",
+                "reference": "030a54f114517ec1b4bd7ac69501da7a14a4120c",
                 "shasum": ""
             },
             "require": {
@@ -119,7 +119,7 @@
                 }
             ],
             "description": "Settings bundle used by ACSPanel",
-            "time": "2015-12-09 17:10:09"
+            "time": "2015-12-12 09:47:39"
         },
         {
             "name": "acs/acspanel-users",
@@ -127,12 +127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "357ed36d756dfd278300b8eddcf146ae75b99adf"
+                "reference": "d38dbfadaf25a51889d7d3bc564fd3440770be06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/357ed36d756dfd278300b8eddcf146ae75b99adf",
-                "reference": "357ed36d756dfd278300b8eddcf146ae75b99adf",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/d38dbfadaf25a51889d7d3bc564fd3440770be06",
+                "reference": "d38dbfadaf25a51889d7d3bc564fd3440770be06",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 }
             ],
             "description": "Users bundle used by ACSPanel",
-            "time": "2015-12-07 08:29:42"
+            "time": "2015-12-14 08:36:31"
         },
         {
             "name": "acs/acspanel-wordpress",
@@ -205,12 +205,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/avanzu/AdminThemeBundle.git",
-                "reference": "27d60f44f614bd303cc1d08acb1401490f039c13"
+                "reference": "713a05cad312feee526e28196f4e3483306a0382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/27d60f44f614bd303cc1d08acb1401490f039c13",
-                "reference": "27d60f44f614bd303cc1d08acb1401490f039c13",
+                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/713a05cad312feee526e28196f4e3483306a0382",
+                "reference": "713a05cad312feee526e28196f4e3483306a0382",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +242,7 @@
                 }
             ],
             "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
-            "time": "2015-12-06 20:29:21"
+            "time": "2015-12-14 16:48:21"
         },
         {
             "name": "behat/transliterator",
@@ -792,12 +792,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "b9ec927612c8b26b51cf23e22ff2e278024578ce"
+                "reference": "e4a9c0257fc63b1d11195d5716d31d0e78ca6629"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/b9ec927612c8b26b51cf23e22ff2e278024578ce",
-                "reference": "b9ec927612c8b26b51cf23e22ff2e278024578ce",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/e4a9c0257fc63b1d11195d5716d31d0e78ca6629",
+                "reference": "e4a9c0257fc63b1d11195d5716d31d0e78ca6629",
                 "shasum": ""
             },
             "require": {
@@ -855,7 +855,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-10-16 09:01:17"
+            "time": "2015-12-15 18:45:43"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -863,12 +863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a6ef2a0c1655cb0fa0d3e8e93df908a779504e55"
+                "reference": "44b1ca7b82a56f1af2b1fbe7477b3b36c38ee2b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a6ef2a0c1655cb0fa0d3e8e93df908a779504e55",
-                "reference": "a6ef2a0c1655cb0fa0d3e8e93df908a779504e55",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/44b1ca7b82a56f1af2b1fbe7477b3b36c38ee2b7",
+                "reference": "44b1ca7b82a56f1af2b1fbe7477b3b36c38ee2b7",
                 "shasum": ""
             },
             "require": {
@@ -934,7 +934,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2015-12-05 10:23:22"
+            "time": "2015-12-14 10:49:21"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -942,12 +942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a"
+                "reference": "5f8a9a9c7c3395e9c5dd0562a51221d434592567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/030ff41ef1db66370b36467086bfb817a661fe6a",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/5f8a9a9c7c3395e9c5dd0562a51221d434592567",
+                "reference": "5f8a9a9c7c3395e9c5dd0562a51221d434592567",
                 "shasum": ""
             },
             "require": {
@@ -961,6 +961,7 @@
                 "instaclick/object-calisthenics-sniffs": "dev-master",
                 "instaclick/symfony2-coding-standard": "dev-remaster",
                 "phpunit/phpunit": "~4",
+                "predis/predis": "~0.8",
                 "satooshi/php-coveralls": "~0.6.1",
                 "squizlabs/php_codesniffer": "~1.5",
                 "symfony/console": "~2.2|~3.0",
@@ -1021,7 +1022,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-11-27 04:59:07"
+            "time": "2015-12-15 19:13:11"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -1387,12 +1388,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "a6ddac0a969910eb0cf53ddfe15e4a49797f312d"
+                "reference": "6099e45eef64ffed53015c0bb32d8a49cf4ab5dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/a6ddac0a969910eb0cf53ddfe15e4a49797f312d",
-                "reference": "a6ddac0a969910eb0cf53ddfe15e4a49797f312d",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/6099e45eef64ffed53015c0bb32d8a49cf4ab5dd",
+                "reference": "6099e45eef64ffed53015c0bb32d8a49cf4ab5dd",
                 "shasum": ""
             },
             "require": {
@@ -1455,7 +1456,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-12-08 21:51:45"
+            "time": "2015-12-11 20:34:57"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1464,12 +1465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "9cc45615d495c602d4cfff3695b8d59ce6348ab9"
+                "reference": "18a54bf5eb0972b2aab812ccff2c049fb6cb1a69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/9cc45615d495c602d4cfff3695b8d59ce6348ab9",
-                "reference": "9cc45615d495c602d4cfff3695b8d59ce6348ab9",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/18a54bf5eb0972b2aab812ccff2c049fb6cb1a69",
+                "reference": "18a54bf5eb0972b2aab812ccff2c049fb6cb1a69",
                 "shasum": ""
             },
             "require": {
@@ -1541,7 +1542,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2015-12-10 14:10:21"
+            "time": "2015-12-12 13:04:04"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1668,12 +1669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "b034ce065759ffb74179f9ce3873473e12854164"
+                "reference": "0f4c674b7e59052e8d625151007b790e4a0da4a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/b034ce065759ffb74179f9ce3873473e12854164",
-                "reference": "b034ce065759ffb74179f9ce3873473e12854164",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/0f4c674b7e59052e8d625151007b790e4a0da4a0",
+                "reference": "0f4c674b7e59052e8d625151007b790e4a0da4a0",
                 "shasum": ""
             },
             "require": {
@@ -1739,7 +1740,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-12-01 07:05:39"
+            "time": "2015-12-15 19:28:45"
         },
         {
             "name": "gregwar/form-bundle",
@@ -2312,12 +2313,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "675a8f87d972713b1abec06e5ed63043e7fd5aec"
+                "reference": "ff3434782588fa371adf8361f5d2e9fd162d5508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/675a8f87d972713b1abec06e5ed63043e7fd5aec",
-                "reference": "675a8f87d972713b1abec06e5ed63043e7fd5aec",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/ff3434782588fa371adf8361f5d2e9fd162d5508",
+                "reference": "ff3434782588fa371adf8361f5d2e9fd162d5508",
                 "shasum": ""
             },
             "require": {
@@ -2361,7 +2362,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2015-11-13 10:51:46"
+            "time": "2015-12-15 13:29:15"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -2754,12 +2755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a"
+                "reference": "93b189b16ad0d410eb9b300eae7ab0ad7d8edede"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/19d4e37365edd5104e31662a2d3b510d92a7e78a",
-                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/93b189b16ad0d410eb9b300eae7ab0ad7d8edede",
+                "reference": "93b189b16ad0d410eb9b300eae7ab0ad7d8edede",
                 "shasum": ""
             },
             "require": {
@@ -2829,7 +2830,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2015-12-08 13:19:42"
+            "time": "2015-12-11 08:12:17"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3608,12 +3609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "8f7535647de8f7f514cf1bcff25fcf215e82137e"
+                "reference": "ad716b9ea9506456f28e2c1bcdd7b4a81b44c11c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/8f7535647de8f7f514cf1bcff25fcf215e82137e",
-                "reference": "8f7535647de8f7f514cf1bcff25fcf215e82137e",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ad716b9ea9506456f28e2c1bcdd7b4a81b44c11c",
+                "reference": "ad716b9ea9506456f28e2c1bcdd7b4a81b44c11c",
                 "shasum": ""
             },
             "replace": {
@@ -3651,7 +3652,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2015-12-10 00:04:03"
+            "time": "2015-12-10 23:05:45"
         },
         {
             "name": "twig/extensions",
