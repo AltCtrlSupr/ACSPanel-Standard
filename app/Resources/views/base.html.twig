@@ -10,6 +10,7 @@
 
 {% block javascripts %}
 	{{ parent() }}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 	<script>
         jQuery(document).ready(function(){
             $('.datatable').DataTable();

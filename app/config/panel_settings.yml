@@ -1,6 +1,5 @@
 # Configs for the Settings Bundle
 acsacs_panel_settings:
-    #home_base: '/home/'
     settings_class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
     setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
     user_fields:
@@ -8,7 +7,7 @@ acsacs_panel_settings:
         user_schema_version:
            setting_key: user_schema_version
            label: 'User schema version'
-           field_type: hidden 
+           field_type: hidden
            default_value: '1'
            context: 'User internal'
            focus: 'user_internal'
@@ -40,21 +39,21 @@ acsacs_panel_settings:
         system_schema_version:
            setting_key: system_schema_version
            label: 'System schema version'
-           field_type: hidden 
+           field_type: hidden
            default_value: '1'
            context: 'System internal'
            focus: 'system_internal'
         last_used_uid:
            label: 'Last Used UID (internal)'
            setting_key: last_used_uid
-           field_type: hidden 
+           field_type: hidden
            default_value: ''
            context: 'Internal'
            focus: 'internal'
         last_used_gid:
            label: 'Last Used GID (internal)'
            setting_key: last_used_gid
-           field_type: hidden 
+           field_type: hidden
            default_value: ''
            context: 'Internal'
            focus: 'internal'

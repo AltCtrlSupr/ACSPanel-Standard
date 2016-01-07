@@ -15,7 +15,9 @@
 
             <ul class="nav nav-tabs">
             {% for context in contexts %}
-                <li class="{% if loop.first %}active {% endif %}"><a data-toggle="tab" class="tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a></li>
+                <li class="{% if loop.first %}active {% endif %}">
+                    <a data-toggle="tab" class="tab" href="#{{ context.context | replace({' ':'_'}) | lower }}">{{ context.context }}</a>
+                </li>
             {% endfor %}
             </ul>
 

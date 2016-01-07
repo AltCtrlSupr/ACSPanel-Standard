@@ -52,6 +52,7 @@ menu:
 db:
   title:
     edit: Editar Base de dades
+    new: Afegir Base de dades
   fields:
     name: Nom
     users: Usuaris
@@ -167,6 +168,7 @@ httpdhost:
     show: Veure
     edit: Edita
     add: Afegir nou
+    create: Crear
 
 maildomain:
   form:
@@ -252,5 +254,9 @@ plans:
     maxdb: Bases de dades màximes
     maxdbuser: Usuaris de base de dades màxims
 
+settings:
+    title: Preferències
+
 # Text ones
 Create a new entry: Crea'n un
+

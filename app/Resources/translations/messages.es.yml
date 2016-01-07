@@ -54,6 +54,7 @@ menu:
 db:
   title:
     edit: Editar Base de datos
+    new: Añadir Base de datos
   fields:
     name: Nombre
     users: Usuarios
@@ -172,6 +173,7 @@ httpdhost:
     show: Ver
     edit: Editar
     add: Añadir nuevo
+    create: Crear
 
 maildomain:
   form:
@@ -267,6 +269,9 @@ error:
     not_enough: No tienes suficientes recursos para crear
   maildomain:
     empty: Todavía no tienes dominios mail configurados
+
+settings:
+    title: Preferencias
 
 # Text ones
 Create a new entry: Crea uno
