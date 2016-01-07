@@ -1,7 +1,7 @@
 language: php
 sudo: required
 php:
-  - 5.4
+  - 5.5
 
 before_script:
   - sudo add-apt-repository -y ppa:chris-lea/node.js
