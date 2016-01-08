@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5baba2e27302756628a9a418699bdf61",
-    "content-hash": "3f94130824cf0edfc29167857d1b032a",
+    "hash": "dedbd732f08fa9d013a37bbc40f876d8",
+    "content-hash": "faede461f415dff0b1eab20c0a70abee",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -4623,8 +4623,8 @@
         "braincrafted/bootstrap-bundle": 20,
         "twbs/bootstrap": 20,
         "friendsofsymfony/rest-bundle": 20,
-        "nelmio/api-doc-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
+        "nelmio/api-doc-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20
     },
     "prefer-stable": false,
