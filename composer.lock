@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0891ee9fb34f248437b058994950e74c",
-    "content-hash": "cf2d8e7a7020dd7bc49c421f0622da1a",
+    "hash": "937ad04d0fe235d4c6fcec058a5569fe",
+    "content-hash": "de04cae3f334d2090e6bd1df2f467c92",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -17,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/83735834b9ed92b53f4b46c0c8958d2b515514d5",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/b16c0f7825798e2b15a6b1130b094fcddc8c7dac",
                 "reference": "83735834b9ed92b53f4b46c0c8958d2b515514d5",
                 "shasum": ""
             },
@@ -531,7 +531,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/74b63b05ea5a243efa877d3904bc7d441750b255",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/e0ef9e9833ca024d251e77e8d82a00ca92b0aa71",
                 "reference": "74b63b05ea5a243efa877d3904bc7d441750b255",
                 "shasum": ""
             },
@@ -867,7 +867,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/1b7261af4cedb10080bb56a070c16be2754c75bb",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/6cee24e44b537aeaf0c7ca53baf8348a301d42cb",
                 "reference": "1b7261af4cedb10080bb56a070c16be2754c75bb",
                 "shasum": ""
             },
@@ -1392,7 +1392,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/16972935917307c49c6a423edcc1fbb711e0d483",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/196ea2d0c512dda56ebcbdf7a1535d20cbc2ad43",
                 "reference": "16972935917307c49c6a423edcc1fbb711e0d483",
                 "shasum": ""
             },
@@ -1472,7 +1472,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/649ea02e7b20838d8a2027819ba7ecc73431ca3a",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/6b21bad28c9cd76dcf9aabedfad7e22590d1379a",
                 "reference": "649ea02e7b20838d8a2027819ba7ecc73431ca3a",
                 "shasum": ""
             },
@@ -1557,7 +1557,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/6ccff96434c0ac7fee077d1dce90966341dfd278",
                 "reference": "e5e7a2b8984da8dfedaf44adc7e5f60a62ad280c",
                 "shasum": ""
             },
@@ -1626,7 +1626,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e2e22203de29aa644751c52619c25bc98534d729",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/de2ed3bbe68254efeff68db60092fc8ed5298055",
                 "reference": "e2e22203de29aa644751c52619c25bc98534d729",
                 "shasum": ""
             },
@@ -2254,7 +2254,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/18253a4467d60614735321387f250b0bc7b0ecad",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/9917b999a3c3d3901386d60c4888b07679291031",
                 "reference": "18253a4467d60614735321387f250b0bc7b0ecad",
                 "shasum": ""
             },
@@ -2320,7 +2320,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/4f8504404eb3d4f067eba9768922e04461a40cd0",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/8111538aed32a295ee2835a64e3fe02b8283cb8e",
                 "reference": "4f8504404eb3d4f067eba9768922e04461a40cd0",
                 "shasum": ""
             },
@@ -2762,7 +2762,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/1ae2cfa9a50279d722d6b6e7b02322cef948d55d",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/5d9c47bbad2e064340cabfd3f96f5057a80773c4",
                 "reference": "1ae2cfa9a50279d722d6b6e7b02322cef948d55d",
                 "shasum": ""
             },
@@ -3617,7 +3617,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/08031d6a76337e9e6d0c7aa3d034b8006e26e705",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/d533bf0cbc1f0c8c554a0023f2ae6086e3e93a42",
                 "reference": "08031d6a76337e9e6d0c7aa3d034b8006e26e705",
                 "shasum": ""
             },
@@ -3720,7 +3720,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/23e47c52421999a7d02e45aa07002616a8032647",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dba78c81cd04ca8d6ecdf7b2d52b9414042dbeea",
                 "reference": "23e47c52421999a7d02e45aa07002616a8032647",
                 "shasum": ""
             },
@@ -4681,12 +4681,10 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "sensio/framework-extra-bundle": 20,
-        "stof/doctrine-extensions-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "craue/formflow-bundle": 20,
         "gregwar/form-bundle": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "doctrine/doctrine-fixtures-bundle": 20,
         "jms/serializer-bundle": 20,
         "avanzu/admin-theme-bundle": 20,
         "acs/acspanel-core": 20,
@@ -4698,7 +4696,9 @@
         "twbs/bootstrap": 20,
         "friendsofsymfony/rest-bundle": 20,
         "nelmio/api-doc-bundle": 20,
-        "liip/functional-test-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "liip/functional-test-bundle": 20,
+        "doctrine/doctrine-fixtures-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
