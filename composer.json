@@ -48,7 +48,8 @@
         "craue/formflow-bundle": "~3.0@dev",
         "knplabs/knp-menu-bundle": "^2.0",
         "gregwar/form-bundle": "^2.7",
-        "knplabs/knp-paginator-bundle": "^2.5"
+        "knplabs/knp-paginator-bundle": "^2.5",
+        "liip/theme-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
@@ -89,7 +90,7 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "branch-alias": {
-            "dev-master": "2.5-dev"
+            "dev-master": "2.6-dev"
         }
     }
 }

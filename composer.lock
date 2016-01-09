@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "39a9d9247faf25b114d73cfb413348df",
-    "content-hash": "9e3fa04b64f0dde2a7a039a865089150",
+    "hash": "3fb756e5cbf3d0e05e72a6ba0bbeffb7",
+    "content-hash": "afc328df8e9629d07fda999e41b9a1c2",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -13,22 +13,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "6a11888ebaedafba0358d60bf78c68054c4690b5"
+                "reference": "21bf70b5a914e4d96de97038211c58e7b2d2200b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/6a11888ebaedafba0358d60bf78c68054c4690b5",
-                "reference": "6a11888ebaedafba0358d60bf78c68054c4690b5",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/21bf70b5a914e4d96de97038211c58e7b2d2200b",
+                "reference": "21bf70b5a914e4d96de97038211c58e7b2d2200b",
                 "shasum": ""
             },
             "require": {
                 "acs/acspanel-settings": "dev-master",
                 "acs/acspanel-wordpress": "dev-master",
-                "friendsofsymfony/user-bundle": "*",
-                "knplabs/knp-menu-bundle": "dev-master",
-                "liip/theme-bundle": "dev-master",
-                "php": ">=5.3.3",
-                "symfony/assetic-bundle": "~2.3"
+                "friendsofsymfony/user-bundle": "2.0.*@dev",
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*",
@@ -77,7 +74,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2016-01-08 21:05:08"
+            "time": "2016-01-09 00:44:11"
         },
         {
             "name": "acs/acspanel-settings",
