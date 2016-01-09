@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3fb756e5cbf3d0e05e72a6ba0bbeffb7",
-    "content-hash": "afc328df8e9629d07fda999e41b9a1c2",
+    "hash": "addddce9b76fa9a00c3beee94729a163",
+    "content-hash": "4bd0d1917c8f67c7dd1b3aa29b1e6d08",
     "packages": [
         {
             "name": "acs/acspanel-core",
@@ -384,41 +384,35 @@
         },
         {
             "name": "craue/formflow-bundle",
-            "version": "dev-master",
+            "version": "2.1.x-dev",
+            "target-dir": "Craue/FormFlowBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craue/CraueFormFlowBundle.git",
-                "reference": "82b9ce9e73818a41369e122cff3aa04805d7888e"
+                "reference": "20e7d7290e8a36c2b23f3bca865318bdfa9efec8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/82b9ce9e73818a41369e122cff3aa04805d7888e",
-                "reference": "82b9ce9e73818a41369e122cff3aa04805d7888e",
+                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/20e7d7290e8a36c2b23f3bca865318bdfa9efec8",
+                "reference": "20e7d7290e8a36c2b23f3bca865318bdfa9efec8",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2|~7.0",
-                "symfony/form": "^2.6.4|~3.0",
-                "symfony/http-kernel": "^2.6.4|~3.0",
-                "symfony/translation": "^2.6.4|~3.0",
-                "symfony/yaml": "^2.6.4|~3.0"
+                "symfony/form": "^2.1.3",
+                "symfony/framework-bundle": "^2.1.3"
             },
             "require-dev": {
                 "doctrine/common": "~2.3",
                 "phpunit/phpunit": "~4.1|~5.0",
-                "sensio/framework-extra-bundle": "~3.0",
-                "symfony/phpunit-bridge": "^2.8.1|^3.0.1",
-                "symfony/symfony": "^2.6.4|~3.0"
+                "sensio/framework-extra-bundle": "~2.1|~3.0",
+                "symfony/phpunit-bridge": "^2.8.1",
+                "symfony/symfony": "^2.1.3"
             },
             "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev"
-                }
-            },
             "autoload": {
-                "psr-4": {
-                    "Craue\\FormFlowBundle\\": ""
+                "psr-0": {
+                    "Craue\\FormFlowBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -435,16 +429,15 @@
                     "homepage": "https://github.com/craue/CraueFormFlowBundle/contributors"
                 }
             ],
-            "description": "Multi-step forms for your Symfony project.",
+            "description": "Multi-step forms for your Symfony2 project.",
             "homepage": "https://github.com/craue/CraueFormFlowBundle",
             "keywords": [
                 "Symfony2",
                 "form",
                 "step",
-                "symfony3",
                 "wizard"
             ],
-            "time": "2016-01-05 18:03:56"
+            "time": "2016-01-05 17:48:32"
         },
         {
             "name": "doctrine/annotations",
@@ -516,32 +509,33 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "dev-master",
+            "version": "1.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "e0ef9e9833ca024d251e77e8d82a00ca92b0aa71"
+                "reference": "fb3f5917781cf95863d3fd4d2595da43da3686c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/e0ef9e9833ca024d251e77e8d82a00ca92b0aa71",
-                "reference": "e0ef9e9833ca024d251e77e8d82a00ca92b0aa71",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/fb3f5917781cf95863d3fd4d2595da43da3686c1",
+                "reference": "fb3f5917781cf95863d3fd4d2595da43da3686c1",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.5|~7.0"
+                "php": ">=5.3.2"
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8|~5.0",
-                "predis/predis": "~1.0"
+                "phpunit/phpunit": ">=3.7",
+                "predis/predis": "~1.0",
+                "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -581,7 +575,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2016-01-07 23:41:52"
+            "time": "2015-12-19 05:04:23"
         },
         {
             "name": "doctrine/collections",
@@ -651,16 +645,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "dev-master",
+            "version": "2.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "773c56e51fc26ae07a47146fae31b320dd6cada3"
+                "reference": "68c0e2f52fce0b8379ddcee7d5e85f32387559c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/773c56e51fc26ae07a47146fae31b320dd6cada3",
-                "reference": "773c56e51fc26ae07a47146fae31b320dd6cada3",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/68c0e2f52fce0b8379ddcee7d5e85f32387559c2",
+                "reference": "68c0e2f52fce0b8379ddcee7d5e85f32387559c2",
                 "shasum": ""
             },
             "require": {
@@ -669,20 +663,20 @@
                 "doctrine/collections": "1.*",
                 "doctrine/inflector": "1.*",
                 "doctrine/lexer": "1.*",
-                "php": "~5.5|~7.0"
+                "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8|~5.0"
+                "phpunit/phpunit": "~3.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                "psr-0": {
+                    "Doctrine\\Common\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -720,7 +714,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-12-26 08:54:38"
+            "time": "2015-12-25 13:10:52"
         },
         {
             "name": "doctrine/dbal",
