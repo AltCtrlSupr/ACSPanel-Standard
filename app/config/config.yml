@@ -19,8 +19,6 @@ framework:
     session: ~
     fragments:       { path: /_fragment }
     trusted_proxies: %trusted_proxies%
-    serializer:
-        enabled: true
 
 # Twig Configuration
 twig:
@@ -166,3 +164,16 @@ fos_rest:
         enabled: true
 
 nelmio_api_doc: ~
+
+jms_serializer:
+    metadata:
+        auto_detection: true
+        directories:
+            FosUserBundle:
+                namespace_prefix: FOS\UserBundle
+                path: "@ACSACSPanelBundle/Resources/config/serializer/fosuser"
+            # ACSPanelUsersBundle:
+            # namespace_prefix: ACS\ACSPanelUsersBundle
+            # path: "@ACSACSPanelUsersBundle/Resources/config/serializer"
+
+

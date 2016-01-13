@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
