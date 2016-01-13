@@ -44,9 +44,10 @@
         "knplabs/knp-menu-bundle": "^2.0",
         "gregwar/form-bundle": "^2.7",
         "knplabs/knp-paginator-bundle": "^2.5",
-        "liip/theme-bundle": "^1.4",
         "craue/formflow-bundle": "~2.1@dev",
-        "braincrafted/bootstrap-bundle": "dev-develop"
+        "twig/twig": "~1.23",
+        "braincrafted/bootstrap-bundle": "dev-develop",
+        "liip/theme-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
