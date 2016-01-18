@@ -11,7 +11,5 @@ class DefaultControllerTest extends CommonTestCase
         $client = $this->createSuperadminClient();
 
         $crawler = $client->request('GET', '/ansible/inventory');
-
-        dump($client->getResponse()->getContent());
     }
 }
