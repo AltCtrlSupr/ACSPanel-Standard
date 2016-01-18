@@ -1,0 +1,3 @@
+acsacs_panel_ansible_inventory:
+    path:     /ansible/inventory
+    defaults: { _controller: ACSACSPanelAnsibleBundle:Default:index }
