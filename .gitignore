@@ -24,9 +24,9 @@ components/*
 web/*
 web/css/*
 bin/*
-src/
+src
 
-!src/ACS/ACSPanelAnsibleBundle/
+!src/ACS/ACSPanelAnsibleBundle/**/*
 
 # Configuration files
 app/config/parameters.ini
