@@ -16,6 +16,11 @@ class Group
      */
     private $hosts;
 
+    public function __construct()
+    {
+        $this->hosts = array();
+    }
+
     public function getVars()
     {
         return $this->vars;
@@ -32,7 +37,9 @@ class Group
 
     public function addHost($host)
     {
-        $this->hosts[] = $host;
+        if (!in_array($host, $this->hosts)) {
+            $this->hosts[] = $host;
+        }
     }
 
 }

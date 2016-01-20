@@ -9,8 +9,6 @@ use JMS\Serializer\Annotation as JMS;
  */
 class Inventory
 {
-    private $meta;
-
     /**
      * @JMS\Groups({"inventory"})
      * @JMS\Inline()
@@ -19,8 +17,9 @@ class Inventory
 
     /**
      * @JMS\Groups({"inventory"})
+     * @JMS\SerializedName("_meta")
      */
-    private $hosts;
+    private $meta;
 
     public function getMeta()
     {
@@ -40,15 +39,5 @@ class Inventory
     public function setGroups($groups)
     {
         $this->groups = $groups;
-    }
-
-    public function getHosts()
-    {
-        return $this->hosts;
-    }
-
-    public function setHosts($hosts)
-    {
-        $this->hosts = $hosts;
     }
 }

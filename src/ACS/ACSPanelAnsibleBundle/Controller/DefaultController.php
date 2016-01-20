@@ -18,28 +18,12 @@ class DefaultController extends FOSRestController
         $inventory = new Inventory();
 
         $groups = $this->retrieveGroups();
-        $hosts = $this->retrieveHosts();
+        $meta = $this->generateMeta();
 
         $inventory->setGroups($groups);
-        $inventory->setHosts($hosts);
+        $inventory->setMeta($meta);
 
         return $inventory;
-    }
-
-    private function retrieveHosts()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $entities = $this
-            ->get('server_repository')
-            ->getUserViewable(
-                $this
-                ->get('security.context')
-                ->getToken()
-                ->getUser()
-            )
-        ;
-
-        return $entities;
     }
 
     private function retrieveGroups()
@@ -51,6 +35,9 @@ class DefaultController extends FOSRestController
         ;
 
         $processed = array();
+        $hosts = array();
+
+        $allGroup = new Group();
 
         foreach ($entities as $k => $entity) {
             $group = new Group();
@@ -58,9 +45,36 @@ class DefaultController extends FOSRestController
 
             foreach ($services as $service) {
                 $group->addHost($service->getServer()->getHostname());
+                $allGroup->addHost($service->getServer()->getHostname());
             }
 
             $processed[$entity->getSlug()] = $group;
+        }
+        $processed['all'] = $allGroup;
+
+        return $processed;
+    }
+
+    public function generateMeta()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entities = $this
+            ->get('server_repository')
+            ->findAll()
+        ;
+
+        $processed = array();
+
+        foreach ($entities as $server) {
+            $services = $server->getServices();
+
+            foreach ($services as $service) {
+                $settings = $service->getSettings();
+
+                foreach ($settings as $setting) {
+                    $processed[$server->getHostname()][$setting->getSettingKey()] = $setting->getValue();
+                }
+            }
         }
 
         return $processed;
