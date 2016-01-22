@@ -9,16 +9,17 @@ class Group
     /**
      * @JMS\Groups({"inventory"})
      */
-    private $vars;
+    private $hosts;
 
     /**
      * @JMS\Groups({"inventory"})
      */
-    private $hosts;
+    private $vars;
 
     public function __construct()
     {
         $this->hosts = array();
+        $this->vars = array();
     }
 
     public function getVars()
@@ -28,6 +29,7 @@ class Group
 
     public function setVars($vars)
     {
+        $this->vars = $vars;
     }
 
     public function setHosts($hosts)

@@ -38,6 +38,7 @@ class DefaultController extends FOSRestController
         $hosts = array();
 
         $allGroup = new Group();
+        $allSettings = $this->get('acs.setting_manager')->getSystemSettings();
 
         foreach ($entities as $k => $entity) {
             $group = new Group();
@@ -50,6 +51,13 @@ class DefaultController extends FOSRestController
 
             $processed[$entity->getSlug()] = $group;
         }
+
+        $allVars = array();
+        foreach ($allSettings as $setting) {
+            $allVars[$setting->getSettingKey()] = $setting->getValue();
+        }
+        $allGroup->setVars($allVars);
+
         $processed['all'] = $allGroup;
 
         return $processed;
