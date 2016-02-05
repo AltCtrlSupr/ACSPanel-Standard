@@ -19,7 +19,7 @@ class Group
     public function __construct()
     {
         $this->hosts = array();
-        $this->vars = array();
+        // $this->vars = array();
     }
 
     public function getVars()

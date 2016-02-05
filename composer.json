@@ -37,7 +37,7 @@
         "nelmio/alice": "~2.0@dev",
         "twbs/bootstrap": "^3.3@dev",
         "components/jquery": "1.11",
-        "friendsofsymfony/rest-bundle": "~1.6@dev",
+        "friendsofsymfony/rest-bundle": "~1.7.7",
         "stof/doctrine-extensions-bundle": "^1.2@dev",
         "nelmio/api-doc-bundle": "^2.11@dev",
         "avanzu/admin-theme-bundle": "^1.3",
@@ -48,7 +48,8 @@
         "twig/twig": "~1.23",
         "braincrafted/bootstrap-bundle": "dev-develop",
         "liip/theme-bundle": "^1.4",
-        "jms/serializer-bundle": "^1.1"
+        "jms/serializer-bundle": "^1.1",
+        "doctrine/doctrine-migrations-bundle": "^1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
