@@ -17,6 +17,11 @@ COPY entrypoint.sh /root/entrypoint.sh
 
 VOLUME ["/var/www", "/var/log/nginx/"]
 
+ENV uid 1000
+ENV gid 1000
+RUN usermod -u $uid www-data
+RUN groupmod -g $gid www-data
+
 EXPOSE 80
 EXPOSE 443
 
