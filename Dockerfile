@@ -10,12 +10,15 @@ RUN apt-get update && apt-get install -y curl git nginx php7.0-fpm php7.0-cli ph
 RUN npm install -g bower && ln -s /usr/bin/nodejs /usr/bin/node
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+COPY . /var/www
+RUN chown -R www-data:www-data /var/www
+
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 
 COPY config/vhost.conf /etc/nginx/sites-enabled/default
 COPY entrypoint.sh /root/entrypoint.sh
 
-VOLUME ["/var/www", "/var/log/nginx/"]
+VOLUME ["/var/log/nginx/"]
 
 EXPOSE 80
 EXPOSE 443
