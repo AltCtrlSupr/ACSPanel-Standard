@@ -28,7 +28,7 @@
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~4.0",
-        "sensio/framework-extra-bundle": "^3.0.2",
+        "sensio/framework-extra-bundle": "3.0,<3.0.13",
         "incenteev/composer-parameter-handler": "~2.0",
         "acs/acspanel-core": "dev-master",
         "acs/acspanel-users": "dev-master",
