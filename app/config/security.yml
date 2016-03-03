@@ -47,6 +47,7 @@ security:
         - { path: ^/ipaddress, role: ROLE_ADMIN }
         - { path: ^/users, role: ROLE_RESELLER }
         - { path: ^/groups, role: ROLE_ADMIN }
+        - { path: ^/ansible, role: ROLE_ADMIN }
         - { path: ^/users, role: ROLE_RESELLER }
         - { path: ^/plans, role: ROLE_USER }
         - { path: ^/, role: ROLE_USER}
