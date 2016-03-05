@@ -31,8 +31,8 @@ Services supported (At the moment):
   - Database: [MySQL][23]
   - FTP: [ProFTPd][24], [PureFTPd][25]
 
-1) Installing ACSPanel
-----------------------
+Installing ACSPanel
+-------------------
 
 When it comes to installing the ACSPanel, you have the
 following options.
@@ -51,8 +51,8 @@ the next command and execute the following commands
     php composer.phar install
 
 
-2) Checking your System Configuration
--------------------------------------
+Checking your System Configuration
+----------------------------------
 
 Before starting using ACSPanel you should make sure that your local system is properly
 configured.
@@ -65,8 +65,8 @@ The panel needs the next requeriments To work right:
 
     php5-curl
 
-3) Permissions
---------------
+Permissions
+-----------
 
 To avoid permissions issues after executing console commands you should do the next
 
@@ -74,8 +74,8 @@ To avoid permissions issues after executing console commands you should do the n
     sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs
     sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
 
-4) Setting up ACSPanel
---------------------
+Setting up ACSPanel
+-------------------
 
 You should create your own config_dev.yml, as the parameters you can take config_dev.yml.sample as example.
 
@@ -106,8 +106,16 @@ Coming soon.
 
 Congratulations! You're now ready to use ACSPanel.
 
-5) Setting up Apache2
+Install using docker
 --------------------
+
+```
+docker run -d --name acspanel -p 8888:80 altctrlsupr/acspanel
+```
+
+
+Setting up Apache2
+------------------
 
     <VirtualHost *:80>
         DocumentRoot /home/user/www/acspanel/web
@@ -121,14 +129,14 @@ Congratulations! You're now ready to use ACSPanel.
 
 Ensure you have rewrite mode enabled
 
-6) Getting started with ACSPanel
--------------------------------
+Getting started with ACSPanel
+-----------------------------
 
 Changing the panel view parameters:
 
     edit app/config/config.yml // Set variables from twig globals, you can change the default date format, the panel name and breadcumb separation character
 
-7) Setting up third party programs
+Setting up third party programs
 -------------------------------
 
 To set up roundcube to be able to change the passwords with the password plugin you must use the next query:
@@ -136,8 +144,8 @@ To set up roundcube to be able to change the passwords with the password plugin 
     $rcmail_config['password_query'] = 'UPDATE mail_mailbox mb INNER JOIN mail_domain md ON mb.mail_domain_id = md.id INNER JOIN domain d ON md.domain_id = d.id SET mb.password=%p WHERE mb.username=%l AND mb.password=%o AND d.domain=%d';
 
 
-8) Updating the panel (DO BACKUPS FIRST!!)
-------------------------------------------
+Updating the panel (DO BACKUPS FIRST!!)
+---------------------------------------
 
 Get the latest version of the code
 
@@ -156,8 +164,8 @@ And install the assets
     php app/console assets:install --symlink
 
 
-9) Setting up the Docker container
-----------------------------------
+Setting up the Docker container
+-------------------------------
 
 You will need docker-compose install to build the container. So if you haven't yet follow those [instructions](https://docs.docker.com/compose/install/)
 
@@ -168,8 +176,8 @@ docker-compose up
 ```
 
 
-10) Setting up services to automatic apply panel settings
---------------------------------------------------------
+Setting up services to automatic apply panel settings
+-----------------------------------------------------
 
 Apache: Copy the script tools/acspanel-srv-apache2-reboot to each Apache2 server and give execution permission to the script. Change the panel database access details and add to crontab.
 Create a file in /etc/cron.d/ folder with the next contents:
@@ -188,7 +196,6 @@ Also you can donate to the next bitcoin address:
 ```
 1yRnWxg7HxbQG9Vqzyja99phcQYnJ3prL
 ```
-
 
 
 What's inside?
