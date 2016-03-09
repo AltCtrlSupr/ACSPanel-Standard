@@ -15,9 +15,10 @@ Features:
   - Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.
   - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
   - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
-  - Themeable. Thanks to [LiipThemeBundle][18], (GUI Designers needed)
+  - Admin theme, thanks to [AvanzuAdminThemeBundle][https://github.com/avanzu/AdminThemeBundle]
   - Mobile front-end (Comming soon...):
   - Wordpress farm: See [PanelWordpressBundle][19]
+  - API Restful, using [FOSRestBundle][https://github.com/FriendsOfSymfony/FOSRestBundle] and [NelmioApiDocBundle][https://github.com/nelmio/NelmioApiDocBundle] for the documentation.
   - Multilanguage: Each user can select the prefered language. (Translators needed)
 
 How it works:
@@ -51,19 +52,11 @@ the next command and execute the following commands
     php composer.phar install
 
 
-Checking your System Configuration
-----------------------------------
+### Install using docker
 
-Before starting using ACSPanel you should make sure that your local system is properly
-configured.
-
-Execute the `check.php` script from the command line:
-
-    php app/check.php
-
-The panel needs the next requeriments To work right:
-
-    php5-curl
+```
+docker run -d --name acspanel -v <parameters.yml-path>:/var/www/app/config/parameters.yml -p <your-exposed-port>:80 altctrlsupr/acspanel
+```
 
 Permissions
 -----------
@@ -74,6 +67,7 @@ To avoid permissions issues after executing console commands you should do the n
     sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX app/cache app/logs
     sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
 
+
 Setting up ACSPanel
 -------------------
 
@@ -82,36 +76,31 @@ You should create your own config_dev.yml, as the parameters you can take config
     cp app/config/config_dev.yml.sample app/config/config_dev.yml
 
 
-To install all the dependencies you have to execute composer.phar command.
+To install all the dependencies you have to execute composer command.
 
-    php composer.phar install
+    composer install
 
 Then you are ready to create the acspanel basic schema executing the next command:
 
     php app/console doctrine:schema:create
 
-You can load some basic fixtures doing next, like basic groups and admin to start using the panel:
+You can load some basic fixtures running next command, like basic groups and admin to start using the panel:
 
     php app/console doctrine:fixtures:load
 
 The basic fixtures, adds the superadmin user to let you start to work with the panel. Its default password is 1234. The acspanel will redirect you to password change screen where you should change the password.
 
+For the AvanzuAdminThemeBundle you should download its assets running the next command:
+
+```bash
+    php app/console avanzu:admin:fetch-vendor
+```
+
 You should install the assets as well:
 
     php app/console assets:install --symlink
 
-(Optional) Install additional ACSPanel bundles:
-
-Coming soon.
-
 Congratulations! You're now ready to use ACSPanel.
-
-Install using docker
---------------------
-
-```
-docker run -d --name acspanel -p 8888:80 altctrlsupr/acspanel
-```
 
 
 Setting up Apache2
@@ -163,17 +152,6 @@ And install the assets
 
     php app/console assets:install --symlink
 
-
-Setting up the Docker container
--------------------------------
-
-You will need docker-compose install to build the container. So if you haven't yet follow those [instructions](https://docs.docker.com/compose/install/)
-
-Then you can build the container running next command
-
-```
-docker-compose up
-```
 
 
 Setting up services to automatic apply panel settings
@@ -278,7 +256,6 @@ Enjoy!
 [15]: http://symfony.com/doc/2.1/bundles/SensioGeneratorBundle/index.html
 [16]: https://github.com/stof/StofDoctrineExtensionsBundle
 [17]: https://github.com/l3pp4rd/DoctrineExtensions
-[18]: https://github.com/liip/LiipThemeBundle
 [19]: https://github.com/AltCtrlSupr/PanelWordpressBundle
 [20]: https://github.com/AltCtrlSupr/acspanel-deb/
 [21]: https://github.com/AltCtrlSupr/acspanel-deb/
