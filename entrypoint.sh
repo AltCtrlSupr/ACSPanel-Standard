@@ -15,6 +15,7 @@ if [ -z "$1" ];
     php app/console assets:install --symlink web/
     php app/console c:c
     php app/console c:w
+    chown -R www-data:www-data app/cache
     service php7.0-fpm start
     nginx
 else
