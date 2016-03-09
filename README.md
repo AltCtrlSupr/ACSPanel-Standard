@@ -54,9 +54,22 @@ the next command and execute the following commands
 
 ### Install using docker
 
-```
+```bash
 docker run -d --name acspanel -v <parameters.yml-path>:/var/www/app/config/parameters.yml -p <your-exposed-port>:80 altctrlsupr/acspanel
 ```
+
+You can also build your own docker image:
+
+```bash
+git clone git@github.com:AltCtrlSupr/ACSPanel-Standard.git acspanel
+cd acspanel
+```
+
+```bash
+docker build --name <user>/acspanel .
+```
+
+And then you can run the image using the command avobe changing the image name for the one you choose.
 
 Permissions
 -----------
