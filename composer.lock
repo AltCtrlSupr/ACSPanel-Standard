@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AltCtrlSupr/ACSPanel-Core.git",
-                "reference": "7c6c2239b6bc7de0c6d07b5a15f8e0f5de46ed05"
+                "reference": "204fed3b747da3d78f5b2895f0de5e7a41bbe1a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/7c6c2239b6bc7de0c6d07b5a15f8e0f5de46ed05",
-                "reference": "7c6c2239b6bc7de0c6d07b5a15f8e0f5de46ed05",
+                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Core/zipball/204fed3b747da3d78f5b2895f0de5e7a41bbe1a9",
+                "reference": "204fed3b747da3d78f5b2895f0de5e7a41bbe1a9",
                 "shasum": ""
             },
             "require": {
@@ -72,7 +72,7 @@
                 "symfony",
                 "sysadmin"
             ],
-            "time": "2016-01-19 21:05:18"
+            "time": "2016-03-11 08:42:21"
         },
         {
             "name": "acs/acspanel-settings",
@@ -960,19 +960,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "6fcc8c5bfae0fdd44bc9a429234ee851ca9c238c"
+                "reference": "c0a2f5d069e56e2ac7a42719dfda63fd996a39ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/6fcc8c5bfae0fdd44bc9a429234ee851ca9c238c",
-                "reference": "6fcc8c5bfae0fdd44bc9a429234ee851ca9c238c",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/c0a2f5d069e56e2ac7a42719dfda63fd996a39ed",
+                "reference": "c0a2f5d069e56e2ac7a42719dfda63fd996a39ed",
                 "shasum": ""
             },
             "require": {
                 "doctrine/doctrine-bundle": "~1.0",
-                "doctrine/migrations": "~1.0",
+                "doctrine/migrations": "^1.1",
                 "php": ">=5.4.0",
                 "symfony/framework-bundle": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1010,7 +1013,7 @@
                 "migrations",
                 "schema"
             ],
-            "time": "2016-02-22 20:48:02"
+            "time": "2016-03-09 15:29:46"
         },
         {
             "name": "doctrine/inflector",
@@ -1266,12 +1269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "4b45183dbddd30083b2552913f070c909348d333"
+                "reference": "c1943624ab1260c629316bab104dc5130c060154"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/4b45183dbddd30083b2552913f070c909348d333",
-                "reference": "4b45183dbddd30083b2552913f070c909348d333",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/c1943624ab1260c629316bab104dc5130c060154",
+                "reference": "c1943624ab1260c629316bab104dc5130c060154",
                 "shasum": ""
             },
             "require": {
@@ -1337,7 +1340,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-02-23 16:15:24"
+            "time": "2016-03-04 18:37:47"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1432,12 +1435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "a39d000577d735444bee97de9f5ee382e3f85fa1"
+                "reference": "16b04c49af05dd3fb381e4abe04f0e5e231ac76d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a39d000577d735444bee97de9f5ee382e3f85fa1",
-                "reference": "a39d000577d735444bee97de9f5ee382e3f85fa1",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/16b04c49af05dd3fb381e4abe04f0e5e231ac76d",
+                "reference": "16b04c49af05dd3fb381e4abe04f0e5e231ac76d",
                 "shasum": ""
             },
             "require": {
@@ -1493,7 +1496,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2016-03-01 11:42:24"
+            "time": "2016-03-08 11:05:28"
         },
         {
             "name": "fzaninotto/faker",
@@ -1501,12 +1504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "6da7882cf63b1c6f2d2b5e28e2f838ef02ecb249"
+                "reference": "588da2fff1b9da3acb9b6e1d7395e820102bde01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/6da7882cf63b1c6f2d2b5e28e2f838ef02ecb249",
-                "reference": "6da7882cf63b1c6f2d2b5e28e2f838ef02ecb249",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/588da2fff1b9da3acb9b6e1d7395e820102bde01",
+                "reference": "588da2fff1b9da3acb9b6e1d7395e820102bde01",
                 "shasum": ""
             },
             "require": {
@@ -1543,7 +1546,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-03-03 12:38:53"
+            "time": "2016-03-10 07:12:46"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2198,12 +2201,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "20e7a0f492c6d94a63bffc14105c5b748c00e3ae"
+                "reference": "9ce196d1c901d6434a0491ceab15aab8a9e5d47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/20e7a0f492c6d94a63bffc14105c5b748c00e3ae",
-                "reference": "20e7a0f492c6d94a63bffc14105c5b748c00e3ae",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/9ce196d1c901d6434a0491ceab15aab8a9e5d47e",
+                "reference": "9ce196d1c901d6434a0491ceab15aab8a9e5d47e",
                 "shasum": ""
             },
             "require": {
@@ -2247,7 +2250,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2016-02-22 09:36:52"
+            "time": "2016-03-09 16:28:23"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -2503,12 +2506,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc"
+                "reference": "81045d59740a686121d85281e7de245d49b1236a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/81045d59740a686121d85281e7de245d49b1236a",
+                "reference": "81045d59740a686121d85281e7de245d49b1236a",
                 "shasum": ""
             },
             "require": {
@@ -2573,7 +2576,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-03-01 18:00:40"
+            "time": "2016-03-09 11:43:02"
         },
         {
             "name": "nelmio/alice",
@@ -3667,12 +3670,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "d7f7cee39ec8ccb893b49872b1f22b0cfce17d31"
+                "reference": "0119e334a1c2e5771b6eed06e0c6305adb4bbd81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/d7f7cee39ec8ccb893b49872b1f22b0cfce17d31",
-                "reference": "d7f7cee39ec8ccb893b49872b1f22b0cfce17d31",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0119e334a1c2e5771b6eed06e0c6305adb4bbd81",
+                "reference": "0119e334a1c2e5771b6eed06e0c6305adb4bbd81",
                 "shasum": ""
             },
             "replace": {
@@ -3710,7 +3713,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-02-28 02:03:48"
+            "time": "2016-03-11 06:36:26"
         },
         {
             "name": "twig/twig",
@@ -3920,12 +3923,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
-                "reference": "608f3c453c2ef25006631f46ff0a342ecf9ad3af"
+                "reference": "e6bf66a22fe990ff477e66055c502f3ba685020d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/608f3c453c2ef25006631f46ff0a342ecf9ad3af",
-                "reference": "608f3c453c2ef25006631f46ff0a342ecf9ad3af",
+                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/e6bf66a22fe990ff477e66055c502f3ba685020d",
+                "reference": "e6bf66a22fe990ff477e66055c502f3ba685020d",
                 "shasum": ""
             },
             "require": {
@@ -3966,7 +3969,7 @@
                 "events",
                 "zf2"
             ],
-            "time": "2016-02-18 20:55:14"
+            "time": "2016-03-07 15:48:37"
         }
     ],
     "packages-dev": [
@@ -4566,12 +4569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "ee8ead4f78e21ed6c873d1cc19e141949d9ed493"
+                "reference": "19dcdcd7587f5890f1151636850c59b788b321a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/ee8ead4f78e21ed6c873d1cc19e141949d9ed493",
-                "reference": "ee8ead4f78e21ed6c873d1cc19e141949d9ed493",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/19dcdcd7587f5890f1151636850c59b788b321a9",
+                "reference": "19dcdcd7587f5890f1151636850c59b788b321a9",
                 "shasum": ""
             },
             "require": {
@@ -4613,7 +4616,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2016-01-21 09:24:53"
+            "time": "2016-03-07 14:04:32"
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -4739,12 +4742,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "3c2f3b6d45a3098450bd1a10376d1d50918006b5"
+                "reference": "62afb1ebe8a94718da77896caaf5907f8701df3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3c2f3b6d45a3098450bd1a10376d1d50918006b5",
-                "reference": "3c2f3b6d45a3098450bd1a10376d1d50918006b5",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/62afb1ebe8a94718da77896caaf5907f8701df3d",
+                "reference": "62afb1ebe8a94718da77896caaf5907f8701df3d",
                 "shasum": ""
             },
             "require": {
@@ -4794,7 +4797,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-02-13 09:24:02"
+            "time": "2016-03-10 11:16:56"
         }
     ],
     "aliases": [],

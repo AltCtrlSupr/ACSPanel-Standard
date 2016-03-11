@@ -13,9 +13,5 @@ parameters:
     locale: en
     secret: 9e410dfd0d98704184c8b163064a31fdd122eb90
 
-    # Assetic
-    assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images
-    assetic.filter.compass.http_path:  /images
-
     # Trusted proxies in order to use dyndns behind a proxy
     trusted_proxies: []

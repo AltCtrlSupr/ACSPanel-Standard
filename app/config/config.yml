@@ -40,6 +40,11 @@ assetic:
     read_from:            "%kernel.root_dir%/../web"
     write_to:             "%kernel.root_dir%/../web"
     #java: /usr/bin/java
+    assets:
+        bootstrap_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/js/bc-bootstrap-collection.js
+            output: js/collection.js
     filters:
         cssrewrite: ~
         #closure:
@@ -145,7 +150,7 @@ gregwar_form: ~
 braincrafted_bootstrap:
     jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'
     auto_configure:
-        assetic: true
+        assetic: false
 
 sensio_framework_extra:
     view: { annotations: false }

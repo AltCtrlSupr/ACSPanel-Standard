@@ -9,10 +9,13 @@
 {% endblock %}
 
 {% block javascripts %}
-	{{ parent() }}
-	<script>
+    {{ parent() }}
+    {% stylesheets '@BraincraftedBootstrapBundle/Resources/js/bc-bootstrap-collection.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endstylesheets %}
+    <script>
         jQuery(document).ready(function(){
             $('.datatable').DataTable();
         });
-	</script>
+    </script>
 {% endblock %}
