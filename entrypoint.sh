@@ -12,6 +12,7 @@ if [ -z "$1" ];
     composer install
     php app/console avanzu:admin:fetch-vendor --root
     rm -rf app/cache/*
+    php app/console assetic:dump
     php app/console assets:install --symlink web/
     php app/console c:c
     php app/console c:w
