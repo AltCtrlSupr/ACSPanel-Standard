@@ -18,7 +18,7 @@ class DefaultController extends FOSRestController
         $inventory = new Inventory();
 
         $groups = $this->retrieveGroups();
-        $meta = $this->generateMeta();
+        $meta['hostvars'] = $this->generateMeta();
 
         $inventory->setGroups($groups);
         $inventory->setMeta($meta);
