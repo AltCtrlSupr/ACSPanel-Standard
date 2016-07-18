@@ -38,11 +38,22 @@ class MailDomainType extends ContainerAwareType
                     }
                 )
             )
-            ->add('description', null, array('label' => 'maildomain.form.description'))
-            ->add('maxAliases', null, array('label' => 'maildomain.form.max_aliases'))
-            ->add('maxMailboxes', null, array('label' => 'maildomain.form.max_mailboxes'))
-            ->add('maxQuota', null, array('label' => 'maildomain.form.max_quota'))
-            ->add('backupmx', null, array('label' => 'maildomain.form.backupmx'))
+            ->add('description', null, array(
+                'required' => false,
+                'label' => 'maildomain.form.description'
+            ))
+            ->add('maxAliases', null, array(
+                'label' => 'maildomain.form.max_aliases'
+            ))
+            ->add('maxMailboxes', null, array(
+                'label' => 'maildomain.form.max_mailboxes'
+            ))
+            ->add('maxQuota', null, array(
+                'label' => 'maildomain.form.max_quota'
+            ))
+            ->add('backupmx', null, array(
+                'label' => 'maildomain.form.backupmx'
+            ))
             ->add('service', null, array(
                 'label' => 'maildomain.form.service',
                 'choices' => $user_services
@@ -54,8 +65,11 @@ class MailDomainType extends ContainerAwareType
             ))
         ;
 
-        if($security->isGranted('ROLE_ADMIN'))
-            $builder->add('user', null, array('label' => 'maildomain.form.user'));
+        if ($security->isGranted('ROLE_ADMIN')) {
+            $builder->add('user', null, array(
+                'label' => 'maildomain.form.user'
+            ));
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

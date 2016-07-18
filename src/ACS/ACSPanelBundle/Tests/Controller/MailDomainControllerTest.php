@@ -19,7 +19,6 @@ class MailDomainControllerTest extends CommonTestCase
 
         $form = $crawler->selectButton('Create')->form(array(
             'acs_acspanelbundle_maildomaintype[domain]' => 1,
-            'acs_acspanelbundle_maildomaintype[description]' => "Lorem Ipsum Amet",
             'acs_acspanelbundle_maildomaintype[maxAliases]' => 10,
             'acs_acspanelbundle_maildomaintype[maxMailboxes]' => 10,
             'acs_acspanelbundle_maildomaintype[maxQuota]' => 10,
