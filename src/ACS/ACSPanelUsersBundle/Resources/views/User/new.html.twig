@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}User creation{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('users') }}"> {% trans %}users{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}users.title.new{% endtrans %}</li>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<div class="form_box">
+        <span class="label label-important">{{ form_errors(form) }}</span>
+    <form action="{{ path('users_create') }}" method="post" {{ form_enctype(form) }}>
+
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.enabled) }}
+        {{ form_row(form.first_name ) }}
+        {{ form_row(form.last_name ) }}
+        {{ form_row(form.groups ) }}
+        {{ form_row(form.puser ) }}
+
+        {{ form_rest(form) }}
+
+        <p class="clear">
+            <button class="btn btn-primary" type="submit">{% trans %}Create{% endtrans %}</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('users') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

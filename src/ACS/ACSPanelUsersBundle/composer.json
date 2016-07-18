@@ -1,0 +1,23 @@
+{
+    "name": "acs/acspanel-users",
+    "description": "Users bundle used by ACSPanel",
+    "type": "library",
+    "autoload": {
+        "psr-4": { "ACS\\ACSPanelUsersBundle\\": "" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "friendsofsymfony/user-bundle": "*",
+        "gtrias/acl-manager-bundle": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "authors": [
+        {
+            "name": "Genar Trias",
+            "email": "genar@acs.li",
+            "homepage": "http://genar.me/"
+        }
+    ]
+}

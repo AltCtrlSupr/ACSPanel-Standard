@@ -1,0 +1,51 @@
+## YAML Template.
+---
+parameters:
+    users_entity_subscriber.class: ACS\ACSPanelUsersBundle\Event\Subscribers\EntitySubscriber
+    acl_logic_subscriber.class: ACS\ACSPanelUsersBundle\Event\Subscribers\AclLogicSubscriber
+    acspanel.show_user_listener.class: ACS\ACSPanelUsersBundle\Event\AcsShowUserEvent
+    user.tools.class: ACS\ACSPanelUsersBundle\Model\UserTools
+
+services:
+    # Menu items added with event listener
+    users_menu_subscriber:
+        class: ACS\ACSPanelUsersBundle\Event\Subscribers\MenuSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}
+
+    acs.user.tools:
+        class: %user.tools.class%
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+        tags:
+            - {name: acs.user.tools, alias: acs.user.tools}
+
+    # Entity subscribers
+    users_entity_subscriber:
+        class: %users_entity_subscriber.class%
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
+
+    # Entity subscribers
+    users_acl_logic_subscriber:
+        class: %acl_logic_subscriber.class%
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
+
+    # Avanzu admin specific settings
+    acspanel.show_user_listener:
+        class: %acspanel.show_user_listener.class%
+        calls:
+            - [setSecurity, ['@security.context']]
+        tags:
+            - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }

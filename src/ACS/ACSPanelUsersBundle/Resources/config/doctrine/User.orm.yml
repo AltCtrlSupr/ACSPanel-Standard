@@ -1,0 +1,92 @@
+ACS\ACSPanelUsersBundle\Entity\User:
+    type: entity
+    repositoryClass: ACS\ACSPanelUsersBundle\Model\UserRepository
+    table: fos_user
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+            idetityGenerator:
+                initialValue: 3000
+        firstname:
+            type: string
+            length: 150
+            fixed: false
+            nullable: true
+        lastname:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+        uid:
+            type: integer
+            unsigned: false
+            nullable: true
+            generator:
+                strategy: IDENTITY
+            idetityGenerator:
+                initialValue: 3000
+        gid:
+            type: integer
+            unsigned: false
+            nullable: true
+            generator:
+                strategy: IDENTITY
+            idetityGenerator:
+                initialValue: 3000
+        password_changed_at:
+            type: datetime
+            nullable: true
+
+    manyToMany:
+        groups:
+            targetEntity: FosGroup
+            inversedBy: users
+            joinTable:
+                name: fos_user_user_group
+                joinColumns:
+                    goup_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
+
+    manyToOne:
+        parent_user:
+            targetEntity: User
+            inversedBy: child_users
+            joinColumn:
+                name: parent_user_id
+                referencedColumnName: id
+
+    oneToMany:
+        child_users:
+            targetEntity: User
+            mappedBy: parent_user
+        puser:
+            targetEntity: \ACS\ACSPanelBundle\Entity\UserPlan
+            mappedBy: puser
+            cascade: [ persist ]
+        domains:
+            targetEntity: \ACS\ACSPanelBundle\Entity\Domain
+            mappedBy: user
+        maildomains:
+            targetEntity: \ACS\ACSPanelBundle\Entity\MailDomain
+            mappedBy: user
+        databases:
+            targetEntity: \ACS\ACSPanelBundle\Entity\DB
+            mappedBy: user
+        settings:
+            targetEntity: \ACS\ACSPanelBundle\Entity\PanelSetting
+            mappedBy: user
+            cascade: [ persist ]
+
+    lifecycleCallbacks:
+      prePersist: [ ]
+      postPersist: [ ]
+      preUpdate: []
+

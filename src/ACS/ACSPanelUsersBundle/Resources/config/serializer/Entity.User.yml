@@ -1,0 +1,14 @@
+ACS\ACSPanelUsersBundle\Entity\User:
+    properties:
+        uid:
+            expose: true
+        gid:
+            expose: true
+        email_canonical:
+            exclude: true
+        child_users:
+            exclude: true
+        domains:
+            exclude: true
+        password_changed_at:
+            exclude: true

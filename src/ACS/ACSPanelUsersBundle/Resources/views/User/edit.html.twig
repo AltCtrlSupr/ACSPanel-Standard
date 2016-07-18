@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}User edit{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('users') }}"> {% trans %}users{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}users.title.edit{% endtrans %}</li>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('users_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+        <span class="label label-important">{{ form_errors(edit_form) }}</span>
+
+        {{ form_row(edit_form.username) }}
+        {{ form_row(edit_form.email) }}
+        {{ form_row(edit_form.enabled) }}
+        {{ form_row(edit_form.first_name ) }}
+        {{ form_row(edit_form.last_name ) }}
+        {{ form_row(edit_form.groups ) }}
+
+        {{ form_row(edit_form.puser ) }}
+
+        {{ form_rest(edit_form) }}
+
+
+        <p class="clear">
+            <button class="btn btn-primary" type="submit">{% trans %}Edit{% endtrans %}</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('users') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('users_delete', { 'id': entity.id }) }}" method="post">
+
+            {{ form_widget(delete_form) }}
+            <button class="btn btn-danger" type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

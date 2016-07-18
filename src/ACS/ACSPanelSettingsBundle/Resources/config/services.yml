@@ -1,0 +1,20 @@
+parameters:
+    acs_settings.settings.class: ACS\ACSPanelSettingsBundle\Doctrine\SettingManager
+    acs_settings.system_settings.class: ACS\ACSPanelSettingsBundle\Modules\SystemSettings
+    acs_settings.setting_class: ACS\ACSPanelBundle\Entity\PanelSetting
+    acs_settings.home_base: "/home/"
+
+services:
+    acs.setting_manager:
+        class: %acs_settings.settings.class%
+        arguments: ['@doctrine.orm.entity_manager', %acs_settings.setting_class%, '@service_container']
+
+    acs.system_setting_manager:
+        class: %acs_settings.system_settings.class%
+
+    # Settings related actions subscriber
+    settings_subscriber:
+        class: ACS\ACSPanelSettingsBundle\Event\Subscribers\SettingsSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}

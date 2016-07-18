@@ -1,0 +1,30 @@
+groups:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:index" }
+
+groups_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:show" }
+
+groups_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:new" }
+
+groups_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:create" }
+    requirements: { _method: post }
+
+groups_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:edit" }
+
+groups_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:update" }
+    requirements: { _method: post }
+
+groups_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelUsersBundle:FosGroup:delete" }
+    requirements: { _method: post }

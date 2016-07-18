@@ -30,9 +30,6 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "3.0,<3.0.13",
         "incenteev/composer-parameter-handler": "~2.0",
-        "acs/acspanel-users": "dev-master",
-        "acs/acspanel-settings": "dev-master",
-        "acs/acspanel-wordpress": "dev-master",
         "nelmio/alice": "~2.0@dev",
         "twbs/bootstrap": "^3.3@dev",
         "components/jquery": "1.11",
@@ -49,7 +46,9 @@
         "liip/theme-bundle": "^1.4",
         "jms/serializer-bundle": "^1.1",
         "doctrine/doctrine-migrations-bundle": "^1.0",
-        "ocramius/proxy-manager": "^1.0"
+        "ocramius/proxy-manager": "^1.0",
+        "gtrias/acl-manager-bundle": "*",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

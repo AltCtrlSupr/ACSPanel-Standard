@@ -4,123 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10120b0e436b2950d48fbc07ff7ca351",
-    "content-hash": "13f113ec71c8ed39a1249e1faf4a6d26",
+    "hash": "add2df50f73bb0c56aa2cbf5ced21027",
+    "content-hash": "47fbce8005d1162cc01648816c9e7a40",
     "packages": [
-        {
-            "name": "acs/acspanel-settings",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/AltCtrlSupr/ACSPanel-Settings.git",
-                "reference": "b1e363bf98d4c74368b3063abba0c77bb3a61230"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Settings/zipball/b1e363bf98d4c74368b3063abba0c77bb3a61230",
-                "reference": "b1e363bf98d4c74368b3063abba0c77bb3a61230",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/user-bundle": "*",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ACS\\ACSPanelSettingsBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Genar Trias",
-                    "email": "genar@acs.li",
-                    "homepage": "http://genar.me/"
-                }
-            ],
-            "description": "Settings bundle used by ACSPanel",
-            "time": "2016-01-22 19:03:09"
-        },
-        {
-            "name": "acs/acspanel-users",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/AltCtrlSupr/ACSPanel-Users.git",
-                "reference": "76eb868ccad227535d4d063adedeb18fc2c1aa2e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Users/zipball/76eb868ccad227535d4d063adedeb18fc2c1aa2e",
-                "reference": "76eb868ccad227535d4d063adedeb18fc2c1aa2e",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/user-bundle": "*",
-                "gtrias/acl-manager-bundle": "*",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ACS\\ACSPanelUsersBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Genar Trias",
-                    "email": "genar@acs.li",
-                    "homepage": "http://genar.me/"
-                }
-            ],
-            "description": "Users bundle used by ACSPanel",
-            "time": "2016-03-03 19:07:48"
-        },
-        {
-            "name": "acs/acspanel-wordpress",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/AltCtrlSupr/ACSPanel-Wordpress.git",
-                "reference": "b8d1daff071d8dd51afa24813162b37548610041"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/AltCtrlSupr/ACSPanel-Wordpress/zipball/b8d1daff071d8dd51afa24813162b37548610041",
-                "reference": "b8d1daff071d8dd51afa24813162b37548610041",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ACS\\ACSPanelWordpressBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Genar Trias",
-                    "email": "genar@acs.li",
-                    "homepage": "http://genar.me/"
-                }
-            ],
-            "description": "Wordpress Farm bundle for ACSPanel",
-            "time": "2015-12-07 08:30:20"
-        },
         {
             "name": "avanzu/admin-theme-bundle",
             "version": "1.3.4",
@@ -447,12 +333,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "51010cb7802c1fc30471eee3d8aa4ea4302d1398"
+                "reference": "fe68e4f78804684e31cce17590b0bd9f088db1b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/51010cb7802c1fc30471eee3d8aa4ea4302d1398",
-                "reference": "51010cb7802c1fc30471eee3d8aa4ea4302d1398",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/fe68e4f78804684e31cce17590b0bd9f088db1b0",
+                "reference": "fe68e4f78804684e31cce17590b0bd9f088db1b0",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +394,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2016-06-29 15:54:19"
+            "time": "2016-07-15 15:57:08"
         },
         {
             "name": "doctrine/collections",
@@ -516,12 +402,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "315485ae4bc22affb75be25709740949460b851a"
+                "reference": "a58af3fd579f850c09a41d4c9fc5be76e9c6a2ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/315485ae4bc22affb75be25709740949460b851a",
-                "reference": "315485ae4bc22affb75be25709740949460b851a",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/a58af3fd579f850c09a41d4c9fc5be76e9c6a2ab",
+                "reference": "a58af3fd579f850c09a41d4c9fc5be76e9c6a2ab",
                 "shasum": ""
             },
             "require": {
@@ -574,7 +460,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2016-06-16 12:51:43"
+            "time": "2016-07-15 10:02:57"
         },
         {
             "name": "doctrine/common",
@@ -655,12 +541,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "17f50b86ef2b78d4331e60b2caead3829505c350"
+                "reference": "272b87213e0203bdf2f438102aed2c7b2919aadf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/17f50b86ef2b78d4331e60b2caead3829505c350",
-                "reference": "17f50b86ef2b78d4331e60b2caead3829505c350",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/272b87213e0203bdf2f438102aed2c7b2919aadf",
+                "reference": "272b87213e0203bdf2f438102aed2c7b2919aadf",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +604,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-07-11 12:36:11"
+            "time": "2016-07-15 21:22:59"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -2524,12 +2410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "5a15602d06d1aa1c9bfd349e7a94ed64b7053dde"
+                "reference": "24dab421c8ad35ced3aa843b0d63d52cf201f198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/5a15602d06d1aa1c9bfd349e7a94ed64b7053dde",
-                "reference": "5a15602d06d1aa1c9bfd349e7a94ed64b7053dde",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/24dab421c8ad35ced3aa843b0d63d52cf201f198",
+                "reference": "24dab421c8ad35ced3aa843b0d63d52cf201f198",
                 "shasum": ""
             },
             "require": {
@@ -2579,7 +2465,7 @@
                 "orm",
                 "test"
             ],
-            "time": "2016-07-14 08:51:28"
+            "time": "2016-07-17 17:23:10"
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -2927,12 +2813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobLoach/component-installer.git",
-                "reference": "075be66ba624a6cdfefc16f2ac350b0e29295aeb"
+                "reference": "59f93ece022f1b5c3576de139964975561af980a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/075be66ba624a6cdfefc16f2ac350b0e29295aeb",
-                "reference": "075be66ba624a6cdfefc16f2ac350b0e29295aeb",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/59f93ece022f1b5c3576de139964975561af980a",
+                "reference": "59f93ece022f1b5c3576de139964975561af980a",
                 "shasum": ""
             },
             "require": {
@@ -2967,7 +2853,7 @@
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2016-06-23 20:42:59"
+            "time": "2016-07-16 01:43:54"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -3676,12 +3562,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "fb75e8615a390dfac28ca9f32470d594e47acd76"
+                "reference": "d3cbb8eac266ee21b0e653a49f71007e720ccdb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fb75e8615a390dfac28ca9f32470d594e47acd76",
-                "reference": "fb75e8615a390dfac28ca9f32470d594e47acd76",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/d3cbb8eac266ee21b0e653a49f71007e720ccdb2",
+                "reference": "d3cbb8eac266ee21b0e653a49f71007e720ccdb2",
                 "shasum": ""
             },
             "replace": {
@@ -3719,7 +3605,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2016-07-15 00:09:18"
+            "time": "2016-07-17 21:18:09"
         },
         {
             "name": "twig/twig",
@@ -3985,12 +3871,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "f6ffd3185c31ee6e0ea9bd2c5eefd2d7ab61cc40"
+                "reference": "e454a78370d106bc138c740fc1a323f82eea6605"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/f6ffd3185c31ee6e0ea9bd2c5eefd2d7ab61cc40",
-                "reference": "f6ffd3185c31ee6e0ea9bd2c5eefd2d7ab61cc40",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/e454a78370d106bc138c740fc1a323f82eea6605",
+                "reference": "e454a78370d106bc138c740fc1a323f82eea6605",
                 "shasum": ""
             },
             "require": {
@@ -4036,7 +3922,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2016-07-05 22:04:12"
+            "time": "2016-07-15 08:33:00"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -4694,12 +4580,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "3743fa69f74a2e94b86112fc154ced97ca730c26"
+                "reference": "8cb811f86cf23c19e494b109757deab68aea7662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/3743fa69f74a2e94b86112fc154ced97ca730c26",
-                "reference": "3743fa69f74a2e94b86112fc154ced97ca730c26",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/8cb811f86cf23c19e494b109757deab68aea7662",
+                "reference": "8cb811f86cf23c19e494b109757deab68aea7662",
                 "shasum": ""
             },
             "require": {
@@ -4749,21 +4635,19 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-07-10 08:06:43"
+            "time": "2016-07-17 14:08:33"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "acs/acspanel-users": 20,
-        "acs/acspanel-settings": 20,
-        "acs/acspanel-wordpress": 20,
         "nelmio/alice": 20,
         "twbs/bootstrap": 20,
         "stof/doctrine-extensions-bundle": 20,
         "nelmio/api-doc-bundle": 20,
         "craue/formflow-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
+        "friendsofsymfony/user-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20
     },
     "prefer-stable": false,

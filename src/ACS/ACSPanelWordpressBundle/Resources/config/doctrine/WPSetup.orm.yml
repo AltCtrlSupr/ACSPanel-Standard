@@ -1,0 +1,52 @@
+ACS\ACSPanelWordpressBundle\Entity\WPSetup:
+    type: entity
+    table: wp_setup
+    repositoryClass: ACS\ACSPanelWordpressBundle\Model\WPSetupRepository
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        enabled:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+
+    manyToOne:
+        user:
+            targetEntity: ACS\ACSPanelUsersBundle\Entity\User
+            cascade: {  }
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+    oneToOne:
+        httpd_host:
+            targetEntity: ACS\ACSPanelBundle\Entity\HttpdHost
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+        database_user:
+            targetEntity: ACS\ACSPanelBundle\Entity\DatabaseUser
+            cascade: [ "persist" ]
+            joinColumn:
+                onDelete: CASCADE
+
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue ]
+      preUpdate: [ setUpdatedAtValue ]

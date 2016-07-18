@@ -1,0 +1,30 @@
+settings:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:panelSettings" }
+
+settings_object_settings:
+    pattern:  /{object_id}/settings
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:createObjectSettings" }
+
+settings_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:new" }
+
+settings_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:create" }
+    requirements: { _method: post }
+
+settings_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:edit" }
+
+settings_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:update" }
+    requirements: { _method: post }
+
+settings_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelSettingsBundle:ConfigSetting:delete" }
+    requirements: { _method: post }

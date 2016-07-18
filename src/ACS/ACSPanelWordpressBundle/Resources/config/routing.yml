@@ -1,0 +1,4 @@
+ACSACSPanelWordpressBundle_wpsetup:
+    resource: "@ACSACSPanelWordpressBundle/Resources/config/routing/wpsetup.yml"
+    prefix:   /wpsetup
+

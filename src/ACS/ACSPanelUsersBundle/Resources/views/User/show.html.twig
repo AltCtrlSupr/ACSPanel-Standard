@@ -1,0 +1,99 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}User{% endtrans %}{% endblock %}
+{% block body %}
+<div class="box">
+    <div class="box-header">
+        <h3>{{ entity.firstname }} {{ entity.lastname }}</h3>
+    </div>
+    <div class="box-body">
+        <table class="record_properties table table-striped">
+            <tbody>
+                <tr>
+                    <th>{% trans %}user.field.username{% endtrans %}</th>
+                    <td>{{ entity.username }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}user.field.name{% endtrans %}</th>
+                    <td>{{ entity.firstname }} {{ entity.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}user.field.email{% endtrans %}</th>
+                    <td>{{ entity.email }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}user.field.home_dir{% endtrans %}</th>
+                    <td>{{ entity.homedir }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}UID{% endtrans %}</th>
+                    <td>{{ entity.uid }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}GID{% endtrans %}</th>
+                    <td>{{ entity.gid }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}user.field.enabled{% endtrans %}</th>
+                    <td>{{ entity.enabled }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Lastlogin{% endtrans %}</th>
+                    <td>{{ entity.lastLogin|date(date_format) }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Locked{% endtrans %}</th>
+                    <td>{{ entity.locked }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Expired{% endtrans %}</th>
+                    <td>{{ entity.expired }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Expiresat{% endtrans %}</th>
+                    <td>{{ entity.expiresAt|date(date_format) }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Roles{% endtrans %}</th>
+                    <td><ul>{% for role in entity.roles %}
+                        <li>{{ role }}</li>
+                        {% endfor %}</ul></td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Plans{% endtrans %}</th>
+                    <td><ul>{% for plan in entity.puser %}
+                        <li>{{ plan.uplans }}</li>
+                    {% endfor %}</ul></td>
+                </tr>
+                <tr>
+                    <th>{% trans %}common.services{% endtrans %}</th>
+                    <td><ul>{% for service in entity.services %}
+                        <li><a href="{{ path('services_show', {'id': service.id}) }}">{{ service }}</a></li>
+                    {% endfor %}</ul></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="record_actions">
+        <a class="btn btn-primary margin" href="{{ path('users') }}">
+            {% trans %}common.back{% endtrans %}
+        </a>
+    {% if is_granted('role_super_admin') %}
+        <a class="btn btn-primary margin" href="{{ path('users_switch', { 'id': entity.id }) }}">{% trans %}user.button.switch{% endtrans %}</a>
+    {% elseif entity.parentuser %}
+        {% if entity.parentuser.id == app.user.id  %}
+            <a class="btn btn-warning margin" href="{{ path('users_switch', { 'id': entity.id }) }}">{% trans %}user.button.switch{% endtrans %}</a>
+        {% endif %}
+    {% endif %}
+
+    <a class="btn btn-primary margin" href="{{ path('users_edit', { 'id': entity.id }) }}">
+        {% trans %}common.edit{% endtrans %}
+    </a>
+    <form action="{{ path('users_delete', { 'id': entity.id }) }}" method="post">
+        {{ form_widget(delete_form) }}
+        <button class="btn btn-danger margin" type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+    </form>
+</div>
+
+{% endblock %}
