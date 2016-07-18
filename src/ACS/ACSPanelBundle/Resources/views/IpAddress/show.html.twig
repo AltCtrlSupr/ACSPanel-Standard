@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}IP Address{% endtrans %}: {{ entity.ip }}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{% trans %}IP Address{% endtrans %}</th>
+            <td>{{ entity.ip }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Enabled{% endtrans %}</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Created at{% endtrans %}</th>
+            <td>{{ entity.createdAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Updated at{% endtrans %}</th>
+            <td>{{ entity.updatedAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Services{% endtrans %}</th>
+            <td><ul>{% for service in entity.services %}
+                    <li><a href="{{ path('service_show', { 'id': service.id }) }}">{{ service }}</a></li>
+            {% endfor %}</ul></td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('ipaddress') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('ipaddress_edit', { 'id': entity.id }) }}">
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('ipaddress_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

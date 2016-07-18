@@ -1,0 +1,30 @@
+ACS\ACSPanelBundle\Entity\UserPlan:
+    type: entity
+    table: user_plan
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: AUTO
+    manyToOne:
+        uplans:
+            targetEntity: Plan
+            inversedBy: uplans
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+        puser:
+            targetEntity: \ACS\ACSPanelUsersBundle\Entity\User
+            inversedBy: puser
+            gedmo:
+                - versioned
+            joinColumn:
+                onDelete: CASCADE
+    lifecycleCallbacks:
+

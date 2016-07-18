@@ -1,0 +1,15 @@
+FOS\UserBundle\Model\User:
+    xml_root_name: user
+    properties:
+        id:
+            expose: true
+        password:
+            exclude: true
+        password_changed_at:
+            exclude: true
+        email_canonical:
+            exclude: true
+        salt:
+            exclude: true
+        domains:
+            exclude: true

@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}Ftpd user list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+
+{% block body %}
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link %}{{ path('ftpduser_new') }}{% endblock %}
+{% endembed %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th>{% trans %}Username{% endtrans %}</th>
+                <th>{% trans %}UID{% endtrans %}</th>
+                <th>{% trans %}GID{% endtrans %}</th>
+                <th>{% trans %}Directory{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td data-title="{% trans %}Username{% endtrans %}"><a href="{{ path('ftpduser_show', { 'id': entity.id }) }}">{{ entity.userName }}</a></td>
+                <td data-title="{% trans %}UID{% endtrans %}">{{ entity.uid }}</td>
+                <td data-title="{% trans %}GID{% endtrans %}">{{ entity.gid }}</td>
+                <td data-title="{% trans %}Directory{% endtrans %}">{{ entity.dir }}</td>
+                <td data-title="{% trans %}Actions{% endtrans %}">
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                {% trans %}Actions{% endtrans %}
+                                <span class="caret"></span>
+                            </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ path('ftpduser_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ftpduser_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                        </li>
+                    </ul>
+                </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link %}{{ path('ftpduser_new') }}{% endblock %}
+{% endembed %}
+
+{% endblock %}

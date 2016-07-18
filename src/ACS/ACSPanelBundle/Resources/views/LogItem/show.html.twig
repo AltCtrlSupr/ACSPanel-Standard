@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}LogItem{% endtrans %}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{% trans %}Id{% endtrans %}</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Route{% endtrans %}</th>
+            <td>{{ entity.objectClass }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Object_reference{% endtrans %}</th>
+            <td>{{ entity.version }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('logitem') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="@CraueFormFlowBundle/Resources/assets/css/buttons.css" />
+{% endblock %}
+
+{% block page_title %} - {% trans %}Add hosting{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('acs_acspanel_register_host') }}"> {% trans %}registerhosting{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}registerhostin.title.new{% endtrans %}</li>
+{% endblock %}
+
+{% block body %}
+{# entity #}
+{% endblock %}

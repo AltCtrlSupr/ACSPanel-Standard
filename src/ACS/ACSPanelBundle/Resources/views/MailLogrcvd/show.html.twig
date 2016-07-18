@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}MailLogrcvd{% endtrans %}{% endblock %}
+{% block body %}
+
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Sender</th>
+            <td>{{ entity.sender }}</td>
+        </tr>
+        <tr>
+            <th>Rcpt</th>
+            <td>{{ entity.rcpt }}</td>
+        </tr>
+        <tr>
+            <th>Enabled</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>Createdat</th>
+            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('maillogrcvd') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

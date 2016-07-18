@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}Server{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="box">
+    <table class="record_properties table table-striped">
+        <tbody>
+            <tr>
+                <th>{% trans %}Id{% endtrans %}</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Hostname{% endtrans %}</th>
+                <td>{{ entity.hostname }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Ip{% endtrans %}</th>
+                <td>{{ entity.ip }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Description{% endtrans %}</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Createdat{% endtrans %}</th>
+                <td>{{ entity.createdAt|date(date_format) }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Updatedat{% endtrans %}</th>
+                <td>{{ entity.updatedAt|date(date_format) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('server') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('server_edit', { 'id': entity.id }) }}">
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('server_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

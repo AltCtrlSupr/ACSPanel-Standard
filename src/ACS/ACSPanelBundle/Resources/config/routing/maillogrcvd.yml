@@ -1,0 +1,10 @@
+maillogrcvd:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:MailLogrcvd:index" }
+
+maillogrcvd_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:MailLogrcvd:show" }
+
+
+

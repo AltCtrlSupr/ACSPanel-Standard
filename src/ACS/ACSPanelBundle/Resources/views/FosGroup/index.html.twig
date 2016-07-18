@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}User Group list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link %}{{ path('groups_new') }}{% endblock %}
+{% endembed %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th>{% trans %}Name{% endtrans %}</th>
+                <th>{% trans %}Roles{% endtrans %}</th>
+                <th>{% trans %}Users{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td data-title="{% trans %}Name{% endtrans %}" ><a href="{{ path('groups_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td data-title="{% trans %}Roles{% endtrans %}">
+                    {% for role in entity.roles %}
+                        {{ role }}
+                    {% endfor %}
+                </td>
+                <td data-title="{% trans %}Users{% endtrans %}">
+                    <ul>
+                    {% for user in entity.users %}
+                        <li><a href="{{ path('users_show', { 'id': user.id }) }}">{{ user }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </td>
+                <td data-title="{% trans %}Actions{% endtrans %}">
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                {% trans %}Actions{% endtrans %}
+                                <span class="caret"></span>
+                            </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ path('groups_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                        </li>
+                    </ul>
+                </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link %}{{ path('groups_new') }}{% endblock %}
+{% endembed %}
+
+{% endblock %}

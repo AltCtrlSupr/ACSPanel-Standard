@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}Domain creation{% endtrans %}{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('domain') }}"> {% trans %}domain{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}domain.title.new{% endtrans %}</li>
+{% endblock %}
+
+{% block body %}
+
+<div class="box box-body">
+    <div class="form_box">
+        <form action="{{ path('domain_create') }}" method="post" {{ form_enctype(form) }} class="form">
+            <span class="label label-important">{{ form_errors(form) }}</span>
+                {{ form_row(form.domain) }}
+                {{ form_row(form.parent_domain) }}
+                {{ form_widget(form.is_httpd_alias) }}
+                {{ form_widget(form.is_dns_alias) }}
+                {{ form_widget(form.is_mail_alias) }}
+                {{ form_widget(form.add_dns_domain) }}
+                {{ form_rest(form) }}
+            <p>
+                <button class="btn btn-success" type="submit">Create</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('domain') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

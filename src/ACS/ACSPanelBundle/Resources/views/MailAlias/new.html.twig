@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}MailAlias creation{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="box box-body">
+    <form class="form_box form row" action="{{ path('mailalias_create') }}" method="post" {{ form_enctype(form) }}>
+        <div class="col-md-12">
+            <span class="label label-important">{{ form_errors(form) }}</span>
+            <div class="row col-md-12">
+                {{ form_label(form.address) }}
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_widget(form.address, {style: "horizontal", "attr": {"class": "pull-left", "style": "width: 90%;"}}) }} <span class="pull-right">@</span>
+                </div>
+                <div class="col-md-6">
+                    {{ form_widget(form.mail_domain, {style: "horizontal"}) }}
+                </div>
+            </div>
+            {{ form_label(form.goto) }}
+            {{ form_widget(form.goto) }}
+            {{ form_rest(form) }}
+            <button class="btn btn-success" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('mailalias') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

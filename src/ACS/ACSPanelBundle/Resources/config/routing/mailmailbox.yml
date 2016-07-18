@@ -1,0 +1,43 @@
+mailmailbox:
+    pattern:  /
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:index" }
+
+mailmailbox_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:show" }
+
+mailmailbox_new:
+    pattern:  /new
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:new" }
+
+mailmailbox_new_with_domain:
+    pattern:  /{maildomain_id}/new
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:new" }
+
+mailmailbox_create:
+    pattern:  /create
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:create" }
+    requirements: { _method: post }
+
+mailmailbox_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:edit" }
+
+mailmailbox_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:update" }
+    requirements: { _method: post }
+
+mailmailbox_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:delete" }
+    requirements: { _method: post }
+
+mailmailbox_setenabled:
+    pattern: /{id}/setenabled
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:setenabled" }
+
+mailmailbox_search:
+    pattern:  /search/
+    defaults: { _controller: "ACSACSPanelBundle:MailMailbox:search" }
+    requirements: { _method: post }

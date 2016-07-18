@@ -1,0 +1,10 @@
+<ul>
+    {% if new %}
+    <li>
+        <a class="btn btn-primary" href="{% block new_link %}{% endblock %}">
+            {% block new_link_text %}{% trans %}Create a new entry{% endtrans %}{% endblock %}
+        </a>
+    </li>
+    {% endif %}
+</ul>
+

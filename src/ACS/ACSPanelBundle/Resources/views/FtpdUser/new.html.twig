@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}FtpdUser creation{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('ftpduser_create') }}" method="post" {{ form_enctype(form) }}>
+        <span class="label label-important">{{ form_errors(form) }}</span>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn btn-success" type="submit">Create</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('ftpduser') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

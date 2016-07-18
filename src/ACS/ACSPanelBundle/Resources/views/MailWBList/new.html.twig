@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}MailWBList creation{% endtrans %}{% endblock %}
+{% block body %}
+
+
+<div class="callout callout-info">
+    <h4>Tip!</h4>
+    <p>If you want to capture all the senders you should put ALL to "Sender" field.</p>
+</div>
+
+<div class="box">
+    <div class="form_box box-body">
+        <form class="form" action="{{ path('mailwblist_create') }}" method="post" {{ form_enctype(form) }}>
+            <span class="label label-important">{{ form_errors(form) }}</span>
+         {{ form_widget(form) }}
+            <p>
+                <button class="btn btn-success" type="submit">Create</button>
+            </p>
+        </form>
+    </div>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('mailwblist') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

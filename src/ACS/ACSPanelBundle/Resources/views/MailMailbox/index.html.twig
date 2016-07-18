@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}MailMailbox list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'maildomain', 'new': true} %}
+    {% block new_link %}{{ path('mailmailbox_new') }}{% endblock %}
+{% endembed %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Maildir</th>
+                <th>Quotalimit</th>
+                <th>Usedquota</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('mailmailbox_show', { 'id': entity.id }) }}">{{ entity.username }}@{{ entity.maildomain }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.maildir }}</td>
+                <td>{{ entity.quotaLimit }}</td>
+                <td>{{ entity.messages }}</td>
+                <td>
+                    <a href="{{ path('mailmailbox_setenabled', { 'id': entity.id }) }}">
+                        <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+                    </a>
+                    </th>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                {% trans %}Actions{% endtrans %}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ path('mailmailbox_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('mailmailbox_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'maildomain', 'new': true} %}
+    {% block new_link %}{{ path('mailmailbox_new') }}{% endblock %}
+{% endembed %}
+{% endblock %}

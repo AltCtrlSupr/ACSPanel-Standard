@@ -1,0 +1,63 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}Service list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'service', 'new': true} %}
+    {% block new_link %}{{ path('service_new') }}{% endblock %}
+{% endembed %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th>{% trans %}Name{% endtrans %}</th>
+                <th>{% trans %}Server{% endtrans %}</th>
+                <th>{% trans %}Ip{% endtrans %}</th>
+                <th>{% trans %}Enabled{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('service_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td>{% if entity.server is not null %}<a href="{{ path('server_show', { 'id': entity.server.id }) }}">{{ entity.server }}</a>{% endif %}</td>
+                <td>{% if entity.ip is not null %}<a href="{{ path('ipaddress_show', { 'id': entity.ip.id }) }}">{{ entity.ip }}</a>{% endif %}</td>
+                <td>
+                    <a href="{{ path('service_setenabled', { 'id': entity.id }) }}">
+                        <img src="{% if entity.getenabled %}{{ asset('images/true_tick.png') }}{% else %}{{ asset('images/false_tick.png') }}{% endif %}" alt="" />
+                    </a>
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ path('service_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('service_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'service', 'new': true} %}
+    {% block new_link %}{{ path('service_new') }}{% endblock %}
+{% endembed %}
+
+{% endblock %}

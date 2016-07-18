@@ -1,0 +1,85 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}User{% endtrans %}{% endblock %}
+{% block body %}
+
+<table class="record_properties table">
+    <tbody>
+        <tr>
+            <th>{% trans %}Username{% endtrans %}</th>
+            <td>{{ entity.username }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Full name{% endtrans %}</th>
+            <td>{{ entity.firstname }} {{ entity.lastname }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Email{% endtrans %}</th>
+            <td>{{ entity.email }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Home dir{% endtrans %}</th>
+            <td>{{ entity.homedir }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}UID{% endtrans %}</th>
+            <td>{{ entity.uid }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}GID{% endtrans %}</th>
+            <td>{{ entity.gid }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Enabled{% endtrans %}</th>
+            <td>{{ entity.enabled }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Lastlogin{% endtrans %}</th>
+            <td>{{ entity.lastLogin|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Locked{% endtrans %}</th>
+            <td>{{ entity.locked }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Expired{% endtrans %}</th>
+            <td>{{ entity.expired }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Expiresat{% endtrans %}</th>
+            <td>{{ entity.expiresAt|date(date_format) }}</td>
+        </tr>
+        <tr>
+            <th>{% trans %}Roles{% endtrans %}</th>
+            <td><ul>{% for role in entity.roles %}
+                <li>{{ role }}</li>
+                {% endfor %}</ul></td>
+        </tr>
+        <tr>
+            <th>{% trans %}Plans{% endtrans %}</th>
+            <td><ul>{% for plan in entity.puser %}
+                <li>{{ plan.uplans }}</li>
+            {% endfor %}</ul></td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('users') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('users_edit', { 'id': entity.id }) }}">
+            {% trans %}Edit{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('users_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}Delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

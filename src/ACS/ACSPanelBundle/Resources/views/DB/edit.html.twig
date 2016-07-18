@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}db.title.edit{% endtrans %}{% endblock %}
+{% block body %}
+
+<div class="form_box">
+    <form action="{{ path('db_create') }}" method="post" {{ form_enctype(edit_form) }}>
+
+        <span class="label label-important">{{ form_errors(edit_form) }}</span>
+
+        <div class="general-section">
+            {{form_row(edit_form.name)}}
+            {{form_row(edit_form.description)}}
+            {{form_row(edit_form.service)}}
+        </div>
+
+        <div class="admin-section">
+            {{ form_rest(edit_form) }}
+        </div>
+
+        <p>
+            <button class="btn btn-success" type="submit">{% trans %}db.button.edit{% endtrans %}</button>
+        </p>
+    </form>
+</div>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('db') }}">
+            {% trans %}db.button.back{% endtrans %}
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('db_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button class="btn" type="submit" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">{% trans %}db.button.delete{% endtrans %}</button>
+        </form>
+    </li>
+</ul>
+
+{% endblock %}

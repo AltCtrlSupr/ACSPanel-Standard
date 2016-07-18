@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}Database list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link_text %}{% trans %}db.button.addnew{% endtrans %}{% endblock %}
+    {% block new_link %}{{ path('db_new') }}{% endblock %}
+{% endembed %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th>{% trans %}db.fields.name{% endtrans %}</th>
+                <th>{% trans %}db.fields.users{% endtrans %}</th>
+                <th>{% trans %}db.fields.createdat{% endtrans %}</th>
+                <th>{% trans %}db.fields.actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td data-title="{% trans %}db.fields.name{% endtrans %}"><a href="{{ path('db_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td data-title="{% trans %}db.fields.users{% endtrans %}">
+                    <ul>
+                        {% for user in entity.databaseusers %}
+                            <li><a href="{{ path('databaseuser_edit', { 'id': user.id }) }}">{{ user }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td data-title="{% trans %}db.fields.createdat{% endtrans %}">{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td data-title="{% trans %}db.fields.actions{% endtrans %}">
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                {% trans %}db.fields.actions{% endtrans %}
+                                <span class="caret"></span>
+                            </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ path('db_show', { 'id': entity.id }) }}">{% trans %}db.button.show{% endtrans %}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('db_edit', { 'id': entity.id }) }}">{% trans %}db.button.edit{% endtrans %}</a>
+                        </li>
+                    </ul>
+                </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link_text %}{% trans %}db.button.addnew{% endtrans %}{% endblock %}
+    {% block new_link %}{{ path('db_new') }}{% endblock %}
+{% endembed %}
+
+{% endblock %}

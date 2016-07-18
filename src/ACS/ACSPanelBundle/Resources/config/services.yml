@@ -1,0 +1,292 @@
+parameters:
+    duplicate.host.class: ACS\ACSPanelBundle\Validator\Constraints\DuplicateHostValidator
+    db.username.validator.class: ACS\ACSPanelBundle\Validator\Constraints\VariableLimitedLengthValidator
+    domain.tools.class: ACS\ACSPanelBundle\Modules\Domain
+    entity_subscriber.class: ACS\ACSPanelBundle\Event\Subscribers\EntitySubscriber
+    db_entity_subscriber.class: ACS\ACSPanelBundle\Event\Subscribers\DBSubscriber
+    acspanel_core.menu_listener.class: ACS\ACSPanelBundle\Event\MenuItemListListener
+
+services:
+    # Duplicate host validator
+    duplicate.host:
+        class: %duplicate.host.class%
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - {name: validator.constraint_validator, alias: duplicate.host}
+
+    # Database username length validator
+    db.username.validator:
+        class: %db.username.validator.class%
+        arguments: ['@service_container']
+        tags:
+            - {name: validator.constraint_validator, alias: db.username.validator}
+
+    # Domain checking tools
+    domain.tools:
+        class: %domain.tools.class%
+        tags:
+            - {name: domain.tools, alias: domain.tools}
+
+    # Server actions
+    server.actions:
+        class: ACS\ACSPanelBundle\Modules\ServerActions
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+    # Registration class for the form
+    # Overriding User forms
+    acs_user.registration.form.type:
+        class: ACS\ACSPanelBundle\Form\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+        - { name: form.type, alias: acs_user_registration }
+
+    acs_user.profile.form.type:
+        class: ACS\ACSPanelBundle\Form\UserProfileType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+        - { name: form.type, alias: acs_acspanelbundle_userprofiletype }
+
+    # end of User forms override
+
+    # Forms flows
+    acs.form.register_hosting:
+        class: ACS\ACSPanelBundle\Form\HostingFlow\RegisterHostingType
+        tags:
+            - { name: form.type, alias: registerHosting }
+
+    acs.form.flow.register_hosting:
+        class: ACS\ACSPanelBundle\Form\HostingFlow\RegisterHostingFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+            - [ setFormType, ['@acs.form.register_hosting'] ]
+            - [ setContainer, ['@service_container'] ]
+            - [ setEm, ['@doctrine.orm.entity_manager'] ]
+    # END Forms flows
+
+    # Kernel response events
+    kernel_subscriber:
+        class: ACS\ACSPanelBundle\Event\Subscribers\KernelSubscriber
+        arguments: ['@event_dispatcher', '@router', '@session']
+        calls:
+            - [ setSecurity, ['@security.context'] ]
+            - [ setSettingsManager, ['@acs.setting_manager'] ]
+            - [ setActiveTheme, ['@liip_theme.active_theme'] ]
+        tags:
+            - {name: kernel.event_subscriber}
+
+    # Entity subscribers
+    entity_subscriber:
+        class: %entity_subscriber.class%
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
+
+    db_entity_subscriber:
+        class: %db_entity_subscriber.class%
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
+
+    # Menu items added with event listener
+    base_menu_subscriber:
+        class: ACS\ACSPanelBundle\Event\Subscribers\MenuSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}
+
+    acspanel_core.menu_listener:
+        class: %acspanel_core.menu_listener.class%
+        calls:
+            - [ setMenuProvider, ['@knp_menu.menu_provider'] ]
+        tags:
+            - { name: kernel.event_listener, event: theme.sidebar_setup_menu, method: onSetupMenu }
+
+    acspanel_core.menu_builder:
+        class:  ACS\ACSPanelBundle\Menu\Builder
+
+    # DNSDomain events
+    dns_subscriber:
+        class: ACS\ACSPanelBundle\Event\Subscribers\DnsSubscriber
+        arguments: ['@event_dispatcher']
+        tags:
+            - {name: kernel.event_subscriber}
+
+
+    # ACL Repositories services
+    # HttpdHostRepository
+    httpdhost_repository:
+        class: ACS\ACSPanelBundle\Model\HttpdHostRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:HttpdHost']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    domain_repository:
+        class: ACS\ACSPanelBundle\Model\DomainRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:Domain']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    dnsdomain_repository:
+        class: ACS\ACSPanelBundle\Model\DnsDomainRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:DnsDomain']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    dnsrecord_repository:
+        class: ACS\ACSPanelBundle\Model\DnsRecordRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:DnsRecord']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    mailalias_repository:
+        class: ACS\ACSPanelBundle\Model\MailAliasRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:MailAlias']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    plan_repository:
+        class: ACS\ACSPanelBundle\Model\PlanRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:Plan']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    logitem_repository:
+        class: ACS\ACSPanelBundle\Model\LogItemRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['Gedmo\Loggable\Entity\LogEntry']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    server_repository:
+        class: ACS\ACSPanelBundle\Model\ServerRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:Server']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    service_repository:
+        class: ACS\ACSPanelBundle\Model\ServiceRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:Service']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    servicetype_repository:
+        class: ACS\ACSPanelBundle\Model\ServiceTypeRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:ServiceType']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    ipaddress_repository:
+        class: ACS\ACSPanelBundle\Model\IpAddressRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:IpAddress']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    httpduser_repository:
+        class: ACS\ACSPanelBundle\Model\HttpdUserRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:HttpdUser']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    maildomain_repository:
+        class: ACS\ACSPanelBundle\Model\MailDomainRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:MailDomain']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    mailmailbox_repository:
+        class: ACS\ACSPanelBundle\Model\MailMailboxRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:MailMailbox']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    mailwblist_repository:
+        class: ACS\ACSPanelBundle\Model\MailWBlistRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:MailWBList']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    maillogrcvd_repository:
+        class: ACS\ACSPanelBundle\Model\MailLogrcvdRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:MailLogrcvd']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    db_repository:
+        class: ACS\ACSPanelBundle\Model\DBRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:DB']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    ftpduser_repository:
+        class: ACS\ACSPanelBundle\Model\FtpdUserRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:FtpdUser']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    service_repository:
+        class: ACS\ACSPanelBundle\Model\ServiceRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: ['ACSACSPanelBundle:Service']
+        calls:
+            - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
+
+    service_manager:
+        class: ACS\ACSPanelBundle\Model\ServiceManager
+        calls:
+            - [ setAclManager, ['@problematic.acl_manager'] ]
+
+    plan_manager:
+        class: ACS\ACSPanelBundle\Model\PlanManager
+        calls:
+            - [ setEm, ['@doctrine.orm.entity_manager'] ]
+
+
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+            - { name: serializer.normalizer }

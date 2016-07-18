@@ -1,0 +1,86 @@
+{% macro progressbar(max, usedval) %}
+  <div class="progress">
+    <div class="progress-bar progress-bar-aqua" style="width: {{ usedval * 100 /  max }}%"></div>
+  </div>
+{% endmacro %}
+
+{% import _self as utils %}
+
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Quota List</h3>
+    </div>
+    <div class="box-body">
+        <div class="progress-group">
+                <span class="progress-text">HTTPD Host</span>
+              {{ utils.progressbar(max_httpd_host,used_httpd_host) }}
+              <span class="progress-number"> {{max_httpd_host}} / {{used_httpd_host}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+                HTTPD Alias
+            </span>
+
+              {{ utils.progressbar(max_httpd_alias,used_httpd_alias) }}
+              <span class="progress-number"> {{max_httpd_alias}} / {{used_httpd_alias}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            HTTPD Users
+            </span>
+
+              {{ utils.progressbar(max_httpd_user,used_httpd_user) }}
+            <span class="progress-number"> {{max_httpd_user}} / {{used_httpd_user}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            dns Domain
+            </span>
+
+              {{ utils.progressbar(max_dns_domain,used_dns_domain) }}
+              <span class="progress-number"> {{max_dns_domain}} / {{used_dns_domain}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            Mail Domain
+            </span>
+
+              {{ utils.progressbar(max_mail_domain,used_mail_domain) }}
+              <span class="progress-number"> {{max_mail_domain}} / {{used_mail_domain}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            Mail Mailbox
+            </span>
+
+              {{ utils.progressbar(max_mail_mailbox,used_mail_mailbox) }}
+              <span class="progress-number"> {{max_mail_mailbox}} / {{used_mail_mailbox}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            Mail Alias
+            </span>
+
+              {{ utils.progressbar(max_mail_alias,used_mail_alias) }}
+                <span class="progress-number" {{max_mail_alias}} / {{used_mail_alias}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            Mail Alias Domain
+            </span>
+
+              {{ utils.progressbar(max_mail_alias_domain,used_mail_alias_domain) }}
+              <span class="progress-number"> {{max_mail_alias_domain}} / {{used_mail_alias_domain}} </span>
+        </div>
+        <div class="progress-group">
+            <span class="progress-text">
+            FTPD
+            </span>
+
+              {{ utils.progressbar(max_ftpd,used_ftpd) }}
+
+              <span class="progress-number"> {{max_ftpd}} / {{used_ftpd}} </span>
+            </div>
+    </div>
+</div>
+

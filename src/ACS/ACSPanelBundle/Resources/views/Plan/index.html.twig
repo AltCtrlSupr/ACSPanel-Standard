@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}Plan list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('plans') }}"> {% trans %}plans{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}plans.title.index{% endtrans %}</li>
+{% endblock %}
+
+{% block body %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th>{% trans %}Plan name{%endtrans%}</th>
+                <th>{% trans %}Attributes{%endtrans%}</th>
+                <th>{% trans %}Actions{%endtrans%}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('plans_show', { 'id': entity.id }) }}">{{ entity.planName }}</a></td>
+                <td>
+                    <a class="show_attributes_button" onclick="if($(this).text() == '[{% trans %}Show attributes{% endtrans %}]'){ $(this).text('[{% trans %}Hide attributes{% endtrans %}]'); }else{ $(this).text('[{% trans %}Show attributes{% endtrans %}]');}" href="#">[{%trans%}Show attributes{% endtrans %}]</a>
+                    <ul class="plan_attributes">
+                        {% if entity.maxpanelreseller %}<li>{% trans %}Max panel resellers:{%endtrans%} {{ entity.maxpanelreseller }}</li>{% endif %}
+                        {% if entity.maxpaneluser%}<li>{% trans %}Max panel users:{%endtrans%} {{ entity.maxpaneluser }}</li>{% endif %}
+                        {% if entity.maxDomain%}<li>{% trans %}Max Domains:{%endtrans%} {{ entity.maxDomain }}</li>{% endif %}
+                        {% if entity.maxhttpdhost%}<li>{% trans %}Max HTTPD hosts:{%endtrans%} {{ entity.maxhttpdhost }}</li>{% endif %}
+                        {% if entity.maxhttpdalias%}<li>{% trans %}Max HTTPD aliases:{%endtrans%} {{ entity.maxhttpdalias }}</li>{% endif %}
+                        {% if entity.maxhttpduser%}<li>{% trans %}Max HTTPD users:{%endtrans%} {{ entity.maxhttpduser }}</li>{% endif %}
+                        {% if entity.maxdnsdomain%}<li>{% trans %}Max DNS domains:{%endtrans%} {{ entity.maxdnsdomain }}</li>{% endif %}
+                        {% if entity.maxmaildomain%}<li>{% trans %}Max Mail domains:{%endtrans%} {{ entity.maxmaildomain }}</li>{% endif %}
+                        {% if entity.maxmailmailbox%}<li>{% trans %}Max Mail mailboxes:{%endtrans%} {{ entity.maxmailmailbox }}</li>{% endif %}
+                        {% if entity.maxmailalias%}<li>{% trans %}Max Mail aliases:{%endtrans%} {{ entity.maxmailalias }}</li>{% endif %}
+                        {% if entity.maxmailaliasdomain%}<li>{% trans %}Max Mail alias domains:{%endtrans%} {{ entity.maxmailaliasdomain }}</li>{% endif %}
+                        {% if entity.maxftpduser%}<li>{% trans %}Max FTPD users:{%endtrans%} {{ entity.maxftpduser }}</li>{% endif %}
+                        {% if entity.maxDb%}<li>{% trans %}Max DBs:{%endtrans%} {{ entity.maxDb }}</li>{% endif %}
+                        {% if entity.maxDbUser%}<li>{% trans %}Max DB Users:{%endtrans%} {{ entity.maxDbUser }}</li>{% endif %}
+                    </ul>
+                </td>
+                <td>
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                {% trans %}Actions{% endtrans %}
+                                <span class="caret"></span>
+                            </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ path('plans_show', { 'id': entity.id }) }}">{% trans %}show{%endtrans%}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('plans_edit', { 'id': entity.id }) }}">{% trans %}edit{%endtrans%}</a>
+                        </li>
+                    </ul>
+                </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'plan', 'new': true} %}
+    {% block new_link %}{{ path('plans_new') }}{% endblock %}
+{% endembed %}
+
+{%endblock %}

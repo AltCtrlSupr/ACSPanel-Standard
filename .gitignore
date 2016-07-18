@@ -24,7 +24,6 @@ components/*
 web/*
 web/css/*
 bin/*
-src
 
 !src/ACS/ACSPanelAnsibleBundle/**/*
 

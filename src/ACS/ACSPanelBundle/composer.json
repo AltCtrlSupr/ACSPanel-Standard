@@ -1,0 +1,61 @@
+{
+    "name": "acs/acspanel-core",
+    "type": "symfony-bundle",
+    "description": "ACSPanel core bundle. It integrates all other bundles into full stack Symfony2 Server Administration solution.",
+    "keywords": ["symfony","symfony2","acspanel","distribution","server","administration","sysadmin"],
+    "license": "GPLv3",
+    "homepage": "http://acspanel.acs.li",
+    "authors": [
+        {
+            "name": "Martí Cardús",
+            "email": "marti@acs.li"
+        },
+        {
+            "name": "Genar Trias",
+            "email": "genar@acs.li",
+            "homepage": "http://genar.me/"
+        }
+    ],
+    "require": {
+        "php":                            ">=5.3.3",
+        "friendsofsymfony/user-bundle":   "2.0.*@dev",
+        "acs/acspanel-settings": "dev-master",
+        "acs/acspanel-wordpress": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": { "ACS\\ACSPanelBundle\\": "" }
+    },
+    "extra": {
+        "incenteev-parameters": {
+            "file": "app/main/config/parameters.yml"
+        },
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "branch-alias": {
+            "dev-master": "2.5-dev"
+        }
+    }
+}

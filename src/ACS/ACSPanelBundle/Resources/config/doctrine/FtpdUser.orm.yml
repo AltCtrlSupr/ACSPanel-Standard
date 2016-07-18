@@ -1,0 +1,95 @@
+ACS\ACSPanelBundle\Entity\FtpdUser:
+    type: entity
+    table: ftpd_user
+    repositoryClass: ACS\ACSPanelBundle\Model\FtpdUserRepository
+    gedmo:
+        loggable: {}
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        userName:
+            type: string
+            length: 16
+            fixed: false
+            nullable: false
+            column: user_name
+            gedmo:
+                - versioned
+        password:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        uid:
+            type: integer
+            unsigned: false
+            nullable: false
+            gedmo:
+                - versioned
+        gid:
+            type: integer
+            unsigned: false
+            nullable: false
+            gedmo:
+                - versioned
+        dir:
+            type: string
+            length: 255
+            fixed: false
+            nullable: false
+            gedmo:
+                - versioned
+        quota:
+            type: integer
+            lenght: 8
+            nullable: true
+            column: quota
+            gedmo:
+                - versioned
+        enabled:
+            type: boolean
+            nullable: true
+            gedmo:
+                - versioned
+        createdAt:
+            type: date
+            column: created_at
+            gedmo:
+                timestampable:
+                on: create
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+            gedmo:
+                timestampable:
+                on: update
+    manyToOne:
+        user:
+            targetEntity: \ACS\ACSPanelUsersBundle\Entity\User
+            cascade: {  }
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+            gedmo:
+                - versioned
+        service:
+            targetEntity: Service
+            inversedBy: ftp_users
+            joinTable: null
+            orderBy: null
+            joinColumn:
+                onDelete: CASCADE
+            gedmo:
+                - versioned
+    lifecycleCallbacks:
+      prePersist: [ setCreatedAtValue ]
+      preUpdate: [ setUpdatedAtValue ]
+

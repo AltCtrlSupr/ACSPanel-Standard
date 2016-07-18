@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+{% block page_title %} - {% trans %}DNS > Domains list{% endtrans %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/acsacspanel/js/jquery.highlight-4.closure.js')}}"></script>
+{% endblock %}
+
+{% block breadcumb  %}
+    {{ parent() }}
+    <li>{% trans %}breadcumb.sep{% endtrans %} <a href="{{ path('dnsdomain') }}"> {% trans %}dnsdomain{% endtrans %}</a></li>
+    <li>{% trans %}breadcumb.sep{% endtrans %} {% trans %}dnsdomain.title.index{% endtrans %}</li>
+{% endblock %}
+
+{% block body %}
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link %}{{ path('dnsdomain_new') }}{% endblock %}
+{% endembed %}
+
+<div class="box box-primary box-body">
+    <table class="records_list table table-striped table-bordered datatable">
+        <thead>
+            <tr>
+                <th class="center">{%trans%}Enabled{%endtrans%}</th>
+                <th>{%trans%}Name{%endtrans%}</th>
+                <th>{%trans%}Type{%endtrans%}</th>
+                <th>{%trans%}Notifiedserial{%endtrans%}</th>
+                <th>{%trans%}Records{%endtrans%}</th>
+                <th>{%trans%}Actions{%endtrans%}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td data-title="{% trans %}Enabled{% endtrans %}" class="center">{% embed "ACSACSPanelBundle:Common:toggle_widget.html.twig" with {'entity': entity} %}{% block url %}{{ path('dnsdomain_setenabled', { 'id': entity.id }) }}{% endblock %}{% endembed %}</td>
+                <td data-title="{% trans %}Name{% endtrans %}" ><a href="{{ path('dnsdomain_show', { 'id': entity.id }) }}">{{ entity.domain }}</a></td>
+                <td data-title="{% trans %}Type{% endtrans %}" >{{ entity.type }}</td>
+                <td data-title="{% trans %}Notified Serial{% endtrans %}" >{{ entity.notifiedSerial }}</td>
+                <td data-title="{% trans %}Records{% endtrans %}" >
+                    <ul>
+                        {% render controller("ACSACSPanelBundle:DnsRecord:showWidget" ,{ 'records' : entity.dnsrecords })  %}
+                    </ul>
+                </td>
+                <td data-title="{% trans %}Actions{% endtrans %}" >
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            {% trans %}Actions{% endtrans %}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ path('dnsdomain_show', { 'id': entity.id }) }}">{%trans%}show{%endtrans%}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dnsdomain_edit', { 'id': entity.id }) }}">{%trans%}edit{%endtrans%}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dnsrecord_new_with_domain', { 'dnsdomain_id': entity.id }) }}">{%trans%}add record{%endtrans%}</a>
+                        </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% embed "ACSACSPanelBundle:Common:action_links.html.twig" with {'entity_name': 'database', 'new': true} %}
+    {% block new_link %}{{ path('dnsdomain_new') }}{% endblock %}
+{% endembed %}
+
+{% endblock %}
