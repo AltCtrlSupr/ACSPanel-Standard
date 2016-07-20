@@ -185,7 +185,7 @@ class HttpdHostController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $names_check = array($domain_name, $this->getDomain($domain_name));
+        $names_check = array($domain_name);
 
         $domain_exists = $this->dnsAliasOrDomainExists($names_check);
 
@@ -349,13 +349,6 @@ class HttpdHostController extends FOSRestController
         return false;
     }
 
-    /*
-     * Extracts only the domain.tls from a url
-     */
-    private function getDomain($url) {
-        $domain_tools = new DomainModule($url);
-        return $domain_tools->get_reg_domain();
-    }
 
     public function setenabledAction(Request $request, $id)
     {
