@@ -29,7 +29,6 @@ security:
                 provider: fos_userbundle
             form_login:
                 provider: fos_userbundle
-                csrf_provider: form.csrf_provider
             logout:
                 path: /logout
                 invalidate_session: false

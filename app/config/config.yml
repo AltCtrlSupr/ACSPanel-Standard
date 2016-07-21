@@ -4,7 +4,7 @@ imports:
     - { resource: doctrine_extensions.yml }
     - { resource: services.yml }
     - { resource: panel_settings.yml }
-    - { resource: @ACSACSPanelBundle/Resources/config/services.yml }
+    - { resource: '@ACSACSPanelBundle/Resources/config/services.yml' }
 
 framework:
     translator:      { fallback: es }
@@ -104,14 +104,12 @@ fos_user:
         address:        noreply@acs.li
         sender_name:    ACS System Admin
 
-# app/config/config.yml
 knp_menu:
     twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
         template: ACSACSPanelBundle:Menu:knp_menu.html.twig
     templating: false # if true, enables the helper for PHP templates
     default_renderer: twig # The renderer to use, list is also available by default
 
-# app/config/config.yml
 stof_doctrine_extensions:
     default_locale: es_ES
     orm:
@@ -143,9 +141,6 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_pagination.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
-
-# entity id bundle
-gregwar_form: ~
 
 braincrafted_bootstrap:
     jquery_path: '%kernel.root_dir%/../vendor/components/jquery/jquery.min.js'
