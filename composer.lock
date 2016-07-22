@@ -1448,12 +1448,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gtrias/AclManagerBundle.git",
-                "reference": "1b0704fa286194c74ac8481c3dc12dfb3a4f62dc"
+                "reference": "20baeb54e0e283ae1976eb2d5c91d294f5d5f336"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/1b0704fa286194c74ac8481c3dc12dfb3a4f62dc",
-                "reference": "1b0704fa286194c74ac8481c3dc12dfb3a4f62dc",
+                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/20baeb54e0e283ae1976eb2d5c91d294f5d5f336",
+                "reference": "20baeb54e0e283ae1976eb2d5c91d294f5d5f336",
                 "shasum": ""
             },
             "require": {
@@ -1496,7 +1496,7 @@
             "keywords": [
                 "acl"
             ],
-            "time": "2016-07-22 09:50:49"
+            "time": "2016-07-22 10:34:12"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2822,7 +2822,7 @@
         },
         {
             "name": "stof/doctrine-extensions-bundle",
-            "version": "dev-master",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
