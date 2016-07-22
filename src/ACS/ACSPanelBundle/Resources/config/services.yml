@@ -69,7 +69,8 @@ services:
         class: ACS\ACSPanelBundle\Event\Subscribers\KernelSubscriber
         arguments: ['@event_dispatcher', '@router', '@session']
         calls:
-            - [ setSecurity, ['@security.context'] ]
+            - [ setSecurity, ['@security.token_storage'] ]
+            - [ setSecurityAuthorization, ['@security.token_storage'] ]
             - [ setSettingsManager, ['@acs.setting_manager'] ]
             - [ setActiveTheme, ['@liip_theme.active_theme'] ]
         tags:

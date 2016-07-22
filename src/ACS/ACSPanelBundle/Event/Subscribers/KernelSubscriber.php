@@ -14,6 +14,8 @@ class KernelSubscriber implements EventSubscriberInterface
 
     private $security;
 
+    private $securityAuthorization;
+
     private $settings_manager;
 
     private $active_theme;
@@ -32,6 +34,11 @@ class KernelSubscriber implements EventSubscriberInterface
     public function setSecurity($security)
     {
         $this->security = $security;
+    }
+
+    public function setSecurityAuthorization($securityAuthorization)
+    {
+        $this->securityAuthorization = $securityAuthorization;
     }
 
     public function setSettingsManager($manager)
@@ -112,7 +119,7 @@ class KernelSubscriber implements EventSubscriberInterface
             $user = $security->getToken()->getUser();
         }
 
-        if ( ($security->getToken() ) && ( $security->isGranted('IS_AUTHENTICATED_FULLY') ) ) {
+        if ( ($security->getToken() ) && ( $this->securityAuthorization->isGranted('IS_AUTHENTICATED_FULLY') ) ) {
             $route_name = $event->getRequest()->get('_route');
             if ($route_name != 'fos_user_change_password') {
 
