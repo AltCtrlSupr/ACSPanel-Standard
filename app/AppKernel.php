@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
