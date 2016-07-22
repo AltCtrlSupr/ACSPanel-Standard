@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new Problematic\AclManagerBundle\ProblematicAclManagerBundle(),
             new ACS\ACSPanelBundle\ACSACSPanelBundle(),
             new ACS\ACSPanelUsersBundle\ACSACSPanelUsersBundle(),
             new ACS\ACSPanelSettingsBundle\ACSACSPanelSettingsBundle(),
@@ -46,9 +47,24 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    public function getRootDir()
+    {
+        return __DIR__;
+    }
+
+    public function getCacheDir()
+    {
+        return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
+    }
+
+    public function getLogDir()
+    {
+        return dirname(__DIR__).'/var/logs';
+    }
+
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }
 
     public function registerRootDir()
@@ -56,11 +72,4 @@ class AppKernel extends Kernel
         return __DIR__;
     }
 
-    protected function initializeContainer() {
-        parent::initializeContainer();
-        if (PHP_SAPI == 'cli') {
-            $this->getContainer()->enterScope('request');
-            $this->getContainer()->set('request', new \Symfony\Component\HttpFoundation\Request(), 'request');
-        }
-    }
 }

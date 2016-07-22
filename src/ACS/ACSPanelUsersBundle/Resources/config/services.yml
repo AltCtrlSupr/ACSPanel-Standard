@@ -46,6 +46,6 @@ services:
     acspanel.show_user_listener:
         class: %acspanel.show_user_listener.class%
         calls:
-            - [setSecurity, ['@security.context']]
+            - [setSecurity, ['@security.token_storage']]
         tags:
             - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }

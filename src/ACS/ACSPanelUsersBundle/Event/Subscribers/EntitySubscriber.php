@@ -79,7 +79,7 @@ class EntitySubscriber implements EventSubscriber
 
     public function getCurrentUser()
     {
-        $service = $this->container->get('security.context');
+        $service = $this->container->get('security.token_storage');
 
         if(!$service->getToken())
             return;
@@ -96,7 +96,7 @@ class EntitySubscriber implements EventSubscriber
             return;
 
 
-        $service = $this->container->get('security.context');
+        $service = $this->container->get('security.token_storage');
 
         if ($service) {
             if ($service->getToken()) {

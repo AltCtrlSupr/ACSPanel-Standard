@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "80c80f835ee651a175ee0c33948b4c68",
-    "content-hash": "d898e6c462d5075002ab581b70fd98ae",
+    "hash": "6067fe77f66be4a3d7eed37d2e8fac6f",
+    "content-hash": "5794f0e66ccce287be6d4e511191ae6f",
     "packages": [
         {
             "name": "avanzu/admin-theme-bundle",
@@ -1441,6 +1441,62 @@
                 "uploadable"
             ],
             "time": "2016-07-19 06:08:11"
+        },
+        {
+            "name": "gtrias/acl-manager-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gtrias/AclManagerBundle.git",
+                "reference": "1b0704fa286194c74ac8481c3dc12dfb3a4f62dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/1b0704fa286194c74ac8481c3dc12dfb3a4f62dc",
+                "reference": "1b0704fa286194c74ac8481c3dc12dfb3a4f62dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.4"
+            },
+            "suggest": {
+                "doctrine/couchdb-odm-bundle": "*",
+                "symfony/doctrine-bundle": "*",
+                "symfony/mongodb-odm-bundle": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Problematic\\AclManagerBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derek Stobbe",
+                    "email": "djstobbe@gmail.com"
+                },
+                {
+                    "name": "Nuxia",
+                    "email": "contact@nuxia.fr"
+                },
+                {
+                    "name": "Genar",
+                    "email": "genar@acs.li"
+                }
+            ],
+            "description": "ACL Manager for Symfony2",
+            "homepage": "https://github.com/gtrias/AclManagerBundle",
+            "keywords": [
+                "acl"
+            ],
+            "time": "2016-07-22 09:50:49"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -4697,6 +4753,7 @@
         "nelmio/api-doc-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
         "friendsofsymfony/user-bundle": 20,
+        "gtrias/acl-manager-bundle": 20,
         "craue/formflow-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20
     },
