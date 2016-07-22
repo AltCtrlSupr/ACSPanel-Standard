@@ -29,9 +29,8 @@ twig:
         panel_name: ACSPanel
         date_format: d-m-Y H:i:s
         title_separator: >
-    form:
-        resources:
-            - '::acspanel.forms.html.twig'
+    form_themes:
+        - '::acspanel.forms.html.twig'
 
 # Assetic Configuration
 assetic:
