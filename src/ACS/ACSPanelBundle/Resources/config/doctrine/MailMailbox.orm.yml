@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\MailMailbox:
     type: entity
     repositoryClass: ACS\ACSPanelBundle\Model\MailMailboxRepository
     table: mail_mailbox
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

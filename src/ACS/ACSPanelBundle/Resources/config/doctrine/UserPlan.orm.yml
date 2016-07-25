@@ -1,8 +1,6 @@
 ACS\ACSPanelBundle\Entity\UserPlan:
     type: entity
     table: user_plan
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

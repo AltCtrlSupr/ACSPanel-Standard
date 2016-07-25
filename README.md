@@ -14,7 +14,6 @@ Features:
   - Multiserver: ACSPanel can be decentralized, you can have how many servers as you wish for each service. Each server will know what has to do.
   - Role based user system: ACSPanel has 4 basic roles, superadmin, admin, reseller and final user. Each one with its different available actions based on its permissions and assigned plans.
   - Plan system: ACSPanel works with custom Plans, you can create your different Plans to manage your resources.
-  - Logged actions: Each change in the database is logged in database. You can know what did anyone and also check the changes and do rollback to the entity (Comming soon...). Thanks to [StofDoctrineExtensionsBundle][16] and [DoctrineExtensions][17]
   - Admin theme, thanks to [AvanzuAdminThemeBundle][https://github.com/avanzu/AdminThemeBundle]
   - Mobile front-end (Comming soon...):
   - Wordpress farm: See [PanelWordpressBundle][19]
@@ -235,8 +234,6 @@ Symfony2 comes pre-configured with the following bundles:
 And ACSPanel adds the following Bundles:
 
   * [**FOSUserBundle**][26] - Adds the user authentication and administration.
-
-  * [**StofDoctrineExtensionsBundle**][27] - Adds loggable support to entities.
 
   * [**KnpMenuBundle**][28] - Adds the menu generation system.
 

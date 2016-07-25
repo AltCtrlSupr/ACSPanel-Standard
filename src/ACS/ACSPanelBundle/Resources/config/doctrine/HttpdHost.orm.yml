@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
     type: entity
     repositoryClass: ACS\ACSPanelBundle\Model\HttpdHostRepository
     table: httpd_host
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true
@@ -38,7 +36,7 @@ ACS\ACSPanelBundle\Entity\HttpdHost:
             column: usessl
         enabled:
             type: boolean
-            nullable: true 
+            nullable: true
             gedmo:
                 - versioned
         certificate:

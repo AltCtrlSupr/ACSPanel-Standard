@@ -70,9 +70,9 @@ doctrine:
                 charset:  UTF8
                 mapping_types:
                     enum: string
-
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
 # Swiftmailer Configuration
@@ -107,13 +107,6 @@ knp_menu:
         template: ACSACSPanelBundle:Menu:knp_menu.html.twig
     templating: false # if true, enables the helper for PHP templates
     default_renderer: twig # The renderer to use, list is also available by default
-
-stof_doctrine_extensions:
-    default_locale: es_ES
-    orm:
-        default:
-          #timestampable: true
-          loggable: true
 
 # liip theme
 liip_theme:

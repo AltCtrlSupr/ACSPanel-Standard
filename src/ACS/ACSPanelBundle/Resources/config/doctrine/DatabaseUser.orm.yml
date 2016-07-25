@@ -1,8 +1,6 @@
 ACS\ACSPanelBundle\Entity\DatabaseUser:
     type: entity
     table: database_user
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6067fe77f66be4a3d7eed37d2e8fac6f",
-    "content-hash": "5794f0e66ccce287be6d4e511191ae6f",
+    "hash": "08c9057b8983f9b630c1eb7f5d7ba69c",
+    "content-hash": "f1aec430303d8bb8959eb02196494957",
     "packages": [
         {
             "name": "avanzu/admin-theme-bundle",
@@ -4749,7 +4749,6 @@
     "stability-flags": {
         "nelmio/alice": 20,
         "twbs/bootstrap": 20,
-        "stof/doctrine-extensions-bundle": 20,
         "nelmio/api-doc-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
         "friendsofsymfony/user-bundle": 20,

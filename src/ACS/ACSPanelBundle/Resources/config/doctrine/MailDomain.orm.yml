@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\MailDomain:
     type: entity
     table: mail_domain
     repositoryClass: ACS\ACSPanelBundle\Model\MailDomainRepository
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

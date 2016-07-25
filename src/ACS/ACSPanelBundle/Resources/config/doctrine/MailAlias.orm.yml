@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\MailAlias:
     type: entity
     repositoryClass: ACS\ACSPanelBundle\Model\MailAliasRepository
     table: mail_alias
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true
@@ -26,7 +24,7 @@ ACS\ACSPanelBundle\Entity\MailAlias:
                 - versioned
         enabled:
             type: boolean
-            nullable: true 
+            nullable: true
             gedmo:
                 - versioned
         createdAt:

@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\Service:
     type: entity
     table: service
     repositoryClass: ACS\ACSPanelBundle\Model\ServiceRepository
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

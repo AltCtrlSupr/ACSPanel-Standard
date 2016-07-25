@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\Plan:
     type: entity
     repositoryClass: ACS\ACSPanelBundle\Model\PlanRepository
     table: plan
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

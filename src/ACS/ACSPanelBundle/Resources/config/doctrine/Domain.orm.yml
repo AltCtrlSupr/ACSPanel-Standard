@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\Domain:
     type: entity
     repositoryClass: ACS\ACSPanelBundle\Model\DomainRepository
     table: domain
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true

@@ -2,8 +2,6 @@ ACS\ACSPanelBundle\Entity\HttpdUser:
     type: entity
     repositoryClass: ACS\ACSPanelBundle\Model\HttpdUserRepository
     table: httpd_user
-    gedmo:
-        loggable: {}
     fields:
         id:
             id: true
