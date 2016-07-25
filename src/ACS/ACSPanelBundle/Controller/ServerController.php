@@ -32,7 +32,7 @@ class ServerController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $this->get('server_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('server_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         return array(
             'entities' => $entities

@@ -13,7 +13,7 @@ class UserHttpdHostType extends HttpdHostType
     {
         $service = $this->container->get('security.context');
         $container = $this->container;
-        $user = $container->get('security.context')->getToken()->getUser();
+        $user = $container->get('security.token_storage')->getToken()->getUser();
 
         $security = $container->get('security.context');
 

@@ -28,7 +28,7 @@ class MailAliasController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
 
         // IF is admin can see all the hosts, if is user only their ones...
-        $entities = $this->get('mailalias_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('mailalias_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         return array(
             'entities' => $entities
@@ -79,7 +79,7 @@ class MailAliasController extends FOSRestController
     public function newAction($maildomain_id = '')
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->canUseResource('MailAlias',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
                 'entity' => 'MailAlias'

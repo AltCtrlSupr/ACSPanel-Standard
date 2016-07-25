@@ -26,9 +26,14 @@ class FtpdUserController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
 
         // IF is admin can see all the ftpdusers, if is user only their ones...
-        $entities = $this->get('ftpduser_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('ftpduser_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
-        $entities = $em->getRepository('ACSACSPanelBundle:FtpdUser')->findBy(array('user'=>$this->get('security.context')->getToken()->getUser()->getIdChildIds()));
+        $entities = $em
+            ->getRepository('ACSACSPanelBundle:FtpdUser')
+            ->findBy(array(
+                'user' => $this->get('security.token_storage')->getToken()->getUser()->getIdChildIds()
+            )
+        );
 
         return $this->render('ACSACSPanelBundle:FtpdUser:index.html.twig', array(
             'entities' => $entities,
@@ -67,7 +72,7 @@ class FtpdUserController extends FOSRestController
     public function newAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->canUseResource('FtpdUser',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
                 'entity' => 'FtpdUser'

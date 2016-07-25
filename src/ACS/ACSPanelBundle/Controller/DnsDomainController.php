@@ -45,7 +45,7 @@ class DnsDomainController extends CommonController
         $em = $this->getDoctrine()->getManager();
 
         // IF is admin can see all the dnsdomains, if is user only their ones...
-        $entities = $this->get('dnsdomain_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('dnsdomain_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         $view = $this->view($entities, 200)
             ->setTemplateData(array('search_action' => 'dnsdomain_search'))
@@ -91,7 +91,7 @@ class DnsDomainController extends CommonController
     public function newAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
         if (!$user->canUseResource('DnsDomain',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(

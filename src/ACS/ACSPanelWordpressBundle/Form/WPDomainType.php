@@ -18,13 +18,6 @@ class WPDomainType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security = $this->container->get('security.context');
-        $user = $security->getToken()->getUser();
-        $child_ids = $user->getIdChildIds();
-        $superadmin = false;
-        if($security->isGranted('ROLE_SUPER_ADMIN'))
-            $superadmin = true;
-
         $builder
             ->add('domain', null, array('label' => 'domain.form.domain'))
         ;

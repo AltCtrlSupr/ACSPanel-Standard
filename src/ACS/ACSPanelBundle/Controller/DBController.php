@@ -27,7 +27,7 @@ class DBController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
 
         // IF is admin can see all the databases, if is user only their ones...
-        $entities = $this->get('db_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('db_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         return $this->render('ACSACSPanelBundle:DB:index.html.twig', array(
             'entities' => $entities,
@@ -66,7 +66,7 @@ class DBController extends FOSRestController
     public function newAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
         if (!$user->canUseResource('Db',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
@@ -101,7 +101,7 @@ class DBController extends FOSRestController
         $validator = $this->get('validator');
 
         // We get current user, if is admin action we take the form user
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if($entity->getUser())
             $user = $entity->getUser();
 

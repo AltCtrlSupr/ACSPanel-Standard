@@ -44,12 +44,12 @@ class UserController extends CommonController
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+        if (true === $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')) {
             $entities = $em->getRepository('ACSACSPanelUsersBundle:User')->findAll();
-        }elseif(true === $this->get('security.context')->isGranted('ROLE_ADMIN')){
-            $entities = $em->getRepository('ACSACSPanelUsersBundle:User')->findBy(array('parent_user' => $this->get('security.context')->getToken()->getUser()->getIdChildIds()));
+        }elseif(true === $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')){
+            $entities = $em->getRepository('ACSACSPanelUsersBundle:User')->findBy(array('parent_user' => $this->get('security.token_storage')->getToken()->getUser()->getIdChildIds()));
         }else{
-            $user = $this->get('security.context')->getToken()->getUser();
+            $user = $this->get('security.token_storage')->getToken()->getUser();
             $entities = $em->getRepository('ACSACSPanelUsersBundle:User')->findBy(array('parent_user' => $user->getId()));
         }
 
@@ -103,7 +103,7 @@ class UserController extends CommonController
     {
         $entity = new User();
 
-        $form = $this->createForm(new UserType($this->get('security.context')), $entity, array(
+        $form = $this->createForm(new UserType($this->get('security.authorization_checker')), $entity, array(
             'em' => $this->getDoctrine()->getManager(),
         ));
 
@@ -122,7 +122,7 @@ class UserController extends CommonController
     public function createAction(Request $request)
     {
         $entity  = new User();
-        $form = $this->createForm(new UserType($this->get('security.context')), $entity, array(
+        $form = $this->createForm(new UserType($this->get('security.authorization_checker')), $entity, array(
             'em' => $this->getDoctrine()->getManager(),
         ));
         $form->bind($request);
@@ -231,7 +231,7 @@ class UserController extends CommonController
             throw $this->createNotFoundException('Unable to find User entity.');
         }
 
-        $editForm = $this->createForm(new UserType($this->get('security.context')), $entity, array(
+        $editForm = $this->createForm(new UserType($this->get('security.authorization_checker')), $entity, array(
             'em' => $em,
         ));
 
@@ -298,7 +298,7 @@ class UserController extends CommonController
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new UserType($this->get('security.context')), $entity, array(
+        $editForm = $this->createForm(new UserType($this->get('security.authorization_checker')), $entity, array(
             'em' => $this->getDoctrine()->getManager(),
         ));
 

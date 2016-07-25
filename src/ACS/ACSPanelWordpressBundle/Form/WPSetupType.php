@@ -18,9 +18,7 @@ class WPSetupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $container = $this->container;
-        $security = $container->get('security.context');
-        $user = $security->getToken()->getUser();
-        $child_ids = $user->getIdChildIds();
+        $security = $container->get('security.authorization_checker');
         $superadmin = false;
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             $superadmin = true;
@@ -38,7 +36,6 @@ class WPSetupType extends AbstractType
         if($superadmin){
             $builder->add('user');
         }
-        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

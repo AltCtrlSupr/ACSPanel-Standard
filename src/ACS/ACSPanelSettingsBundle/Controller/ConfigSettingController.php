@@ -32,7 +32,7 @@ class ConfigSettingController extends Controller
         $object = $em->getRepository('ACSACSPanelBundle:Service')->find($object_id);
         $object_fields = $object->getType()->getFieldTypes();
 
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
         // Adding one form for each setting field
         foreach($object_fields as $id => $field_config){
@@ -69,7 +69,7 @@ class ConfigSettingController extends Controller
     public function panelSettingsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
         $settingmanager = $this->get('acs.setting_manager');
 
@@ -100,7 +100,7 @@ class ConfigSettingController extends Controller
         $user_fields = $settingmanager->loadUserFields();
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $this->get('security.context')->getToken()->getUser();
+        $entity = $this->get('security.token_storage')->getToken()->getUser();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find ConfigSetting entity.');

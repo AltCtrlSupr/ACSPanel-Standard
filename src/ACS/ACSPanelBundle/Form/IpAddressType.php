@@ -16,7 +16,7 @@ class IpAddressType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security = $this->container->get('security.context');
+        $security = $this->container->get('security.authorization_checker');
 
         $builder
             ->add('ip')

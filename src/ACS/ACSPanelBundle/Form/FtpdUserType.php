@@ -19,7 +19,7 @@ class FtpdUserType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $service = $this->container->get('security.context');
+        $service = $this->container->get('security.token_storage');
         $user = $service->getToken()->getUser();
         $user_services = $this->container->get('service_repository')->getFTPServices($user);
 

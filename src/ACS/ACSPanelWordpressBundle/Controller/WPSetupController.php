@@ -27,12 +27,12 @@ class WPSetupController extends Controller
         $em = $this->getDoctrine()->getManager();
         //
         // IF is admin can see all the hosts, if is user only their ones...
-        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+        if (true === $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')) {
             $entities = $em->getRepository('ACSACSPanelWordpressBundle:WPSetup')->findAll();
-        }elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')){
-            $entities = $em->getRepository('ACSACSPanelWordpressBundle:WPSetup')->findByUsers($this->get('security.context')->getToken()->getUser()->getIdChildIds());
-        }elseif(true === $this->get('security.context')->isGranted('ROLE_USER')){
-            $entities = $em->getRepository('ACSACSPanelWordpressBundle:WPSetup')->findByUser($this->get('security.context')->getToken()->getUser());
+        }elseif(true === $this->get('security.authorization_checker')->isGranted('ROLE_RESELLER')){
+            $entities = $em->getRepository('ACSACSPanelWordpressBundle:WPSetup')->findByUsers($this->get('security.token_storage')->getToken()->getUser()->getIdChildIds());
+        }elseif(true === $this->get('security.authorization_checker')->isGranted('ROLE_USER')){
+            $entities = $em->getRepository('ACSACSPanelWordpressBundle:WPSetup')->findByUser($this->get('security.token_storage')->getToken()->getUser());
         }
 
         $paginator  = $this->get('knp_paginator');
@@ -96,7 +96,7 @@ class WPSetupController extends Controller
 
         if ($form->isValid()) {
 
-            $user = $this->get('security.context')->getToken()->getUser();
+            $user = $this->get('security.token_storage')->getToken()->getUser();
 
             $domain = $form['domain']->getData();
             if(isset($form['user']))

@@ -23,7 +23,7 @@ class PlanController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $this->get('plan_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('plan_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         return $this->render('ACSACSPanelBundle:Plan:index.html.twig', array(
             'entities' => $entities,
@@ -57,7 +57,7 @@ class PlanController extends Controller
      */
     public function newAction()
     {
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (false === $this->get('security.token_storage')->isGranted('ROLE_ADMIN')) {
             return $this->render('ACSACSPanelBundle:Error:access_denied', array(
                 'entity' => 'Plan'
             ));
@@ -102,7 +102,7 @@ class PlanController extends Controller
      */
     public function editAction($id)
     {
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (false === $this->get('security.token_storage')->isGranted('ROLE_ADMIN')) {
             return $this->render('ACSACSPanelBundle:Error:access_denied', array(
                 'entity' => 'Plan'
             ));

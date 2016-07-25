@@ -42,7 +42,7 @@ abstract class SettingManager extends EntityRepository
      */
     public function loadSettingDefaults(array $fields, $user)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         foreach($fields as $field){
             if (!$this->getSetting($field['setting_key'], $field['focus'], $user)) {
@@ -239,10 +239,10 @@ abstract class SettingManager extends EntityRepository
 
         array_merge($user_fields, $user_fields = $this->container->getParameter("acs_settings.user_fields"));
 
-        $user = $this->container->get('security.context')->getToken()->getUser();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         // If is admins we load the global system settings
-        if (true === $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+        if (true === $this->container->get('security.token_storage')->isGranted('ROLE_SUPER_ADMIN')) {
             $user_fields = array_merge($user_fields, $system_fields = $this->container->getParameter("acs_settings.system_fields"));
         }
 

@@ -33,7 +33,7 @@ class MailDomainController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
 
         // IF is admin can see all the hosts, if is user only their ones...
-        $entities = $this->get('maildomain_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('maildomain_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         return $this->render('ACSACSPanelBundle:MailDomain:index.html.twig', array(
             'entities' => $entities,
@@ -73,7 +73,7 @@ class MailDomainController extends FOSRestController
     {
 
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->canUseResource('MailDomain',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
                 'entity' => 'MailDomain'

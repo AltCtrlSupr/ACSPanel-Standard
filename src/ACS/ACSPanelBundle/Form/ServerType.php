@@ -23,7 +23,7 @@ class ServerType extends AbstractType
             ->add('description')
         ;
 
-        $security = $this->container->get('security.context');
+        $security = $this->container->get('security.authorization_checker');
         if ($security->isGranted('ROLE_ADMIN')) {
             $builder->add('user');
         }

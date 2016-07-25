@@ -23,18 +23,18 @@ class LogItemController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // IF is admin can see all the hosts, if is user only their ones...
-        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+        if (true === $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')) {
             $entities = $em->getRepository('GedmoLoggable:LogEntry')->createQueryBuilder('l')->orderBy('l.loggedAt','desc');
-        } elseif(true === $this->get('security.context')->isGranted('ROLE_RESELLER')) {
+        } elseif(true === $this->get('security.authorization_checker')->isGranted('ROLE_RESELLER')) {
             $entities = $em->getRepository('GedmoLoggable:LogEntry')
                 ->createQueryBuilder('l')
                 ->where('l.username IN (?1)')
-                ->setParameter('1', $this->get('security.context')->getToken()->getUser()->getChildUsernames())->orderBy('l.loggedAt','desc')
+                ->setParameter('1', $this->get('security.token_storage')->getToken()->getUser()->getChildUsernames())->orderBy('l.loggedAt','desc')
             ;
-        } elseif(true === $this->get('security.context')->isGranted('ROLE_USER')) {
+        } elseif(true === $this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
             $entities = $em->getRepository('GedmoLoggable:LogEntry')
                 ->createQueryBuilder('l')->where('l.username like ?1')
-                ->setParameter('1', $this->get('security.context')->getToken()->getUser())->orderBy('l.loggedAt','desc')
+                ->setParameter('1', $this->get('security.token_storage')->getToken()->getUser())->orderBy('l.loggedAt','desc')
             ;
         }
 

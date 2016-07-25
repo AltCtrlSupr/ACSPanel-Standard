@@ -49,7 +49,7 @@ class ServiceType extends AbstractType
             }
         });
 
-        $service = $this->container->get('security.context');
+        $service = $this->container->get('security.authorization_checker');
         if ($service->isGranted('ROLE_ADMIN')) {
             $builder->add('user');
         }

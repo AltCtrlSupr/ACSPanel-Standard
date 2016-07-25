@@ -78,7 +78,7 @@ class DynamicDnsController extends FOSRestController
     public function newAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->canUseResource('DnsRecord',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
                 'entity' => 'DnsRecord'
@@ -156,7 +156,7 @@ class DynamicDnsController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $this->get('dnsrecord_repository')->findOneDynamic($this->get('security.context')->getToken()->getUser(), $hostname);
+        $entity = $this->get('dnsrecord_repository')->findOneDynamic($this->get('security.token_storage')->getToken()->getUser(), $hostname);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find DnsRecord entity.');

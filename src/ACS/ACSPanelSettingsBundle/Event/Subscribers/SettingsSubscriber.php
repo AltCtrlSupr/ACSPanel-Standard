@@ -26,7 +26,7 @@ class SettingsSubscriber implements EventSubscriberInterface
     {
         $settings_manager = $userfields_filter->getContainer()->get('acs.setting_manager');
 
-        $user = $userfields_filter->getContainer()->get('security.context')->getToken()->getUser();
+        $user = $userfields_filter->getContainer()->get('security.token_storage')->getToken()->getUser();
 
         $fields_template = $userfields_filter->getUserFields();
 

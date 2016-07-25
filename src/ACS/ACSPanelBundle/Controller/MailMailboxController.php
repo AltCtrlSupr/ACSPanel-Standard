@@ -33,7 +33,7 @@ class MailMailboxController extends CommonController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $this->get('mailmailbox_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('mailmailbox_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         return $this->render('ACSACSPanelBundle:MailMailbox:index.html.twig', array(
             'entities' => $entities,
@@ -73,7 +73,7 @@ class MailMailboxController extends CommonController
     public function newAction($maildomain_id = '')
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->canUseResource('MailMailbox',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
                 'entity' => 'MailMailbox'
@@ -141,7 +141,7 @@ class MailMailboxController extends CommonController
             throw $this->createNotFoundException('Unable to find MailMailbox entity.');
         }
 
-        if (!$entity->userCanEdit($this->get('security.context')->getToken()->getUser())) {
+        if (!$entity->userCanEdit($this->get('security.token_storage')->getToken()->getUser())) {
             throw $this->createNotFoundException('You cannot edit this entry.');
         }
 

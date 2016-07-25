@@ -35,7 +35,7 @@ class HttpdHostController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $this->get('httpdhost_repository')->getUserViewable($this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('httpdhost_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
         $search_action = 'httpdhost_search';
 
@@ -81,7 +81,7 @@ class HttpdHostController extends FOSRestController
 
         $term = $request->request->get('term');
 
-        $entities = $this->get('httpdhost_repository')->search($term, $this->get('security.context')->getToken()->getUser());
+        $entities = $this->get('httpdhost_repository')->search($term, $this->get('security.token_storage')->getToken()->getUser());
 
         return $this->render('ACSACSPanelBundle:HttpdHost:index.html.twig', array(
             'search_action' => 'httpdhost_search',
@@ -97,7 +97,7 @@ class HttpdHostController extends FOSRestController
     public function newAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         if (!$user->canUseResource('HttpdHost',$em)) {
             return $this->render('ACSACSPanelBundle:Error:resources.html.twig', array(
                 'entity' => 'HttpdHost'

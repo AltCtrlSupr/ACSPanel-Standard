@@ -64,10 +64,11 @@ class EntitySubscriber implements EventSubscriber
         if($entity->getUser())
             return;
 
-        $service = $this->container->get('security.context');
+        $service = $this->container->get('security.token_storage');
 
-        if(!$service->getToken())
+        if (!$service->getToken()) {
             return;
+        }
 
         $user = $service->getToken()->getUser();
         return $entity->setUser($user);

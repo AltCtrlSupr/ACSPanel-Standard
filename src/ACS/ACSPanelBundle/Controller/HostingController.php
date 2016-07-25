@@ -19,7 +19,7 @@ class HostingController extends Controller
 {
     public function registerHostingAction()
     {
-        $fosuser = $this->get('security.context')->getToken()->getUser();
+        $fosuser = $this->get('security.token_storage')->getToken()->getUser();
 
         $flow = $this->get('acs.form.flow.register_hosting');
 

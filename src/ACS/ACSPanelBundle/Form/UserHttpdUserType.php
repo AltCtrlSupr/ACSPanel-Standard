@@ -17,7 +17,7 @@ class UserHttpdUserType extends ContainerAwareType
         $user_httpd_hosts = $this
             ->container
             ->get('httpdhost_repository')
-            ->getUserViewable($this->container->get('security.context')->getToken()->getUser())
+            ->getUserViewable($this->container->get('security.token_storage')->getToken()->getUser())
         ;
 
         $builder

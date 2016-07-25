@@ -17,7 +17,7 @@ class MailMailboxType extends AbstractType
         if ('AppCache' == get_class($kernel)) {
             $kernel = $kernel->getKernel();
         }
-        $security = $kernel->getContainer()->get('security.context');
+        $security = $kernel->getContainer()->get('security.authorization_checker');
         $user = $security->getToken()->getUser();
         $child_ids = $user->getIdChildIds();
         $superadmin = false;

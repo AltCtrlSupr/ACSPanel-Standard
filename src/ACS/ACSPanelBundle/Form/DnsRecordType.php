@@ -18,7 +18,7 @@ class DnsRecordType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security   = $this->container->get('security.context');
+        $security   = $this->container->get('security.authorization_checker');
         $user       = $security->getToken()->getUser();
         $child_ids  = $user->getIdChildIds();
         $superadmin = false;
