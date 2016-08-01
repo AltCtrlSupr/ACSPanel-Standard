@@ -70,7 +70,7 @@ services:
         arguments: ['@event_dispatcher', '@router', '@session']
         calls:
             - [ setSecurity, ['@security.token_storage'] ]
-            - [ setSecurityAuthorization, ['@security.token_storage'] ]
+            - [ setSecurityAuthorization, ['@security.authorization_checker'] ]
             - [ setSettingsManager, ['@acs.setting_manager'] ]
             - [ setActiveTheme, ['@liip_theme.active_theme'] ]
         tags:
