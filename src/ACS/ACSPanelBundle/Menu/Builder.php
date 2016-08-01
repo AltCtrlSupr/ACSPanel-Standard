@@ -2,14 +2,17 @@
 namespace ACS\ACSPanelBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerAware;
 
 use ACS\ACSPanelBundle\Event\FilterMenuEvent;
 
 use ACS\ACSPanelBundle\Event\MenuEvents;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
-class Builder extends ContainerAware
+class Builder implements ContainerAwareInterface
 {
+    use ContainerAwareTrait;
+
 	private function createRootMenu($factory)
     {
         $menu = $factory->createItem('root', array(
