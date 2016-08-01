@@ -1,25 +1,25 @@
 logitem:
-    pattern:  /
+    path:  /
     defaults: { _controller: "ACSACSPanelBundle:LogItem:index" }
 
 logs:
-    pattern:  /
+    path:  /
     defaults: { _controller: "ACSACSPanelBundle:LogItem:index" }
 
 logitem_search:
-    pattern:  /search/
+    path:  /search/
     defaults: { _controller: "ACSACSPanelBundle:LogItem:search" }
     requirements: { _method: post }
 
 logitem_show:
-    pattern:  /{id}/show
+    path:  /{id}/show
     defaults: { _controller: "ACSACSPanelBundle:LogItem:show" }
 
 logitem_versions:
-    pattern:  /{id}/versions
+    path:  /{id}/versions
     defaults: { _controller: "ACSACSPanelBundle:LogItem:versions" }
 
 logitem_update:
-    pattern:  /{id}/update
+    path:  /{id}/update
     defaults: { _controller: "ACSACSPanelBundle:LogItem:update" }
     requirements: { _method: post }

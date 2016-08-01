@@ -23,6 +23,5 @@ class DefaultControllerTest extends CommonTestCase
                 'application/json'
             )
         );
-
     }
 }

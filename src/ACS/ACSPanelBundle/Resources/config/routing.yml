@@ -1,9 +1,9 @@
 acs_acspanel_homepage:
-    pattern:  /
+    path:  /
     defaults: { _controller: ACSACSPanelBundle:Default:index }
 
 acs_acspanel_register_host:
-    pattern:  /register_hosting
+    path:  /register_hosting
     defaults: { _controller: ACSACSPanelBundle:Hosting:registerHosting }
 
 # Entities routes
@@ -13,7 +13,7 @@ ACSACSPanelBundle_domain:
 
 api_ACSACSPanelBundle_domain:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\DomainController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\DomainController"
     prefix:   /api/
 
 acs_acspanel_httpdhost:
@@ -22,7 +22,7 @@ acs_acspanel_httpdhost:
 
 api_ACSACSPanelBundle_httpdhost:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\HttpdHostController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\HttpdHostController"
     prefix:   /api/
 
 ACSACSPanelBundle_httpduser:
@@ -31,7 +31,7 @@ ACSACSPanelBundle_httpduser:
 
 api_ACSACSPanelBundle_httpduser:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\HttpdUserController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\HttpdUserController"
     prefix:   /api/
 
 ACSACSPanelBundle_httpduser:
@@ -48,7 +48,7 @@ ACSACSPanelBundle_server:
 
 api_ACSACSPanelBundle_server:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\ServerController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\ServerController"
     prefix:   /api/
 
 ACSACSPanelBundle_service:
@@ -57,7 +57,7 @@ ACSACSPanelBundle_service:
 
 api_ACSACSPanelBundle_service:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\ServiceController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\ServiceController"
     prefix:   /api/
 
 ACSACSPanelBundle_servicetype:
@@ -70,7 +70,7 @@ ACSACSPanelBundle_ipaddress:
 
 api_ACSACSPanelBundle_ipaddress:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\IpAddressController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\IpAddressController"
     prefix:   /api/
 
 ACSACSPanelBundle_plans:
@@ -83,7 +83,7 @@ ACSACSPanelBundle_dnsdomain:
 
 api_ACSACSPanelBundle_dnsdomain:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\DnsDomainController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\DnsDomainController"
     prefix:   /api/
 
 ACSACSPanelBundle_dnsrecord:
@@ -92,7 +92,7 @@ ACSACSPanelBundle_dnsrecord:
 
 api_ACSACSPanelBundle_dnsrecord:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\DnsRecordController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\DnsRecordController"
     prefix:   /api/
 
 ACSACSPanelBundle_mailalias:
@@ -101,7 +101,7 @@ ACSACSPanelBundle_mailalias:
 
 api_ACSACSPanelBundle_mailalias:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\MailAliasController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\MailAliasController"
     prefix:   /api/
 
 ACSACSPanelBundle_maildomain:
@@ -110,7 +110,7 @@ ACSACSPanelBundle_maildomain:
 
 api_ACSACSPanelBundle_maildomain:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\MailDomainController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\MailDomainController"
     prefix:   /api/
 
 ACSACSPanelBundle_mailmailbox:
@@ -119,7 +119,7 @@ ACSACSPanelBundle_mailmailbox:
 
 api_ACSACSPanelBundle_mailbox:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\MailMailboxController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\MailMailboxController"
     prefix:   /api/
 
 ACSACSPanelBundle_ftpduser:
@@ -132,7 +132,7 @@ ACSACSPanelBundle_db:
 
 api_ACSACSPanelBundle_db:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\DBController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\DBController"
     prefix:   /api/
 
 ACSACSPanelBundle_databaseuser:
@@ -141,7 +141,7 @@ ACSACSPanelBundle_databaseuser:
 
 api_ACSACSPanelBundle_databaseuser:
     type: rest
-    resource: "ACS\ACSPanelBundle\Controller\DatabaseUserController"
+    resource: "ACS\\ACSPanelBundle\\Controller\\DatabaseUserController"
     prefix:   /api/
 
 ACSACSPanelBundle_maillogrcvd:
@@ -152,24 +152,23 @@ ACSACSPanelBundle_mailwblist:
     resource: "@ACSACSPanelBundle/Resources/config/routing/mailwblist.yml"
     prefix:   /mailwblist
 
-
 # Dynamic DNS Action
 dyndns:
-    pattern:  /nic/update
+    path:  /nic/update
     defaults: { _controller: "ACSACSPanelBundle:DynamicDns:update" }
 
 dyndns_show:
-    pattern:  /dyndns/show/{name}
+    path:  /dyndns/show/{name}
     defaults: { _controller: "ACSACSPanelBundle:DynamicDns:show" }
 
 dyndns_new:
-    pattern:  /dyndns/new
+    path:  /dyndns/new
     defaults: { _controller: "ACSACSPanelBundle:DynamicDns:new" }
 
 dyndns_create:
-    pattern:  /dyndns/create
+    path:  /dyndns/create
     defaults: { _controller: "ACSACSPanelBundle:DynamicDns:create" }
 
 dyndns_update:
-    pattern:  /dyndns/update
+    path:  /dyndns/update
     defaults: { _controller: "ACSACSPanelBundle:DynamicDns:update" }

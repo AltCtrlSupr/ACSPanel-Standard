@@ -1,34 +1,34 @@
 server:
-    pattern:  /
+    path:  /
     defaults: { _controller: "ACSACSPanelBundle:Server:index" }
 
 server_show:
-    pattern:  /{id}/show
+    path:  /{id}/show
     defaults: { _controller: "ACSACSPanelBundle:Server:show" }
 
 server_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: "ACSACSPanelBundle:Server:new" }
 
 server_create:
-    pattern:  /create
+    path:  /create
     defaults: { _controller: "ACSACSPanelBundle:Server:create" }
     requirements: { _method: post }
 
 server_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: "ACSACSPanelBundle:Server:edit" }
 
 server_update:
-    pattern:  /{id}/update
+    path:  /{id}/update
     defaults: { _controller: "ACSACSPanelBundle:Server:update" }
     requirements: { _method: post }
 
 server_delete:
-    pattern:  /{id}/delete
+    path:  /{id}/delete
     defaults: { _controller: "ACSACSPanelBundle:Server:delete" }
     requirements: { _method: post }
 
 server_setenabled:
-    pattern: /{id}/setenabled
+    path: /{id}/setenabled
     defaults: { _controller: "ACSACSPanelBundle:Server:setenabled" }

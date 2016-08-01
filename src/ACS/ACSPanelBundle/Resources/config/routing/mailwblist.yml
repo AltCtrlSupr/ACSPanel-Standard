@@ -1,51 +1,51 @@
 mailwblist:
-    pattern:  /
+    path:  /
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:index" }
 
 mailwblist_show:
-    pattern:  /{id}/show
+    path:  /{id}/show
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:show" }
 
 mailwblist_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:new" }
 
 mailwblist_new_rcpt:
-    pattern:  /new/{rcpt}/{blacklisted}
+    path:  /new/{rcpt}/{blacklisted}
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:new" }
 
 mailwblist_new_sender:
-    pattern:  /new/{sender}/{blacklisted}
+    path:  /new/{sender}/{blacklisted}
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:new" }
 
 mailwblist_new_rcpt_sender:
-    pattern:  /new/{rcpt}/{sender}/{blacklisted}
+    path:  /new/{rcpt}/{sender}/{blacklisted}
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:new" }
     requirements:
 
 mailwblist_create:
-    pattern:  /create
+    path:  /create
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:create" }
     requirements: { _method: post }
 
 mailwblist_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:edit" }
 
 mailwblist_update:
-    pattern:  /{id}/update
+    path:  /{id}/update
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:update" }
     requirements: { _method: post }
 
 mailwblist_delete:
-    pattern:  /{id}/delete
+    path:  /{id}/delete
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:delete" }
     requirements: { _method: post }
 
 mailwblist_setenabled:
-    pattern:  /{id}/setenabled
+    path:  /{id}/setenabled
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:setenabled" }
 
 mailwblist_setblacklisted:
-    pattern:  /{id}/setblacklisted
+    path:  /{id}/setblacklisted
     defaults: { _controller: "ACSACSPanelBundle:MailWBList:setblacklisted" }

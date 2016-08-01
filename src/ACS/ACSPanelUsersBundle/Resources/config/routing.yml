@@ -43,6 +43,6 @@ avanzu_admin_logout:
 # API Routes {{
 api_ACSACSPanelUsersBundle_user:
     type: rest
-    resource: "ACS\ACSPanelUsersBundle\Controller\UserController"
+    resource: "ACS\\ACSPanelUsersBundle\\Controller\\UserController"
     prefix:   /api/
 # }}

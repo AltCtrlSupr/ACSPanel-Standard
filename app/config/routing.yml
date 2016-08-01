@@ -21,7 +21,7 @@ acs_settings:
 
 # Global search action
 global_search:
-    pattern:  /search
+    path:  /search
     defaults: { _controller: "ACSACSPanelBundle:Default:search" }
 
 NelmioApiDocBundle:
