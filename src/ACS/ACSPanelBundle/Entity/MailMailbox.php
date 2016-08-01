@@ -580,7 +580,7 @@ class MailMailbox implements AclEntity
     /**
      * Check if user has privileges to see this entity
      */
-    public function userCanSee($security)
+    public function userCanSee($tokenStorage, $auth)
     {
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             return true;

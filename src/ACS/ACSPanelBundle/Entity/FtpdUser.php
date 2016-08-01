@@ -360,7 +360,7 @@ class FtpdUser implements AclEntity
         return $this->getUserName();
     }
 
-    public function userCanSee($security)
+    public function userCanSee($tokenStorage, $auth)
     {
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             return true;

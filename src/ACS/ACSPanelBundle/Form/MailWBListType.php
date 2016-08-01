@@ -16,7 +16,7 @@ class MailWBListType extends AbstractType
         if ('AppCache' == get_class($kernel)) {
             $kernel = $kernel->getKernel();
         }
-        $service = $kernel->getContainer()->get('security.context');
+        $service = $kernel->getContainer()->get('security.token_storage');
 
 
         $builder

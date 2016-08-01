@@ -11,13 +11,14 @@ class MailDomainType extends ContainerAwareType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security = $this->container->get('security.context');
+        $security = $this->container->get('security.token_storage');
+        $auth = $this->container->get('security.authorization_checker');
         $user = $security->getToken()->getUser();
         $child_ids = $user->getIdChildIds();
         $user_services = $this->container->get('service_repository')->getMailServices($user);
 
         $superadmin = false;
-        if($security->isGranted('ROLE_SUPER_ADMIN')) {
+        if($auth->isGranted('ROLE_SUPER_ADMIN')) {
             $superadmin = true;
         }
 

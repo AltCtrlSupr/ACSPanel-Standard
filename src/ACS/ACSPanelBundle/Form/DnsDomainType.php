@@ -11,7 +11,7 @@ class DnsDomainType extends ContainerAwareType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security = $this->container->get('security.context');
+        $security = $this->container->get('security.token_storage');
         $user = $security->getToken()->getUser();
         $user_domains = $this->container->get('domain_repository')->getUserViewable($user);
         $user_services = $this->container->get('service_repository')->getDNSServices($user);

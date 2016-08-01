@@ -11,11 +11,7 @@ class UserHttpdHostType extends HttpdHostType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $service = $this->container->get('security.context');
-        $container = $this->container;
-        $user = $container->get('security.token_storage')->getToken()->getUser();
-
-        $security = $container->get('security.context');
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         $user_domains = $container->get('domain_repository')->getNotHttpdAttachedUserViewable($user);
         $web_services = $container->get('service_repository')->getWebServices($user);

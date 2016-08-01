@@ -24,12 +24,11 @@ class VariableLimitedLengthValidator extends ConstraintValidator
     {
         $container = $this->container;
         // Check the limit length
-        if(!$dbuser->getDB()->getUser())
-            $user_id = $container->get('security.context')->getToken()->getUser()->getId();
-        else
+        if (!$dbuser->getDB()->getUser()) {
+            $user_id = $container->get('security.token_storage')->getToken()->getUser()->getId();
+        } else {
             $user_id = $dbuser->getDB()->getUser()->getId();
-
-
+        }
 
         $username = $dbuser;
 
@@ -37,7 +36,4 @@ class VariableLimitedLengthValidator extends ConstraintValidator
             $this->context->addViolation($constraint->message, array('%string%' => $username));
         }
     }
-
 }
-
-?>

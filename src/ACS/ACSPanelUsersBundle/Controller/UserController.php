@@ -179,7 +179,10 @@ class UserController extends CommonController
 
         $entity = $em->getRepository('ACSACSPanelUsersBundle:User')->find($id);
 
-        if (!$entity->userCanSee($this->get('security.context'))) {
+        if (!$entity->userCanSee(
+            $this->get('security.token_storage'),
+            $this->get('security.authorization_checker')
+        )) {
             throw new \Exception('You cannot edit this entity!');
         }
 
@@ -200,10 +203,10 @@ class UserController extends CommonController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $curr_user = $this->get('security.context')->getToken()->getUser();
+        $curr_user = $this->get('security.token_storage')->getToken()->getUser();
         $user = $em->getRepository('ACSACSPanelUsersBundle:User')->find($id);
 
-        if (true === $this->get('security.context')->isGranted('ROLE_SUPER_ADMIN') || $curr_user == $user->getParentUser()) {
+        if (true === $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN') || $curr_user == $user->getParentUser()) {
 
             $loginmanager = $this->get('fos_user.security.login_manager');
             $loginmanager->loginUser('main', $user, new Response());

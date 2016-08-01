@@ -409,7 +409,7 @@ class DnsDomain implements AclEntity
 				return $this->domain->__toString();
 	 }
 
-    public function userCanSee($security)
+    public function userCanSee($tokenStorage, $auth)
     {
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             return true;

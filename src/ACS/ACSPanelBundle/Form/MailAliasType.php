@@ -18,7 +18,7 @@ class MailAliasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $container = $this->container;
-        $security = $container->get('security.context');
+        $security = $container->get('security.token_storage');
         $user = $security->getToken()->getUser();
         $child_ids = $user->getIdChildIds();
         $superadmin = false;

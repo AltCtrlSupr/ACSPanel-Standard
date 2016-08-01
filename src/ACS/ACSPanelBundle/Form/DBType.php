@@ -19,7 +19,7 @@ class DBType extends AbstractType
     {
         $container = $this->container;
         $em = $container->get('doctrine.orm.entity_manager');
-        $security = $container->get('security.context');
+        $security = $container->get('security.token_storage');
 
         $user = $security->getToken()->getUser();
         $user_services = $this->container->get('service_repository')->getDBServices($user);

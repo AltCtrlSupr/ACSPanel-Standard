@@ -279,7 +279,7 @@ class DnsRecord implements AclEntity
         return $this->dns_domain;
     }
 
-    public function userCanSee($security)
+    public function userCanSee($tokenStorage, $auth)
     {
         if($security->isGranted('ROLE_SUPER_ADMIN'))
             return true;
