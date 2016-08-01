@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66df4cc14e6d5f8d500638f6e795f43f",
-    "content-hash": "b084629f170bad65f947e9e226fef57b",
+    "hash": "5e184b08edaf972177b33c9ea34c782b",
+    "content-hash": "8c7d7fa65aa55d720734630f70bd2b91",
     "packages": [
         {
             "name": "avanzu/admin-theme-bundle",
