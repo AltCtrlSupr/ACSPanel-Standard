@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "61d7a13058fa6c351606451a3f9cc3fe",
-    "content-hash": "50e4110ad42257499016745346800dd8",
+    "hash": "66df4cc14e6d5f8d500638f6e795f43f",
+    "content-hash": "b084629f170bad65f947e9e226fef57b",
     "packages": [
         {
             "name": "avanzu/admin-theme-bundle",
@@ -4158,35 +4158,52 @@
         },
         {
             "name": "liip/functional-test-bundle",
-            "version": "1.3.4",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipFunctionalTestBundle.git",
-                "reference": "0981fc0a18678b50a53410496239b602dc5a355b"
+                "reference": "f3606bff7fcf7208a482f88d4cd216ebf4af194e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/0981fc0a18678b50a53410496239b602dc5a355b",
-                "reference": "0981fc0a18678b50a53410496239b602dc5a355b",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/f3606bff7fcf7208a482f88d4cd216ebf4af194e",
+                "reference": "f3606bff7fcf7208a482f88d4cd216ebf4af194e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.0",
                 "php": "^5.3.9|^7.0",
                 "symfony/browser-kit": "~2.3|~3.0",
-                "symfony/framework-bundle": "~2.3|~3.0",
-                "symfony/validator": "~2.5|~3.0"
+                "symfony/framework-bundle": "2.3.*|~2.7|~3.0"
+            },
+            "require-dev": {
+                "brianium/paratest": "~0.12.0|~0.13.2",
+                "doctrine/doctrine-fixtures-bundle": "~2.3",
+                "doctrine/orm": "^2.4.8",
+                "doctrine/phpcr-bundle": "~1.3",
+                "doctrine/phpcr-odm": "~1.3",
+                "hautelook/alice-bundle": "~0.2|~1.2",
+                "jackalope/jackalope-doctrine-dbal": "1.1.*|1.2.*",
+                "nelmio/alice": "~1.7|~2.0",
+                "phpunit/phpunit": "4.8.*|~5.2",
+                "symfony/assetic-bundle": "~2.3",
+                "symfony/monolog-bundle": "~2.4",
+                "symfony/symfony": "~2.3.1|~2.7|~3.0",
+                "twig/twig": "~1.12"
             },
             "suggest": {
+                "brianium/paratest": "Required when using paratest to parallelize tests",
                 "doctrine/dbal": "Required when using the fixture loading functionality with an ORM and SQLite",
                 "doctrine/doctrine-fixtures-bundle": "Required when using the fixture loading functionality",
                 "doctrine/orm": "Required when using the fixture loading functionality with an ORM and SQLite",
-                "nelmio/alice": "Required when using loadFixtureFiles functionality"
+                "hautelook/alice-bundle": "Required when using loadFixtureFiles functionality with custom providers",
+                "nelmio/alice": "Required when using loadFixtureFiles functionality",
+                "symfony/framework-bundle": "To use assertStatusCode and assertValidationErrors ~2.5"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -4212,7 +4229,7 @@
             "keywords": [
                 "Symfony2"
             ],
-            "time": "2015-12-28 19:04:56"
+            "time": "2016-05-10 22:04:27"
         },
         {
             "name": "phpunit/php-code-coverage",
