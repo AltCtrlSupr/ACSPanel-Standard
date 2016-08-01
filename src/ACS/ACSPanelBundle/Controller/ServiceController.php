@@ -52,7 +52,7 @@ class ServiceController extends FOSRestController
         if (!$entity->userCanSee(
             $this->get('security.token_storage'),
             $this->get('security.authorization_checker')
-        ) {
+        )) {
             throw new \Exception('You cannot edit this entity!');
         }
 
