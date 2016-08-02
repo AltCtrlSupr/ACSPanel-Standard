@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class UserPlanType extends AbstractType
 {
@@ -31,13 +32,14 @@ class UserPlanType extends AbstractType
         $transformer = new UserToStringTransformer($entityManager);
 
         $builder
-            ->add('uplans',null,array(
+            ->add('uplans', null, array(
                 'label' => 'Select a plan:',
             ));
+
         if($id){
             $builder
                 ->add(
-                    $builder->create('puser', 'hidden', array(
+                    $builder->create('puser', HiddenType::class, array(
                         'data' => $entity->getId(),
                     ))->addModelTransformer($transformer)
                 );

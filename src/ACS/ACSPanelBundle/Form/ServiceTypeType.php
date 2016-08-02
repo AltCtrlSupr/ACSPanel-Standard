@@ -5,6 +5,7 @@ namespace ACS\ACSPanelBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ServiceTypeType extends AbstractType
 {
@@ -13,7 +14,7 @@ class ServiceTypeType extends AbstractType
         $builder
             ->add('name')
             ->add('parent_type')
-            ->add('field_types', 'collection', array(
+            ->add('field_types', CollectionType::class, array(
                 'type' => new FieldTypeType(),
                 'allow_add' => true,
                 'allow_delete' => true,

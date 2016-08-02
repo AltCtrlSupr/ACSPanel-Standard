@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class FtpdUserType extends AbstractType
 {
@@ -25,12 +27,12 @@ class FtpdUserType extends AbstractType
 
         $builder
             ->add('userName')
-            ->add('plain_password', 'password', array(
+            ->add('plain_password', PasswordType::class, array(
                 'required' => true,
                 'mapped' => false,
                 'label' => 'common.password'
             ))
-            ->add('dir','text',array(
+            ->add('dir', TextType::class, array(
                 'label' => 'Directory name (it will be under "' . $user->getHomedir() . '/")',
                 'required' => false,
             ))

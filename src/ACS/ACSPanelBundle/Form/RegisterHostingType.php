@@ -9,13 +9,14 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use ACS\ACSPanelBundle\Entity\HttpdHost;
 use ACS\ACSPanelBundle\Entity\MailDomain;
 use ACS\ACSPanelBundle\Entity\DB;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class RegisterHostingType extends AbstractType {
-
+class RegisterHostingType extends AbstractType
+{
     public function buildForm(FormBuilderInterface $builder, array $options) {
         switch ($options['flowStep']) {
         case 1:
-            $builder->add('httpdhosts', 'collection', array(
+            $builder->add('httpdhosts', CollectionType::class, array(
                 'type' => new UserHttpdHostType(),
                 'allow_add' => true,
                 'data' => array(new HttpdHost()),
@@ -23,7 +24,7 @@ class RegisterHostingType extends AbstractType {
             ));
             break;
         case 2:
-            $builder->add('maildomains', 'collection', array(
+            $builder->add('maildomains', CollectionType::class, array(
                 'type' => new MailDomainType(),
                 'allow_add' => true,
                 'data' => array(new MailDomain()),
@@ -31,7 +32,7 @@ class RegisterHostingType extends AbstractType {
             ));
             break;
         case 3:
-            $builder->add('databases', 'collection', array(
+            $builder->add('databases', CollectionType::class, array(
                 'type' => new DBType(),
                 'allow_add' => true,
                 'data' => array(new DB()),

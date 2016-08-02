@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserProfileType extends BaseType
 {
@@ -15,7 +16,7 @@ class UserProfileType extends BaseType
         parent::buildForm($builder,$options);
         $user = $builder->getData();
         $builder
-            ->add('username','text',array(
+            ->add('username', TextType::class, array(
                 'read_only' => true
             ));
 

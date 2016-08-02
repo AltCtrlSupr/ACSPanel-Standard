@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class DnsRecordType extends AbstractType
 {
@@ -28,7 +30,7 @@ class DnsRecordType extends AbstractType
         }
 
         $builder
-            ->add('dns_domain','entity',array(
+            ->add('dns_domain', EntityType::class, array(
                 'label' => 'dnsdomain.form.dns_domain',
                 'class' => 'ACS\ACSPanelBundle\Entity\DnsDomain',
                 'required' => true,
@@ -45,7 +47,7 @@ class DnsRecordType extends AbstractType
                 )
 	    )
             ->add('name')
-            ->add('type', 'choice', array(
+            ->add('type', ChoiceType::class, array(
                 'choices' => array(
                     'NS' => 'NS',
                     'A' => 'A',

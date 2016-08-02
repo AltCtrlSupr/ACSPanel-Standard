@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class MailMailboxType extends AbstractType
 {
@@ -21,11 +23,13 @@ class MailMailboxType extends AbstractType
         $user = $security->getToken()->getUser();
         $child_ids = $user->getIdChildIds();
         $superadmin = false;
-        if($security->isGranted('ROLE_SUPER_ADMIN'))
+
+        if ($security->isGranted('ROLE_SUPER_ADMIN')) {
             $superadmin = true;
+        }
 
         $builder
-            ->add('mail_domain','entity',array(
+            ->add('mail_domain', EntityType::class, array(
                 'label' => 'mailbox.form.mail_domain',
                 'class' => 'ACS\ACSPanelBundle\Entity\MailDomain',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
@@ -44,7 +48,7 @@ class MailMailboxType extends AbstractType
 
             ->add('name', null, array('label' => 'mailbox.form.name'))
             ->add('username', null, array('label' => 'mailbox.form.username'))
-            ->add('password', 'password', array('label' => 'mailbox.form.password'))
+            ->add('password', PasswordType::class, array('label' => 'mailbox.form.password'))
         ;
     }
 

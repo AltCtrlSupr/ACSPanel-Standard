@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Gedmo\Loggable\Entity\Repository\LogEntryRepository as EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class LogItemVersionsType extends AbstractType
 {
@@ -21,7 +22,7 @@ class LogItemVersionsType extends AbstractType
     {
         $entity = $this->entity;
         $builder
-            ->add('version', 'entity', array(
+            ->add('version', EntityType::class, array(
                 'mapped' => false,
                 'class' => 'Gedmo\Loggable\Entity\LogEntry',
                 'property' => 'version',

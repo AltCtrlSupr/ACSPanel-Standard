@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class DomainType extends AbstractType
 {
@@ -29,7 +31,7 @@ class DomainType extends AbstractType
 
         $builder
             ->add('domain', null, array('label' => 'domain.form.domain'))
-            ->add('parent_domain','entity',array(
+            ->add('parent_domain', EntityType::class, array(
                 'label' => 'domain.form.parent_domain',
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
                 'required' => false,
@@ -48,7 +50,7 @@ class DomainType extends AbstractType
             ->add('is_httpd_alias', null, array('label' => 'domain.form.is_httpd_alias'))
             ->add('is_dns_alias', null, array('label' => 'domain.form.is_dns_alias'))
             ->add('is_mail_alias', null, array('label' => 'domain.form.is_mail_alias'))
-            ->add('add_dns_domain','checkbox',array(
+            ->add('add_dns_domain', CheckboxType::class, array(
                 'mapped' => false,
                 'required' => false,
                 'label' => 'domain.form.adddnsdomain'

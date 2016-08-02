@@ -6,6 +6,8 @@ use ACS\ACSPanelBundle\Form\Base\ContainerAwareType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class MailDomainType extends ContainerAwareType
 {
@@ -24,7 +26,7 @@ class MailDomainType extends ContainerAwareType
 
 
         $builder
-            ->add('domain','entity',array(
+            ->add('domain', EntityType::class, array(
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
                 'label' => 'maildomain.form.domain',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
@@ -59,7 +61,7 @@ class MailDomainType extends ContainerAwareType
                 'label' => 'maildomain.form.service',
                 'choices' => $user_services
             ))
-            ->add('add_dns_record','checkbox',array(
+            ->add('add_dns_record', CheckboxType::class, array(
                 'mapped' => false,
                 'required' => false,
                 'label' => 'maildomain.form.adddnsrecord'

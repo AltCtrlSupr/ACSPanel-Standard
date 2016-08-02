@@ -9,13 +9,6 @@ use Doctrine\ORM\EntityRepository;
 
 class WPDomainType extends AbstractType
 {
-    private $container;
-
-    public function __construct($container)
-    {
-      $this->container = $container;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -26,7 +19,7 @@ class WPDomainType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ACS\ACSPanelBundle\Entity\Domain'
+            'data_class' => 'ACS\ACSPanelBundle\Entity\Domain',
         ));
     }
 

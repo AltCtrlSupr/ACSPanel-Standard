@@ -14,7 +14,6 @@ use ACS\ACSPanelBundle\Entity\DatabaseUser;
 
 /**
  * WPSetup controller.
- *
  */
 class WPSetupController extends Controller
 {
@@ -22,10 +21,9 @@ class WPSetupController extends Controller
      * Lists all WPSetup entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        //
         // IF is admin can see all the hosts, if is user only their ones...
         if (true === $this->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')) {
             $entities = $em->getRepository('ACSACSPanelWordpressBundle:WPSetup')->findAll();
@@ -38,7 +36,7 @@ class WPSetupController extends Controller
         $paginator  = $this->get('knp_paginator');
         $entities = $paginator->paginate(
             $entities,
-            $this->get('request')->query->get('page', 1)/*page number*/
+            $request->query->get('page', 1)/*page number*/
         );
 
         return $this->render('ACSACSPanelWordpressBundle:WPSetup:index.html.twig', array(
@@ -74,7 +72,10 @@ class WPSetupController extends Controller
     public function newAction()
     {
         $entity = new WPSetup();
-        $form   = $this->createForm(new WPSetupType($this->container), $entity);
+        $form = $this->createForm(WPSetupType::class, $entity, [
+            'authorization_checker' => $this->get('security.authorization_checker'),
+            'token_storage' => $this->get('security.token_storage')
+        ]);
 
         return $this->render('ACSACSPanelWordpressBundle:WPSetup:new.html.twig', array(
             'entity' => $entity,
@@ -91,7 +92,10 @@ class WPSetupController extends Controller
         $em = $this->getDoctrine()->getManager();
         $entity  = new WPSetup();
 
-        $form = $this->createForm(new WPSetupType($this->container), $entity);
+        $form = $this->createForm(WPSetupType::class, $entity, [
+            'authorization_checker' => $this->get('security.authorization_checker'),
+            'token_storage' => $this->get('security.token_storage')
+        ]);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -157,7 +161,10 @@ class WPSetupController extends Controller
             throw $this->createNotFoundException('Unable to find WPSetup entity.');
         }
 
-        $editForm = $this->createForm(new WPSetupType($this->container), $entity);
+        $editForm = $this->createForm(WPSetupType::class, $entity, [
+            'authorization_checker' => $this->get('security.authorization_checker'),
+            'token_storage' => $this->get('security.token_storage')
+        ]);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelWordpressBundle:WPSetup:edit.html.twig', array(
@@ -182,7 +189,10 @@ class WPSetupController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new WPSetupType($this->container), $entity);
+        $editForm = $this->createForm(WPSetupType::class, $entity, [
+            'authorization_checker' => $this->get('security.authorization_checker'),
+            'token_storage' => $this->get('security.token_storage')
+        ]);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

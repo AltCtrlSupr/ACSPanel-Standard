@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DynDnsRecordType extends AbstractType
 {
@@ -26,10 +28,10 @@ class DynDnsRecordType extends AbstractType
             $superadmin = true;
 
         $builder
-            ->add('subdomain', 'text', array(
+            ->add('subdomain', TextType::class, array(
                 'mapped' => false
             ))
-            ->add('dns_domain','entity',array(
+            ->add('dns_domain', EntityType::class, array(
                 'label' => 'dnsdomain.form.dns_domain',
                 'class' => 'ACS\ACSPanelBundle\Entity\DnsDomain',
                 'required' => true,

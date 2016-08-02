@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class UserHttpdUserType extends ContainerAwareType
 {
@@ -22,9 +24,9 @@ class UserHttpdUserType extends ContainerAwareType
 
         $builder
             ->add('name')
-            ->add('password','password')
-            ->add('protected_dir',null, array('required' => false))
-            ->add('httpd_host', 'entity', array(
+            ->add('password', PasswordType::class)
+            ->add('protected_dir', null, array('required' => false))
+            ->add('httpd_host', EntityType::class, array(
                 'class' => 'ACSACSPanelBundle:HttpdHost',
                 'choices' => $user_httpd_hosts,
                 // 'empty_value' => 'messages.select.httpdhost',

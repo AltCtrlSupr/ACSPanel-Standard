@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class UserHttpdHostType extends HttpdHostType
 {
@@ -18,7 +20,7 @@ class UserHttpdHostType extends HttpdHostType
         $webproxy_services = $container->get('service_repository')->getWebproxyServices($user);
 
         $builder
-            ->add('domain','entity',array(
+            ->add('domain', EntityType::class, array(
                 'class' => 'ACS\ACSPanelBundle\Entity\Domain',
                 'label' => 'httpdhost.form.domain',
                 'choices' => $user_domains
@@ -37,12 +39,12 @@ class UserHttpdHostType extends HttpdHostType
                 'choices' => $webproxy_services,
                 'required' => false,
             ))
-            ->add('add_www_alias','checkbox',array(
+            ->add('add_www_alias', CheckboxType::class, array(
                 'mapped' => false,
                 'required' => false,
                 'label' => 'httpdhost.form.addwwwalias'
             ))
-            ->add('add_dns_record','checkbox',array(
+            ->add('add_dns_record', CheckboxType::class,array(
                 'mapped' => false,
                 'required' => false,
                 'label' => 'httpdhost.form.adddnsrecord'
@@ -53,5 +55,4 @@ class UserHttpdHostType extends HttpdHostType
             ->add('certificate_authority', null, array('label' => 'httpdhost.form.certificate_authority'))
         ;
     }
-
 }

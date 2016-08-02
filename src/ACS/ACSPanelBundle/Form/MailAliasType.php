@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class MailAliasType extends AbstractType
 {
@@ -31,7 +32,7 @@ class MailAliasType extends AbstractType
         $builder
             ->add('address')
             ->add('goto')
-            ->add('mail_domain','entity',array(
+            ->add('mail_domain', EntityType::class, array(
                 'class' => 'ACS\ACSPanelBundle\Entity\MailDomain',
                 'query_builder' => function(EntityRepository $er) use ($child_ids, $superadmin){
                     $query = $er->createQueryBuilder('md')
@@ -45,7 +46,6 @@ class MailAliasType extends AbstractType
                     }
                 )
             )
-
         ;
     }
 

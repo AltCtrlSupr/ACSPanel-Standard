@@ -6,42 +6,46 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use ACS\ACSPanelBundle\Form\DBType;
 
 class WPSetupType extends AbstractType
 {
-    public $container;
-
-    public function __construct($container){
-        $this->container = $container;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $container = $this->container;
-        $security = $container->get('security.authorization_checker');
-        $superadmin = false;
-        if($security->isGranted('ROLE_SUPER_ADMIN'))
-            $superadmin = true;
+        $authorizationChecker = $options['authorization_checker'];
+        $tokenStorage = $options['token_storage'];
 
         $builder
-            // TODO: Change form type to something simpler
-            ->add('domain', new WPDomainType($container), array(
+            ->add('domain', WPDomainType::class, array(
                 'mapped' => false
             ))
-            ->add('database', new \ACS\ACSPanelBundle\Form\DBType($container), array(
-                'mapped' => false
+            ->add('database', DBType::class, array(
+                'mapped' => false,
+                'token_storage' => $tokenStorage
             ))
         ;
 
-        if($superadmin){
+        if ($authorizationChecker->isGranted('ROLE_SUPER_ADMIN')) {
             $builder->add('user');
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ACS\ACSPanelWordpressBundle\Entity\WPSetup'
+            'data_class' => 'ACS\ACSPanelWordpressBundle\Entity\WPSetup',
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'authorization_checker' => null,
+            'token_storage' => null,
         ));
     }
 

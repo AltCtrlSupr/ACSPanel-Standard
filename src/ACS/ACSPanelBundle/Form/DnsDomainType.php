@@ -6,6 +6,8 @@ use ACS\ACSPanelBundle\Form\Base\ContainerAwareType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class DnsDomainType extends ContainerAwareType
 {
@@ -17,12 +19,12 @@ class DnsDomainType extends ContainerAwareType
         $user_services = $this->container->get('service_repository')->getDNSServices($user);
 
         $builder
-            ->add('domain','entity',array(
+            ->add('domain', EntityType::class, array(
                     'class' => 'ACS\ACSPanelBundle\Entity\Domain',
                     'choices' => $user_domains,
                 )
             )
-            ->add('type', 'choice', array(
+            ->add('type', ChoiceType::class, array(
                 'choices' => array(
                     'MASTER' => 'master',
                     'SLAVE' => 'slave'

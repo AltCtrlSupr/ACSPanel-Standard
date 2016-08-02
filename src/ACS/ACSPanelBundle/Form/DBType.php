@@ -6,22 +6,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DBType extends AbstractType
 {
-    public $container;
-
-    public function __construct($container){
-        $this->container = $container;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $container = $this->container;
-        $em = $container->get('doctrine.orm.entity_manager');
-        $security = $container->get('security.token_storage');
-
-        $user = $security->getToken()->getUser();
+        $user = $tokenStorage->getToken()->getUser();
         $user_services = $this->container->get('service_repository')->getDBServices($user);
 
         $builder
@@ -44,6 +35,16 @@ class DBType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'ACS\ACSPanelBundle\Entity\DB'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'token_storage' => null,
         ));
     }
 
