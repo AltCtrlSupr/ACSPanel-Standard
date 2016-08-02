@@ -242,7 +242,7 @@ abstract class SettingManager extends EntityRepository
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         // If is admins we load the global system settings
-        if (true === $this->container->get('security.token_storage')->isGranted('ROLE_SUPER_ADMIN')) {
+        if (true === $this->container->get('security.authorization_checker')->isGranted('ROLE_SUPER_ADMIN')) {
             $user_fields = array_merge($user_fields, $system_fields = $this->container->getParameter("acs_settings.system_fields"));
         }
 
