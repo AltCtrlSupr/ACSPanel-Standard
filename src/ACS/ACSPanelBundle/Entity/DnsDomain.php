@@ -411,8 +411,9 @@ class DnsDomain implements AclEntity
 
     public function userCanSee($tokenStorage, $auth)
     {
-        if($security->isGranted('ROLE_SUPER_ADMIN'))
+        if ($auth->isGranted('ROLE_SUPER_ADMIN')) {
             return true;
+        }
 
         $user_to_check = $this->getDomain()->getUser();
         $user = $security->getToken()->getUser();

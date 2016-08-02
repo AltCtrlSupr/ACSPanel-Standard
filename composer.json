@@ -60,7 +60,8 @@
         "gtrias/acl-manager-bundle": "dev-master",
         "craue/formflow-bundle": "~3.0@dev",
         "knplabs/knp-paginator-bundle": "^2.5",
-        "symfony/security-acl": "^3.0"
+        "symfony/security-acl": "^3.0",
+        "symfony/var-dumper": "^3.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
