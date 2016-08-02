@@ -126,152 +126,133 @@ services:
     # HttpdHostRepository
     httpdhost_repository:
         class: ACS\ACSPanelBundle\Model\HttpdHostRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:HttpdHost']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     domain_repository:
         class: ACS\ACSPanelBundle\Model\DomainRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:Domain']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     dnsdomain_repository:
         class: ACS\ACSPanelBundle\Model\DnsDomainRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:DnsDomain']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     dnsrecord_repository:
         class: ACS\ACSPanelBundle\Model\DnsRecordRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:DnsRecord']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     mailalias_repository:
         class: ACS\ACSPanelBundle\Model\MailAliasRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:MailAlias']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     plan_repository:
         class: ACS\ACSPanelBundle\Model\PlanRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:Plan']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     logitem_repository:
         class: ACS\ACSPanelBundle\Model\LogItemRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['Gedmo\Loggable\Entity\LogEntry']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     server_repository:
         class: ACS\ACSPanelBundle\Model\ServerRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:Server']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     service_repository:
         class: ACS\ACSPanelBundle\Model\ServiceRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:Service']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     servicetype_repository:
         class: ACS\ACSPanelBundle\Model\ServiceTypeRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:ServiceType']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     ipaddress_repository:
         class: ACS\ACSPanelBundle\Model\IpAddressRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:IpAddress']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     httpduser_repository:
         class: ACS\ACSPanelBundle\Model\HttpdUserRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:HttpdUser']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     maildomain_repository:
         class: ACS\ACSPanelBundle\Model\MailDomainRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:MailDomain']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     mailmailbox_repository:
         class: ACS\ACSPanelBundle\Model\MailMailboxRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:MailMailbox']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     mailwblist_repository:
         class: ACS\ACSPanelBundle\Model\MailWBlistRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:MailWBList']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     maillogrcvd_repository:
         class: ACS\ACSPanelBundle\Model\MailLogrcvdRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:MailLogrcvd']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     db_repository:
         class: ACS\ACSPanelBundle\Model\DBRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:DB']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     ftpduser_repository:
         class: ACS\ACSPanelBundle\Model\FtpdUserRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:FtpdUser']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]
 
     service_repository:
         class: ACS\ACSPanelBundle\Model\ServiceRepository
-        factory_service: doctrine
-        factory_method: getRepository
+        factory: ['@doctrine', getRepository]
         arguments: ['ACSACSPanelBundle:Service']
         calls:
             - [ setAclFilter, ['@problematic.acl.orm.filter'] ]

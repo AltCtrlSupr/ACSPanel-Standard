@@ -1451,12 +1451,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gtrias/AclManagerBundle.git",
-                "reference": "20baeb54e0e283ae1976eb2d5c91d294f5d5f336"
+                "reference": "92a9ad39ce011ebb5a00f1b047e21d267e507e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/20baeb54e0e283ae1976eb2d5c91d294f5d5f336",
-                "reference": "20baeb54e0e283ae1976eb2d5c91d294f5d5f336",
+                "url": "https://api.github.com/repos/gtrias/AclManagerBundle/zipball/92a9ad39ce011ebb5a00f1b047e21d267e507e8f",
+                "reference": "92a9ad39ce011ebb5a00f1b047e21d267e507e8f",
                 "shasum": ""
             },
             "require": {
@@ -1499,7 +1499,7 @@
             "keywords": [
                 "acl"
             ],
-            "time": "2016-07-22 10:34:12"
+            "time": "2016-08-02 08:02:12"
         },
         {
             "name": "incenteev/composer-parameter-handler",
