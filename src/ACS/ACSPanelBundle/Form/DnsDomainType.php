@@ -2,21 +2,22 @@
 
 namespace ACS\ACSPanelBundle\Form;
 
-use ACS\ACSPanelBundle\Form\Base\ContainerAwareType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DnsDomainType extends ContainerAwareType
+class DnsDomainType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security = $this->container->get('security.token_storage');
+        $security = $options['token_storage'];
         $user = $security->getToken()->getUser();
-        $user_domains = $this->container->get('domain_repository')->getUserViewable($user);
-        $user_services = $this->container->get('service_repository')->getDNSServices($user);
+        $user_domains = $options['domain_repository']->getUserViewable($user);
+        $user_services = $options['service_repository']->getDNSServices($user);
 
         $builder
             ->add('domain', EntityType::class, array(
@@ -38,10 +39,16 @@ class DnsDomainType extends ContainerAwareType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ACS\ACSPanelBundle\Entity\DnsDomain'
+            'data_class' => 'ACS\ACSPanelBundle\Entity\DnsDomain',
+            'token_storage' => null,
+            'domain_repository' => null,
+            'service_repository' => null
         ));
     }
 

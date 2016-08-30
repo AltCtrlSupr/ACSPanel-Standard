@@ -90,7 +90,7 @@ class ServerController extends FOSRestController
     {
         $entity  = new Server();
         $form = $this->createForm(new ServerType($this->container), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -147,7 +147,7 @@ class ServerController extends FOSRestController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new ServerType($this->container), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -170,7 +170,7 @@ class ServerController extends FOSRestController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

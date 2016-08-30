@@ -141,7 +141,7 @@ class LogItemController extends Controller
         $refobject = $refobjrepo->find($entity->getObjectId());
 
         $editForm = $this->createForm(new LogItemVersionsType($refobject), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $repo = $em->getRepository('GedmoLoggable:LogEntry');

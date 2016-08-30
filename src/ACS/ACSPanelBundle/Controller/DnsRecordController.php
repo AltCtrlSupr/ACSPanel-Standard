@@ -73,7 +73,10 @@ class DnsRecordController extends FOSRestController
             $em = $this->getDoctrine()->getManager();
             $entity->setDnsDomain($em->getRepository('ACSACSPanelBundle:DnsDomain')->find($dnsdomain_id));
         }
-        $form   = $this->createForm(new DnsRecordType($this->container), $entity);
+        $form   = $this->createForm(DnsRecordType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
 
         return $this->render('ACSACSPanelBundle:DnsRecord:new.html.twig', array(
             'entity' => $entity,
@@ -94,8 +97,11 @@ class DnsRecordController extends FOSRestController
     public function createAction(Request $request)
     {
         $entity  = new DnsRecord();
-        $form = $this->createForm(new DnsRecordType($this->container), $entity);
-        $form->bind($request);
+        $form = $this->createForm(DnsRecordType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -125,7 +131,10 @@ class DnsRecordController extends FOSRestController
             throw $this->createNotFoundException('Unable to find DnsRecord entity.');
         }
 
-        $editForm = $this->createForm(new DnsRecordType($this->container), $entity);
+        $editForm = $this->createForm(DnsRecordType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ACSACSPanelBundle:DnsRecord:edit.html.twig', array(
@@ -150,8 +159,11 @@ class DnsRecordController extends FOSRestController
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new DnsRecordType($this->container), $entity);
-        $editForm->bind($request);
+        $editForm = $this->createForm(DnsRecordType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -176,7 +188,7 @@ class DnsRecordController extends FOSRestController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

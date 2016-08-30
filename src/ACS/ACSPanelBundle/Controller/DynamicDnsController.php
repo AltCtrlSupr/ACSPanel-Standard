@@ -108,7 +108,7 @@ class DynamicDnsController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $entity  = new DnsRecord();
         $form = $this->createForm(new DynDnsRecordType($this->container, $em), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

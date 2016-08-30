@@ -94,11 +94,11 @@ class MailWBListController extends Controller
     {
         $entity  = new MailWBList();
         $form = $this->createForm(new MailWBListType(), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-				$entity->setEnabled(true);
+            $entity->setEnabled(true);
             $em->persist($entity);
             $em->flush();
 
@@ -151,7 +151,7 @@ class MailWBListController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new MailWBListType(), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -174,7 +174,7 @@ class MailWBListController extends Controller
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

@@ -126,7 +126,7 @@ class HttpdHostController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
         $entity  = new HttpdHost();
         $form = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $entity->setEnabled(true);
@@ -265,7 +265,7 @@ class HttpdHostController extends FOSRestController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new UserHttpdHostType($this->container, $em), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -288,7 +288,7 @@ class HttpdHostController extends FOSRestController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

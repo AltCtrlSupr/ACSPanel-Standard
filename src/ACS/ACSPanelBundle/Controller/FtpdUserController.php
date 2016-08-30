@@ -99,7 +99,7 @@ class FtpdUserController extends FOSRestController
     {
         $entity  = new FtpdUser();
         $form = $this->createForm(new FtpdUserType($this->container), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -160,7 +160,7 @@ class FtpdUserController extends FOSRestController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new FtpdUserType($this->container), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             if ($editForm->get('plain_password')->getData() !== null) {
@@ -187,7 +187,7 @@ class FtpdUserController extends FOSRestController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

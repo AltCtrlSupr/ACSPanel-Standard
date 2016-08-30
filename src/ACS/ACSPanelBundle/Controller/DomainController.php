@@ -172,7 +172,7 @@ class DomainController extends CommonController
     {
         $entity  = new Domain();
         $form = $this->createForm(new DomainType($this->container), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -257,7 +257,7 @@ class DomainController extends CommonController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new DomainType($this->container), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();

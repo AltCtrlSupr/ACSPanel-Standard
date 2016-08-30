@@ -8,20 +8,14 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DnsRecordType extends AbstractType
 {
-    private $container;
-
-    public function __construct($container)
-    {
-      $this->container = $container;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security   = $this->container->get('security.authorization_checker');
-        $user       = $security->getToken()->getUser();
+        $security   = $options['authorization_checker'];
+        $user       = $options['token_storage']->getToken()->getUser();
         $child_ids  = $user->getIdChildIds();
         $superadmin = false;
 
@@ -45,7 +39,7 @@ class DnsRecordType extends AbstractType
                         return $query;
                     }
                 )
-	    )
+            )
             ->add('name')
             ->add('type', ChoiceType::class, array(
                 'choices' => array(
@@ -70,10 +64,12 @@ class DnsRecordType extends AbstractType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ACS\ACSPanelBundle\Entity\DnsRecord'
+            'data_class' => 'ACS\ACSPanelBundle\Entity\DnsRecord',
+            'authorization_checker' => null,
+            'token_storage' => null,
         ));
     }
 

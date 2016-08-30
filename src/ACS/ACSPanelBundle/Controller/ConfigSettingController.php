@@ -78,7 +78,7 @@ class ConfigSettingController extends BaseController
         $class_name = $this->container->getParameter('settings_setting_class');
         $entity = new $class_name;
         $form = $this->createForm(new ConfigSettingType(), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -134,7 +134,7 @@ class ConfigSettingController extends BaseController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new ConfigSettingType(), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -157,7 +157,7 @@ class ConfigSettingController extends BaseController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

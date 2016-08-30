@@ -23,7 +23,7 @@ class HostingController extends Controller
 
         $flow = $this->get('acs.form.flow.register_hosting');
 
-        $flow->bind($fosuser);
+        $flow->handleRequest($fosuser);
 
         // form of the current step
         $form = $flow->createForm();

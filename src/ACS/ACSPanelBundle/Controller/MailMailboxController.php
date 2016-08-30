@@ -102,7 +102,7 @@ class MailMailboxController extends CommonController
         $em = $this->getDoctrine()->getManager();
         $entity  = new MailMailbox();
         $form = $this->createForm(new MailMailboxType(), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
 	    // TODO: Delete from entity
@@ -173,7 +173,7 @@ class MailMailboxController extends CommonController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new MailMailboxType(), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -197,7 +197,7 @@ class MailMailboxController extends CommonController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

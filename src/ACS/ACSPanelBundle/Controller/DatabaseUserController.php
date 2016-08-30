@@ -69,7 +69,7 @@ class DatabaseUserController extends FOSRestController
     {
         $entity  = new DatabaseUser();
         $form = $this->createForm(new DatabaseUserType(), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -125,7 +125,7 @@ class DatabaseUserController extends FOSRestController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new DatabaseUserType(), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -148,7 +148,7 @@ class DatabaseUserController extends FOSRestController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

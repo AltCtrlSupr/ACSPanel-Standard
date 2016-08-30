@@ -100,7 +100,7 @@ class MailDomainController extends FOSRestController
     {
         $entity  = new MailDomain();
         $form = $this->createForm(new MailDomainType($this->container), $entity);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -180,7 +180,7 @@ class MailDomainController extends FOSRestController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new MailDomainType($this->container), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -203,7 +203,7 @@ class MailDomainController extends FOSRestController
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();

@@ -126,8 +126,12 @@ class DnsDomainController extends CommonController
     public function createAction(Request $request)
     {
         $entity  = new DnsDomain();
-        $form = $this->createForm(new DnsDomainType($this->container), $entity);
-        $form->bind($request);
+        $form = $this->createForm(DnsDomainType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'domain_repository' => $this->get('domain_repository'),
+            'service_repository' => $this->get('service_repository')
+        ]);
+        $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -179,7 +183,7 @@ class DnsDomainController extends CommonController
 
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new DnsDomainType($this->container), $entity);
-        $editForm->bind($request);
+        $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
