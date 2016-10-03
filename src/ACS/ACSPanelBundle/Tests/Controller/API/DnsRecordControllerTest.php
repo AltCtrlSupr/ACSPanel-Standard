@@ -21,7 +21,6 @@ class DnsRecordControllerTest extends CommonApiTestCase
 
         // DNS Record create with body
         $client->request('POST', '/api/dnsrecords/create.json', $record);
-
         $this->assertEquals(201, $client->getResponse()->getStatusCode());
         // Check if the respense contents are json
         $this->assertJsonResponse($client);

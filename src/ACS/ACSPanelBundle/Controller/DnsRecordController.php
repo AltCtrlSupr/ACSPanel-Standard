@@ -101,7 +101,7 @@ class DnsRecordController extends FOSRestController
             'token_storage' => $this->get('security.token_storage'),
             'authorization_checker' => $this->get('security.authorization_checker'),
         ]);
-        $form->handleRequest($request);
+        $form->submit($request->request->get('dnsrecordtype'), false);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -114,7 +114,7 @@ class DnsRecordController extends FOSRestController
             return $this->handleView($view);
         }
 
-        return $form;
+        return $form->getErrors(true, true);
     }
 
     /**

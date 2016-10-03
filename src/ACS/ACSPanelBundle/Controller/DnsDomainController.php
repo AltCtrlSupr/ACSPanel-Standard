@@ -131,9 +131,9 @@ class DnsDomainController extends CommonController
             'domain_repository' => $this->get('domain_repository'),
             'service_repository' => $this->get('service_repository')
         ]);
-        $form->handleRequest($request);
+        $form->submit($request->request->get('dnsdomaintype'), false);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity->setEnabled(true);
             $em->persist($entity);

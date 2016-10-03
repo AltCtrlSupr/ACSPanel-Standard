@@ -26,10 +26,10 @@ class DnsDomainType extends AbstractType
                 )
             )
             ->add('type', ChoiceType::class, array(
-                'choices' => array(
+                'choices' => [
                     'MASTER' => 'master',
                     'SLAVE' => 'slave'
-                )
+                ]
             ))
             ->add('master')
             ->add('service', null, array(

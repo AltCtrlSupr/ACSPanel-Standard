@@ -4,30 +4,21 @@ namespace ACS\ACSPanelBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DomainType extends AbstractType
 {
-    private $container;
-
-    public function __construct($container)
-    {
-      $this->container = $container;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $security = $this->container->get('security.authorization_checker');
+        $security = $options['token_storage'];
+        $authorization = $options['authorization_checker'];
         $user = $security->getToken()->getUser();
         $child_ids = $user->getIdChildIds();
 
-        $superadmin = false;
-        if($security->isGranted('ROLE_SUPER_ADMIN')) {
-            $superadmin = true;
-        }
+        $superadmin = $authorization->isGranted('ROLE_SUPER_ADMIN');
 
         $builder
             ->add('domain', null, array('label' => 'domain.form.domain'))
@@ -57,15 +48,17 @@ class DomainType extends AbstractType
             ))
         ;
 
-        if ($security->isGranted('ROLE_ADMIN')) {
+        if ($authorization->isGranted('ROLE_ADMIN')) {
             $builder->add('user', null, array('label' => 'domain.form.user'));
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ACS\ACSPanelBundle\Entity\Domain'
+            'data_class' => 'ACS\ACSPanelBundle\Entity\Domain',
+            'token_storage' => null,
+            'authorization_checker' => null,
         ));
     }
 

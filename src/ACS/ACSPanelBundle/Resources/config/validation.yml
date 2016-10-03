@@ -13,11 +13,11 @@ ACS\ACSPanelBundle\Entity\MailMailbox:
 ACS\ACSPanelBundle\Entity\Domain:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: domain
-    properties:
-        domain:
-            - Regex:
-                pattern: "/^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$|^localhost$/"
-                message: "The domain must be valid domain name"
+    # properties:
+    # domain:
+    # - Regex:
+    # pattern: "/^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}$|^localhost$/"
+    # message: "The domain must be valid domain name"
 
 ACS\ACSPanelBundle\Entity\User:
     constraints:

@@ -148,7 +148,10 @@ class DomainController extends CommonController
         }
 
         $entity = new Domain();
-        $form   = $this->createForm(new DomainType($this->container), $entity);
+        $form = $this->createForm(DomainType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
 
         $view = $this->view($entity, 200)
             ->setTemplateData(array('form' => $form->createView()))
@@ -171,7 +174,10 @@ class DomainController extends CommonController
     public function createAction(Request $request)
     {
         $entity  = new Domain();
-        $form = $this->createForm(new DomainType($this->container), $entity);
+        $form = $this->createForm(DomainType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -231,7 +237,10 @@ class DomainController extends CommonController
     {
         $entity = $this->getEntity($id);
 
-        $editForm = $this->createForm(new DomainType($this->container), $entity);
+        $editForm = $this->createForm(DomainType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -256,7 +265,10 @@ class DomainController extends CommonController
         $entity = $this->getEntity($id);
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new DomainType($this->container), $entity);
+        $editForm = $this->createForm(DomainType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
@@ -309,6 +321,5 @@ class DomainController extends CommonController
 
         return $this->redirect($this->generateUrl('domain'));
     }
-
 
 }
