@@ -86,7 +86,10 @@ class DynamicDnsController extends FOSRestController
         }
 
         $entity = new DnsRecord();
-        $form   = $this->createForm(new DynDnsRecordType($this->container, $em), $entity);
+        $form   = $this->createForm(DynDnsRecordType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
 
         $tplData = array(
             'entity' => $entity,
@@ -107,7 +110,10 @@ class DynamicDnsController extends FOSRestController
     {
         $em = $this->getDoctrine()->getManager();
         $entity  = new DnsRecord();
-        $form = $this->createForm(new DynDnsRecordType($this->container, $em), $entity);
+        $form = $this->createForm(DynDnsRecordType::class, $entity, [
+            'token_storage' => $this->get('security.token_storage'),
+            'authorization_checker' => $this->get('security.authorization_checker'),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isValid()) {

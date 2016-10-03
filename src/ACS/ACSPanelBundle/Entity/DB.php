@@ -261,27 +261,29 @@ class DB implements AclEntity
 
     public function userCanSee($tokenStorage, $auth)
     {
-        if($security->isGranted('ROLE_SUPER_ADMIN'))
+        if ($auth->isGranted('ROLE_SUPER_ADMIN')) {
             return true;
-
-        $user_to_check = $this->getUser();
-        $user = $security->getToken()->getUser();
-
-        if($security->isGranted('ROLE_USER')){
-            if($user == $user_to_check)
-                return true;
         }
 
-        if($security->isGranted('ROLE_RESELLER')){
+        $user_to_check = $this->getUser();
+        $user = $auth->getToken()->getUser();
+
+        if ($auth->isGranted('ROLE_USER')) {
+            if($user == $user_to_check) {
+                return true;
+            }
+        }
+
+        if ($auth->isGranted('ROLE_RESELLER')) {
             $users = $user->getIdChildIds();
-            foreach($users as $childuser){
-                if($childuser == $user_to_check->getId())
+            foreach ($users as $childuser) {
+                if($childuser == $user_to_check->getId()) {
                     return true;
+                }
             }
         }
 
         return false;
-
     }
 
     public function getOwners()

@@ -38,7 +38,9 @@ class DnsDomainController extends CommonController
      *  description="Show all DNS Domains owned by current user",
      * )
      *
-     * @Rest\View(templateVar="entities")
+     * @Rest\View(
+     * "ACSACSPanelBundle:DnsDomain:index.html.twig",
+     * templateVar="entities")
      */
     public function indexAction()
     {
@@ -47,11 +49,9 @@ class DnsDomainController extends CommonController
         // IF is admin can see all the dnsdomains, if is user only their ones...
         $entities = $this->get('dnsdomain_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
-        $view = $this->view($entities, 200)
+        return $this->view($entities, 200)
             ->setTemplateData(array('search_action' => 'dnsdomain_search'))
         ;
-
-        return $view;
     }
 
     /**
@@ -63,7 +63,7 @@ class DnsDomainController extends CommonController
      * )
      *
      * @Rest\Get("/dnsdomains/{id}/show")
-     * @Rest\View(templateVar="entity")
+     * @Rest\View("ACSACSPanelBundle:DnsDomain:show.html.twig", templateVar="entity")
      */
     public function showAction($id)
     {

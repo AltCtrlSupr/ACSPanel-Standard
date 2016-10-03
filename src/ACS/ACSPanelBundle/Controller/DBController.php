@@ -10,6 +10,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use ACS\ACSPanelBundle\Entity\DB;
 use ACS\ACSPanelBundle\Entity\DatabaseUser;
 use ACS\ACSPanelBundle\Form\DBType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 /**
  * DB controller.
@@ -220,7 +221,7 @@ class DBController extends FOSRestController
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
+            ->add('id', HiddenType::class)
             ->getForm()
         ;
     }

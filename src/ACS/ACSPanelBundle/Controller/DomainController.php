@@ -45,11 +45,9 @@ class DomainController extends CommonController
         // IF is admin can see all the hosts, if is user only their ones...
         $entities = $this->get('domain_repository')->getUserViewable($this->get('security.token_storage')->getToken()->getUser());
 
-        $view = $this->view($entities, 200)
+        return $this->view($entities, 200)
             ->setTemplateData(array('search_action' => 'domain_search'))
         ;
-
-        return $view;
     }
 
     /**
@@ -178,7 +176,7 @@ class DomainController extends CommonController
             'token_storage' => $this->get('security.token_storage'),
             'authorization_checker' => $this->get('security.authorization_checker'),
         ]);
-        $form->handleRequest($request);
+        $form->submit($request->request->get('acs_acspanelbundle_domaintype'), false);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -269,7 +267,7 @@ class DomainController extends CommonController
             'token_storage' => $this->get('security.token_storage'),
             'authorization_checker' => $this->get('security.authorization_checker'),
         ]);
-        $editForm->handleRequest($request);
+        $editForm->submit($request->request->get('acs_acspanelbundle_domaintype'), false);
 
         if ($editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
